@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
+    public string Music = "Music";
+    public string Effects = "Effects";
 
     public TMPro.TMP_Dropdown resolutionDropdown;
 
@@ -47,6 +49,14 @@ public class SettingsMenu : MonoBehaviour
     public void SetVolume (float volume)
     {
         audioMixer.SetFloat("Volume", volume);
+    }
+    public void SetEffects(float volume)
+    {
+        audioMixer.SetFloat("Effects", volume);
+    }
+    public void SetMusic(float volume)
+    {
+        audioMixer.SetFloat("Music", volume);
     }
 
     public void SetQuality (int qualityIndex)
