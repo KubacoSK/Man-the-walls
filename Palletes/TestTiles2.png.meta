@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b64e03513c865284cb5d77e926a25990
+guid: b7f66e1d162dd43458d209e436866d4d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WallCityFinal_0
+      name: TestTiles2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,20 +125,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddfdba9630dce554c8dc11b0d9cb4b24
-      internalID: 1136431739
+      spriteID: efe41cc4d160d8c4cb1a0bc8a3962a23
+      internalID: 91829021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallCityFinal_1
+      name: TestTiles2_1
       rect:
         serializedVersion: 2
         x: 64
@@ -146,62 +146,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e9ec948110021f40a752df13c0c1a0f
-      internalID: -960776908
+      spriteID: cae9fae60d7fe8449bb86bc5a60b83be
+      internalID: -815286549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallCityFinal_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b3b763aa7dd55346b99d988010abc82
-      internalID: 871929013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WallCityFinal_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44cf7e8083d2f2c499e66653082edfa0
-      internalID: -190107519
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WallCityFinal_4
+      name: TestTiles2_2
       rect:
         serializedVersion: 2
         x: 0
@@ -209,20 +167,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cadb5827995aff42bdebffb5ef10816
-      internalID: -1679258400
+      spriteID: e41cd199616c9b74e9eb42a02a126292
+      internalID: 778187844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallCityFinal_5
+      name: TestTiles2_3
       rect:
         serializedVersion: 2
         x: 64
@@ -230,56 +188,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7a1a502532184e42989f0b90e67dcba
-      internalID: -1585785215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WallCityFinal_6
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0454af68119fae64c96194dd5844a660
-      internalID: -447994616
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WallCityFinal_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c5ac289d741b7bb46905d73559c05db1
-      internalID: 593951664
+      spriteID: adc0f039e6a833243a53507ec65ccba0
+      internalID: 1434426063
       vertices: []
       indices: 
       edges: []
@@ -295,14 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WallCityFinal_0: 1136431739
-      WallCityFinal_1: -960776908
-      WallCityFinal_2: 871929013
-      WallCityFinal_3: -190107519
-      WallCityFinal_4: -1679258400
-      WallCityFinal_5: -1585785215
-      WallCityFinal_6: -447994616
-      WallCityFinal_7: 593951664
+      TestTiles2_0: 91829021
+      TestTiles2_1: -815286549
+      TestTiles2_2: 778187844
+      TestTiles2_3: 1434426063
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
