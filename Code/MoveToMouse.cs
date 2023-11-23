@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class MoveToMouse : MonoBehaviour
 {
-    public static List<MoveToMouse> moveableObjects = new List<MoveToMouse>();
     public float speed = 5f;
     private Vector3 target;
     private bool selected;
+    GameManager gameManager;
 
     void Start()
     {
-        moveableObjects.Add(this);
+        gameManager = GameManager.instance;
+        gameManager.moveableObjects.Add(this);
         target = transform.position;
     }
 
@@ -19,7 +20,7 @@ public class MoveToMouse : MonoBehaviour
     {
         if (selected)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
                 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 target.z = transform.position.z;
@@ -29,7 +30,7 @@ public class MoveToMouse : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         SelectObject();
     }
@@ -39,7 +40,7 @@ public class MoveToMouse : MonoBehaviour
         selected = true;
         gameObject.GetComponent<SpriteRenderer>().color = Color.green;
 
-        foreach (MoveToMouse obj in moveableObjects)
+        foreach (MoveToMouse obj in gameManager.moveableObjects)
         {
             if (obj != this)
             {
