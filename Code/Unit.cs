@@ -9,17 +9,25 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        float moveSpeed = 4f;
-        float step = moveSpeed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
+        float moveSpeed = 8f;
+        // defines move speed
 
-        if (Input.GetKeyDown(KeyCode.T))
+        float step = moveSpeed * Time.deltaTime;
+        // makes it framerate independent
+
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
+        //moves towards position
+
+        if (Input.GetMouseButtonDown(1))
         {
-            Move(new Vector2(4, 4));
+            Move(MouseWorld.GetPosition());
+            // by clicking right mouse button you move to designated position
         }
     }
     private void Move(Vector2 targetPosition)
     {
         this.targetPosition = targetPosition;
+        // sets target position
+
     }
 }
