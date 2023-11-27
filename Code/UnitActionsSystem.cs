@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,14 +6,32 @@ using UnityEngine;
 
 public class UnitActionsSystem : MonoBehaviour
 {
+    public static UnitActionsSystem Instance { get; private set; }
+
+    public event EventHandler OnSelectedUnitChanged;
+
+
     [SerializeField] private Unit selectedUnit;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("There is more than one UnitActionSystem! " + transform + " - " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        
+    }
 
     private void Update()
     {
-        if(TryHandleUnitSelection()) return;
+        
 
         if(Input.GetMouseButtonDown(0))
         {
+            if(TryHandleUnitSelection()) return;
             // Right-click to move the selected unit
             selectedUnit.Move(MouseWorld.GetPosition());
         }
@@ -34,12 +53,24 @@ public class UnitActionsSystem : MonoBehaviour
             // check if selected unit has unit component
             if(hit.transform.TryGetComponent<Unit>(out Unit unit))
             {
-                selectedUnit = unit;
+                SetSelectedUnit(unit);
                 return true;
             }
 
         }
         return false;
+    }
+
+    private void SetSelectedUnit(Unit unit)
+    {
+        selectedUnit = unit;
+
+        OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public Unit GetSelectedUnit()
+    {
+        return selectedUnit;
     }
 }
 

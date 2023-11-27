@@ -13,7 +13,7 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        float moveSpeed = 8f;
+        float moveSpeed = 4f;
         // defines move speed
 
         float step = moveSpeed * Time.deltaTime;
