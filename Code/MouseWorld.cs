@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class MouseWorld : MonoBehaviour
 {
+    private static MouseWorld instance;
 
+    public void Awake()
+    {
+        instance = this;
+    }
     public static Vector2 GetPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
