@@ -26,6 +26,6 @@ public class Unit : MonoBehaviour
     {
         this.targetPosition = targetPosition;
         // sets target position
-
     }
+
 }
