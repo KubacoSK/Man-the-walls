@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
     private void CameraMovement()
     {
         Vector3 Pos = transform.position;
-
+        // moves camera by comparing screenheight to border
         if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
             Pos.y += panSpeed * Time.deltaTime;

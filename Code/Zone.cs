@@ -11,6 +11,7 @@ public class Zone : MonoBehaviour
         // Check if the entering collider is a unit
         if (other.CompareTag("Unit"))
         {
+            // if there is any unit with collider inside object it adds it to list
             Unit unit = other.GetComponent<Unit>();
             ZoneManager.Instance.AddUnitToZone(unit, this);
             unitsInZone.Add(unit);

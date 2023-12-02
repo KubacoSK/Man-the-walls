@@ -33,7 +33,7 @@ public class UnitActionsSystem : MonoBehaviour
         {
             if(TryHandleUnitSelection()) return;
             // Right-click to move the selected unit
-            selectedUnit.Move(MouseWorld.GetPosition());
+            selectedUnit.GetMoveAction().Move(MouseWorld.GetPosition());
         }
     }
     private bool TryHandleUnitSelection()
