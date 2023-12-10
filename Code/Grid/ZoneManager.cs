@@ -29,4 +29,8 @@ public class ZoneManager : MonoBehaviour
     {
         zone.RemoveUnit(unit);
     }
+    public static List<Zone> GetAllZones()
+    {
+        return Instance.zones;
+    }
 }

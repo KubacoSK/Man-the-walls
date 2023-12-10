@@ -1,54 +1,115 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MoveAction : MonoBehaviour
 {
-    
-    [SerializeField] private int maxMoveDistance = 1;
-
+    [SerializeField] private float baseMoveDistance = 1f;
     private Vector2 targetPosition;
-    private Unit unit;
+    private Unit selectedUnit;
+    static List<Zone> zones;
+    private List<Zone> validMoveZones;
     private void Awake()
     {
-        unit = GetComponent<Unit>();
+        selectedUnit = GetComponent<Unit>();
         targetPosition = transform.position;
+        if (ZoneManager.Instance == null)
+        {
+            Debug.LogError("ZoneManager is not initialized!");
+            return;
+        }
+
+        // Initialize the static list in MoveAction
+        MoveAction.zones = ZoneManager.GetAllZones();
+        UnitActionsSystem.Instance.OnSelectedUnitChanged += OnSelectedUnitChanged;
     }
 
+    private void Start()
+    {
+        validMoveZones = new List<Zone>();
+    }
     private void Update()
     {
         float moveSpeed = 4f;
-        // defines move speed
         float step = moveSpeed * Time.deltaTime;
-        // makes it framerate independent
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
+        UpdateValidMoveZones();
+        HighlightValidMoveZones();
     }
+
     public void Move(Vector2 targetPosition)
     {
         this.targetPosition = targetPosition;
-        // sets target position
     }
 
     public List<Zone> GetValidZonesList()
     {
         List<Zone> validZoneList = new List<Zone>();
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(baseMoveDistance + 0.9f, baseMoveDistance + 0.9f), 0);
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, maxMoveDistance);
 
         foreach (var collider in colliders)
         {
             Zone zone = collider.GetComponent<Zone>();
-            if (zone != null)
+            if (zone != null && !validZoneList.Contains(zone))
             {
                 validZoneList.Add(zone);
+
+                // Get the position and size of the zone
+                Vector2 zonePosition = zone.transform.position;
+                Vector2 zoneSize = zone.GetZoneSizeModifier();
+
+                // Calculate the enlarged box based on the zone's position and size
+                float enlargedWidth = zoneSize.x + baseMoveDistance + 0.9f;
+                float enlargedHeight = zoneSize.y + baseMoveDistance + 0.9f;
+
+                // Perform overlap check with the enlarged box
+                Collider2D[] adjustedColliders = Physics2D.OverlapBoxAll(zonePosition, new Vector2(enlargedWidth, enlargedHeight), 0);
+
+                foreach (var adjustedCollider in adjustedColliders)
+                {
+                    Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
+                    if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone)
+                    {
+                        validZoneList.Add(adjustedZone);
+                    }
+                }
             }
-        }
-        foreach (var zone in validZoneList)
-        {
-            Debug.Log(zone.name);
         }
 
         return validZoneList;
+    }
+
+    public bool IsValidActionWorldPosition(Vector2 worldPosition)
+    {
+
+        return true;
+    }
+    private void UpdateValidMoveZones()
+    {
+        validMoveZones = GetValidZonesList();
+    }
+
+    private void HighlightValidMoveZones()
+    {
+        // Remove highlight from all zones
+        foreach (var zone in zones)
+        {
+            zone.ResetHighlight();
+        }
+
+        // Highlight the valid move zones
+        foreach (var zone in validMoveZones)
+        {
+            zone.Highlight();
+        }
+    }
+    private void OnSelectedUnitChanged(object sender, EventArgs e)
+    {
+        // Update the selected unit when the event is triggered
+        selectedUnit = UnitActionsSystem.Instance.GetSelectedUnit();
+        Debug.Log("Selected Unit changed to: " + selectedUnit.name);
     }
 }

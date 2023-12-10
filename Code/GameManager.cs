@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public List<MoveToMouse> moveableObjects = new List<MoveToMouse>();
 
     private void Awake()
     {
