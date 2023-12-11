@@ -35,7 +35,7 @@ public class MoveAction : MonoBehaviour
         float moveSpeed = 4f;
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
-        UpdateValidMoveZones();
+        validMoveZones = selectedUnit.GetMoveAction().GetValidZonesList();
         HighlightValidMoveZones();
     }
 
@@ -87,10 +87,7 @@ public class MoveAction : MonoBehaviour
 
         return true;
     }
-    private void UpdateValidMoveZones()
-    {
-        validMoveZones = GetValidZonesList();
-    }
+
 
     private void HighlightValidMoveZones()
     {
@@ -110,6 +107,5 @@ public class MoveAction : MonoBehaviour
     {
         // Update the selected unit when the event is triggered
         selectedUnit = UnitActionsSystem.Instance.GetSelectedUnit();
-        Debug.Log("Selected Unit changed to: " + selectedUnit.name);
     }
 }
