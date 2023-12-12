@@ -11,6 +11,7 @@ public class MoveAction : MonoBehaviour
     private Unit selectedUnit;
     static List<Zone> zones;
     private List<Zone> validMoveZones;
+
     private void Awake()
     {
         selectedUnit = GetComponent<Unit>();
@@ -32,6 +33,7 @@ public class MoveAction : MonoBehaviour
     }
     private void Update()
     {
+        
         float moveSpeed = 4f;
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
@@ -42,6 +44,7 @@ public class MoveAction : MonoBehaviour
     public void Move(Vector2 targetPosition)
     {
         this.targetPosition = targetPosition;
+        
     }
 
     public List<Zone> GetValidZonesList()

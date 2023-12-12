@@ -9,6 +9,8 @@ public class UnitActionsSystem : MonoBehaviour
     public event EventHandler OnSelectedUnitChanged;
 
     [SerializeField] private Unit selectedUnit;
+    private bool IsMoving = false;
+    Vector2 centerPosition;
 
     private void Awake()
     {
@@ -20,10 +22,15 @@ public class UnitActionsSystem : MonoBehaviour
         }
         Instance = this;
     }
+    private void Start()
+    {
+        centerPosition = selectedUnit.transform.position;
+    }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (centerPosition.x == selectedUnit.transform.position.x && centerPosition.y == selectedUnit.transform.position.y) { IsMoving=false; }
+        if (Input.GetMouseButtonDown(0) && IsMoving == false)
         {
             if (TryHandleUnitSelection()) return;
 
@@ -37,15 +44,19 @@ public class UnitActionsSystem : MonoBehaviour
 
                 if (IsValidClickedZone(clickedZone, validZones))
                 {
-                    Vector2 centerPosition = clickedZone.transform.position; // Assuming the zone's center is the desired position
+                    centerPosition = clickedZone.transform.position; // Assuming the zone's center is the desired position
 
                     if (selectedUnit != null)
                     {
+                        IsMoving = true;
                         selectedUnit.GetMoveAction().Move(centerPosition);
+                        
                     }
                 }
             }
         }
+       
+        
     }
 
     private bool IsValidClickedZone(Zone clickedZone, List<Zone> validZones)
