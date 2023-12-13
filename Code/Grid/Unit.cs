@@ -5,6 +5,7 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     private MoveAction moveAction;
+    private int turn;
     private void Awake()
     { 
         moveAction = GetComponent<MoveAction>();
@@ -28,6 +29,14 @@ public class Unit : MonoBehaviour
 
         // Check if a collider was hit
         return hitCollider != null;
+    }
+    public int GetTurn()
+    {
+        return turn;
+    }
+    public void DoTurn()
+    {
+        turn++;
     }
 
 }

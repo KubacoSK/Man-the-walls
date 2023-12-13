@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 public class UnitActionsSystem : MonoBehaviour
@@ -30,9 +31,13 @@ public class UnitActionsSystem : MonoBehaviour
     private void Update()
     {
         if (centerPosition.x == selectedUnit.transform.position.x && centerPosition.y == selectedUnit.transform.position.y) { IsMoving=false; }
-        if (Input.GetMouseButtonDown(0) && IsMoving == false)
+        
+        if (Input.GetMouseButtonDown(0)) 
+        { if (TryHandleUnitSelection()) return;
+        }
+
+        if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetTurn() < 2)
         {
-            if (TryHandleUnitSelection()) return;
 
             // Right-click to move the selected unit
             Vector3 mouseWorldPosition = MouseWorld.GetPosition();
@@ -50,7 +55,7 @@ public class UnitActionsSystem : MonoBehaviour
                     {
                         IsMoving = true;
                         selectedUnit.GetMoveAction().Move(centerPosition);
-                        
+                        selectedUnit.DoTurn();
                     }
                 }
             }
