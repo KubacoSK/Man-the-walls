@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,9 @@ public class Unit : MonoBehaviour
         moveAction = GetComponent<MoveAction>();
     }
 
-    private void Update()
+    private void Start()
     {
-        
+        TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
     }
     public MoveAction GetMoveAction()
     {
@@ -39,4 +40,8 @@ public class Unit : MonoBehaviour
         turn++;
     }
 
+    private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
+    {
+        turn = 0;
+    }
 }
