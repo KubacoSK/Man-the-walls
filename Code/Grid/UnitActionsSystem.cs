@@ -25,14 +25,16 @@ public class UnitActionsSystem : MonoBehaviour
     }
     private void Start()
     {
-        centerPosition = selectedUnit.transform.position;
     }
 
     private void Update()
     {
-        if (centerPosition.x == selectedUnit.transform.position.x && centerPosition.y == selectedUnit.transform.position.y) { IsMoving=false; }
+        if (Vector2.Distance(selectedUnit.transform.position, centerPosition) < 0.01f)
+        {
+            IsMoving = false;
+    }
         
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0) && IsMoving == false) 
         { if (TryHandleUnitSelection()) return;
         }
 
