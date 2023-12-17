@@ -9,6 +9,7 @@ public class UnitActionsSystem : MonoBehaviour
 
     public event EventHandler OnSelectedUnitChanged;
 
+
     [SerializeField] private Unit selectedUnit;
     private bool IsMoving = false;
     Vector2 centerPosition;
@@ -29,15 +30,28 @@ public class UnitActionsSystem : MonoBehaviour
 
     private void Update()
     {
+        if (!TurnSystem.Instance.IsPlayerTurn())
+        {
+            return;
+        }
+        // checks if unit based on distance to target zone
         if (Vector2.Distance(selectedUnit.transform.position, centerPosition) < 0.01f)
         {
             IsMoving = false;
-    }
-        
+        }
+        //checks for clicking on unit
         if (Input.GetMouseButtonDown(0) && IsMoving == false) 
-        { if (TryHandleUnitSelection()) return;
+        { 
+            if (TryHandleUnitSelection()) return;
         }
 
+        Movement();
+
+    }
+
+    private void Movement()
+    {
+        // checks if we right clicked, unit isnt moving and selected unit has enough movement points
         if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetTurn() < 2)
         {
 
@@ -45,16 +59,20 @@ public class UnitActionsSystem : MonoBehaviour
             Vector3 mouseWorldPosition = MouseWorld.GetPosition();
             Zone clickedZone = GetClickedZone(mouseWorldPosition);
 
+            // checks if we clicked on zone and not on some empty space
             if (clickedZone != null)
             {
+                // gets list of close zones from MoveAction class
                 List<Zone> validZones = selectedUnit.GetMoveAction().GetValidZonesList();
 
                 if (IsValidClickedZone(clickedZone, validZones))
                 {
+                    
                     centerPosition = clickedZone.transform.position; // Assuming the zone's center is the desired position
 
                     if (selectedUnit != null)
                     {
+                        // moves to to position
                         IsMoving = true;
                         selectedUnit.GetMoveAction().Move(centerPosition);
                         selectedUnit.DoTurn();
@@ -62,24 +80,25 @@ public class UnitActionsSystem : MonoBehaviour
                 }
             }
         }
-       
-        
     }
 
     private bool IsValidClickedZone(Zone clickedZone, List<Zone> validZones)
     {
+        // chcecks if zone is among valid zones list
         return validZones.Contains(clickedZone);
     }
 
     private bool TryHandleUnitSelection()
     {
+
+        // fires ray from the camera to see if we clicked on the unit
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         int layerMask = LayerMask.GetMask("Units");
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, layerMask);
 
         if (hit.collider != null)
         {
-            if (hit.transform.TryGetComponent<Unit>(out Unit unit))
+            if (hit.transform.TryGetComponent<Unit>(out Unit unit) && !unit.IsEnemy())
             {
                 SetSelectedUnit(unit);
                 return true;
@@ -90,12 +109,14 @@ public class UnitActionsSystem : MonoBehaviour
 
     private void SetSelectedUnit(Unit unit)
     {
+        // invokes event if we selected other unit and selects it
         selectedUnit = unit;
         OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
     }
 
     private Zone GetClickedZone(Vector3 mouseWorldPosition)
     {
+        // gets clicked zones
         Collider2D collider = Physics2D.OverlapPoint(mouseWorldPosition, LayerMask.GetMask("GridPoints"));
 
         if (collider != null)

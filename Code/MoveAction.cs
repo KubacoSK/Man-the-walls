@@ -50,11 +50,13 @@ public class MoveAction : MonoBehaviour
     public List<Zone> GetValidZonesList()
     {
         List<Zone> validZoneList = new List<Zone>();
+        // makes new list of validzones
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(baseMoveDistance + 0.9f, baseMoveDistance + 0.9f), 0);
-
+        // creates a square based on size of a zone + 0.9xy
 
         foreach (var collider in colliders)
         {
+            // checks if the square overlaps any type of zone
             Zone zone = collider.GetComponent<Zone>();
             if (zone != null && !validZoneList.Contains(zone))
             {
@@ -73,6 +75,7 @@ public class MoveAction : MonoBehaviour
 
                 foreach (var adjustedCollider in adjustedColliders)
                 {
+                    // makes zone variable from collider and then puts the zone into list
                     Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
                     if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone)
                     {
