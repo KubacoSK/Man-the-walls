@@ -60,8 +60,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyUnitInfantry
       objectReference: {fileID: 0}
+    - target: {fileID: 4286376311966728887, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
+      propertyPath: m_TagString
+      value: EnemyUnit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7033972262451382912, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 579389722e1794042b2fbd710e0507fb, type: 3}

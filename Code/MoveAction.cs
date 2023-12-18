@@ -37,8 +37,11 @@ public class MoveAction : MonoBehaviour
         float moveSpeed = 4f;
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
-        validMoveZones = selectedUnit.GetMoveAction().GetValidZonesList();
+        if (selectedUnit != null && selectedUnit.GetMoveAction() != null)
+        {
+            validMoveZones = selectedUnit.GetMoveAction().GetValidZonesList();
         HighlightValidMoveZones();
+            }
     }
 
     public void Move(Vector2 targetPosition)
