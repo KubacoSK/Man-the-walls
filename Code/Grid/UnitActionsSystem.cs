@@ -10,7 +10,7 @@ public class UnitActionsSystem : MonoBehaviour
     public event EventHandler OnSelectedUnitChanged;
 
 
-    [SerializeField] private Unit selectedUnit;
+    private Unit selectedUnit;
     private bool IsMoving = false;
     Vector2 centerPosition;
 
@@ -30,14 +30,17 @@ public class UnitActionsSystem : MonoBehaviour
 
     private void Update()
     {
-        if (!TurnSystem.Instance.IsPlayerTurn())
+        if (selectedUnit != null)
         {
-            return;
-        }
-        // checks if unit based on distance to target zone
-        if (Vector2.Distance(selectedUnit.transform.position, centerPosition) < 0.01f)
-        {
-            IsMoving = false;
+            if (!TurnSystem.Instance.IsPlayerTurn())
+            {
+                return;
+            }
+            // checks if unit based on distance to target zone
+            if (Vector2.Distance(selectedUnit.transform.position, centerPosition) < 0.01f)
+            {
+                IsMoving = false;
+            }
         }
         //checks for clicking on unit
         if (Input.GetMouseButtonDown(0) && IsMoving == false) 
