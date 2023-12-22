@@ -25,10 +25,15 @@ public class TurnSystem : MonoBehaviour
     }
     public void NextTurn()
     {
-        turnNumber++;
+        if(isPlayerTurn)turnNumber++;
         isPlayerTurn = !isPlayerTurn;
         // invokes onTurnChanged event
         OnTurnChanged.Invoke(this, EventArgs.Empty);
+        Zone[] allZones = FindObjectsOfType<Zone>();
+        foreach (Zone zone in allZones)
+        {
+            zone.InitiateEliminationProcess();
+        }
     }    
     public int GetTurnNumber()
     {

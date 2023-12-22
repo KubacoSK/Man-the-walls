@@ -23,7 +23,11 @@ public class Zone : MonoBehaviour
             ZoneManager.Instance.AddUnitToZone(unit, this);
             unitsInZone.Add(unit);
         }
-        TryEliminateUnits();
+        
+    }
+    public void InitiateEliminationProcess()
+    {
+        UnitCombat.Instance.TryEliminateUnits(unitsInZone);
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -85,51 +89,6 @@ public class Zone : MonoBehaviour
             highlighter.ResetHighlight();
         }
     }
-    private void TryEliminateUnits()
-    {
-        // Check if there are at least two units in the zone
-        if (unitsInZone.Count >= 2)
-        {
-            // Filter units by type (e.g., ally and enemy)
-            List<Unit> allyUnits = new List<Unit>();
-            List<Unit> enemyUnits = new List<Unit>();
-
-            foreach (Unit unit in unitsInZone)
-            {
-                if (unit.tag == "Unit")  // You should have a method to determine if the unit is an ally or enemy
-                {
-                    allyUnits.Add(unit);
-                }
-                else
-                {
-                    enemyUnits.Add(unit);
-                }
-            }
-
-            // If there is at least one ally and one enemy, randomly eliminate one of them
-            if (allyUnits.Count > 0 && enemyUnits.Count > 0)
-            {
-                Unit unitToEliminate = Random.Range(0, 2) == 0 ? allyUnits[0] : enemyUnits[0];
-
-                // Perform elimination logic (e.g., destroy the unit)
-                StartCoroutine(DelayedElimination(unitToEliminate));
-            }
-        }
-    }
-
-    private IEnumerator DelayedElimination(Unit unit)
-    {
-        // Wait for 2 seconds
-        yield return new WaitForSeconds(2f);
-
-        // Perform elimination logic (e.g., destroy the unit)
-        EliminateUnit(unit);
-    }
-    private void EliminateUnit(Unit unit)
-    {
-        // Additional logic for eliminating the unit
-        Debug.Log("Eliminating unit: " + unit.name);
-        Destroy(unit.gameObject);
-    }
+    
 
 }

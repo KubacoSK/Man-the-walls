@@ -32,7 +32,7 @@ public class UnitSelectedVisual : MonoBehaviour
         {
             meshRenderer.enabled = true;
         }
-        else
+        else if(unit != null)
         {
             meshRenderer.enabled = false;
         }
