@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class MoveAction : MonoBehaviour
 {
-    [SerializeField] private float baseMoveDistance = 1f;
+    [SerializeField] private float baseMoveDistance = 0.9f;
     private Vector2 targetPosition;
     private Unit selectedUnit;
     static List<Zone> zones;
     private List<Zone> validMoveZones;
+    private float moveSpeed = 4f;
 
     private void Awake()
     {
@@ -34,14 +35,14 @@ public class MoveAction : MonoBehaviour
     private void Update()
     {
         
-        float moveSpeed = 4f;
+        
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
         if (selectedUnit != null && selectedUnit.GetMoveAction() != null)
         {
             validMoveZones = selectedUnit.GetMoveAction().GetValidZonesList();
-        HighlightValidMoveZones();
-            }
+            HighlightValidMoveZones();
+        }
     }
 
     public void Move(Vector2 targetPosition)
@@ -54,7 +55,7 @@ public class MoveAction : MonoBehaviour
     {
         List<Zone> validZoneList = new List<Zone>();
         // makes new list of validzones
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(baseMoveDistance + 0.9f, baseMoveDistance + 0.9f), 0);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(0.1f, 0.1f), 0);
         // creates a square based on size of a zone + 0.9xy
 
         foreach (var collider in colliders)
@@ -63,15 +64,14 @@ public class MoveAction : MonoBehaviour
             Zone zone = collider.GetComponent<Zone>();
             if (zone != null && !validZoneList.Contains(zone))
             {
-                validZoneList.Add(zone);
-
+                
                 // Get the position and size of the zone
                 Vector2 zonePosition = zone.transform.position;
                 Vector2 zoneSize = zone.GetZoneSizeModifier();
 
                 // Calculate the enlarged box based on the zone's position and size
-                float enlargedWidth = zoneSize.x + baseMoveDistance + 0.9f;
-                float enlargedHeight = zoneSize.y + baseMoveDistance + 0.9f;
+                float enlargedWidth = zoneSize.x + baseMoveDistance;
+                float enlargedHeight = zoneSize.y + baseMoveDistance;
 
                 // Perform overlap check with the enlarged box
                 Collider2D[] adjustedColliders = Physics2D.OverlapBoxAll(zonePosition, new Vector2(enlargedWidth, enlargedHeight), 0);
@@ -83,8 +83,10 @@ public class MoveAction : MonoBehaviour
                     if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone)
                     {
                         validZoneList.Add(adjustedZone);
+
                     }
                 }
+                
             }
         }
 

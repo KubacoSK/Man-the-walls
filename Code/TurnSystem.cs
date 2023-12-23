@@ -9,7 +9,7 @@ public class TurnSystem : MonoBehaviour
     public static TurnSystem Instance { get; private set; }
 
     public event EventHandler OnTurnChanged;
-
+    Zone[] allZones;
     private int turnNumber = 1;
     private bool isPlayerTurn = true;
 
@@ -22,6 +22,7 @@ public class TurnSystem : MonoBehaviour
             return;
         }
         Instance = this;
+        allZones = FindObjectsOfType<Zone>();
     }
     public void NextTurn()
     {
@@ -29,7 +30,7 @@ public class TurnSystem : MonoBehaviour
         isPlayerTurn = !isPlayerTurn;
         // invokes onTurnChanged event
         OnTurnChanged.Invoke(this, EventArgs.Empty);
-        Zone[] allZones = FindObjectsOfType<Zone>();
+        
         foreach (Zone zone in allZones)
         {
             zone.InitiateEliminationProcess();

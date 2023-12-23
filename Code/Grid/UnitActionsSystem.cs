@@ -70,9 +70,14 @@ public class UnitActionsSystem : MonoBehaviour
 
                 if (IsValidClickedZone(clickedZone, validZones))
                 {
-                    
+                    List<Unit> UnitsInZone = clickedZone.GetUnitsInZone();
+                    float x = 0;
+                    foreach(Unit unitinzone in UnitsInZone)
+                    {
+                        x -= 0.2f;
+                    }
                     centerPosition = clickedZone.transform.position; // Assuming the zone's center is the desired position
-
+                    centerPosition.x += x;
                     if (selectedUnit != null)
                     {
                         // moves to to position

@@ -89,6 +89,10 @@ public class Zone : MonoBehaviour
             highlighter.ResetHighlight();
         }
     }
+    public List<Unit> GetUnitsInZone()
+    {
+        return unitsInZone;
+    }
     
 
 }

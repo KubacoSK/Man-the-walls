@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Unit : MonoBehaviour
@@ -12,7 +13,7 @@ public class Unit : MonoBehaviour
 
     [SerializeField] private bool isEnemy;
     private void Awake()
-    { 
+    {
         moveAction = GetComponent<MoveAction>();
     }
 
@@ -25,7 +26,7 @@ public class Unit : MonoBehaviour
     {
         return moveAction;
     }
-    
+
     public int GetTurn()
     {
         return ActionPoints;
@@ -40,7 +41,7 @@ public class Unit : MonoBehaviour
     private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
     {
         if ((IsEnemy() && !TurnSystem.Instance.IsPlayerTurn()) ||
-            (!IsEnemy() && TurnSystem.Instance.IsPlayerTurn())) 
+            (!IsEnemy() && TurnSystem.Instance.IsPlayerTurn()))
         {
             ActionPoints = 0;
 
