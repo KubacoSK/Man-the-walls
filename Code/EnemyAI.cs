@@ -2,14 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
    
     private List<Unit> enemyUnits;
-
-
+    private bool MadeEnemyTurn = false;
+    private float EndTurnTimer = 0f;
     private void Start()
     {
         
@@ -19,15 +20,29 @@ public class EnemyAI : MonoBehaviour
     {
         if (TurnSystem.Instance.IsPlayerTurn())
         {
+            MadeEnemyTurn = false;
             return;
+            
         }
         foreach (Unit Enemyunit in enemyUnits)
         {
-            if (Enemyunit != null) MakeDecisionForUnit(Enemyunit);
+            if (!MadeEnemyTurn)
+            {
+                if (Enemyunit != null) MakeDecisionForUnit(Enemyunit);
+                
+            }
         }
+        
+        MadeEnemyTurn = true;
         if (AllEnemyUnitsHaveCompletedMoves())
         {
-            TurnSystem.Instance.NextTurn();
+            EndTurnTimer += Time.deltaTime;
+            if (EndTurnTimer > 2f)
+            {
+                TurnSystem.Instance.NextTurn();
+                EndTurnTimer = 0f;
+            }
+            
         }
     }
     private void MakeDecisionForUnit(Unit enemyUnit)
@@ -52,8 +67,9 @@ public class EnemyAI : MonoBehaviour
             // Move the unit towards the chosen zone
             enemyUnit.GetMoveAction().Move(destinationposition);
 
-
+            enemyUnit.DoTurn();
             StartCoroutine(DelayedSecondMove(enemyUnit, destinationZone));
+            
         }
     }
 
@@ -69,12 +85,18 @@ public class EnemyAI : MonoBehaviour
             List<Zone> validZones = enemyUnit.GetMoveAction().GetValidZonesList();
             if (validZones.Count > 0)
             {
-                Zone secondDestinationZone = validZones[UnityEngine.Random.Range(0, validZones.Count)];
+                Zone seconddestinationZone = validZones[UnityEngine.Random.Range(0, validZones.Count)];
+                Vector2 destinationposition = seconddestinationZone.transform.position;
+                List<Unit> UnitsInZone = destinationZone.GetUnitsInZone();
+                float sx = 0;
+                foreach (Unit unitinzone in UnitsInZone)
+                {
+                    sx += 0.2f;
+                }
+                destinationposition.x += sx;
+                // Move the unit towards the chosen zone
+                enemyUnit.GetMoveAction().Move(destinationposition);
 
-                // Move the unit towards the second chosen zone
-                enemyUnit.GetMoveAction().Move(secondDestinationZone.transform.position);
-
-                // Increment the turn count for the unit
                 enemyUnit.DoTurn();
             }
         }
@@ -93,6 +115,8 @@ public class EnemyAI : MonoBehaviour
                 return false;
             }
         }
+        MadeEnemyTurn = true;
         return true;
+        
     }
 }

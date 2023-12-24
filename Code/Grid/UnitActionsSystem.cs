@@ -30,26 +30,25 @@ public class UnitActionsSystem : MonoBehaviour
 
     private void Update()
     {
-        if (selectedUnit != null)
+        if (TurnSystem.Instance.IsPlayerTurn())
         {
-            if (!TurnSystem.Instance.IsPlayerTurn())
+            if (selectedUnit != null)
             {
-                return;
+
+                // checks if unit based on distance to target zone
+                if (Vector2.Distance(selectedUnit.transform.position, centerPosition) < 0.01f)
+                {
+                    IsMoving = false;
+                }
             }
-            // checks if unit based on distance to target zone
-            if (Vector2.Distance(selectedUnit.transform.position, centerPosition) < 0.01f)
+            //checks for clicking on unit
+            if (Input.GetMouseButtonDown(0) && IsMoving == false)
             {
-                IsMoving = false;
+                if (TryHandleUnitSelection()) return;
             }
-        }
-        //checks for clicking on unit
-        if (Input.GetMouseButtonDown(0) && IsMoving == false) 
-        { 
-            if (TryHandleUnitSelection()) return;
-        }
 
-        Movement();
-
+            Movement();
+        }
     }
 
     private void Movement()
