@@ -18,10 +18,14 @@ public class Zone : MonoBehaviour
         // Check if the entering collider is a unit
         if (other.CompareTag("Unit") || other.CompareTag("EnemyUnit"))
         {
-            // if there is any unit with collider inside object it adds it to list
+            // If there is any unit with collider inside the object, add it to the list
             Unit unit = other.GetComponent<Unit>();
-            ZoneManager.Instance.AddUnitToZone(unit, this);
-            unitsInZone.Add(unit);
+
+            if (unit != null && !unitsInZone.Contains(unit))
+            {
+                ZoneManager.Instance.AddUnitToZone(unit, this);
+               
+            }
         }
         
     }
@@ -37,7 +41,7 @@ public class Zone : MonoBehaviour
         {
             Unit unit = other.GetComponent<Unit>();
             ZoneManager.Instance.RemoveUnitFromZone(unit, this);
-            unitsInZone.Remove(unit);
+            
         }
     }
 

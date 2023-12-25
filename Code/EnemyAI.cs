@@ -91,7 +91,7 @@ public class EnemyAI : MonoBehaviour
                 float sx = 0;
                 foreach (Unit unitinzone in UnitsInZone)
                 {
-                    sx += 0.2f;
+                    sx += 0.4f;
                 }
                 destinationposition.x += sx;
                 // Move the unit towards the chosen zone

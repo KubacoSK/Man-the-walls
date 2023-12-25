@@ -3167,6 +3167,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+--- !u!1001 &453479153
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1932141530}
+    m_Modifications:
+    - target: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.500004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390730216264425897, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_Name
+      value: EnemyUnitInfantry (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
 --- !u!4 &457933858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -4738,7 +4795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986789810419669751, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
       propertyPath: m_TagString
-      value: Unit
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6852305441627758487, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
       propertyPath: m_SortingLayer
@@ -10395,6 +10452,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+--- !u!4 &1778410491 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+  m_PrefabInstance: {fileID: 453479153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1780741225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10566,7 +10628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986789810419669751, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
       propertyPath: m_TagString
-      value: Unit
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6852305441627758487, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
       propertyPath: m_SortingLayer
@@ -11549,6 +11611,7 @@ Transform:
   - {fileID: 2140139423}
   - {fileID: 1210974352}
   - {fileID: 254485385}
+  - {fileID: 1778410491}
   - {fileID: 401069348}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23593,7 +23656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4986789810419669751, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
       propertyPath: m_TagString
-      value: Unit
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7657055706656216862, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
       propertyPath: maxMoveDistance

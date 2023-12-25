@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security;
 using UnityEngine;
 
 public class UnitCombat : MonoBehaviour
@@ -43,10 +44,40 @@ public class UnitCombat : MonoBehaviour
             // If there is at least one ally and one enemy, randomly eliminate one of them
             if (allyUnits.Count > 0 && enemyUnits.Count > 0)
             {
-                Unit unitToEliminate = Random.Range(0, 2) == 0 ? allyUnits[0] : enemyUnits[0];
+                int allyStrength = allyUnits.Count * 3;  // Change the multiplier based on your balancing
+                
+                int enemyStrength = enemyUnits.Count * 2;
+               
 
+                int randomElementally = Random.Range(0, 7);
+                
+                int randomElementenemy = Random.Range(0, 7);
+                
+
+                allyStrength += randomElementally;
+                Debug.Log("ally strength is " + allyStrength);
+                enemyStrength += randomElementenemy;
+                Debug.Log("enemy strength is " + enemyStrength);
                 // Perform elimination logic (e.g., destroy the unit)
-                EliminateUnit(unitToEliminate);
+                if (allyStrength > enemyStrength)
+                {
+                    // Ally wins, eliminate enemy unit
+                    EliminateUnit(enemyUnits[Random.Range(0, enemyUnits.Count)]);
+                 
+                }
+                else if (enemyStrength > allyStrength)
+                {
+                    // Enemy wins, eliminate ally unit
+                    EliminateUnit(allyUnits[Random.Range(0, allyUnits.Count)]);
+                   
+                }
+                else
+                {
+                    // Strengths are equal, both units are eliminated
+                    EliminateUnit(allyUnits[Random.Range(0, allyUnits.Count)]);
+                    EliminateUnit(enemyUnits[Random.Range(0, enemyUnits.Count)]);
+                    
+                }
             }
         }
     }

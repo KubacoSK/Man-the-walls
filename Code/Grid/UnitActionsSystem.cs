@@ -73,7 +73,7 @@ public class UnitActionsSystem : MonoBehaviour
                     float x = 0;
                     foreach(Unit unitinzone in UnitsInZone)
                     {
-                        x -= 0.2f;
+                        x -= 0.4f;
                     }
                     centerPosition = clickedZone.transform.position; // Assuming the zone's center is the desired position
                     centerPosition.x += x;
