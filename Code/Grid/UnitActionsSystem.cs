@@ -71,12 +71,20 @@ public class UnitActionsSystem : MonoBehaviour
                 {
                     List<Unit> UnitsInZone = clickedZone.GetUnitsInZone();
                     float x = 0;
+                    float y = 0;
                     foreach(Unit unitinzone in UnitsInZone)
                     {
                         x -= 0.4f;
+                        if (x < -0.8f)
+                        {
+                            y += -0.8f;
+                            x = 0;
+                        }
                     }
+                    
                     centerPosition = clickedZone.transform.position; // Assuming the zone's center is the desired position
                     centerPosition.x += x;
+                    centerPosition.y += y;
                     if (selectedUnit != null)
                     {
                         // moves to to position

@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     private List<Unit> enemyUnits;
     private bool MadeEnemyTurn = false;
     private float EndTurnTimer = 0f;
+    private float BetweenMovesTimer = 1f;
     private void Start()
     {
         
@@ -25,9 +26,12 @@ public class EnemyAI : MonoBehaviour
             
         }
         foreach (Unit Enemyunit in enemyUnits)
-        {
-            if (!MadeEnemyTurn)
-            {
+        {   
+            BetweenMovesTimer += Time.deltaTime;
+            if (!MadeEnemyTurn && BetweenMovesTimer > 0.5f)
+            { 
+                
+                BetweenMovesTimer = 0;
                 if (Enemyunit != null) MakeDecisionForUnit(Enemyunit);
                 
             }
@@ -61,19 +65,19 @@ public class EnemyAI : MonoBehaviour
             float x = 0;
             foreach (Unit unitinzone in UnitsInZone)
             {
-                x += 0.2f;
+                x += 0.4f;
             }
             destinationposition.x += x;
             // Move the unit towards the chosen zone
             enemyUnit.GetMoveAction().Move(destinationposition);
 
             enemyUnit.DoTurn();
-            StartCoroutine(DelayedSecondMove(enemyUnit, destinationZone));
+            StartCoroutine(DelayedSecondMove(enemyUnit));
             
         }
     }
 
-    private IEnumerator DelayedSecondMove(Unit enemyUnit, Zone destinationZone)
+    private IEnumerator DelayedSecondMove(Unit enemyUnit)
     {
         // Wait for 2 seconds before the second move
         yield return new WaitForSeconds(1.8f);
@@ -82,14 +86,14 @@ public class EnemyAI : MonoBehaviour
         if (enemyUnit != null && enemyUnit.GetTurn() < 2)
         {
             // Randomly choose another destination zone for the second move
-            List<Zone> validZones = enemyUnit.GetMoveAction().GetValidZonesList();
-            if (validZones.Count > 0)
+            List<Zone> validZones2 = enemyUnit.GetMoveAction().GetValidZonesList();
+            if (validZones2.Count > 0)
             {
-                Zone seconddestinationZone = validZones[UnityEngine.Random.Range(0, validZones.Count)];
+                Zone seconddestinationZone = validZones2[UnityEngine.Random.Range(0, validZones2.Count)];
                 Vector2 destinationposition = seconddestinationZone.transform.position;
-                List<Unit> UnitsInZone = destinationZone.GetUnitsInZone();
+                List<Unit> UnitsInZone2 = seconddestinationZone.GetUnitsInZone();
                 float sx = 0;
-                foreach (Unit unitinzone in UnitsInZone)
+                foreach (Unit unitinzone in UnitsInZone2)
                 {
                     sx += 0.4f;
                 }

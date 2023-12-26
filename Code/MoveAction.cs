@@ -80,7 +80,7 @@ public class MoveAction : MonoBehaviour
                 {
                     // makes zone variable from collider and then puts the zone into list
                     Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
-                    if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone)
+                    if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone && !(adjustedZone.GetUnitsInZone().Count > 0 && (adjustedZone.GetZoneSizeModifier().x == 1f || adjustedZone.GetZoneSizeModifier().y == 1f)))
                     {
                         validZoneList.Add(adjustedZone);
 
