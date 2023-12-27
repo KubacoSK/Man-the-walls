@@ -11,7 +11,7 @@ public class MoveAction : MonoBehaviour
     private Unit selectedUnit;
     static List<Zone> zones;
     private List<Zone> validMoveZones;
-    private float moveSpeed = 4f;
+    private float moveSpeed = 5f;
 
     private void Awake()
     {

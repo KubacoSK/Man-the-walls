@@ -6724,8 +6724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336e7766a18325c45811616d4301f5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panLimit: {x: 23, y: 27}
-  panMinimum: {x: 9, y: 5}
+  panLimit: {x: 31, y: 31}
+  panMinimum: {x: 1, y: 1}
   minOrthographicSize: 2
   maxOrthographicSize: 10
   zoomSmoothness: 5

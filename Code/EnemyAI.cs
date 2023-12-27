@@ -12,6 +12,8 @@ public class EnemyAI : MonoBehaviour
     private bool MadeEnemyTurn = false;
     private float EndTurnTimer = 0f;
     private float BetweenMovesTimer = 1f;
+    private int currentEnemyIndex = 0;
+
     private void Start()
     {
         
@@ -19,34 +21,41 @@ public class EnemyAI : MonoBehaviour
     }
     void Update()
     {
+
         if (TurnSystem.Instance.IsPlayerTurn())
         {
             MadeEnemyTurn = false;
             return;
-            
         }
-        foreach (Unit Enemyunit in enemyUnits)
-        {   
-            BetweenMovesTimer += Time.deltaTime;
-            if (!MadeEnemyTurn && BetweenMovesTimer > 0.5f)
-            { 
-                
-                BetweenMovesTimer = 0;
-                if (Enemyunit != null) MakeDecisionForUnit(Enemyunit);
-                
+
+        BetweenMovesTimer += Time.deltaTime;
+
+        if (!MadeEnemyTurn && BetweenMovesTimer > 2.5f)
+        {
+            BetweenMovesTimer = 0f;
+
+            if (currentEnemyIndex < enemyUnits.Count)
+            {
+                Unit enemyUnit = enemyUnits[currentEnemyIndex];
+
+                if (enemyUnit != null)
+                {
+                    MakeDecisionForUnit(enemyUnit);
+                    currentEnemyIndex++;
+                }
             }
         }
-        
-        MadeEnemyTurn = true;
-        if (AllEnemyUnitsHaveCompletedMoves())
+        if(AllEnemyUnitsHaveCompletedMoves())
         {
             EndTurnTimer += Time.deltaTime;
+
             if (EndTurnTimer > 2f)
             {
                 TurnSystem.Instance.NextTurn();
                 EndTurnTimer = 0f;
+                currentEnemyIndex = 0; // Reset index for the next turn
+
             }
-            
         }
     }
     private void MakeDecisionForUnit(Unit enemyUnit)
@@ -70,17 +79,17 @@ public class EnemyAI : MonoBehaviour
             destinationposition.x += x;
             // Move the unit towards the chosen zone
             enemyUnit.GetMoveAction().Move(destinationposition);
-
             enemyUnit.DoTurn();
             StartCoroutine(DelayedSecondMove(enemyUnit));
             
         }
+        Camera.main.transform.position = enemyUnit.transform.position + new Vector3(0, 0, -10);
     }
 
     private IEnumerator DelayedSecondMove(Unit enemyUnit)
     {
         // Wait for 2 seconds before the second move
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(1.5f);
 
         // Check if the unit is still valid and has not already made two moves
         if (enemyUnit != null && enemyUnit.GetTurn() < 2)
@@ -100,7 +109,6 @@ public class EnemyAI : MonoBehaviour
                 destinationposition.x += sx;
                 // Move the unit towards the chosen zone
                 enemyUnit.GetMoveAction().Move(destinationposition);
-
                 enemyUnit.DoTurn();
             }
         }
