@@ -38,9 +38,14 @@ public class MoveAction : MonoBehaviour
         
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
-        if (selectedUnit != null && selectedUnit.GetMoveAction() != null)
+        if (selectedUnit != null && selectedUnit.GetMoveAction() != null && selectedUnit.GetActionPoints() < 2)
         {
             validMoveZones = selectedUnit.GetMoveAction().GetValidZonesList();
+            HighlightValidMoveZones();
+        }
+        else
+        {
+            validMoveZones.Clear();
             HighlightValidMoveZones();
         }
     }
@@ -53,6 +58,7 @@ public class MoveAction : MonoBehaviour
 
     public List<Zone> GetValidZonesList()
     {
+
         List<Zone> validZoneList = new List<Zone>();
         // makes new list of validzones
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(0.1f, 0.1f), 0);

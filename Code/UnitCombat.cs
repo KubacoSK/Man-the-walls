@@ -62,21 +62,22 @@ public class UnitCombat : MonoBehaviour
                 if (allyStrength > enemyStrength)
                 {
                     // Ally wins, eliminate enemy unit
-                    EliminateUnit(enemyUnits[Random.Range(0, enemyUnits.Count)]);
-                 
+                    EliminateUnit(enemyUnits[0]);
+                    EnemyAI.Instance.HandleUnitDestroyed(enemyUnits[0]);
                 }
                 else if (enemyStrength > allyStrength)
                 {
                     // Enemy wins, eliminate ally unit
-                    EliminateUnit(allyUnits[Random.Range(0, allyUnits.Count)]);
-                   
+                    EliminateUnit(allyUnits[0]);
+                    EnemyAI.Instance.HandleUnitDestroyed(allyUnits[0]);
                 }
                 else
                 {
                     // Strengths are equal, both units are eliminated
-                    EliminateUnit(allyUnits[Random.Range(0, allyUnits.Count)]);
-                    EliminateUnit(enemyUnits[Random.Range(0, enemyUnits.Count)]);
-                    
+                    EliminateUnit(allyUnits[0]);
+                    EliminateUnit(enemyUnits[0]);
+                    EnemyAI.Instance.HandleUnitDestroyed(enemyUnits[0]);
+                    EnemyAI.Instance.HandleUnitDestroyed(allyUnits[0]);
                 }
             }
         }

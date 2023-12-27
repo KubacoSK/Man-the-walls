@@ -27,11 +27,11 @@ public class Unit : MonoBehaviour
         return moveAction;
     }
 
-    public int GetTurn()
+    public int GetActionPoints()
     {
         return ActionPoints;
     }
-    public void DoTurn()
+    public void DoAction()
     {
         ActionPoints++;
 

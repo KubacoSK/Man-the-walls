@@ -13,10 +13,11 @@ public class EnemyAI : MonoBehaviour
     private float EndTurnTimer = 0f;
     private float BetweenMovesTimer = 1f;
     private int currentEnemyIndex = 0;
+    public static EnemyAI Instance { get; private set; }
 
     private void Start()
     {
-        
+        Instance = this;
         enemyUnits = GetEnemyUnits();
     }
     void Update()
@@ -79,7 +80,7 @@ public class EnemyAI : MonoBehaviour
             destinationposition.x += x;
             // Move the unit towards the chosen zone
             enemyUnit.GetMoveAction().Move(destinationposition);
-            enemyUnit.DoTurn();
+            enemyUnit.DoAction();
             StartCoroutine(DelayedSecondMove(enemyUnit));
             
         }
@@ -92,7 +93,7 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         // Check if the unit is still valid and has not already made two moves
-        if (enemyUnit != null && enemyUnit.GetTurn() < 2)
+        if (enemyUnit != null && enemyUnit.GetActionPoints() < 2)
         {
             // Randomly choose another destination zone for the second move
             List<Zone> validZones2 = enemyUnit.GetMoveAction().GetValidZonesList();
@@ -109,7 +110,7 @@ public class EnemyAI : MonoBehaviour
                 destinationposition.x += sx;
                 // Move the unit towards the chosen zone
                 enemyUnit.GetMoveAction().Move(destinationposition);
-                enemyUnit.DoTurn();
+                enemyUnit.DoAction();
             }
         }
     }
@@ -122,7 +123,7 @@ public class EnemyAI : MonoBehaviour
     {
         foreach (Unit enemyUnit in enemyUnits)
         {
-            if (enemyUnit != null && enemyUnit.GetTurn() < 2)
+            if (enemyUnit != null && enemyUnit.GetActionPoints() < 2)
             {
                 return false;
             }
@@ -130,5 +131,10 @@ public class EnemyAI : MonoBehaviour
         MadeEnemyTurn = true;
         return true;
         
+    }
+    public void HandleUnitDestroyed(Unit destroyedUnit)
+    {
+        // Remove the destroyed unit from the enemyUnits list
+        enemyUnits.Remove(destroyedUnit);
     }
 }

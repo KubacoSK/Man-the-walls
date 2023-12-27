@@ -54,7 +54,7 @@ public class UnitActionsSystem : MonoBehaviour
     private void Movement()
     {
         // checks if we right clicked, unit isnt moving and selected unit has enough movement points
-        if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetTurn() < 2)
+        if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() < 2)
         {
 
             // Right-click to move the selected unit
@@ -90,7 +90,7 @@ public class UnitActionsSystem : MonoBehaviour
                         // moves to to position
                         IsMoving = true;
                         selectedUnit.GetMoveAction().Move(centerPosition);
-                        selectedUnit.DoTurn();
+                        selectedUnit.DoAction();
                     }
                 }
             }
