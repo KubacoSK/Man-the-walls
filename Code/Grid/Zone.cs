@@ -6,6 +6,7 @@ public class Zone : MonoBehaviour
 {
     private List<Unit> unitsInZone = new List<Unit>();
     private GridSystemVisual highlighter;
+    [SerializeField] private bool IsWall = false;
 
     private void Start()
     {
@@ -29,9 +30,9 @@ public class Zone : MonoBehaviour
         }
         
     }
-    public void InitiateEliminationProcess()
+    public void InitiateEliminationProcess(Zone zone)
     {
-        UnitCombat.Instance.TryEliminateUnits(unitsInZone);
+        UnitCombat.Instance.TryEliminateUnits(unitsInZone, zone);
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -97,6 +98,8 @@ public class Zone : MonoBehaviour
     {
         return unitsInZone;
     }
-    
-
+    public bool IsWallCheck()
+    {
+        return IsWall;
+    }
 }

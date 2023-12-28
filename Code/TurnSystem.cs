@@ -33,7 +33,7 @@ public class TurnSystem : MonoBehaviour
         
         foreach (Zone zone in allZones)
         {
-            zone.InitiateEliminationProcess();
+            zone.InitiateEliminationProcess(zone);
         }
         
     }    

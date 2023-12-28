@@ -81,7 +81,8 @@ public class UnitActionsSystem : MonoBehaviour
                             x = 0;
                         }
                     }
-                    
+                    if (clickedZone.GetZoneSizeModifier().x == 1) y += 0.4f;
+
                     centerPosition = clickedZone.transform.position; // Assuming the zone's center is the desired position
                     centerPosition.x += x;
                     centerPosition.y += y;
@@ -90,7 +91,7 @@ public class UnitActionsSystem : MonoBehaviour
                         // moves to to position
                         IsMoving = true;
                         selectedUnit.GetMoveAction().Move(centerPosition);
-                        selectedUnit.DoAction();
+                        selectedUnit.DoAction(clickedZone);
                     }
                 }
             }

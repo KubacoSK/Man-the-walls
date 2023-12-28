@@ -6,7 +6,6 @@ using UnityEngine;
 public class UnitCombat : MonoBehaviour
 {
     public static UnitCombat Instance { get; private set; }
-
     public void Awake()
     {
         if (Instance == null)
@@ -20,7 +19,7 @@ public class UnitCombat : MonoBehaviour
         }
 
     }
-    public void TryEliminateUnits(List<Unit> unitsInZone)
+    public void TryEliminateUnits(List<Unit> unitsInZone, Zone thiszone)
     {
         // Check if there are at least two units in the zone
         if (unitsInZone.Count >= 2)
@@ -47,10 +46,10 @@ public class UnitCombat : MonoBehaviour
                 int allyStrength = allyUnits.Count * 3;  // Change the multiplier based on your balancing
                 
                 int enemyStrength = enemyUnits.Count * 2;
-               
+                if (thiszone.IsWallCheck() == true) allyStrength += 3;
 
                 int randomElementally = Random.Range(0, 7);
-                
+                Debug.Log(randomElementally);
                 int randomElementenemy = Random.Range(0, 7);
                 
 

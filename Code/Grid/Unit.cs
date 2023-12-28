@@ -31,9 +31,10 @@ public class Unit : MonoBehaviour
     {
         return ActionPoints;
     }
-    public void DoAction()
+    public void DoAction(Zone IsWalledZone)
     {
         ActionPoints++;
+        if (IsWalledZone.IsWallCheck()) ActionPoints++;
 
         OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
     }

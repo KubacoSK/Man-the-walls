@@ -73,14 +73,18 @@ public class EnemyAI : MonoBehaviour
             Vector2 destinationposition = destinationZone.transform.position;
             List<Unit> UnitsInZone = destinationZone.GetUnitsInZone();
             float x = 0;
+            float y = 0;
             foreach (Unit unitinzone in UnitsInZone)
             {
                 x += 0.4f;
             }
+            if (destinationZone.GetZoneSizeModifier().x == 1) y -= 0.4f;
+
             destinationposition.x += x;
+            destinationposition.y += y;
             // Move the unit towards the chosen zone
             enemyUnit.GetMoveAction().Move(destinationposition);
-            enemyUnit.DoAction();
+            enemyUnit.DoAction(destinationZone);
             StartCoroutine(DelayedSecondMove(enemyUnit));
             
         }
@@ -110,7 +114,7 @@ public class EnemyAI : MonoBehaviour
                 destinationposition.x += sx;
                 // Move the unit towards the chosen zone
                 enemyUnit.GetMoveAction().Move(destinationposition);
-                enemyUnit.DoAction();
+                enemyUnit.DoAction(seconddestinationZone);
             }
         }
     }
