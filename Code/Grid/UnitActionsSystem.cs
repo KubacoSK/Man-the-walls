@@ -24,9 +24,6 @@ public class UnitActionsSystem : MonoBehaviour
         }
         Instance = this;
     }
-    private void Start()
-    {
-    }
 
     private void Update()
     {

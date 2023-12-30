@@ -10,17 +10,23 @@ public class Unit : MonoBehaviour
     private int ActionPoints;
 
     public static event EventHandler OnAnyActionPointsChanged;
+    public static event EventHandler OnAnyUnitSpawned;
+    public static event EventHandler OnAnyUnitDead;
+
 
     [SerializeField] private bool isEnemy;
     private void Awake()
     {
         moveAction = GetComponent<MoveAction>();
+
+        
     }
 
     private void Start()
     {
         // subscribes to the event
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+        OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
     }
     public MoveAction GetMoveAction()
     {
@@ -30,6 +36,11 @@ public class Unit : MonoBehaviour
     public int GetActionPoints()
     {
         return ActionPoints;
+    }
+    public void DoAction()
+    {
+        ActionPoints++;
+        OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
     }
     public void DoAction(Zone IsWalledZone)
     {
@@ -53,5 +64,10 @@ public class Unit : MonoBehaviour
     public bool IsEnemy()
     {
         return isEnemy;
+    }
+    public void IsDead()
+    {
+        Destroy(gameObject);
+        OnAnyUnitDead?.Invoke(this, EventArgs.Empty);
     }
 }

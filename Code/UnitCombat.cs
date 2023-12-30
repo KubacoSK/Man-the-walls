@@ -85,7 +85,7 @@ public class UnitCombat : MonoBehaviour
     private void EliminateUnit(Unit unit)
     {
         // Additional logic for eliminating the unit
-        if(unit!= null)  Destroy(unit.gameObject);
+        if (unit != null) unit.IsDead();
       
     }
 }

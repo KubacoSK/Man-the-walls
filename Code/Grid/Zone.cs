@@ -102,4 +102,13 @@ public class Zone : MonoBehaviour
     {
         return IsWall;
     }
+    public List<Unit> ReturnAllyUnitsInZone()
+    {
+        List<Unit> AllyUnits = new List<Unit>();
+        foreach (Unit unit in unitsInZone)
+        {
+            if (!unit.IsEnemy()) AllyUnits.Add(unit);
+        }
+        return AllyUnits;
+    }
 }
