@@ -69,6 +69,7 @@ public class UnitActionsSystem : MonoBehaviour
                     List<Unit> UnitsInZone = clickedZone.GetUnitsInZone();
                     float x = 0;
                     float y = 0;
+                    // moves unit on x and y axis depending on number of units inside the zone
                     foreach(Unit unitinzone in UnitsInZone)
                     {
                         x -= 0.4f;
@@ -80,7 +81,8 @@ public class UnitActionsSystem : MonoBehaviour
                     }
                     if (clickedZone.GetZoneSizeModifier().x == 1) y += 0.4f;
 
-                    centerPosition = clickedZone.transform.position; // Assuming the zone's center is the desired position
+                    // gets center position of the clicked zone
+                    centerPosition = clickedZone.transform.position;
                     centerPosition.x += x;
                     centerPosition.y += y;
                     if (selectedUnit != null)
@@ -129,7 +131,7 @@ public class UnitActionsSystem : MonoBehaviour
 
     private Zone GetClickedZone(Vector3 mouseWorldPosition)
     {
-        // gets clicked zones
+        // gets clicked zone
         Collider2D collider = Physics2D.OverlapPoint(mouseWorldPosition, LayerMask.GetMask("GridPoints"));
 
         if (collider != null)

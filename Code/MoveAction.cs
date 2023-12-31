@@ -15,7 +15,7 @@ public class MoveAction : MonoBehaviour
 
     private void Awake()
     {
-        selectedUnit = GetComponent<Unit>();
+        selectedUnit = null;
         targetPosition = transform.position;
         if (ZoneManager.Instance == null)
         {
@@ -98,6 +98,50 @@ public class MoveAction : MonoBehaviour
 
         return validZoneList;
     }
+
+    public List<Zone> CheckForAlliesToAttack()
+    {
+
+        List<Zone> Enlargedzones = new List<Zone>();
+        // makes new list of validzones
+        Collider2D[] StandingZoneCollider = Physics2D.OverlapBoxAll(transform.position, new Vector2(0.1f, 0.1f), 0);
+        // creates a square based on size of a zone + 0.9xy
+
+        foreach (var collider in StandingZoneCollider)
+        {
+            // checks if the square overlaps any type of zone
+            Zone zone = collider.GetComponent<Zone>();
+            if (zone != null && !Enlargedzones.Contains(zone))
+            {
+
+                // Get the position and size of the zone
+                Vector2 zonePosition = zone.transform.position;
+                Vector2 zoneSize = zone.GetZoneSizeModifier();
+
+                // Calculate the enlarged box based on the zone's position and size
+                float enlargedWidth = zoneSize.x + 4.1f;
+                float enlargedHeight = zoneSize.y + 4.1f;
+
+                // Perform overlap check with the enlarged box
+                Collider2D[] adjustedColliders = Physics2D.OverlapBoxAll(zonePosition, new Vector2(enlargedWidth, enlargedHeight), 0);
+
+                foreach (var adjustedCollider in adjustedColliders)
+                {
+                    // makes zone variable from collider and then puts the zone into list
+                    Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
+                    if (adjustedZone != null && !Enlargedzones.Contains(adjustedZone) && adjustedZone != zone && !(adjustedZone.GetUnitsInZone().Count > 1 && (adjustedZone.GetZoneSizeModifier().x == 1f || adjustedZone.GetZoneSizeModifier().y == 1f)))
+                    {
+                        Enlargedzones.Add(adjustedZone);
+
+                    }
+                }
+
+            }
+        }
+
+        return Enlargedzones;
+    }
+
 
     public bool IsValidActionWorldPosition(Vector2 worldPosition)
     {

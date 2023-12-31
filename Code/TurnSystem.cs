@@ -26,6 +26,7 @@ public class TurnSystem : MonoBehaviour
     }
     public void NextTurn()
     {
+        // moves between turns and increases number
         if(isPlayerTurn)turnNumber++;
         isPlayerTurn = !isPlayerTurn;
         // invokes onTurnChanged event
@@ -33,7 +34,11 @@ public class TurnSystem : MonoBehaviour
         
         foreach (Zone zone in allZones)
         {
-            zone.InitiateEliminationProcess(zone);
+            // if zone has more than 1 unit inside it it will do a combat method there
+            if (zone.GetUnitsInZone().Count >= 2)
+            {
+                zone.InitiateEliminationProcess(zone);
+            }
         }
         
     }    

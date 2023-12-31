@@ -9,7 +9,7 @@ public class UnitManager : MonoBehaviour
 
     public static UnitManager Instance { get; private set; }
 
-
+    // creates 3 lists
     private List<Unit> unitList;
     private List<Unit> friendlyUnitList;
     private List<Unit> enemyUnitList;
@@ -25,6 +25,7 @@ public class UnitManager : MonoBehaviour
         }
         Instance = this;
 
+        // initiates the lists
         unitList = new List<Unit>();
         friendlyUnitList = new List<Unit>();
         enemyUnitList = new List<Unit>();
@@ -32,16 +33,18 @@ public class UnitManager : MonoBehaviour
 
     private void Start()
     {
+        // subscribes to the events
         Unit.OnAnyUnitSpawned += Unit_OnAnyUnitSpawned;
         Unit.OnAnyUnitDead += Unit_OnAnyUnitDead;
     }
 
+    // event that checks if any unit has spawned by getting object from sender(unit script attached to unit)
     private void Unit_OnAnyUnitSpawned(object sender, EventArgs e)
     {
         Unit unit = sender as Unit;
 
         unitList.Add(unit);
-
+        //adds units to the lists
         if (unit.IsEnemy())
         {
             enemyUnitList.Add(unit);
@@ -52,7 +55,7 @@ public class UnitManager : MonoBehaviour
         }
         Debug.Log("Unit has spawned" + unit);
     }
-
+    // event that checks if any unit died deletes it from the lists
     private void Unit_OnAnyUnitDead(object sender, EventArgs e)
     {
         Unit unit = sender as Unit;

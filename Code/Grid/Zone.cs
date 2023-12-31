@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Zone : MonoBehaviour
 {
-    private List<Unit> unitsInZone = new List<Unit>();
+    private List<Unit> unitsInZone;
     private GridSystemVisual highlighter;
     [SerializeField] private bool IsWall = false;
 
     private void Start()
     {
         highlighter = GetComponent<GridSystemVisual>();
+        unitsInZone = new List<Unit>();
     }
 
 
@@ -32,6 +33,7 @@ public class Zone : MonoBehaviour
     }
     public void InitiateEliminationProcess(Zone zone)
     {
+        // using this to get units in zone list
         UnitCombat.Instance.TryEliminateUnits(unitsInZone, zone);
     }
 
@@ -69,6 +71,7 @@ public class Zone : MonoBehaviour
     }
     public Zone GetClickedZone(Vector3 mouseWorldPosition)
     {
+        // checks if you click on an object with collider and if it has zone component
         Collider2D collider = Physics2D.OverlapPoint(mouseWorldPosition, LayerMask.GetMask("GridPoints"));
 
         if (collider != null)
@@ -91,6 +94,7 @@ public class Zone : MonoBehaviour
     {
         if (highlighter != null)
         {
+            // no idea why this is like it
             highlighter.ResetHighlight();
         }
     }
@@ -104,11 +108,22 @@ public class Zone : MonoBehaviour
     }
     public List<Unit> ReturnAllyUnitsInZone()
     {
+        // returns a list of all allied units
         List<Unit> AllyUnits = new List<Unit>();
         foreach (Unit unit in unitsInZone)
         {
             if (!unit.IsEnemy()) AllyUnits.Add(unit);
         }
         return AllyUnits;
+    }
+    public List<Unit> ReturnEnemyUnitsInZone()
+    {
+        // returns a list of all allied units
+        List<Unit> EnemyUnits = new List<Unit>();
+        foreach (Unit unit in unitsInZone)
+        {
+            if (unit.IsEnemy()) EnemyUnits.Add(unit);
+        }
+        return EnemyUnits;
     }
 }

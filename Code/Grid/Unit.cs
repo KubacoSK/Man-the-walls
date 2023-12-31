@@ -39,11 +39,13 @@ public class Unit : MonoBehaviour
     }
     public void DoAction()
     {
+        // does action and increases actionpoints spent
         ActionPoints++;
         OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
     }
     public void DoAction(Zone IsWalledZone)
     {
+        // checks if zone in which units arrives is wall and if it is it increases points twice
         ActionPoints++;
         if (IsWalledZone.IsWallCheck()) ActionPoints++;
 
@@ -52,6 +54,7 @@ public class Unit : MonoBehaviour
 
     private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
     {
+        // checks if turn has changed and if it has then it resets action points for all units
         if ((IsEnemy() && !TurnSystem.Instance.IsPlayerTurn()) ||
             (!IsEnemy() && TurnSystem.Instance.IsPlayerTurn()))
         {
@@ -67,7 +70,19 @@ public class Unit : MonoBehaviour
     }
     public void IsDead()
     {
+        // triggers an event that removes units and kills it
         Destroy(gameObject);
         OnAnyUnitDead?.Invoke(this, EventArgs.Empty);
+    }
+    public Zone GetCurrentZone()
+    {
+        Collider2D collider = Physics2D.OverlapPoint(transform.position, LayerMask.GetMask("GridPoints"));
+
+        if (collider != null)
+        {
+            return collider.GetComponent<Zone>();
+        }
+
+        return null;
     }
 }
