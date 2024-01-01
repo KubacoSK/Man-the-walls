@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Runtime.InteropServices;
 
 public class EnemyAiMove : MonoBehaviour
 {
 
     public static EnemyAiMove Instance { get; private set; }
+    private Zone previousZone= null;
+    private Zone previousTargetZone = null;
     private void Awake()
     {
         if (Instance != null)
@@ -20,11 +24,11 @@ public class EnemyAiMove : MonoBehaviour
     {
         // Get valid zones for the current enemy unit
         List<Zone> validZones = enemyUnit.GetMoveAction().GetValidZonesList();
+        //we check if there are any further zones away with units in them
         List<Zone> ZonesToCheck = enemyUnit.GetMoveAction().CheckForAlliesToAttack();
         // Check if there are valid zones to move to
         if (validZones.Count > 0)
         {
-            Vector2 PositionTowhereMove = new Vector2();
             Zone TargetZone = null;
             Zone destinationZone = null;
             bool StayStill = false;
@@ -33,28 +37,49 @@ public class EnemyAiMove : MonoBehaviour
             {
                 if (zone.ReturnEnemyUnitsInZone().Count > 0)
                 {
-                    zone.transform.position = PositionTowhereMove;
+                    // if we detect zone with allied unit inside it we will get its name
                     TargetZone = zone;
+                    
                 }
             }
 
-
-            // Randomly choose a destination zone
-            if(TargetZone == null) destinationZone = validZones[UnityEngine.Random.Range(0, validZones.Count)];
+            // Randomly choose a destination zone if neither zone with enemy nor ally is within distance, if there is, this gets rewritten
+            destinationZone = validZones[UnityEngine.Random.Range(0, validZones.Count)];
             
-            else
+            if(TargetZone != null) 
             {
-                Vector2 VectorToDestination = enemyUnit.GetCurrentZone().transform.position - TargetZone.transform.position;
-                foreach(Zone zone in validZones)
+                // we get distance to our target position
+                Vector2 VectorToDestination = new Vector2(
+                Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x) - Mathf.Abs(TargetZone.transform.position.x),
+                Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y) - Mathf.Abs(TargetZone.transform.position.y));
+                //we get difference in x and y axis
+                float xdiff = VectorToDestination.x;
+                float ydiff = VectorToDestination.y;
+                foreach (Zone zone in validZones)
                 {
-                    if (Vector2.Equals(zone.transform.position, PositionTowhereMove)) 
+                    if (zone == TargetZone)
                     {
-                        TargetZone = destinationZone;
+                        // if our target zone is right beside our current zone we move there and skip our loop
+                        destinationZone = zone;
+                        TargetZone = null;
+                        StayStill = true;
+                        break;
+                    }
+                    else
+                    {
+                        // here it compares positions of zones and if zone is closer to the target than current zone is, it moves to it
+                        if (xdiff >= (Math.Abs(Mathf.Abs(zone.transform.position.x) - Mathf.Abs(TargetZone.transform.position.x))) &&
+                            ydiff >= (Math.Abs(Mathf.Abs(zone.transform.position.y) - Mathf.Abs(TargetZone.transform.position.y))))
+                        {
+                            destinationZone = zone;
+                            previousTargetZone = TargetZone;
+                        }
                     }
                 }
             }
             foreach (Zone zone in validZones)
             {
+                // if there is zone with enemy nierby it overrides destination zone to the one with enemy in it
                 if (zone.ReturnAllyUnitsInZone().Count > 0)
                 {
                     destinationZone = zone;
@@ -68,6 +93,7 @@ public class EnemyAiMove : MonoBehaviour
             float y = 0;
             foreach (Unit unitinzone in UnitsInZone)
             {
+                // standard so units dont overlap
                 x += 0.4f;
             }
             if (destinationZone.GetZoneSizeModifier().x == 1) y -= 0.4f;
@@ -78,6 +104,7 @@ public class EnemyAiMove : MonoBehaviour
             enemyUnit.GetMoveAction().Move(destinationposition);
             // moves to zone
             enemyUnit.DoAction(destinationZone);
+            previousZone = enemyUnit.GetCurrentZone();
             if (!StayStill) StartCoroutine(DelayedSecondMove(enemyUnit));
             else { enemyUnit.DoAction(); }
 
@@ -98,7 +125,39 @@ public class EnemyAiMove : MonoBehaviour
             List<Zone> validZones2 = enemyUnit.GetMoveAction().GetValidZonesList();
             if (validZones2.Count > 0)
             {
-                Zone seconddestinationZone = validZones2[UnityEngine.Random.Range(0, validZones2.Count)];
+                validZones2.Remove(previousZone);
+                Zone seconddestinationZone = null;
+
+
+                // Randomly choose a destination zone
+                seconddestinationZone = validZones2[UnityEngine.Random.Range(0, validZones2.Count)];
+
+                if (previousTargetZone != null)
+                {
+                    // everything is explained before
+                    Vector2 VectorToDestination = new Vector2(
+                    Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x) - Mathf.Abs(previousTargetZone.transform.position.x),
+                    Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y) - Mathf.Abs(previousTargetZone.transform.position.y));
+                    float xdiff = Math.Abs(VectorToDestination.x);
+                    float ydiff = Math.Abs(VectorToDestination.y);
+                    foreach (Zone zone in validZones2)
+                    {
+                        if (zone == previousTargetZone)
+                        {
+                            seconddestinationZone = zone;
+                            break;
+                        }
+                        else
+                        {
+                            if (xdiff >= (Math.Abs(Mathf.Abs(zone.transform.position.x) - Mathf.Abs(previousTargetZone.transform.position.x))) &&
+                                ydiff >= (Math.Abs(Mathf.Abs(zone.transform.position.y) - Mathf.Abs(previousTargetZone.transform.position.y))))
+                            {
+                                seconddestinationZone = zone;
+                            }
+                        }
+                    }
+                }
+                
                 foreach (Zone zone in validZones2)
                 {
                     if (zone.ReturnAllyUnitsInZone().Count > 0)

@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class MoveAction : MonoBehaviour
 {
-    [SerializeField] private float baseMoveDistance = 0.9f;
     private Vector2 targetPosition;
     private Unit selectedUnit;
     static List<Zone> zones;
@@ -76,8 +75,8 @@ public class MoveAction : MonoBehaviour
                 Vector2 zoneSize = zone.GetZoneSizeModifier();
 
                 // Calculate the enlarged box based on the zone's position and size
-                float enlargedWidth = zoneSize.x + baseMoveDistance;
-                float enlargedHeight = zoneSize.y + baseMoveDistance;
+                float enlargedWidth = zoneSize.x;
+                float enlargedHeight = zoneSize.y;
 
                 // Perform overlap check with the enlarged box
                 Collider2D[] adjustedColliders = Physics2D.OverlapBoxAll(zonePosition, new Vector2(enlargedWidth, enlargedHeight), 0);
@@ -119,8 +118,8 @@ public class MoveAction : MonoBehaviour
                 Vector2 zoneSize = zone.GetZoneSizeModifier();
 
                 // Calculate the enlarged box based on the zone's position and size
-                float enlargedWidth = zoneSize.x + 4.1f;
-                float enlargedHeight = zoneSize.y + 4.1f;
+                float enlargedWidth = (zoneSize.x / 2) + 10;
+                float enlargedHeight = (zoneSize.y / 2) + 10;
 
                 // Perform overlap check with the enlarged box
                 Collider2D[] adjustedColliders = Physics2D.OverlapBoxAll(zonePosition, new Vector2(enlargedWidth, enlargedHeight), 0);
@@ -129,10 +128,9 @@ public class MoveAction : MonoBehaviour
                 {
                     // makes zone variable from collider and then puts the zone into list
                     Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
-                    if (adjustedZone != null && !Enlargedzones.Contains(adjustedZone) && adjustedZone != zone && !(adjustedZone.GetUnitsInZone().Count > 1 && (adjustedZone.GetZoneSizeModifier().x == 1f || adjustedZone.GetZoneSizeModifier().y == 1f)))
+                    if (adjustedZone != null && !Enlargedzones.Contains(adjustedZone) && adjustedZone != zone)
                     {
                         Enlargedzones.Add(adjustedZone);
-
                     }
                 }
 
