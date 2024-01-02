@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 public class EnemyAiMove : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class EnemyAiMove : MonoBehaviour
     public static EnemyAiMove Instance { get; private set; }
     private Zone previousZone= null;
     private Zone previousTargetZone = null;
+
+    [SerializeField] private Zone CenterZone;
+
     private void Awake()
     {
         if (Instance != null)
@@ -32,17 +36,24 @@ public class EnemyAiMove : MonoBehaviour
             Zone TargetZone = null;
             Zone destinationZone = null;
             bool StayStill = false;
-            
-            foreach (Zone zone in ZonesToCheck)
+            enemyUnit.SetTurnMiddlePoints(-1);
+            if (enemyUnit.GetTurnMiddlePoints() > 0)
             {
-                if (zone.ReturnEnemyUnitsInZone().Count > 0)
+                foreach (Zone zone in ZonesToCheck)
                 {
-                    // if we detect zone with allied unit inside it we will get its name
-                    TargetZone = zone;
-                    
+                    if (zone.ReturnEnemyUnitsInZone().Count > 0)
+                    {
+                        // if we detect zone with allied unit inside it we will get its name
+                        TargetZone = zone;
+
+                    }
                 }
             }
-
+            else if (enemyUnit.GetTurnMiddlePoints() == 0)
+            {
+                TargetZone = CenterZone;
+                enemyUnit.SetTurnMiddlePoints(3);
+            }
             // Randomly choose a destination zone if neither zone with enemy nor ally is within distance, if there is, this gets rewritten
             destinationZone = validZones[UnityEngine.Random.Range(0, validZones.Count)];
             
@@ -50,11 +61,13 @@ public class EnemyAiMove : MonoBehaviour
             {
                 // we get distance to our target position
                 Vector2 VectorToDestination = new Vector2(
-                Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x) - Mathf.Abs(TargetZone.transform.position.x),
-                Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y) - Mathf.Abs(TargetZone.transform.position.y));
+                Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x - TargetZone.transform.position.x),
+                Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y - TargetZone.transform.position.y));
                 //we get difference in x and y axis
                 float xdiff = VectorToDestination.x;
                 float ydiff = VectorToDestination.y;
+                float totaldiff = xdiff + ydiff;
+                
                 foreach (Zone zone in validZones)
                 {
                     if (zone == TargetZone)
@@ -64,13 +77,17 @@ public class EnemyAiMove : MonoBehaviour
                         TargetZone = null;
                         StayStill = true;
                         break;
+                        
                     }
                     else
                     {
                         // here it compares positions of zones and if zone is closer to the target than current zone is, it moves to it
-                        if (xdiff >= (Math.Abs(Mathf.Abs(zone.transform.position.x) - Mathf.Abs(TargetZone.transform.position.x))) &&
-                            ydiff >= (Math.Abs(Mathf.Abs(zone.transform.position.y) - Mathf.Abs(TargetZone.transform.position.y))))
+                        if (totaldiff >= ((Math.Abs(zone.transform.position.x - TargetZone.transform.position.x)) +
+                                     (Math.Abs(zone.transform.position.y - TargetZone.transform.position.y))))
                         {
+                            xdiff = Math.Abs(zone.transform.position.x - TargetZone.transform.position.x);
+                            ydiff = Math.Abs(zone.transform.position.y - TargetZone.transform.position.y);
+                            totaldiff = xdiff + ydiff;
                             destinationZone = zone;
                             previousTargetZone = TargetZone;
                         }

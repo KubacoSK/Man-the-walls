@@ -8,6 +8,7 @@ public class Unit : MonoBehaviour
 {
     private MoveAction moveAction;
     private int ActionPoints;
+    private int TurnsTillGetToMiddle = 2;
 
     public static event EventHandler OnAnyActionPointsChanged;
     public static event EventHandler OnAnyUnitSpawned;
@@ -18,8 +19,6 @@ public class Unit : MonoBehaviour
     private void Awake()
     {
         moveAction = GetComponent<MoveAction>();
-
-        
     }
 
     private void Start()
@@ -84,5 +83,15 @@ public class Unit : MonoBehaviour
         }
 
         return null;
+    }
+
+    public int GetTurnMiddlePoints()
+    {
+        return TurnsTillGetToMiddle;
+    }
+
+    public void SetTurnMiddlePoints(int increaseNumber)
+    {
+        TurnsTillGetToMiddle += increaseNumber;
     }
 }
