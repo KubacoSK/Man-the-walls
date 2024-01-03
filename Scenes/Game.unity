@@ -3559,6 +3559,7 @@ Transform:
   - {fileID: 1043679275}
   - {fileID: 1381735968}
   - {fileID: 1924076275}
+  - {fileID: 1962010715}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &401069348 stripped
@@ -15513,6 +15514,56 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+--- !u!1 &1962010714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1962010715}
+  - component: {fileID: 1962010716}
+  m_Layer: 0
+  m_Name: EnemyUnitSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1962010715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962010714}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 399132316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1962010716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962010714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e2b9fb7bcbd6245a2cd8a432fe7055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnUnitTemplateEnemy: {fileID: 2752604977258448854, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+  EnemySpawnZones:
+  - {fileID: 1568143601}
+  - {fileID: 965694485}
+  - {fileID: 103994533}
+  - {fileID: 1406729004}
 --- !u!4 &1963568506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}

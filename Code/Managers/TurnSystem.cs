@@ -35,7 +35,7 @@ public class TurnSystem : MonoBehaviour
         isPlayerTurn = !isPlayerTurn;
         // invokes onTurnChanged event
         OnTurnChanged.Invoke(this, EventArgs.Empty);
-        
+        if (isPlayerTurn != false) EnemyUnitSpawner.Instance.SpawnEnemyAtTurn();
         foreach (Zone zone in allZones)
         {
             // if zone has more than 1 unit inside it it will do a combat method there

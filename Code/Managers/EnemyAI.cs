@@ -24,10 +24,12 @@ public class EnemyAI : MonoBehaviour
             return;
         }
         Instance = this;
+        enemyUnits = new List<Unit>();
     }
     private void Start()
     {
-        enemyUnits = UnitManager.Instance.GetEnemyUnitList();
+        Unit.OnAnyUnitSpawned += Unit_OnAnyUnitSpawned;
+        Unit.OnAnyUnitDead += Unit_OnAnyUnitDead;
     }
     void Update()
     {
@@ -88,5 +90,23 @@ public class EnemyAI : MonoBehaviour
     {
         // Remove the destroyed unit from the enemyUnits list
         enemyUnits.Remove(destroyedUnit);
+    }
+
+    private void Unit_OnAnyUnitSpawned(object sender, EventArgs e)
+    {
+        Unit unit = sender as Unit;
+        if (unit != null && unit.IsEnemy())
+        {
+            enemyUnits.Add(unit);
+            Debug.Log("added unit");
+        }
+    }
+    private void Unit_OnAnyUnitDead(object sender, EventArgs e)
+    {
+        Unit unit = sender as Unit;
+        if (unit != null && unit.IsEnemy())
+        {
+            enemyUnits.Remove(unit);
+        }
     }
 }
