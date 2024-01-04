@@ -27,7 +27,7 @@ public class UnitActionsSystem : MonoBehaviour
 
     private void Update()
     {
-        if (TurnSystem.Instance.IsPlayerTurn())
+        if (TurnSystem.Instance.IsPlayerTurn() && !PauseMenu.IsGamePaused())
         {
             if (selectedUnit != null)
             {
@@ -51,7 +51,7 @@ public class UnitActionsSystem : MonoBehaviour
     private void Movement()
     {
         // checks if we right clicked, unit isnt moving and selected unit has enough movement points
-        if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() < 2)
+        if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() < 2 && selectedUnit != null)
         {
 
             // Right-click to move the selected unit

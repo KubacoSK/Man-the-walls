@@ -10,8 +10,7 @@ public class CameraController : MonoBehaviour
     public float maxOrthographicSize = 10f;
     public float zoomSmoothness = 5f;
     private float targetOrthographicSize;
-
-    public float scrollSpeed;
+    public float scrollSpeed = 20;
 
 
     private void Update()
