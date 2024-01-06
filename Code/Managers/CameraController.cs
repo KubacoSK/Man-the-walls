@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     public float maxOrthographicSize = 10f;
     public float zoomSmoothness = 5f;
     private float targetOrthographicSize;
-    public float scrollSpeed = 20;
+    public float scrollSpeed = 5;
 
 
     private void Update()
@@ -48,10 +48,10 @@ public class CameraController : MonoBehaviour
     }
     private void CameraZoom()
     {
-
-        Vector3 Pos = transform.position;
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         targetOrthographicSize = Mathf.Clamp(Camera.main.orthographicSize - scroll * scrollSpeed * 100f * Time.deltaTime, minOrthographicSize, maxOrthographicSize);
-        Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetOrthographicSize, Time.deltaTime * zoomSmoothness);
+
+        // Instead of using Mathf.Lerp, directly set the orthographic size
+        Camera.main.orthographicSize = targetOrthographicSize;
     }
 }
