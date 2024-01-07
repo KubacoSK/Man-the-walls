@@ -31,6 +31,10 @@ public class TurnSystem : MonoBehaviour
         {
             AllyUnitSpawner.Instance.SpawnAllyAtTurn();
             turnNumber++;
+            if (turnNumber == 15)
+            {
+                GameManager.instance.Win();
+            }
         }
         isPlayerTurn = !isPlayerTurn;
         // invokes onTurnChanged event
