@@ -10,6 +10,8 @@ public class Unit : MonoBehaviour
     private int ActionPoints;
     private int TurnsTillGetToMiddle = 2;
 
+    [SerializeField] private bool IsHorse;
+
     public static event EventHandler OnAnyActionPointsChanged;
     public static event EventHandler OnAnyUnitSpawned;
     public static event EventHandler OnAnyUnitDead;
@@ -93,5 +95,10 @@ public class Unit : MonoBehaviour
     public void SetTurnMiddlePoints(int increaseNumber)
     {
         TurnsTillGetToMiddle += increaseNumber;
+    }
+
+    public bool GetHorse()
+    {
+        return IsHorse;
     }
 }

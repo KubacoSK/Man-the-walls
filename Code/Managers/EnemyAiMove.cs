@@ -61,8 +61,8 @@ public class EnemyAiMove : MonoBehaviour
             {
                 // we get distance to our target position
                 Vector2 VectorToDestination = new Vector2(
-                Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x - TargetZone.transform.position.x),
-                Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y - TargetZone.transform.position.y));
+                    Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x - TargetZone.transform.position.x),
+                    Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y - TargetZone.transform.position.y));
                 //we get difference in x and y axis
                 float xdiff = VectorToDestination.x;
                 float ydiff = VectorToDestination.y;

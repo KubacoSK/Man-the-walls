@@ -37,7 +37,13 @@ public class MoveAction : MonoBehaviour
         
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
-        if (selectedUnit != null && selectedUnit.GetMoveAction() != null && selectedUnit.GetActionPoints() < 2)
+
+        if (selectedUnit != null && selectedUnit.GetMoveAction() != null && selectedUnit.GetActionPoints() < 3 && selectedUnit.GetHorse())
+        {
+            validMoveZones = selectedUnit.GetMoveAction().GetValidZonesList();
+            HighlightValidMoveZones();
+        }
+        else if (selectedUnit != null && selectedUnit.GetMoveAction() != null && selectedUnit.GetActionPoints() < 2 && !selectedUnit.GetHorse())
         {
             validMoveZones = selectedUnit.GetMoveAction().GetValidZonesList();
             HighlightValidMoveZones();
