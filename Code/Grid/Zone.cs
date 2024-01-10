@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,19 @@ public class Zone : MonoBehaviour
 {
     private List<Unit> unitsInZone;
     private GridSystemVisual highlighter;
+    private bool IsUnderAllyControl;
+
+    [SerializeField] private Color enemyColor;
+    [SerializeField] private Color baseColor;
     [SerializeField] private bool IsWall = false;
+
+    public static event EventHandler ZoneControlChanged;
 
     private void Start()
     {
         highlighter = GetComponent<GridSystemVisual>();
         unitsInZone = new List<Unit>();
+        IsUnderAllyControl = true;
     }
 
 
@@ -27,6 +35,14 @@ public class Zone : MonoBehaviour
             {
                 ZoneManager.Instance.AddUnitToZone(unit, this);
                
+            }
+            if (unit.IsEnemy())
+            {
+                IsUnderAllyControl = false;
+            }
+            if (!unit.IsEnemy())
+            {
+                IsUnderAllyControl = true;
             }
         }
         
@@ -125,5 +141,10 @@ public class Zone : MonoBehaviour
             if (unit.IsEnemy()) EnemyUnits.Add(unit);
         }
         return EnemyUnits;
+    }
+
+    public bool IsUnderAllycont()
+    {
+        return IsUnderAllyControl;
     }
 }

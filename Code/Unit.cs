@@ -8,7 +8,7 @@ public class Unit : MonoBehaviour
 {
     private MoveAction moveAction;
     private int ActionPoints;
-    private int TurnsTillGetToMiddle = 2;
+    private int TurnsTillGetToMiddle = 1;
 
     [SerializeField] private bool IsHorse;
 
@@ -48,7 +48,7 @@ public class Unit : MonoBehaviour
     {
         // checks if zone in which units arrives is wall and if it is it increases points twice
         ActionPoints++;
-        if (IsWalledZone.IsWallCheck()) ActionPoints++;
+        if (IsWalledZone.IsWallCheck()) ActionPoints += 3;
 
         OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
     }

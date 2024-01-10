@@ -60,7 +60,6 @@ public class UnitActionsSystem : MonoBehaviour
                     // checks if we right clicked, unit isnt moving and selected unit has enough movement points
                     if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() < 3 && selectedUnit != null)
                     {
-                        Debug.Log("horse go go");
                         // Right-click to move the selected unit
                         Vector3 mouseWorldPosition = MouseWorld.GetPosition();
                         Zone clickedZone = GetClickedZone(mouseWorldPosition);
