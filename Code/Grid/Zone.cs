@@ -8,6 +8,7 @@ public class Zone : MonoBehaviour
     private List<Unit> unitsInZone;
     private GridSystemVisual highlighter;
     private bool IsUnderAllyControl;
+    private SpriteRenderer spriteRenderer;
 
     [SerializeField] private Color enemyColor;
     [SerializeField] private Color baseColor;
@@ -20,6 +21,9 @@ public class Zone : MonoBehaviour
         highlighter = GetComponent<GridSystemVisual>();
         unitsInZone = new List<Unit>();
         IsUnderAllyControl = true;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = baseColor;
+        
     }
 
 
@@ -39,11 +43,14 @@ public class Zone : MonoBehaviour
             if (unit.IsEnemy())
             {
                 IsUnderAllyControl = false;
+                spriteRenderer.color = enemyColor;
             }
             if (!unit.IsEnemy())
             {
                 IsUnderAllyControl = true;
+                spriteRenderer.color = baseColor;
             }
+            ZoneControlChanged?.Invoke(this, EventArgs.Empty);
         }
         
     }
