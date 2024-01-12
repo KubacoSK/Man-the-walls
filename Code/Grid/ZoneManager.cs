@@ -25,6 +25,7 @@ public class ZoneManager : MonoBehaviour
     private void Start()
     {
         Zone.ZoneControlChanged += Zone_ZoneControlChanged;
+        AlliedZones = zones;
     }
 
     public void AddUnitToZone(Unit unit, Zone zone)

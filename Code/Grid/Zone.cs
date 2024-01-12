@@ -12,6 +12,7 @@ public class Zone : MonoBehaviour
 
     [SerializeField] private Color enemyColor;
     [SerializeField] private Color baseColor;
+    private Color CurrentColor;
     [SerializeField] private bool IsWall = false;
 
     public static event EventHandler ZoneControlChanged;
@@ -22,7 +23,7 @@ public class Zone : MonoBehaviour
         unitsInZone = new List<Unit>();
         IsUnderAllyControl = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = baseColor;
+        CurrentColor = baseColor;
         
     }
 
@@ -43,12 +44,14 @@ public class Zone : MonoBehaviour
             if (unit.IsEnemy())
             {
                 IsUnderAllyControl = false;
-                spriteRenderer.color = enemyColor;
+                CurrentColor = enemyColor;
+                spriteRenderer.color = CurrentColor;
             }
             if (!unit.IsEnemy())
             {
                 IsUnderAllyControl = true;
-                spriteRenderer.color = baseColor;
+                CurrentColor = baseColor;
+                spriteRenderer.color = CurrentColor;
             }
             ZoneControlChanged?.Invoke(this, EventArgs.Empty);
         }
@@ -109,7 +112,7 @@ public class Zone : MonoBehaviour
     {
         if (highlighter != null)
         {
-            highlighter.Highlight();
+            highlighter.Highlight(this);
         }
     }
 
@@ -118,7 +121,7 @@ public class Zone : MonoBehaviour
         if (highlighter != null)
         {
             // no idea why this is like it
-            highlighter.ResetHighlight();
+            highlighter.ResetHighlight(this);
         }
     }
     public List<Unit> GetUnitsInZone()
@@ -153,5 +156,10 @@ public class Zone : MonoBehaviour
     public bool IsUnderAllycont()
     {
         return IsUnderAllyControl;
+    }
+
+    public Color ReturnCurrentColor()
+    {
+        return CurrentColor;
     }
 }

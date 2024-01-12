@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridSystemVisual : MonoBehaviour
 {
-    [SerializeField] private Color highlightColor = Color.blue;
+    private Color highlightColor = Color.blue;
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
@@ -15,14 +15,16 @@ public class GridSystemVisual : MonoBehaviour
         originalColor = spriteRenderer.color;
     }
 
-    public void Highlight()
+    public void Highlight(Zone zone)
     {
+        highlightColor = zone.ReturnCurrentColor();
+        highlightColor.a = 0.45f;
         spriteRenderer.color = highlightColor;
     }
 
-    public void ResetHighlight()
+    public void ResetHighlight(Zone zone)
     {
-        spriteRenderer.color = originalColor;
+        spriteRenderer.color = zone.ReturnCurrentColor();
     }
 
 }
