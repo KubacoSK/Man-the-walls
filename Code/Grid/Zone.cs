@@ -10,20 +10,32 @@ public class Zone : MonoBehaviour
     private bool IsUnderAllyControl;
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField] private Color neutralColor;
     [SerializeField] private Color enemyColor;
-    [SerializeField] private Color baseColor;
+    [SerializeField] private Color AllyColor;
     private Color CurrentColor;
+
     [SerializeField] private bool IsWall = false;
 
     public static event EventHandler ZoneControlChanged;
 
+    private void Awake()
+    {
+        unitsInZone = new List<Unit>();
+    }
     private void Start()
     {
         highlighter = GetComponent<GridSystemVisual>();
-        unitsInZone = new List<Unit>();
         IsUnderAllyControl = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        CurrentColor = baseColor;
+        if (unitsInZone.Exists(unit => unit.IsEnemy()))
+        {
+            ChangeControlToEnemy();
+        }
+        else 
+        {
+            ChangeControlToAlly();
+        }
         
     }
 
@@ -41,19 +53,6 @@ public class Zone : MonoBehaviour
                 ZoneManager.Instance.AddUnitToZone(unit, this);
                
             }
-            if (unit.IsEnemy())
-            {
-                IsUnderAllyControl = false;
-                CurrentColor = enemyColor;
-                spriteRenderer.color = CurrentColor;
-            }
-            if (!unit.IsEnemy())
-            {
-                IsUnderAllyControl = true;
-                CurrentColor = baseColor;
-                spriteRenderer.color = CurrentColor;
-            }
-            ZoneControlChanged?.Invoke(this, EventArgs.Empty);
         }
         
     }
@@ -161,5 +160,29 @@ public class Zone : MonoBehaviour
     public Color ReturnCurrentColor()
     {
         return CurrentColor;
+    }
+
+    public void ChangeControlToAlly()
+    {
+        IsUnderAllyControl = true;
+        CurrentColor = AllyColor;
+        spriteRenderer.color = CurrentColor;
+        ZoneControlChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void ChangeControlToEnemy()
+    {
+        IsUnderAllyControl = false;
+        CurrentColor = enemyColor;
+        spriteRenderer.color = CurrentColor;
+        ZoneControlChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void ChangeControlToNeutral()
+    {
+        IsUnderAllyControl = false;
+        CurrentColor = neutralColor;
+        spriteRenderer.color = CurrentColor;
+        ZoneControlChanged?.Invoke(this, EventArgs.Empty);
     }
 }

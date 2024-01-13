@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class UnitActionsSystem : MonoBehaviour
 {
@@ -97,6 +98,15 @@ public class UnitActionsSystem : MonoBehaviour
                                     IsMoving = true;
                                     selectedUnit.GetMoveAction().Move(centerPosition);
                                     selectedUnit.DoAction(clickedZone);
+                                    if(clickedZone.ReturnEnemyUnitsInZone().Count > 0)
+                                    {
+                                        clickedZone.ChangeControlToNeutral();
+                                        
+                                    }
+                                    else
+                                    {
+                                        clickedZone.ChangeControlToAlly();
+                                    }
                                 }
                             }
                         }
@@ -145,6 +155,16 @@ public class UnitActionsSystem : MonoBehaviour
                                     IsMoving = true;
                                     selectedUnit.GetMoveAction().Move(centerPosition);
                                     selectedUnit.DoAction(clickedZone);
+
+                                    if (clickedZone.ReturnEnemyUnitsInZone().Count > 0)
+                                    {
+                                        clickedZone.ChangeControlToNeutral();
+
+                                    }
+                                    else
+                                    {
+                                        clickedZone.ChangeControlToAlly();
+                                    }
                                 }
                             }
                         }

@@ -7,7 +7,7 @@ public class ZoneManager : MonoBehaviour
 {
     public static ZoneManager Instance { get; private set; }
 
-    [SerializeField] private List<Zone> zones = new List<Zone>();
+    [SerializeField] private List<Zone> zones;
     private List<Zone> AlliedZones;
     // has list of all zones and manages if units enter and exit them
 

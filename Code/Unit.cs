@@ -8,7 +8,7 @@ public class Unit : MonoBehaviour
 {
     private MoveAction moveAction;
     private int ActionPoints;
-    private int TurnsTillGetToMiddle = 1;
+    private int TurnsTillGetToMiddle = 2;
 
     [SerializeField] private bool IsHorse;
 
@@ -28,6 +28,10 @@ public class Unit : MonoBehaviour
         // subscribes to the event
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
+        if (isEnemy)
+        {
+            GetCurrentZone().ChangeControlToEnemy();
+        }
     }
     public MoveAction GetMoveAction()
     {
