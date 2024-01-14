@@ -122,17 +122,9 @@ public class EnemyAiMove : MonoBehaviour
             // moves to zone
             enemyUnit.DoAction(destinationZone);
             previousZone = enemyUnit.GetCurrentZone();
-            
             if (!StayStill) StartCoroutine(DelayedSecondMove(enemyUnit));
             else { enemyUnit.DoAction(); }
-            if (destinationZone.ReturnAllyUnitsInZone().Count > 0)
-            {
-                destinationZone.ChangeControlToNeutral();
-            }
-            else
-            {
-                destinationZone.ChangeControlToEnemy();
-            }
+
 
         }
         Camera.main.transform.position = enemyUnit.transform.position + new Vector3(0, 0, -10);
@@ -201,14 +193,6 @@ public class EnemyAiMove : MonoBehaviour
                 destinationposition.x += sx;
                 // Move the unit towards the chosen zone
                 enemyUnit.GetMoveAction().Move(destinationposition);
-                if (seconddestinationZone.ReturnAllyUnitsInZone().Count > 0)
-                {
-                    seconddestinationZone.ChangeControlToNeutral();
-                }
-                else
-                {
-                    seconddestinationZone.ChangeControlToEnemy();
-                }
                 enemyUnit.DoAction(seconddestinationZone);
             }
         }

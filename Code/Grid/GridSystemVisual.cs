@@ -7,18 +7,12 @@ public class GridSystemVisual : MonoBehaviour
     private Color highlightColor = Color.blue;
 
     private SpriteRenderer spriteRenderer;
+    private Color originalColor;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-        foreach (Zone zone in ZoneManager.GetAllZones())
-        {
-            if (zone.ReturnEnemyUnitsInZone().Count > 0)
-            {
-                zone.ChangeControlToEnemy();
-            }
-        }
+        originalColor = spriteRenderer.color;
     }
 
     public void Highlight(Zone zone)
