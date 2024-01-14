@@ -28,6 +28,11 @@ public class Unit : MonoBehaviour
         // subscribes to the event
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
+
+        if (isEnemy)
+        {
+            GetCurrentZone().ChangeControlToEnemy();
+        }
     }
     public MoveAction GetMoveAction()
     {

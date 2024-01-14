@@ -10,9 +10,12 @@ public class Zone : MonoBehaviour
     private bool IsUnderAllyControl;
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField] private int NumberOfCitizens = 1;
+    [SerializeField] private Color neutralColor;
     [SerializeField] private Color enemyColor;
-    [SerializeField] private Color baseColor;
+    [SerializeField] private Color AllyColor;
     private Color CurrentColor;
+
     [SerializeField] private bool IsWall = false;
 
     public static event EventHandler ZoneControlChanged;
@@ -23,8 +26,7 @@ public class Zone : MonoBehaviour
         unitsInZone = new List<Unit>();
         IsUnderAllyControl = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        CurrentColor = baseColor;
-        
+        CurrentColor = AllyColor;
     }
 
 
@@ -39,23 +41,10 @@ public class Zone : MonoBehaviour
             if (unit != null && !unitsInZone.Contains(unit))
             {
                 ZoneManager.Instance.AddUnitToZone(unit, this);
-               
+
             }
-            if (unit.IsEnemy())
-            {
-                IsUnderAllyControl = false;
-                CurrentColor = enemyColor;
-                spriteRenderer.color = CurrentColor;
-            }
-            if (!unit.IsEnemy())
-            {
-                IsUnderAllyControl = true;
-                CurrentColor = baseColor;
-                spriteRenderer.color = CurrentColor;
-            }
-            ZoneControlChanged?.Invoke(this, EventArgs.Empty);
         }
-        
+
     }
     public void InitiateEliminationProcess(Zone zone)
     {
@@ -70,7 +59,7 @@ public class Zone : MonoBehaviour
         {
             Unit unit = other.GetComponent<Unit>();
             ZoneManager.Instance.RemoveUnitFromZone(unit, this);
-            
+
         }
     }
 
@@ -78,9 +67,9 @@ public class Zone : MonoBehaviour
     {
         Collider2D collider = GetComponent<Collider2D>();
 
-            // Getting the size from the collider's bounds
-            Vector2 size = collider.bounds.size;
-            return size;
+        // Getting the size from the collider's bounds
+        Vector2 size = collider.bounds.size;
+        return size;
 
     }
 
@@ -161,5 +150,34 @@ public class Zone : MonoBehaviour
     public Color ReturnCurrentColor()
     {
         return CurrentColor;
+    }
+
+    public void ChangeControlToAlly()
+    {
+        IsUnderAllyControl = true;
+        CurrentColor = AllyColor;
+        spriteRenderer.color = CurrentColor;
+        ZoneControlChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void ChangeControlToEnemy()
+    {
+        IsUnderAllyControl = false;
+        CurrentColor = enemyColor;
+        spriteRenderer.color = CurrentColor;
+        ZoneControlChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void ChangeControlToNeutral()
+    {
+        IsUnderAllyControl = false;
+        CurrentColor = neutralColor;
+        spriteRenderer.color = CurrentColor;
+        ZoneControlChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public int GetNumberOfCitizens()
+    {
+        return NumberOfCitizens;
     }
 }

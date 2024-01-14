@@ -7,8 +7,9 @@ public class ZoneManager : MonoBehaviour
 {
     public static ZoneManager Instance { get; private set; }
 
-    [SerializeField] private List<Zone> zones = new List<Zone>();
-    private List<Zone> AlliedZones;
+    [SerializeField] private List<Zone> zones;
+    private static List<Zone> AlliedZones;  // Removed the assignment here
+
     // has list of all zones and manages if units enter and exit them
 
     private void Awake()
@@ -20,12 +21,14 @@ public class ZoneManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+        AlliedZones = new List<Zone>(zones);  // Initialize the list here
     }
 
     private void Start()
     {
         Zone.ZoneControlChanged += Zone_ZoneControlChanged;
-        AlliedZones = zones;
+        // Remove the line that assigns AlliedZones here
     }
 
     public void AddUnitToZone(Unit unit, Zone zone)
@@ -37,6 +40,7 @@ public class ZoneManager : MonoBehaviour
     {
         zone.RemoveUnit(unit);
     }
+
     public static List<Zone> GetAllZones()
     {
         return Instance.zones;
@@ -49,9 +53,14 @@ public class ZoneManager : MonoBehaviour
         {
             AlliedZones.Add(zone);
         }
-        else if(!zone.IsUnderAllycont() && AlliedZones.Contains(zone))
+        else if (!zone.IsUnderAllycont() && AlliedZones.Contains(zone))
         {
             AlliedZones.Remove(zone);
         }
+    }
+
+    public static List<Zone> ReturnAlliedZones()
+    {
+        return AlliedZones;
     }
 }
