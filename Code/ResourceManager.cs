@@ -8,7 +8,7 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance;
     private List<Zone> AlliedControlledZones;
-    private int NumberOfCitizens;
+    private float NumberOfCitizens;
 
     private void Awake()
     {
@@ -24,9 +24,9 @@ public class ResourceManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        AlliedControlledZones = new List<Zone>();
+        AlliedControlledZones = ZoneManager.ReturnAlliedZones();
         Zone.ZoneControlChanged += Zone_ZoneControlChanged;
+        TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
     }
 
     // Update is called once per frame
@@ -37,12 +37,27 @@ public class ResourceManager : MonoBehaviour
 
     public void Zone_ZoneControlChanged(object sender, EventArgs e)
     {
-        AlliedControlledZones.Clear();
-        AlliedControlledZones = ZoneManager.ReturnAlliedZones();
-        NumberOfCitizens = 0;
-        foreach (Zone zone in AlliedControlledZones)
+        Zone zone = sender as Zone;
+        if (zone.IsUnderAllycont() && !AlliedControlledZones.Contains(zone)) AlliedControlledZones.Add(zone);
+        if (!zone.IsUnderAllycont() && AlliedControlledZones.Contains(zone)) AlliedControlledZones.Remove(zone);
+    }
+
+    public void TurnSystem_OnTurnChanged(object sender, EventArgs e)
+    {
+        if (TurnSystem.Instance.IsPlayerTurn())
         {
-            NumberOfCitizens += zone.GetNumberOfCitizens();
+            
+            NumberOfCitizens = 0;
+            foreach (Zone zone in AlliedControlledZones)
+            {
+                zone.PopulationGrowth();
+                NumberOfCitizens += zone.GetNumberOfCitizens();
+            }
         }
+    }
+
+    public float GetNumberOfTotalPopulation()
+    {
+        return NumberOfCitizens;
     }
 }

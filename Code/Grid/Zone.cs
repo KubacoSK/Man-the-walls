@@ -10,7 +10,7 @@ public class Zone : MonoBehaviour
     private bool IsUnderAllyControl;
     private SpriteRenderer spriteRenderer;
 
-    [SerializeField] private int NumberOfCitizens = 1;
+    [SerializeField] private float NumberOfCitizens = 1;
     [SerializeField] private Color neutralColor;
     [SerializeField] private Color enemyColor;
     [SerializeField] private Color AllyColor;
@@ -176,8 +176,13 @@ public class Zone : MonoBehaviour
         ZoneControlChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    public int GetNumberOfCitizens()
+    public float GetNumberOfCitizens()
     {
         return NumberOfCitizens;
+    }
+
+    public void PopulationGrowth()
+    {
+        NumberOfCitizens = NumberOfCitizens * 1.15f + 0.2f;
     }
 }

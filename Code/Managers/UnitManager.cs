@@ -53,7 +53,6 @@ public class UnitManager : MonoBehaviour
         {
             friendlyUnitList.Add(unit);
         }
-        Debug.Log("Unit has spawned" + unit);
     }
     // event that checks if any unit died deletes it from the lists
     private void Unit_OnAnyUnitDead(object sender, EventArgs e)

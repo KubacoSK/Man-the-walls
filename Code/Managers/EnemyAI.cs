@@ -98,7 +98,6 @@ public class EnemyAI : MonoBehaviour
         if (unit != null && unit.IsEnemy())
         {
             enemyUnits.Add(unit);
-            Debug.Log("added unit");
         }
     }
     private void Unit_OnAnyUnitDead(object sender, EventArgs e)
