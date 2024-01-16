@@ -8,7 +8,7 @@ public class Unit : MonoBehaviour
 {
     private MoveAction moveAction;
     private int ActionPoints;
-    private int TurnsTillGetToMiddle = 1;
+    private int TurnsTillGetToMiddle = 2;
 
     [SerializeField] private bool IsHorse;
 

@@ -165,6 +165,7 @@ public class Zone : MonoBehaviour
         IsUnderAllyControl = false;
         CurrentColor = enemyColor;
         spriteRenderer.color = CurrentColor;
+        NumberOfCitizens = NumberOfCitizens * 0.4f;
         ZoneControlChanged?.Invoke(this, EventArgs.Empty);
     }
 

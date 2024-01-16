@@ -8,7 +8,7 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance;
     private List<Zone> AlliedControlledZones;
-    private float NumberOfCitizens;
+    private float totalPopulation;
 
     private void Awake()
     {
@@ -27,6 +27,10 @@ public class ResourceManager : MonoBehaviour
         AlliedControlledZones = ZoneManager.ReturnAlliedZones();
         Zone.ZoneControlChanged += Zone_ZoneControlChanged;
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+        foreach (Zone zone in AlliedControlledZones)
+        {
+            totalPopulation += zone.GetNumberOfCitizens();
+        }
     }
 
     // Update is called once per frame
@@ -47,17 +51,20 @@ public class ResourceManager : MonoBehaviour
         if (TurnSystem.Instance.IsPlayerTurn())
         {
             
-            NumberOfCitizens = 0;
+            totalPopulation = 0;
             foreach (Zone zone in AlliedControlledZones)
             {
                 zone.PopulationGrowth();
-                NumberOfCitizens += zone.GetNumberOfCitizens();
+                totalPopulation += zone.GetNumberOfCitizens();
+               
             }
+            Debug.Log(totalPopulation);
+            Debug.Log(AlliedControlledZones.Count);
         }
     }
 
     public float GetNumberOfTotalPopulation()
     {
-        return NumberOfCitizens;
+        return totalPopulation;
     }
 }

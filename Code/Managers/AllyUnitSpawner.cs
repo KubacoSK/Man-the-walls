@@ -1,21 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class AllyUnitSpawner : MonoBehaviour
-{
-    [SerializeField] private Unit SpawnUnitTemplate;
+{ 
     public static AllyUnitSpawner Instance;
-    private Vector2 SpawnPos = new Vector2 (14.1f, 17);
-    private int PosReset = 0;
+    [SerializeField] private Unit spawnUnitTemplate;  
+    private Vector2 spawnPos = new Vector2(14.1f, 17);
+    private int posReset = 0;
+    private const float HorizontalSpacing = 0.4f;
+    private const int UnitsPerRow = 5;
+    private const float RowSpacingX = -2f;
+    private const float RowSpacingY = 0.8f;
 
     private void Awake()
     {
         if (Instance != null)
         {
-            Debug.LogError("There is more than one UnitActionSystem! " + transform + " - " + Instance);
+            Debug.LogError("There is more than one AllyUnitSpawner! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
@@ -24,13 +25,18 @@ public class AllyUnitSpawner : MonoBehaviour
 
     public void SpawnAllyAtTurn()
     {
-        SpawnPos += new Vector2(0.4f, 0f);
-        Instantiate(SpawnUnitTemplate, SpawnPos, Quaternion.identity);
-        PosReset++;
-        if (PosReset == 5)
+        for (float i = ResourceManager.Instance.GetNumberOfTotalPopulation(); i >= 80; i -= 80)
         {
-            PosReset = 0;
-            SpawnPos += new Vector2(-2f, 0.8f);
-        }    
+            Debug.Log("Spawning unit based on population" + ResourceManager.Instance.GetNumberOfTotalPopulation());
+            spawnPos += new Vector2(HorizontalSpacing, 0f);
+            Instantiate(spawnUnitTemplate, spawnPos, Quaternion.identity);
+            posReset++;
+
+            if (posReset == UnitsPerRow)
+            {
+                posReset = 0;
+                spawnPos += new Vector2(RowSpacingX, RowSpacingY);
+            }
+        }
     }
 }
