@@ -58,8 +58,6 @@ public class ResourceManager : MonoBehaviour
                 totalPopulation += zone.GetNumberOfCitizens();
                
             }
-            Debug.Log(totalPopulation);
-            Debug.Log(AlliedControlledZones.Count);
         }
     }
 
