@@ -41,6 +41,7 @@ public class ResourceManager : MonoBehaviour
 
     public void Zone_ZoneControlChanged(object sender, EventArgs e)
     {
+        // checks if zone is changed to allied or enemy and removes it from the list
         Zone zone = sender as Zone;
         if (zone.IsUnderAllycont() && !AlliedControlledZones.Contains(zone)) AlliedControlledZones.Add(zone);
         if (!zone.IsUnderAllycont() && AlliedControlledZones.Contains(zone)) AlliedControlledZones.Remove(zone);
@@ -50,7 +51,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (TurnSystem.Instance.IsPlayerTurn())
         {
-            
+            // calcualtes total population based on controlled zones
             totalPopulation = 0;
             foreach (Zone zone in AlliedControlledZones)
             {
