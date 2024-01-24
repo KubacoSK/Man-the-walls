@@ -10,12 +10,14 @@ public class Zone : MonoBehaviour
     private bool IsUnderAllyControl;
     private SpriteRenderer spriteRenderer;
 
-    [SerializeField] private float NumberOfCitizens = 1;
+    
     [SerializeField] private Color neutralColor;
     [SerializeField] private Color enemyColor;
     [SerializeField] private Color AllyColor;
     private Color CurrentColor;
-
+    [SerializeField] private float NumberOfCitizens = 1;
+    [SerializeField] private int numberOfAetherium = 0;
+    [SerializeField] private int numberOfFuel = 0;
     [SerializeField] private bool IsWall = false;
 
     public static event EventHandler ZoneControlChanged;

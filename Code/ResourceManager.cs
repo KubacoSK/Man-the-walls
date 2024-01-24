@@ -8,6 +8,9 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance;
     private List<Zone> AlliedControlledZones;
+
+    private int totalFuel;
+    private int totalAetherium;
     private float totalPopulation;
 
     private void Awake()
