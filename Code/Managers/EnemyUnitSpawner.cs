@@ -20,6 +20,7 @@ public class EnemyUnitSpawner : MonoBehaviour
     }
     public void SpawnEnemyAtTurn()
     {
+        // spawn enemy units
         Instantiate(SpawnUnitTemplateEnemy, EnemySpawnZones[UnityEngine.Random.Range(0, 4)].transform.position, Quaternion.identity);
         Instantiate(SpawnUnitTemplateEnemy, EnemySpawnZones[UnityEngine.Random.Range(0, 4)].transform.position, Quaternion.identity);
     }
