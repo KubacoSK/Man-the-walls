@@ -35,7 +35,11 @@ public class TurnSystemUI : MonoBehaviour
     }
     private void UpdateTurnText()
     {
-        turnNumberText.text = "TURN " + TurnSystem.Instance.GetTurnNumber();
+        if(TurnSystem.Instance.GetTurnNumber() < 10)
+            turnNumberText.text = "00" + TurnSystem.Instance.GetTurnNumber();
+        else if (TurnSystem.Instance.GetTurnNumber() < 100)
+            turnNumberText.text = "0" + TurnSystem.Instance.GetTurnNumber();
+        else turnNumberText.text = "" + TurnSystem.Instance.GetTurnNumber();
     }
 
     private void UpdateEnemyTurnVisual()
