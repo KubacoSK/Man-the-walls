@@ -53,9 +53,7 @@ public class UnitCombat : MonoBehaviour
 
 
             allyStrength += randomElementally;
-            Debug.Log("ally strength is " + allyStrength);
             enemyStrength += randomElementenemy;
-            Debug.Log("enemy strength is " + enemyStrength);
             // Perform elimination logic (e.g., destroy the unit)
             if (allyStrength > enemyStrength)
             {

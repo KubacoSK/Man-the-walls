@@ -16,8 +16,12 @@ public class Zone : MonoBehaviour
     [SerializeField] private Color AllyColor;
     private Color CurrentColor;
     [SerializeField] private float NumberOfCitizens = 1;
-    [SerializeField] private int numberOfAetherium = 0;
-    [SerializeField] private int numberOfFuel = 0;
+    [SerializeField] private int numberOfBlueCrystal = 0;
+    public int NumberOfBlueCrystal { get { return numberOfBlueCrystal; } private set { numberOfBlueCrystal = value; } }
+    [SerializeField] private int numberOfRedCrystal = 0;
+    public int NumberOFRedCrystal { get { return numberOfRedCrystal; } private set { numberOfRedCrystal = value; } }
+    [SerializeField] private int numberOfCoal = 0;
+    public int NumberOfCoal { get { return numberOfCoal; } private set { numberOfCoal = value; } }
     [SerializeField] private bool IsWall = false;
 
     public static event EventHandler ZoneControlChanged;
@@ -188,4 +192,6 @@ public class Zone : MonoBehaviour
     {
         NumberOfCitizens = NumberOfCitizens * 1.15f + 0.2f;
     }
+
+
 }
