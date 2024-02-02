@@ -3,15 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance;
     private List<Zone> AlliedControlledZones;
 
-    private int totalFuel;
-    private int totalAetherium;
     private float totalPopulation;
+
+    private int coalCount;
+    public int CoalCount { get { return coalCount; } }
+    private int redCryCount;
+    public int RedCryCount {  get { return redCryCount; } }
+    private int blueCryCount;
+    public int BlueCryCount { get { return blueCryCount; } }
+
+    private int coalIncome;
+    public int CoalIncome {  get { return coalIncome; } }
+    private int redCIncome;
+    public int RedCIncome {  get { return redCIncome; } }
+    private int bluIncome;
+    public int BluIncome { get { return bluIncome; } }
 
     private void Awake()
     {
@@ -24,8 +37,7 @@ public class ResourceManager : MonoBehaviour
         }
         Instance = this;
     }
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         AlliedControlledZones = ZoneManager.ReturnAlliedZones();
         Zone.ZoneControlChanged += Zone_ZoneControlChanged;
@@ -34,12 +46,34 @@ public class ResourceManager : MonoBehaviour
         {
             totalPopulation += zone.GetNumberOfCitizens();
         }
+        foreach (Zone zone in ZoneManager.ReturnAlliedZones())
+        {
+            coalIncome += zone.NumberOfCoal;
+            redCIncome += zone.NumberOFRedCrystal;
+            bluIncome += zone.NumberOfBlueCrystal;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateResourceIncome(Zone zone)
     {
-
+        if (zone.IsUnderAllycont())
+        {
+            coalIncome += zone.NumberOfCoal;
+            redCIncome += zone.NumberOFRedCrystal;
+            bluIncome += zone.NumberOfBlueCrystal;
+        }
+        else
+        {
+            coalIncome -= zone.NumberOfCoal;
+            redCIncome -= zone.NumberOFRedCrystal;
+            bluIncome -= zone.NumberOfBlueCrystal;
+        }
+    }
+    private void UpdateResources()
+    {
+        coalCount += coalIncome;
+        redCryCount += redCIncome;
+        blueCryCount += bluIncome;
     }
 
     public void Zone_ZoneControlChanged(object sender, EventArgs e)
@@ -48,6 +82,7 @@ public class ResourceManager : MonoBehaviour
         Zone zone = sender as Zone;
         if (zone.IsUnderAllycont() && !AlliedControlledZones.Contains(zone)) AlliedControlledZones.Add(zone);
         if (!zone.IsUnderAllycont() && AlliedControlledZones.Contains(zone)) AlliedControlledZones.Remove(zone);
+        UpdateResourceIncome(zone);
     }
 
     public void TurnSystem_OnTurnChanged(object sender, EventArgs e)
@@ -59,9 +94,9 @@ public class ResourceManager : MonoBehaviour
             foreach (Zone zone in AlliedControlledZones)
             {
                 zone.PopulationGrowth();
-                totalPopulation += zone.GetNumberOfCitizens();
-               
+                totalPopulation += zone.GetNumberOfCitizens();  
             }
+
         }
     }
 
