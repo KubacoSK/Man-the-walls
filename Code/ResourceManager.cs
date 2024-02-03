@@ -96,6 +96,7 @@ public class ResourceManager : MonoBehaviour
                 zone.PopulationGrowth();
                 totalPopulation += zone.GetNumberOfCitizens();  
             }
+            UpdateResources();
 
         }
     }
