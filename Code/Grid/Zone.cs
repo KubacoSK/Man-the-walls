@@ -14,15 +14,20 @@ public class Zone : MonoBehaviour
     [SerializeField] private Color neutralColor;
     [SerializeField] private Color enemyColor;
     [SerializeField] private Color AllyColor;
-    private Color CurrentColor;
+    private Color CurrentColor;   
+    [SerializeField] private bool IsWall = false;
     [SerializeField] private float NumberOfCitizens = 1;
+
     [SerializeField] private int numberOfBlueCrystal = 0;
     public int NumberOfBlueCrystal { get { return numberOfBlueCrystal; } private set { numberOfBlueCrystal = value; } }
     [SerializeField] private int numberOfRedCrystal = 0;
     public int NumberOFRedCrystal { get { return numberOfRedCrystal; } private set { numberOfRedCrystal = value; } }
     [SerializeField] private int numberOfCoal = 0;
     public int NumberOfCoal { get { return numberOfCoal; } private set { numberOfCoal = value; } }
-    [SerializeField] private bool IsWall = false;
+    [SerializeField] public int numberOfSteel = 0;
+    public int NumberOfSteel { get { return numberOfSteel; } private set { numberOfSteel = value; } }
+    // sets the resources for each tile
+
 
     public static event EventHandler ZoneControlChanged;
 
@@ -168,6 +173,7 @@ public class Zone : MonoBehaviour
 
     public void ChangeControlToEnemy()
     {
+        // changes control of a zone if enemy attacks it
         IsUnderAllyControl = false;
         CurrentColor = enemyColor;
         spriteRenderer.color = CurrentColor;
@@ -177,6 +183,7 @@ public class Zone : MonoBehaviour
 
     public void ChangeControlToNeutral()
     {
+        // changes control of a zone if enemy attacks it and there is ally on it
         IsUnderAllyControl = false;
         CurrentColor = neutralColor;
         spriteRenderer.color = CurrentColor;

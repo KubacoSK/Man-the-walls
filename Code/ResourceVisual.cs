@@ -9,10 +9,12 @@ public class ResourceVisual : MonoBehaviour
     [SerializeField] private TextMeshProUGUI CoalCountText;
     [SerializeField] private TextMeshProUGUI RedCrysCountText;
     [SerializeField] private TextMeshProUGUI BlueCrysCountText;
+    [SerializeField] private TextMeshProUGUI SteelCountText;
 
     [SerializeField] private TextMeshProUGUI CoalIncomeText;
     [SerializeField] private TextMeshProUGUI RedCIncomeText;
     [SerializeField] private TextMeshProUGUI BluCIncomeText;
+    [SerializeField] private TextMeshProUGUI SteelIncomeText;
 
     void Start()
     {
@@ -41,12 +43,15 @@ public class ResourceVisual : MonoBehaviour
         CoalCountText.text = "" + ResourceManager.Instance.CoalCount;
         RedCrysCountText.text = "" + ResourceManager.Instance.RedCryCount;
         BlueCrysCountText.text = "" + ResourceManager.Instance.BlueCryCount;
+        SteelCountText.text = "" + ResourceManager.Instance.SteelCount;
     }
     private void UpdateResourceIncomeVisual()
     {
         CoalIncomeText.text = "+" + ResourceManager.Instance.CoalIncome;
         RedCIncomeText.text = "+" + ResourceManager.Instance.RedCIncome;
         BluCIncomeText.text = "+" + ResourceManager.Instance.BluIncome;
+        SteelIncomeText.text = "+" + ResourceManager.Instance.SteelIncome;
+
     }
 
     private void AddResources()

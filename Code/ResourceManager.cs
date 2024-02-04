@@ -18,6 +18,8 @@ public class ResourceManager : MonoBehaviour
     public int RedCryCount {  get { return redCryCount; } }
     private int blueCryCount;
     public int BlueCryCount { get { return blueCryCount; } }
+    private int steelCount;
+    public int SteelCount { get { return steelCount; } }
 
     private int coalIncome;
     public int CoalIncome {  get { return coalIncome; } }
@@ -25,6 +27,8 @@ public class ResourceManager : MonoBehaviour
     public int RedCIncome {  get { return redCIncome; } }
     private int bluIncome;
     public int BluIncome { get { return bluIncome; } }
+    private int steelIncome;
+    public int SteelIncome { get { return steelIncome; } }
 
     private void Awake()
     {
@@ -42,6 +46,7 @@ public class ResourceManager : MonoBehaviour
         AlliedControlledZones = ZoneManager.ReturnAlliedZones();
         Zone.ZoneControlChanged += Zone_ZoneControlChanged;
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+        // sets up system so it shows even on first turn
         foreach (Zone zone in AlliedControlledZones)
         {
             totalPopulation += zone.GetNumberOfCitizens();
@@ -51,29 +56,35 @@ public class ResourceManager : MonoBehaviour
             coalIncome += zone.NumberOfCoal;
             redCIncome += zone.NumberOFRedCrystal;
             bluIncome += zone.NumberOfBlueCrystal;
+            steelIncome += zone.NumberOfSteel;
         }
     }
 
     private void UpdateResourceIncome(Zone zone)
     {
+        // adjusts the income based on zone that was taken
         if (zone.IsUnderAllycont())
         {
             coalIncome += zone.NumberOfCoal;
             redCIncome += zone.NumberOFRedCrystal;
             bluIncome += zone.NumberOfBlueCrystal;
+            steelIncome += zone.NumberOfSteel;
         }
         else
         {
             coalIncome -= zone.NumberOfCoal;
             redCIncome -= zone.NumberOFRedCrystal;
             bluIncome -= zone.NumberOfBlueCrystal;
+            steelIncome -= zone.NumberOfSteel;
         }
     }
     private void UpdateResources()
     {
+        // Increases number of resources based of income
         coalCount += coalIncome;
         redCryCount += redCIncome;
         blueCryCount += bluIncome;
+        steelCount += steelIncome;
     }
 
     public void Zone_ZoneControlChanged(object sender, EventArgs e)
