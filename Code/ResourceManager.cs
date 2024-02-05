@@ -13,13 +13,13 @@ public class ResourceManager : MonoBehaviour
     private float totalPopulation;
 
     private int coalCount;
-    public int CoalCount { get { return coalCount; } }
+    public int CoalCount { get { return coalCount; } set { coalCount = value; } }
     private int redCryCount;
-    public int RedCryCount {  get { return redCryCount; } }
+    public int RedCryCount {  get { return redCryCount; } set { redCryCount = value; } }
     private int blueCryCount;
-    public int BlueCryCount { get { return blueCryCount; } }
+    public int BlueCryCount { get { return blueCryCount; } set { blueCryCount = value; } }
     private int steelCount;
-    public int SteelCount { get { return steelCount; } }
+    public int SteelCount { get { return steelCount; } set { steelCount = value; } }
 
     private int coalIncome;
     public int CoalIncome {  get { return coalIncome; } }

@@ -3178,7 +3178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Spawn Tank
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6813,11 +6813,11 @@ RectTransform:
   - {fileID: 384744488}
   m_Father: {fileID: 779535753}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -765.5528, y: 315.10364}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -872.6, y: 396.8}
   m_SizeDelta: {x: 286.8944, y: 53.7927}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &294949781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6839,10 +6839,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.8930817, g: 0.8930817, b: 0.8930817, a: 1}
+    m_HighlightedColor: {r: 0.6289307, g: 0.6289307, b: 0.6289307, a: 1}
+    m_PressedColor: {r: 0.5345911, g: 0.5345911, b: 0.5345911, a: 1}
+    m_SelectedColor: {r: 0.7987421, g: 0.7987421, b: 0.7987421, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6861,7 +6861,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 294949782}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 779535754}
+        m_TargetAssemblyTypeName: PaidUnitsSpawner, Assembly-CSharp
+        m_MethodName: SpawnTankUnit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &294949782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9071,8 +9083,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43.447, y: 51.896}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 1.4550018, y: 48.7511}
+  m_SizeDelta: {x: 289.804, y: 43.7102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384744489
 MonoBehaviour:
@@ -9094,7 +9106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Create Tank
+  m_text: 'Tank Cost: 4 steel'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15430,6 +15442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 779535753}
+  - component: {fileID: 779535754}
   m_Layer: 5
   m_Name: SpawnMenu
   m_TagString: Untagged
@@ -15452,11 +15465,23 @@ RectTransform:
   - {fileID: 294949780}
   m_Father: {fileID: 872046196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 910, y: -490}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &779535754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779535752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c84f95eb9289884cb3e1481d83d921d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &780775663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
@@ -35381,6 +35406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053ed14ed8c9f2e499adfc3a35402d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnTankUnit: {fileID: 0}
+  tankUnit: {fileID: 2423062980567016648, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
   spawnUnitTemplate: {fileID: 2423062980567016648, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
 --- !u!4 &1924468819 stripped
 Transform:

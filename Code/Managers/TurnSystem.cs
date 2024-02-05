@@ -29,6 +29,7 @@ public class TurnSystem : MonoBehaviour
         // moves between turns and increases number
         if (isPlayerTurn)
         {
+            AllyUnitSpawner.Instance.ResetPaidSpawnedUnits();
             AllyUnitSpawner.Instance.SpawnAllyAtTurn();
             turnNumber++;
             if (turnNumber == 15)

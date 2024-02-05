@@ -1,9 +1,14 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AllyUnitSpawner : MonoBehaviour
 { 
     public static AllyUnitSpawner Instance;
+
+
+    [SerializeField] private Button SpawnTankUnit;
+    [SerializeField] private Unit tankUnit;
     [SerializeField] private Unit spawnUnitTemplate;  
     private Vector2 spawnPos = new Vector2(14.1f, 17);
     private int posReset = 0;
@@ -11,6 +16,9 @@ public class AllyUnitSpawner : MonoBehaviour
     private const int UnitsPerRow = 5;
     private const float RowSpacingX = -2f;
     private const float RowSpacingY = 0.8f;
+
+    private int SpawnedPaidUnitsThisTurn = 0;
+    private int PaidUnitsSpawnLimit = 1;
 
     private void Awake()
     {
@@ -22,7 +30,10 @@ public class AllyUnitSpawner : MonoBehaviour
         }
         Instance = this;
     }
-
+    public void ResetPaidSpawnedUnits()
+    {
+        SpawnedPaidUnitsThisTurn = 0;
+    }
     public void SpawnAllyAtTurn()
     {
         for (float i = ResourceManager.Instance.GetNumberOfTotalPopulation(); i >= 80; i -= 80) // spawn units with offset based of how many of them were spawned
@@ -38,5 +49,25 @@ public class AllyUnitSpawner : MonoBehaviour
                 spawnPos += new Vector2(RowSpacingX, RowSpacingY);
             }
         }
+    }
+
+    public void SpawnTank()
+    {
+        if (DoesItHaveEnoughResources(4, 0 ,0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
+        {
+            Instantiate(spawnUnitTemplate, new Vector2(16,16), Quaternion.identity);
+            SpawnedPaidUnitsThisTurn += 1;
+            ResourceManager.Instance.SteelCount -= 4;
+        }
+    }
+    private bool DoesItHaveEnoughResources(int Steel, int Bcrys, int Rcrys)
+    {
+        if (ResourceManager.Instance.SteelCount >= Steel &&
+            ResourceManager.Instance.BlueCryCount >= Bcrys &&
+            ResourceManager.Instance.RedCryCount >= Rcrys) 
+        {
+            return true;
+        }
+        return false;
     }
 }
