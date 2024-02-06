@@ -43,9 +43,10 @@ public class UnitCombat : MonoBehaviour
         // If there is at least one ally and one enemy, randomly eliminate one of them
         if (allyUnits.Count > 0 && enemyUnits.Count > 0)
         {
-            int allyStrength = allyUnits.Count * 3; // increases allied strength based number of allies in zone
-
-            int enemyStrength = enemyUnits.Count * 2;
+            int allyStrength = 0;
+            int enemyStrength = 0;
+            foreach (Unit unit in allyUnits) allyStrength += unit.GetStrength(); // increases allied strength based number of allies in zone
+            foreach (Unit unit in enemyUnits) enemyStrength += unit.GetStrength();
             if (thiszone.IsWallCheck() == true) allyStrength += 3; // if we are fighting on a wall we add more power
 
             int randomElementally = Random.Range(0, 7);

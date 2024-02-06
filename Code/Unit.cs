@@ -6,18 +6,19 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    private MoveAction moveAction;
-    private int ActionPoints;
-    private int TurnsTillGetToMiddle = 2;
+    protected MoveAction moveAction;
+    protected int ActionPoints;
+    protected int TurnsTillGetToMiddle = 2;
 
-    [SerializeField] private bool IsHorse;
+   
 
     public static event EventHandler OnAnyActionPointsChanged;
     public static event EventHandler OnAnyUnitSpawned;
     public static event EventHandler OnAnyUnitDead;
 
-
-    [SerializeField] private bool isEnemy;
+    [SerializeField] protected int Strength = 3;
+    [SerializeField] protected bool IsHorse;
+    [SerializeField] protected bool isEnemy;
     private void Awake()
     {
         moveAction = GetComponent<MoveAction>();
@@ -25,6 +26,8 @@ public class Unit : MonoBehaviour
 
     private void Start()
     {
+        if (isEnemy) Strength -= 1;
+            
         // subscribes to the event
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
@@ -33,6 +36,10 @@ public class Unit : MonoBehaviour
         {
             GetCurrentZone().ChangeControlToEnemy();
         }
+    }
+    public int GetStrength()
+    {
+        return Strength; 
     }
     public MoveAction GetMoveAction()
     {
