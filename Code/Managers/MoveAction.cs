@@ -46,12 +46,7 @@ public class MoveAction : MonoBehaviour
             // Reset the timer
             highlightTimer = 0.0f;
 
-            if (selectedUnit != null && selectedUnit.GetMoveAction() != null && selectedUnit.GetActionPoints() < 3 && selectedUnit.GetHorse())
-            {
-                validMoveZones = selectedUnit.GetMoveAction().GetValidZonesList();
-                HighlightValidMoveZones();
-            }
-            else if (selectedUnit != null && selectedUnit.GetMoveAction() != null && selectedUnit.GetActionPoints() < 2 && !selectedUnit.GetHorse())
+            if (selectedUnit != null && selectedUnit.GetMoveAction() != null && selectedUnit.GetActionPoints() > 0)
             {
                 validMoveZones = selectedUnit.GetMoveAction().GetValidZonesList();
                 HighlightValidMoveZones();

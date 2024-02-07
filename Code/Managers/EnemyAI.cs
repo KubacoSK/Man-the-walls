@@ -77,7 +77,7 @@ public class EnemyAI : MonoBehaviour
         // checks if enemy units have any movement points left and if not, it ends turn
         foreach (Unit enemyUnit in enemyUnits)
         {
-            if (enemyUnit != null && enemyUnit.GetActionPoints() < 2)
+            if (enemyUnit != null && enemyUnit.GetActionPoints() > 0)
             {
                 return false;
             }

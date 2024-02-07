@@ -52,69 +52,8 @@ public class UnitActionsSystem : MonoBehaviour
     {
         if (selectedUnit != null)
         {
-            switch (selectedUnit.GetHorse())
-            {
 
-                case true:
-
-                    // checks if we right clicked, unit isnt moving and selected unit has enough movement points
-                    if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() < 3 && selectedUnit != null)
-                    {
-                        // Right-click to move the selected unit
-                        Vector3 mouseWorldPosition = MouseWorld.GetPosition();
-                        Zone clickedZone = GetClickedZone(mouseWorldPosition);
-
-                        // checks if we clicked on zone and not on some empty space
-                        if (clickedZone != null)
-                        {
-                            // gets list of close zones from MoveAction class
-                            List<Zone> validZones = selectedUnit.GetMoveAction().GetValidZonesList();
-
-                            if (IsValidClickedZone(clickedZone, validZones))
-                            {
-                                List<Unit> UnitsInZone = clickedZone.GetUnitsInZone();
-                                float x = 0;
-                                float y = 0;
-                                // moves unit on x and y axis depending on number of units inside the zone
-                                foreach (Unit unitinzone in UnitsInZone)
-                                {
-                                    x -= 0.4f;
-                                    if (x < -0.8f)
-                                    {
-                                        y += -0.8f;
-                                        x = 0;
-                                    }
-                                }
-                                if (clickedZone.GetZoneSizeModifier().x == 1) y += 0.4f;
-
-                                // gets center position of the clicked zone
-                                centerPosition = clickedZone.transform.position;
-                                centerPosition.x += x;
-                                centerPosition.y += y;
-                                if (selectedUnit != null)
-                                {
-                                    // moves to to position
-                                    IsMoving = true;
-                                    selectedUnit.GetMoveAction().Move(centerPosition);
-                                    selectedUnit.DoAction(clickedZone);
-                                    if (clickedZone.ReturnEnemyUnitsInZone().Count > 0)
-                                    {
-                                        clickedZone.ChangeControlToNeutral();
-
-                                    }
-                                    else
-                                    {
-                                        clickedZone.ChangeControlToAlly();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    break;
-
-                case false:
-
-                    if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() < 2 && selectedUnit != null)
+                    if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() > 0 && selectedUnit != null)
                     {
 
                         // Right-click to move the selected unit
@@ -167,10 +106,8 @@ public class UnitActionsSystem : MonoBehaviour
                             }
                         }
                     }
-                    break;
             }
         }
-    }
 
     private bool IsValidClickedZone(Zone clickedZone, List<Zone> validZones)
     {

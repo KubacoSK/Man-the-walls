@@ -7,17 +7,15 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     protected MoveAction moveAction;
-    protected int ActionPoints;
-    protected int TurnsTillGetToMiddle = 2;
-
-   
 
     public static event EventHandler OnAnyActionPointsChanged;
     public static event EventHandler OnAnyUnitSpawned;
     public static event EventHandler OnAnyUnitDead;
 
-    [SerializeField] protected int Strength = 3;
-    [SerializeField] protected bool IsHorse;
+    protected int ActionPoints = 2;
+    protected int maxActionPoints = 2;
+    protected int TurnsTillGetToMiddle = 2;
+    [SerializeField] protected int strength = 3;
     [SerializeField] protected bool isEnemy;
     private void Awake()
     {
@@ -26,7 +24,7 @@ public class Unit : MonoBehaviour
 
     private void Start()
     {
-        if (isEnemy) Strength -= 1;
+        if (isEnemy) strength -= 1;
             
         // subscribes to the event
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
@@ -39,7 +37,7 @@ public class Unit : MonoBehaviour
     }
     public int GetStrength()
     {
-        return Strength; 
+        return strength; 
     }
     public MoveAction GetMoveAction()
     {
@@ -50,17 +48,16 @@ public class Unit : MonoBehaviour
     {
         return ActionPoints;
     }
-    public void DoAction()
+
+    public int GetMaxActionPoints()
     {
-        // does action and increases actionpoints spent
-        ActionPoints++;
-        OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
+        return maxActionPoints;
     }
     public void DoAction(Zone IsWalledZone)
     {
         // checks if zone in which units arrives is wall and if it is it increases points twice
-        ActionPoints++;
-        if (IsWalledZone.IsWallCheck()) ActionPoints += 3;
+        ActionPoints--;
+        if (IsWalledZone.IsWallCheck()) ActionPoints -= 3;
 
         OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
     }
@@ -71,7 +68,7 @@ public class Unit : MonoBehaviour
         if ((IsEnemy() && !TurnSystem.Instance.IsPlayerTurn()) ||
             (!IsEnemy() && TurnSystem.Instance.IsPlayerTurn()))
         {
-            ActionPoints = 0;
+            ActionPoints = maxActionPoints;
 
             OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
         }
@@ -109,8 +106,4 @@ public class Unit : MonoBehaviour
         TurnsTillGetToMiddle += increaseNumber;
     }
 
-    public bool GetHorse()
-    {
-        return IsHorse;
-    }
 }

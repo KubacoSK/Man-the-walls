@@ -10,4 +10,9 @@ public class PaidUnitsSpawner : Unit
         AllyUnitSpawner.Instance.SpawnTank();
     }
 
+    public void SpawnHorse()
+    {
+        AllyUnitSpawner.Instance.SpawnHorse();
+    }
+
 }

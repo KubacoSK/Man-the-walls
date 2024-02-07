@@ -8,8 +8,9 @@ public class AllyUnitSpawner : MonoBehaviour
 
 
     [SerializeField] private Button SpawnTankUnit;
-    [SerializeField] private Unit tankUnit;
-    [SerializeField] private Unit spawnUnitTemplate;  
+    [SerializeField] private Unit tankUnitPrefab;
+    [SerializeField] private Unit horseUnitPrefab;
+    [SerializeField] private Unit spawnUnitPrefab;  
     private Vector2 spawnPos = new Vector2(14.1f, 17);
     private int posReset = 0;
     private const float HorizontalSpacing = 0.4f;
@@ -40,7 +41,7 @@ public class AllyUnitSpawner : MonoBehaviour
         {
             Debug.Log("Spawning unit based on population" + ResourceManager.Instance.GetNumberOfTotalPopulation());
             spawnPos += new Vector2(HorizontalSpacing, 0f);
-            Instantiate(spawnUnitTemplate, spawnPos, Quaternion.identity);
+            Instantiate(spawnUnitPrefab, spawnPos, Quaternion.identity);
             posReset++;
 
             if (posReset == UnitsPerRow)
@@ -55,7 +56,17 @@ public class AllyUnitSpawner : MonoBehaviour
     {
         if (DoesItHaveEnoughResources(4, 0 ,0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
         {
-            Instantiate(spawnUnitTemplate, new Vector2(16,16), Quaternion.identity);
+            Instantiate(tankUnitPrefab, new Vector2(16,16), Quaternion.identity);
+            SpawnedPaidUnitsThisTurn += 1;
+            ResourceManager.Instance.SteelCount -= 4;
+        }
+    }
+
+    public void SpawnHorse()
+    {
+        if (DoesItHaveEnoughResources(1, 0, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
+        {
+            Instantiate(horseUnitPrefab, new Vector2(16, 16), Quaternion.identity);
             SpawnedPaidUnitsThisTurn += 1;
             ResourceManager.Instance.SteelCount -= 4;
         }

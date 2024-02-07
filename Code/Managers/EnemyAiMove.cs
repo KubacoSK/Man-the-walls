@@ -131,7 +131,7 @@ public class EnemyAiMove : MonoBehaviour
                 destinationZone.ChangeControlToEnemy();
             }
             if (!StayStill) StartCoroutine(DelayedSecondMove(enemyUnit));
-            else { enemyUnit.DoAction(); }
+            else { enemyUnit.DoAction(destinationZone); }
 
 
         }
@@ -144,7 +144,7 @@ public class EnemyAiMove : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         // Check if the unit is still valid and has not already made two moves
-        if (enemyUnit != null && enemyUnit.GetActionPoints() < 2)
+        if (enemyUnit != null && enemyUnit.GetActionPoints() > 0)
         {
             // Randomly choose another destination zone for the second move
             List<Zone> validZones2 = enemyUnit.GetMoveAction().GetValidZonesList();
