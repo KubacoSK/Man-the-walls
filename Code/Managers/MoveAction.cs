@@ -95,7 +95,8 @@ public class MoveAction : MonoBehaviour
                 {
                     // makes zone variable from collider and then puts the zone into list
                     Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
-                    if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone && !(adjustedZone.GetUnitsInZone().Count > 1 && (adjustedZone.GetZoneSizeModifier().x == 1f || adjustedZone.GetZoneSizeModifier().y == 1f)))
+                    if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone && !(adjustedZone.GetUnitsInZone().Count > 1 && (adjustedZone.GetZoneSizeModifier().x == 1f || adjustedZone.GetZoneSizeModifier().y == 1f))
+                        && ((selectedUnit.CanComeToWalls() && adjustedZone.IsWallCheck()) || (selectedUnit.CanComeToWalls() && !adjustedZone.IsWallCheck()) || (!selectedUnit.CanComeToWalls() && !adjustedZone.IsWallCheck())))
                     {
                         validZoneList.Add(adjustedZone);
 

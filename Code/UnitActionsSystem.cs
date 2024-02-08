@@ -69,24 +69,24 @@ public class UnitActionsSystem : MonoBehaviour
                             if (IsValidClickedZone(clickedZone, validZones))
                             {
                                 List<Unit> UnitsInZone = clickedZone.GetUnitsInZone();
-                                float x = 0;
-                                float y = 0;
+                                float xOffset = 0;
+                                float yOffset = 0;
                                 // moves unit on x and y axis depending on number of units inside the zone
                                 foreach (Unit unitinzone in UnitsInZone)
                                 {
-                                    x -= 0.4f;
-                                    if (x < -0.8f)
+                                    xOffset -= 0.4f;
+                                    if (xOffset < -0.8f)
                                     {
-                                        y += -0.8f;
-                                        x = 0;
+                                        yOffset += -0.8f;
+                                        xOffset = 0;
                                     }
                                 }
-                                if (clickedZone.GetZoneSizeModifier().x == 1) y += 0.4f;
+                                if (clickedZone.GetZoneSizeModifier().x == 1) yOffset += 0.4f;
 
                                 // gets center position of the clicked zone
                                 centerPosition = clickedZone.transform.position;
-                                centerPosition.x += x;
-                                centerPosition.y += y;
+                                centerPosition.x += xOffset;
+                                centerPosition.y += yOffset;
                                 if (selectedUnit != null)
                                 {
                                     // moves to to position

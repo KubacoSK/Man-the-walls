@@ -7,6 +7,9 @@ public class Unit_TankUnit : Unit
     private void Start()
     {
         strength = 6;
+        ActionPoints = 3;
+        maxActionPoints = 3;
+        canComeToWalls = false;
     }
 }
 

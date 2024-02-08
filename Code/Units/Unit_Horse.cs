@@ -6,8 +6,9 @@ public class Unit_Horse : Unit
 {
     void Start()
     {
-        ActionPoints = 3;
-        maxActionPoints = 3;
+        ActionPoints = 4;
+        maxActionPoints = 4;
+        canComeToWalls = false;
     }
 
 }

@@ -12,10 +12,11 @@ public class Unit : MonoBehaviour
     public static event EventHandler OnAnyUnitSpawned;
     public static event EventHandler OnAnyUnitDead;
 
-    protected int ActionPoints = 2;
+    protected bool canComeToWalls = true;        // if unit is able to climb and defend walls
+    protected int ActionPoints = 2;              // movement range of unit
     protected int maxActionPoints = 2;
-    protected int TurnsTillGetToMiddle = 2;
-    [SerializeField] protected int strength = 3;
+    protected int TurnsTillGetToMiddle = 2;      // how often enemy unit chooses to go to the center of the map
+    [SerializeField] protected int strength = 3; // how likely unit is to win combat
     [SerializeField] protected bool isEnemy;
     private void Awake()
     {
@@ -52,6 +53,11 @@ public class Unit : MonoBehaviour
     public int GetMaxActionPoints()
     {
         return maxActionPoints;
+    }
+
+    public bool CanComeToWalls()
+    {
+        return canComeToWalls;
     }
     public void DoAction(Zone IsWalledZone)
     {
