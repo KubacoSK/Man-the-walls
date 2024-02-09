@@ -12,6 +12,7 @@ public class Unit : MonoBehaviour
     public static event EventHandler OnAnyUnitSpawned;
     public static event EventHandler OnAnyUnitDead;
 
+    protected int MovementCost = 0;
     protected bool canComeToWalls = true;        // if unit is able to climb and defend walls
     protected int ActionPoints = 2;              // movement range of unit
     protected int maxActionPoints = 2;
@@ -49,6 +50,11 @@ public class Unit : MonoBehaviour
     {
         return ActionPoints;
     }
+
+    public int GetMovementCost()
+    {
+        return MovementCost;
+    }    
 
     public int GetMaxActionPoints()
     {

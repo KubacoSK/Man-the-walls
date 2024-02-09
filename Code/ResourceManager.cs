@@ -22,13 +22,13 @@ public class ResourceManager : MonoBehaviour
     public int SteelCount { get { return steelCount; } set { steelCount = value; } }
 
     private int coalIncome;
-    public int CoalIncome {  get { return coalIncome; } }
+    public int CoalIncome {  get { return coalIncome; } set { CoalIncome = value; } }
     private int redCIncome;
-    public int RedCIncome {  get { return redCIncome; } }
-    private int bluIncome;
-    public int BluIncome { get { return bluIncome; } }
+    public int RedCIncome {  get { return redCIncome; } set { redCIncome = value; } }
+    private int bluCIncome;
+    public int BluCIncome { get { return bluCIncome; } set { bluCIncome = value; } }
     private int steelIncome;
-    public int SteelIncome { get { return steelIncome; } }
+    public int SteelIncome { get { return steelIncome; } set { steelIncome = value; } }
 
     private void Awake()
     {
@@ -55,7 +55,7 @@ public class ResourceManager : MonoBehaviour
         {
             coalIncome += zone.NumberOfCoal;
             redCIncome += zone.NumberOFRedCrystal;
-            bluIncome += zone.NumberOfBlueCrystal;
+            bluCIncome += zone.NumberOfBlueCrystal;
             steelIncome += zone.NumberOfSteel;
         }
     }
@@ -67,14 +67,14 @@ public class ResourceManager : MonoBehaviour
         {
             coalIncome += zone.NumberOfCoal;
             redCIncome += zone.NumberOFRedCrystal;
-            bluIncome += zone.NumberOfBlueCrystal;
+            bluCIncome += zone.NumberOfBlueCrystal;
             steelIncome += zone.NumberOfSteel;
         }
         else
         {
             coalIncome -= zone.NumberOfCoal;
             redCIncome -= zone.NumberOFRedCrystal;
-            bluIncome -= zone.NumberOfBlueCrystal;
+            bluCIncome -= zone.NumberOfBlueCrystal;
             steelIncome -= zone.NumberOfSteel;
         }
     }
@@ -83,7 +83,7 @@ public class ResourceManager : MonoBehaviour
         // Increases number of resources based of income
         coalCount += coalIncome;
         redCryCount += redCIncome;
-        blueCryCount += bluIncome;
+        blueCryCount += bluCIncome;
         steelCount += steelIncome;
     }
 

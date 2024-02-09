@@ -10,5 +10,6 @@ public class Unit_BattleRobot : Unit
         strength = 8;
         ActionPoints = 3;
         maxActionPoints = 3;
+        MovementCost = 1;
     }
 }

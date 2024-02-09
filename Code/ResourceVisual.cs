@@ -49,7 +49,7 @@ public class ResourceVisual : MonoBehaviour
     {
         CoalIncomeText.text = "+" + ResourceManager.Instance.CoalIncome;
         RedCIncomeText.text = "+" + ResourceManager.Instance.RedCIncome;
-        BluCIncomeText.text = "+" + ResourceManager.Instance.BluIncome;
+        BluCIncomeText.text = "+" + ResourceManager.Instance.BluCIncome;
         SteelIncomeText.text = "+" + ResourceManager.Instance.SteelIncome;
 
     }

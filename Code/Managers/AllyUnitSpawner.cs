@@ -62,13 +62,25 @@ public class AllyUnitSpawner : MonoBehaviour
         }
     }
 
+    public void SpawnBattleRobot()
+    {
+        if (DoesItHaveEnoughResources(3, 1, 1) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
+        {
+            Instantiate(tankUnitPrefab, new Vector2(16, 16), Quaternion.identity);
+            SpawnedPaidUnitsThisTurn += 1;
+            ResourceManager.Instance.SteelCount -= 3;
+            ResourceManager.Instance.BlueCryCount -= 1;
+            ResourceManager.Instance.RedCryCount -= 1;
+        }
+    }
+
     public void SpawnHorse()
     {
         if (DoesItHaveEnoughResources(1, 0, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
         {
             Instantiate(horseUnitPrefab, new Vector2(16, 16), Quaternion.identity);
             SpawnedPaidUnitsThisTurn += 1;
-            ResourceManager.Instance.SteelCount -= 4;
+            ResourceManager.Instance.SteelCount -= 1;
         }
     }
     private bool DoesItHaveEnoughResources(int Steel, int Bcrys, int Rcrys)

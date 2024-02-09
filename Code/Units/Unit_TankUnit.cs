@@ -9,6 +9,7 @@ public class Unit_TankUnit : Unit
         strength = 6;
         ActionPoints = 3;
         maxActionPoints = 3;
+        MovementCost = 1;
         canComeToWalls = false;
     }
 }

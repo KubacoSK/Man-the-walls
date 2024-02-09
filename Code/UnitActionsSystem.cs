@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Xml.Serialization;
+using UnityEditor.Build;
 using UnityEngine;
 
 public class UnitActionsSystem : MonoBehaviour
@@ -53,9 +55,9 @@ public class UnitActionsSystem : MonoBehaviour
         if (selectedUnit != null)
         {
 
-                    if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() > 0 && selectedUnit != null)
+                    if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() > 0 && selectedUnit != null && CanSteamMachineMove())
                     {
-
+                        ResourceManager.Instance.CoalCount -= selectedUnit.GetMovementCost();
                         // Right-click to move the selected unit
                         Vector3 mouseWorldPosition = MouseWorld.GetPosition();
                         Zone clickedZone = GetClickedZone(mouseWorldPosition);
@@ -141,6 +143,11 @@ public class UnitActionsSystem : MonoBehaviour
         OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
     }
 
+    private bool CanSteamMachineMove()
+    {
+        if (ResourceManager.Instance.CoalCount >= selectedUnit.GetMovementCost()) return true;
+        else return false;
+    }
     private Zone GetClickedZone(Vector3 mouseWorldPosition)
     {
         // gets clicked zone
