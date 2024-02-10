@@ -65,6 +65,49 @@ public class MoveAction : MonoBehaviour
 
     }
 
+    public List<Zone> GetValidZonesListForEnemy()
+    {
+
+        List<Zone> validZoneList = new List<Zone>();
+        // makes new list of validzones
+        Collider2D[] StandingZoneCollider = Physics2D.OverlapBoxAll(transform.position, new Vector2(0.1f, 0.1f), 0);
+        // creates a square based on size of a zone + 0.9xy
+
+        foreach (var collider in StandingZoneCollider)
+        {
+            // checks if the square overlaps any type of zone
+            Zone zone = collider.GetComponent<Zone>();
+            if (zone != null && !validZoneList.Contains(zone))
+            {
+
+                // Get the position and size of the zone
+                Vector2 zonePosition = zone.transform.position;
+                Vector2 zoneSize = zone.GetZoneSizeModifier();
+
+                // Calculate the enlarged box based on the zone's position and size
+                float enlargedWidth = zoneSize.x;
+                float enlargedHeight = zoneSize.y;
+
+                // Perform overlap check with the enlarged box
+                Collider2D[] adjustedColliders = Physics2D.OverlapBoxAll(zonePosition, new Vector2(enlargedWidth, enlargedHeight), 0);
+
+                foreach (var adjustedCollider in adjustedColliders)
+                {
+                    // makes zone variable from collider and then puts the zone into list
+                    Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
+                    if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone && !(adjustedZone.GetUnitsInZone().Count > 1 && (adjustedZone.GetZoneSizeModifier().x == 1f || adjustedZone.GetZoneSizeModifier().y == 1f)))
+                    {
+                        validZoneList.Add(adjustedZone);
+
+                    }
+                }
+
+            }
+        }
+
+        return validZoneList;
+    }
+
     public List<Zone> GetValidZonesList()
     {
 
@@ -95,7 +138,7 @@ public class MoveAction : MonoBehaviour
                 {
                     // makes zone variable from collider and then puts the zone into list
                     Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
-                    if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone && !(adjustedZone.GetUnitsInZone().Count > 1 && (adjustedZone.GetZoneSizeModifier().x == 1f || adjustedZone.GetZoneSizeModifier().y == 1f))
+                    if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone && !(adjustedZone.GetUnitsInZone().Count > 1 && (adjustedZone.GetZoneSizeModifier().x == 1f || adjustedZone.GetZoneSizeModifier().y == 1f)) 
                         && ((selectedUnit.CanComeToWalls() && adjustedZone.IsWallCheck()) || (selectedUnit.CanComeToWalls() && !adjustedZone.IsWallCheck()) || (!selectedUnit.CanComeToWalls() && !adjustedZone.IsWallCheck())))
                     {
                         validZoneList.Add(adjustedZone);
@@ -105,7 +148,6 @@ public class MoveAction : MonoBehaviour
 
             }
         }
-
         return validZoneList;
     }
 
@@ -151,7 +193,7 @@ public class MoveAction : MonoBehaviour
         return Enlargedzones;
     }
 
-    public List<Zone> CheckForResetZones()
+    private List<Zone> CheckForResetZones()
     {
 
         List<Zone> Enlargedzones = new List<Zone>();
@@ -181,7 +223,7 @@ public class MoveAction : MonoBehaviour
                 {
                     // makes zone variable from collider and then puts the zone into list
                     Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
-                    if (adjustedZone != null && !Enlargedzones.Contains(adjustedZone) && adjustedZone != zone)
+                    if (adjustedZone != null && !Enlargedzones.Contains(adjustedZone))
                     {
                         Enlargedzones.Add(adjustedZone);
                     }
@@ -189,7 +231,6 @@ public class MoveAction : MonoBehaviour
 
             }
         }
-
         return Enlargedzones;
     }
 

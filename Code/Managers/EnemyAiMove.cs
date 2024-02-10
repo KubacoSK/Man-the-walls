@@ -27,7 +27,7 @@ public class EnemyAiMove : MonoBehaviour
     public void MakeDecisionForUnit(Unit enemyUnit)
     {
         // Get valid zones for the current enemy unit
-        List<Zone> validZones = enemyUnit.GetMoveAction().GetValidZonesList();
+        List<Zone> validZones = enemyUnit.GetMoveAction().GetValidZonesListForEnemy();
         //we check if there are any further zones away with units in them
         List<Zone> ZonesToCheck = enemyUnit.GetMoveAction().CheckForAlliesToAttack();
         // Check if there are valid zones to move to
@@ -147,7 +147,7 @@ public class EnemyAiMove : MonoBehaviour
         if (enemyUnit != null && enemyUnit.GetActionPoints() > 0)
         {
             // Randomly choose another destination zone for the second move
-            List<Zone> validZones2 = enemyUnit.GetMoveAction().GetValidZonesList();
+            List<Zone> validZones2 = enemyUnit.GetMoveAction().GetValidZonesListForEnemy();
             validZones2.RemoveAll(zone => zone.IsWallCheck());
             if (validZones2.Count > 0)
             {
