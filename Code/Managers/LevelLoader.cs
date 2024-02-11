@@ -15,6 +15,26 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadAsynchoronously(sceneIndex));
         
     }
+
+    public void SetDifficultyToEasy()
+    {
+        DifficultySetter.Instance.SetDifficulty("Easy");
+    }
+
+    public void SetDifficultyToMedium()
+    {
+        DifficultySetter.Instance.SetDifficulty("Medium");
+    }
+
+    public void SetDifficultyToHard()
+    {
+        DifficultySetter.Instance.SetDifficulty("Hard");
+    }
+
+    public void SetDifficultyToNightmare()
+    {
+        DifficultySetter.Instance.SetDifficulty("Nightmare");
+    }
     IEnumerator LoadAsynchoronously(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
