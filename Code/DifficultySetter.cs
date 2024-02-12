@@ -3,28 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class DifficultySetter : MonoBehaviour
+public static class DifficultySetter
 {
-    public static DifficultySetter Instance {  get; private set; }
-    private string Difficulty = "Medium";
+    private static string Difficulty = "Medium";
 
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Debug.LogError("There's more than one ResourceManager! " + transform + " - " + Instance);
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
-    public string GetDifficulty()
+    public static string GetDifficulty()
     {
         return Difficulty;
     }
 
-    public void SetDifficulty(string SetDifficulty)
+    public static void SetDifficulty(string SetDifficulty)
     {
         Difficulty = SetDifficulty;
-    }
+    }   
 }

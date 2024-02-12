@@ -23,5 +23,9 @@ public class EnemyUnitSpawner : MonoBehaviour
         // spawn enemy units
         Instantiate(SpawnUnitTemplateEnemy, EnemySpawnZones[UnityEngine.Random.Range(0, 4)].transform.position, Quaternion.identity);
         Instantiate(SpawnUnitTemplateEnemy, EnemySpawnZones[UnityEngine.Random.Range(0, 4)].transform.position, Quaternion.identity);
+        if (DifficultySetter.GetDifficulty() == "Nightmare")
+        {
+            Instantiate(SpawnUnitTemplateEnemy, EnemySpawnZones[UnityEngine.Random.Range(0, 4)].transform.position, Quaternion.identity);
+        }
     }
 }

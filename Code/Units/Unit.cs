@@ -8,6 +8,7 @@ public class Unit : MonoBehaviour
 {
     protected MoveAction moveAction;
 
+    // events that handle unit creation and deletion 
     public static event EventHandler OnAnyActionPointsChanged;
     public static event EventHandler OnAnyUnitSpawned;
     public static event EventHandler OnAnyUnitDead;
@@ -15,7 +16,7 @@ public class Unit : MonoBehaviour
     protected int MovementCost = 0;
     protected bool canComeToWalls = true;        // if unit is able to climb and defend walls
     protected int ActionPoints = 2;              // movement range of unit
-    protected int maxActionPoints = 2;
+    protected int maxActionPoints = 2;           // how much action points are resetted each turn
     protected int TurnsTillGetToMiddle = 2;      // how often enemy unit chooses to go to the center of the map
     [SerializeField] protected int strength = 3; // how likely unit is to win combat
     [SerializeField] protected bool isEnemy;
@@ -27,6 +28,16 @@ public class Unit : MonoBehaviour
     private void Start()
     {
         if (isEnemy) strength -= 1;
+        if (isEnemy)  // checks for difficulty settings and sets stats depending on them
+            switch (DifficultySetter.GetDifficulty())
+            {
+                case "Easy":
+                    strength -= 1;
+                    break;
+                case "Nightmare":
+                    strength += 2;
+                    break;
+            }
             
         // subscribes to the event
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;

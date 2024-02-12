@@ -15,26 +15,7 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadAsynchoronously(sceneIndex));
         
     }
-
-    public void SetDifficultyToEasy()
-    {
-        DifficultySetter.Instance.SetDifficulty("Easy");
-    }
-
-    public void SetDifficultyToMedium()
-    {
-        DifficultySetter.Instance.SetDifficulty("Medium");
-    }
-
-    public void SetDifficultyToHard()
-    {
-        DifficultySetter.Instance.SetDifficulty("Hard");
-    }
-
-    public void SetDifficultyToNightmare()
-    {
-        DifficultySetter.Instance.SetDifficulty("Nightmare");
-    }
+    
     IEnumerator LoadAsynchoronously(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
@@ -51,4 +32,25 @@ public class LevelLoader : MonoBehaviour
             yield return null;
         }
     }
+
+    public void SetDifficultyToEasy()
+    {
+        DifficultySetter.SetDifficulty("Easy");
+    }
+
+    public void SetDifficultyToMedium()
+    {
+        DifficultySetter.SetDifficulty("Medium");
+    }
+
+    public void SetDifficultyToHard()
+    {
+        DifficultySetter.SetDifficulty("Hard");
+    }
+
+    public void SetDifficultyToNightmare()
+    {
+        DifficultySetter.SetDifficulty("Nightmare");
+    }
+    
 }

@@ -12,6 +12,7 @@ public class ResourceManager : MonoBehaviour
 
     private float totalPopulation;
 
+    // getters and setters to resources and their incomes
     private int coalCount;
     public int CoalCount { get { return coalCount; } set { coalCount = value; } }
     private int redCryCount;
