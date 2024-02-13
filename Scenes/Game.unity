@@ -3379,6 +3379,9 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: d4c3fb3d4fbb0ea40ae83a170e7af859, type: 2}
   Music: Music
   Effects: Effects
+  volumeSlider: {fileID: 929783090}
+  effectsSlider: {fileID: 297548764}
+  musicSlider: {fileID: 156580355}
   resolutionDropdown: {fileID: 1581958414}
 --- !u!114 &123781772
 MonoBehaviour:
@@ -23626,11 +23629,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 872046196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 648.5625, y: 343.68747}
-  m_SizeDelta: {x: 422.85, y: 75.9217}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -100.01245, y: -158.35168}
+  m_SizeDelta: {x: 422.84998, y: 75.92169}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1220316629
 MonoBehaviour:
   m_ObjectHideFlags: 0

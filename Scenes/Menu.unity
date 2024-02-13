@@ -8636,6 +8636,9 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: d4c3fb3d4fbb0ea40ae83a170e7af859, type: 2}
   Music: Music
   Effects: Effects
+  volumeSlider: {fileID: 646676965}
+  effectsSlider: {fileID: 59106135}
+  musicSlider: {fileID: 2009246073}
   resolutionDropdown: {fileID: 1872338934}
 --- !u!1 &1965646890
 GameObject:
