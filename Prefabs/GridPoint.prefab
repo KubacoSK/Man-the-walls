@@ -145,6 +145,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879dd6d4dc591264f8d8fc9c39ef8ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neutralColor: {r: 0, g: 0, b: 0, a: 0}
+  enemyColor: {r: 0, g: 0, b: 0, a: 0}
+  AllyColor: {r: 0, g: 0, b: 0, a: 0}
+  IsWall: 0
+  NumberOfCitizens: 1
+  numberOfBlueCrystal: 0
+  numberOfRedCrystal: 0
+  numberOfCoal: 0
+  numberOfSteel: 0
 --- !u!50 &8147437145817615476
 Rigidbody2D:
   serializedVersion: 4
@@ -184,4 +193,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26293f8416c618141bb1a69841dcf990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightColor: {r: 1, g: 1, b: 1, a: 1}

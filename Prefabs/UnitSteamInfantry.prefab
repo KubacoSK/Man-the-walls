@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1722995695242732831}
   - component: {fileID: 8204452983046640103}
   - component: {fileID: 7657055706656216862}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: UnitSteamInfantry
   m_TagString: Unit
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 852468271645930794}
   - component: {fileID: 107224502834958180}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: SoldierV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 2543787901075713078}
   - component: {fileID: 6852305441627758487}
   - component: {fileID: 3281921337140321592}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: SelectedVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
