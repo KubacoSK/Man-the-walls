@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3827488622957454462}
   - component: {fileID: 3457817197350381142}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: TankVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6344233456212807478}
   - component: {fileID: 2067895677051237229}
   - component: {fileID: 9100372670337903482}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: SelectedVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24bbcbd36b65d44cae257a45d2b6fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 953840387731426839}
+  unit: {fileID: 0}
 --- !u!1 &8413941976925741757
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,11 +191,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5046901805610670452}
-  - component: {fileID: 953840387731426839}
   - component: {fileID: 8946735644589583970}
   - component: {fileID: 5981909808532482182}
   - component: {fileID: 3826129270442568179}
-  m_Layer: 8
+  - component: {fileID: 6579320917981801210}
+  m_Layer: 9
   m_Name: TankUnit
   m_TagString: Unit
   m_Icon: {fileID: 0}
@@ -219,20 +219,6 @@ Transform:
   - {fileID: 6344233456212807478}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &953840387731426839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8413941976925741757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45866fd9e416c7246b8df9506fc6ae08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strength: 3
-  isEnemy: 0
 --- !u!61 &8946735644589583970
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -317,3 +303,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8961450e595336a46be9a32efa5cfa59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6579320917981801210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8413941976925741757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4417259f3c218b645be5ebe3a5a754af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 6
+  isEnemy: 0
