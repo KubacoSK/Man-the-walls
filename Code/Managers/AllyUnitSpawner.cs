@@ -10,7 +10,8 @@ public class AllyUnitSpawner : MonoBehaviour
     [SerializeField] private Button SpawnTankUnit;
     [SerializeField] private Unit tankUnitPrefab;
     [SerializeField] private Unit horseUnitPrefab;
-    [SerializeField] private Unit spawnUnitPrefab;  
+    [SerializeField] private Unit spawnUnitPrefab;
+    [SerializeField] private Unit superPetrossPrefab;
     private Vector2 spawnPos = new Vector2(14.1f, 17);
     private int posReset = 0;
     private const float HorizontalSpacing = 0.4f;
@@ -20,6 +21,7 @@ public class AllyUnitSpawner : MonoBehaviour
 
     private int SpawnedPaidUnitsThisTurn = 0;
     private int PaidUnitsSpawnLimit = 1;
+    private int HorseSpawnsTillPetrossSpawn = 0;
 
     private void Awake()
     {
@@ -81,6 +83,11 @@ public class AllyUnitSpawner : MonoBehaviour
             Instantiate(horseUnitPrefab, new Vector2(16, 16), Quaternion.identity);
             SpawnedPaidUnitsThisTurn += 1;
             ResourceManager.Instance.SteelCount -= 1;
+            HorseSpawnsTillPetrossSpawn++;
+            if (HorseSpawnsTillPetrossSpawn == 5)
+            {
+                Instantiate(superPetrossPrefab, new Vector2(12.5f, 19.5f), Quaternion.identity);
+            }
         }
     }
     private bool DoesItHaveEnoughResources(int Steel, int Bcrys, int Rcrys)
