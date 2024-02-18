@@ -11,13 +11,15 @@ public class TilePopulationVisual : MonoBehaviour
 
     private void Awake()
     {
-        thisTilePopulationVisual.transform.position = thisZone.transform.position - new Vector3(0, (thisZone.GetZoneSizeModifier().y / 2) - 0.5f, 0);
+        thisTilePopulationVisual.transform.position = thisZone.transform.position - new Vector3(0, (thisZone.GetZoneSizeModifier().y / 2) - 0.3f, 0);
         
     }
     void Start()
     {
-        thisTilePopulationVisual.text = thisZone.GetNumberOfCitizens().ToString();
+        
         TurnSystem.Instance.OnTurnChanged += TilePopulationVisual_OnTurnChanged;
+        thisTilePopulationVisual.text = thisZone.GetNumberOfCitizens().ToString();
+        thisTilePopulationVisual.fontSize = 0.8f + (thisZone.GetNumberOfCitizens() / 50);
     }
 
     void Update()
@@ -28,7 +30,8 @@ public class TilePopulationVisual : MonoBehaviour
     public void UpdateTilePopText()
     {
         thisTilePopulationVisual.text = thisZone.GetNumberOfCitizens().ToString("F2");
-        thisTilePopulationVisual.text
+        thisTilePopulationVisual.fontSize = 0.8f + (thisZone.GetNumberOfCitizens() / 50);
+        
     }
 
     private void TilePopulationVisual_OnTurnChanged(object sender, EventArgs e)

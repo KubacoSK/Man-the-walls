@@ -79,10 +79,10 @@ MonoBehaviour:
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+    topLeft: {r: 0.9716981, g: 0.2704254, b: 0.2704254, a: 1}
+    topRight: {r: 0.72955966, g: 0.080297366, b: 0.080297366, a: 1}
+    bottomLeft: {r: 1, g: 0.28616333, b: 0.28616333, a: 1}
+    bottomRight: {r: 0.78616345, g: 0.3760928, b: 0.08158291, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -387,7 +387,8 @@ MonoBehaviour:
   enemyColor: {r: 0, g: 0, b: 0, a: 0}
   AllyColor: {r: 0, g: 0, b: 0, a: 0}
   IsWall: 0
-  NumberOfCitizens: 1
+  populationCount: 0.4
+  isPopulated: 1
   numberOfBlueCrystal: 0
   numberOfRedCrystal: 0
   numberOfCoal: 0

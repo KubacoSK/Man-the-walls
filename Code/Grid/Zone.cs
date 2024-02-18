@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,14 +8,15 @@ public class Zone : MonoBehaviour
     private GridSystemVisual highlighter;
     private bool IsUnderAllyControl;
     private SpriteRenderer spriteRenderer;
-
+    private Color CurrentColor;   
     
     [SerializeField] private Color neutralColor;
     [SerializeField] private Color enemyColor;
     [SerializeField] private Color AllyColor;
-    private Color CurrentColor;   
-    [SerializeField] private bool IsWall = false;
-    [SerializeField] private float NumberOfCitizens = 1;
+    
+    [SerializeField] private bool IsWall = false;                  // restriction to movement and buff to defending units
+    [SerializeField] private float populationCount = 0.4f;         // Current number of citizens 
+    [SerializeField] private bool isPopulated = true;              // if there are any people living inside the zone and population can increase
 
     [SerializeField] private int numberOfBlueCrystal = 0;
     public int NumberOfBlueCrystal { get { return numberOfBlueCrystal; } private set { numberOfBlueCrystal = value; } }
@@ -30,14 +30,20 @@ public class Zone : MonoBehaviour
 
 
     public static event EventHandler ZoneControlChanged;
+    private void Awake()
+    {
+        populationCount = Mathf.Round(UnityEngine.Random.Range(populationCount * 0.5f, populationCount * 1.5f) * 100f) / 100f;
+    }
 
     private void Start()
     {
+
         highlighter = GetComponent<GridSystemVisual>();
         unitsInZone = new List<Unit>();
         IsUnderAllyControl = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         CurrentColor = AllyColor;
+        
     }
 
 
@@ -177,7 +183,7 @@ public class Zone : MonoBehaviour
         IsUnderAllyControl = false;
         CurrentColor = enemyColor;
         spriteRenderer.color = CurrentColor;
-        NumberOfCitizens = NumberOfCitizens * 0.4f;
+        populationCount = populationCount * 0.5f;
         ZoneControlChanged?.Invoke(this, EventArgs.Empty);
     }
 
@@ -192,12 +198,13 @@ public class Zone : MonoBehaviour
 
     public float GetNumberOfCitizens()
     {
-        return NumberOfCitizens;
+        return populationCount;
     }
 
     public void PopulationGrowth()
     {
-        NumberOfCitizens = NumberOfCitizens * 1.15f + 0.2f;
+        if (isPopulated)populationCount = populationCount * 1.05f + 0.1f;
+        
     }
 
 

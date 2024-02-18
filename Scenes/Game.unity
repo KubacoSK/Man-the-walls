@@ -632,6 +632,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -915,6 +919,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -948,7 +956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -1006,8 +1014,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (144)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -1178,6 +1188,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -1377,6 +1391,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -1574,6 +1592,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 6
       objectReference: {fileID: 0}
@@ -1769,6 +1791,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -2206,6 +2232,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -2632,6 +2662,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -2841,6 +2875,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -3030,6 +3068,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -3063,11 +3105,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
       value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: thisTilePopulationVisual
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_LocalScale.x
@@ -3121,8 +3167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (123)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -3351,6 +3399,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -3585,6 +3637,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -3618,7 +3674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -3676,8 +3732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (137)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -4104,6 +4162,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -4394,6 +4456,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -4604,6 +4670,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -4637,11 +4707,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
       value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: thisTilePopulationVisual
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_LocalScale.x
@@ -4695,8 +4769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (127)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -4836,6 +4912,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -5127,6 +5207,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -5642,6 +5726,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -5675,7 +5763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -5733,8 +5821,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (150)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -5874,6 +5964,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -6033,6 +6127,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -6066,7 +6164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -6124,8 +6222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (143)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -6265,6 +6365,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -6467,6 +6571,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -6774,6 +6882,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -6969,6 +7081,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -7174,6 +7290,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -7447,6 +7567,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -7856,6 +7980,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -8075,6 +8203,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -8526,6 +8658,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -8913,6 +9049,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -8946,11 +9086,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
       value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: thisTilePopulationVisual
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_LocalScale.x
@@ -9004,8 +9148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (128)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -9257,6 +9403,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -9290,7 +9440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -9348,8 +9498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (134)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -9757,6 +9909,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -10086,6 +10242,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -10435,6 +10595,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -10674,6 +10838,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -11021,6 +11189,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -11416,6 +11588,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -11643,6 +11819,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -11976,6 +12156,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -12129,6 +12313,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -12162,11 +12350,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040611394849673116, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
       value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: thisTilePopulationVisual
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_LocalScale.x
@@ -12220,8 +12416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (124)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -12356,6 +12554,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -12628,6 +12830,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -13109,6 +13315,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -13256,7 +13466,8 @@ MonoBehaviour:
   enemyColor: {r: 0, g: 0, b: 0, a: 0}
   AllyColor: {r: 0, g: 0, b: 0, a: 0}
   IsWall: 0
-  NumberOfCitizens: 1
+  populationCount: 1
+  isPopulated: 1
   numberOfBlueCrystal: 0
   numberOfRedCrystal: 0
   numberOfCoal: 0
@@ -13403,6 +13614,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -13914,6 +14129,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -14109,6 +14328,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -14308,6 +14531,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -14503,6 +14730,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -14835,6 +15066,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -15030,6 +15265,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -15664,6 +15903,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -15875,6 +16118,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -16320,6 +16567,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -16477,6 +16728,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -16510,7 +16765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -16568,8 +16823,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (139)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -16704,6 +16961,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -17037,6 +17298,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -17232,6 +17497,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -17646,6 +17915,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -17679,7 +17952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -17737,8 +18010,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (135)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -17988,6 +18263,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -18145,6 +18424,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -18178,7 +18461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -18236,8 +18519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (140)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -18869,6 +19154,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -18902,7 +19191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -18960,8 +19249,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (145)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -19096,6 +19387,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -19314,6 +19609,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -19710,6 +20009,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -20018,6 +20321,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -20232,6 +20539,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -20265,7 +20576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -20323,8 +20634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (132)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -20603,6 +20916,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -20944,6 +21261,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -21141,6 +21462,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -21298,6 +21623,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -21331,7 +21660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -21389,8 +21718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (148)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -21738,6 +22069,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -21771,7 +22106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -21829,8 +22164,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (146)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -22455,6 +22792,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -22488,11 +22829,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040611394849673116, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
       value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: thisTilePopulationVisual
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_LocalScale.x
@@ -22546,8 +22895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (122)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -22720,6 +23071,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -22957,6 +23312,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -23482,6 +23841,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -23810,6 +24173,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -24351,6 +24718,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -24640,6 +25011,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -24797,6 +25172,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -24830,7 +25209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -24888,8 +25267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (136)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -25491,6 +25872,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -25686,6 +26071,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -25969,6 +26358,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -26171,6 +26564,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -26328,6 +26725,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -26361,7 +26762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -26419,8 +26820,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (133)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -26555,6 +26958,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -26870,6 +27277,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -27168,6 +27579,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -27409,6 +27824,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -27442,7 +27861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -27500,8 +27919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (138)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -27636,6 +28057,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -28577,6 +29002,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -28610,7 +29039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -28668,8 +29097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (147)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -28879,6 +29310,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -29171,6 +29606,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -29403,6 +29842,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -29436,7 +29879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -29494,8 +29937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (142)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -29729,6 +30174,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -29762,11 +30211,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
       value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: thisTilePopulationVisual
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_LocalScale.x
@@ -29820,8 +30273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (125)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -29972,6 +30427,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -30470,6 +30929,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -30627,6 +31090,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -30660,7 +31127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -30718,8 +31185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (129)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -30870,6 +31339,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -31067,6 +31540,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -31309,6 +31786,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -31647,6 +32128,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -31680,7 +32165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -31738,8 +32223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (141)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -31924,6 +32411,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -32192,6 +32683,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -32225,7 +32720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -32283,8 +32778,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (131)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -32386,6 +32883,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -32419,7 +32920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -32477,8 +32978,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (149)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -32736,6 +33239,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -32898,6 +33405,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -32931,7 +33442,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040611394849673116, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -32989,8 +33504,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (152)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -33141,6 +33658,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -33401,6 +33922,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -33434,7 +33959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -33492,8 +34017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (130)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -34000,6 +34527,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -34227,6 +34758,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -34683,6 +35218,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -34878,6 +35417,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -35079,6 +35622,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -35370,6 +35917,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -35583,6 +36134,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -35778,6 +36333,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -36270,6 +36829,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -36483,6 +37046,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -36640,6 +37207,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -36673,7 +37244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
@@ -36731,8 +37302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (151)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -37122,6 +37695,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 6
       objectReference: {fileID: 0}
@@ -37317,6 +37894,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -37640,6 +38221,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -37935,6 +38520,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -38398,6 +38987,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -38593,6 +39186,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -38795,6 +39392,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -40069,6 +40670,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -40468,6 +41073,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -40689,6 +41298,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -40884,6 +41497,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -41269,6 +41886,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -41464,6 +42085,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -41695,6 +42320,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -41898,6 +42527,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -42247,6 +42880,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -42442,6 +43079,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -42762,6 +43403,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -43264,6 +43909,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -43595,6 +44244,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -43790,6 +44443,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -44090,6 +44747,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -44287,6 +44948,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -44482,6 +45147,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -55710,6 +56379,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -55980,6 +56653,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -56177,6 +56854,10 @@ PrefabInstance:
       value: 0.34703207
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
       value: 0.4
       objectReference: {fileID: 0}
@@ -56372,6 +57053,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -56605,6 +57290,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -57099,6 +57788,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -57132,11 +57825,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
       value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: thisTilePopulationVisual
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_LocalScale.x
@@ -57190,8 +57887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (121)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -57326,6 +58025,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -57588,6 +58291,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: isPopulated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -57621,11 +58328,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648501562640117107, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: highlightColor.a
       value: 0.5137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: thisTilePopulationVisual
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_LocalScale.x
@@ -57679,8 +58390,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GridPoint (126)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5946034530734127069, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 2857973214274837381, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -57949,6 +58662,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
@@ -58565,6 +59282,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: neutralColor.r
       value: 0.34703207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: populationCount
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: NumberOfCitizens
