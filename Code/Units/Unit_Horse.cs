@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Unit_Horse : Unit
 {
+    // Horse unit that moves further at the cost of ability to climb walls 
     void Start()
     {
         ActionPoints = 4;

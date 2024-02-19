@@ -9,7 +9,7 @@ public class UnitManager : MonoBehaviour
 
     public static UnitManager Instance { get; private set; }
 
-    // creates 3 lists
+    // creates 3 lists of units
     private List<Unit> unitList;
     private List<Unit> friendlyUnitList;
     private List<Unit> enemyUnitList;

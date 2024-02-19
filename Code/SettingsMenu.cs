@@ -32,7 +32,7 @@ public class SettingsMenu : MonoBehaviour
             if (resolutions[i].width == Screen.currentResolution.width &&
                 resolutions[i].height == Screen.currentResolution.height)
             {
-                currentResolutionsIndex = i;
+                currentResolutionsIndex = i;   // sets resolution based on what was selected before
             }
         }
         resolutionDropdown.AddOptions(options);
@@ -42,18 +42,21 @@ public class SettingsMenu : MonoBehaviour
         // Set initial values for volume sliders
         if (PlayerPrefs.HasKey("Volume"))
         {
+            // sets that the sliders are set and not full everytime we open settings
             float volume = PlayerPrefs.GetFloat("Volume");
             audioMixer.SetFloat("Volume", volume);
             volumeSlider.value = volume;
         }
         if (PlayerPrefs.HasKey("EffectsVolume"))
-        {
-            float effectsVolume = PlayerPrefs.GetFloat("EffectsVolume");
+        {  
+            // sets that the sliders are set and not full everytime we open settings
+            float effectsVolume = PlayerPrefs.GetFloat("EffectsVolume");   
             audioMixer.SetFloat("Effects", effectsVolume);
-            effectsSlider.value = effectsVolume;
+            effectsSlider.value = effectsVolume;  
         }
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
+            // sets that the sliders are set and not full everytime we open settings
             float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
             audioMixer.SetFloat("Music", musicVolume);
             musicSlider.value = musicVolume;

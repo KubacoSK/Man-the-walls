@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        // pauses game when button is selected
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
@@ -38,6 +39,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        // resumes it
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;

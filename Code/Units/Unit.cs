@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    // basic parent class for units, all other units are child of this one
+    // also is basic infantry with ability to climb walls and automatic deployment
     protected MoveAction moveAction;
 
     // events that handle unit creation and deletion 
@@ -126,7 +128,7 @@ public class Unit : MonoBehaviour
 
     public void SetTurnMiddlePoints(int increaseNumber)
     {
-        TurnsTillGetToMiddle += increaseNumber;
+        TurnsTillGetToMiddle += increaseNumber;  
     }
 
 }

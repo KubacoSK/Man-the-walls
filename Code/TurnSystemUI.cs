@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class TurnSystemUI : MonoBehaviour
 {
-    [SerializeField] private Button endTurnButton;
-    [SerializeField] private TextMeshProUGUI turnNumberText;
-    [SerializeField] private GameObject EnemyTurnVisualObject;
+    [SerializeField] private Button endTurnButton;                          // button for ending turn
+    [SerializeField] private TextMeshProUGUI turnNumberText;                // displays the number of turns game has played
+    [SerializeField] private GameObject EnemyTurnVisualObject;              // just text object informing that its enemy turn
 
     public void Start()
     {
@@ -35,7 +35,7 @@ public class TurnSystemUI : MonoBehaviour
     }
     private void UpdateTurnText()
     {
-        if(TurnSystem.Instance.GetTurnNumber() < 10)
+        if(TurnSystem.Instance.GetTurnNumber() < 10)                          // its for better visual look by showing zeros before actual number
             turnNumberText.text = "00" + TurnSystem.Instance.GetTurnNumber();
         else if (TurnSystem.Instance.GetTurnNumber() < 100)
             turnNumberText.text = "0" + TurnSystem.Instance.GetTurnNumber();

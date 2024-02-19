@@ -8,11 +8,11 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
    
-    private List<Unit> enemyUnits;
-    private bool MadeEnemyTurn = false;
-    private float EndTurnTimer = 0f;
-    private float BetweenMovesTimer = 1f;
-    private int currentEnemyIndex = 0;
+    private List<Unit> enemyUnits; 
+    private bool MadeEnemyTurn = false;                 // sets to true if enemy unit does 2 movement actions or defends
+    private float EndTurnTimer = 0f;                    // ends turn after 2 seconds of comliting all moves
+    private float BetweenMovesTimer = 1f;               // time to wait between move actions
+    private int currentEnemyIndex = 0;                  // which enemy unit does its turn
     public static EnemyAI Instance { get; private set; }
 
     private void Awake()

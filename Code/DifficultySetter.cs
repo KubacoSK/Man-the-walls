@@ -6,7 +6,7 @@ using UnityEngine;
 public static class DifficultySetter
 {
     private static string Difficulty = "Medium";
-
+    // class that remembers settings of difficulty throught scenes
     public static string GetDifficulty()
     {
         return Difficulty;

@@ -51,7 +51,6 @@ public class CameraController : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         targetOrthographicSize = Mathf.Clamp(Camera.main.orthographicSize - scroll * scrollSpeed * 100f * Time.deltaTime, minOrthographicSize, maxOrthographicSize);
 
-        // Instead of using Mathf.Lerp, directly set the orthographic size
         Camera.main.orthographicSize = targetOrthographicSize;
     }
 }

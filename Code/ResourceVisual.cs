@@ -40,6 +40,7 @@ public class ResourceVisual : MonoBehaviour
 
     private void UpdateResourceCountVisual()
     {
+        // shows the current number of resources
         CoalCountText.text = "" + ResourceManager.Instance.CoalCount;
         RedCrysCountText.text = "" + ResourceManager.Instance.RedCryCount;
         BlueCrysCountText.text = "" + ResourceManager.Instance.BlueCryCount;
@@ -47,6 +48,7 @@ public class ResourceVisual : MonoBehaviour
     }
     private void UpdateResourceIncomeVisual()
     {
+        // shows the income of the resource
         CoalIncomeText.text = "+" + ResourceManager.Instance.CoalIncome;
         RedCIncomeText.text = "+" + ResourceManager.Instance.RedCIncome;
         BluCIncomeText.text = "+" + ResourceManager.Instance.BluCIncome;

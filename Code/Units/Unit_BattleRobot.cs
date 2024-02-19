@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Unit_BattleRobot : Unit
 {
-    // Start is called before the first frame update
+    // Battle robot is hybrid between tank and soldier
     void Start()
     {
         strength = 8;
