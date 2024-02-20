@@ -10,6 +10,14 @@ public class TesterScript : MonoBehaviour
     }
     void Update()
     {
-        
+        if(Input.GetKeyDown("r"))
+        {
+            ResourceManager.Instance.SteelCount += 3;
+        }
+        if (Input.GetKeyDown("h")) 
+        { 
+
+            AllyUnitSpawner.Instance.SpawnHorse();
+        }
     }
 }

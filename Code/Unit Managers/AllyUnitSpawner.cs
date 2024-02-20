@@ -5,9 +5,6 @@ using UnityEngine.UI;
 public class AllyUnitSpawner : MonoBehaviour
 { 
     public static AllyUnitSpawner Instance;
-
-
-    [SerializeField] private Button SpawnTankUnit;
     [SerializeField] private Unit tankUnitPrefab;
     [SerializeField] private Unit horseUnitPrefab;
     [SerializeField] private Unit spawnUnitPrefab;

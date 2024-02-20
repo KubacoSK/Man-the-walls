@@ -64,10 +64,9 @@ public class UnitActionsSystem : MonoBehaviour
                         // checks if we clicked on zone and not on some empty space
                         if (clickedZone != null)
                         {
+                            
                             // gets list of close zones from MoveAction class
-                            List<Zone> validZones = selectedUnit.GetMoveAction().GetValidZonesList();
-
-                            if (IsValidClickedZone(clickedZone, validZones))
+                            if (IsValidClickedZone(clickedZone, selectedUnit.GetMoveAction().GetValidZonesList()))
                             {
                                 List<Unit> UnitsInZone = clickedZone.GetUnitsInZone();
                                 float xOffset = 0;

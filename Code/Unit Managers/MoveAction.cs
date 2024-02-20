@@ -8,7 +8,6 @@ public class MoveAction : MonoBehaviour
 {
     private Vector2 targetPosition;
     private Unit selectedUnit;
-    static List<Zone> zones;
     private List<Zone> validMoveZones;
     private float moveSpeed = 5f;
     private float highlightInterval = 0.1f; // Highlight every 0.5 second
@@ -25,7 +24,6 @@ public class MoveAction : MonoBehaviour
         }
 
         // Initialize the static list in MoveAction
-        MoveAction.zones = ZoneManager.GetAllZones();
         UnitActionsSystem.Instance.OnSelectedUnitChanged += OnSelectedUnitChanged;
     }
 
