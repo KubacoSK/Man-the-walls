@@ -8,8 +8,16 @@ public class Zone : MonoBehaviour
     private GridSystemVisual highlighter;
     private bool IsUnderAllyControl;
     private SpriteRenderer spriteRenderer;
-    private Color CurrentColor;   
-    
+    private Color CurrentColor;
+    private bool[] alliedMoveLocationsStatus;                           // we check if there is unit already occupying the zone
+    private bool[] enemyMoveLocationsStatus;                            
+    private Vector2[] alliedMoveLocations;                              // the positions allied units are able to occupy
+    private Vector2[] enemyMoveLocations;                               // the positions enemy units are able to occupy
+    float xsize;
+    float ysize;
+    int xpos;
+    int ypos;
+
     [SerializeField] private Color neutralColor;
     [SerializeField] private Color enemyColor;
     [SerializeField] private Color AllyColor;
@@ -33,6 +41,17 @@ public class Zone : MonoBehaviour
     private void Awake()
     {
         populationCount = Mathf.Round(UnityEngine.Random.Range(populationCount * 0.5f, populationCount * 1.5f) * 100f) / 100f;
+        xsize = GetZoneSizeModifier().x / 2;
+        ysize = GetZoneSizeModifier().y - 0.2f;
+        
+        for (float x = xsize; x >= 0.5; x -= 0.5f)
+        {
+            xpos++;
+        }
+        for (float y = ysize; y >= 0.8; y -= 0.8f)
+        {
+            ypos++;
+        }
     }
 
     private void Start()
@@ -43,6 +62,7 @@ public class Zone : MonoBehaviour
         IsUnderAllyControl = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         CurrentColor = AllyColor;
+        
         
     }
 
