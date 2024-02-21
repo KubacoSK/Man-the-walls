@@ -13,7 +13,7 @@ public class UnitActionsSystem : MonoBehaviour
 
     private Unit selectedUnit;
     private bool IsMoving = false;
-    Vector2 centerPosition;
+    Vector2 destination;
 
     private void Awake()
     {
@@ -34,7 +34,7 @@ public class UnitActionsSystem : MonoBehaviour
             {
 
                 // checks if unit based on distance to target zone
-                if (Vector2.Distance(selectedUnit.transform.position, centerPosition) < 0.01f)
+                if (Vector2.Distance(selectedUnit.transform.position, destination) < 0.01f)
                 {
                     IsMoving = false;
                 }
@@ -53,59 +53,50 @@ public class UnitActionsSystem : MonoBehaviour
     {
         if (selectedUnit != null)
         {
+            if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() > 0 && selectedUnit != null && CanSteamMachineMove())
+            {
+                ResourceManager.Instance.CoalCount -= selectedUnit.GetMovementCost();
+                // Right-click to move the selected unit
+                Vector3 mouseWorldPosition = MouseWorld.GetPosition();
+                Zone clickedZone = GetClickedZone(mouseWorldPosition);
 
-                    if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() > 0 && selectedUnit != null && CanSteamMachineMove())
+                // checks if we clicked on zone and not on some empty space
+                if (clickedZone != null)
+                {
+                    destination = new Vector2();
+                    // gets list of close zones from MoveAction class
+                    if (IsValidClickedZone(clickedZone, selectedUnit.GetMoveAction().GetValidZonesList()))
                     {
-                        ResourceManager.Instance.CoalCount -= selectedUnit.GetMovementCost();
-                        // Right-click to move the selected unit
-                        Vector3 mouseWorldPosition = MouseWorld.GetPosition();
-                        Zone clickedZone = GetClickedZone(mouseWorldPosition);
-
-                        // checks if we clicked on zone and not on some empty space
-                        if (clickedZone != null)
+                        for (int i = 0; i < clickedZone.GetAllyMoveLocationStatuses().Length; i++)
                         {
-                            
-                            // gets list of close zones from MoveAction class
-                            if (IsValidClickedZone(clickedZone, selectedUnit.GetMoveAction().GetValidZonesList()))
+                            if (clickedZone.GetAllyMoveLocationStatuses()[i] == false)
                             {
-                                List<Unit> UnitsInZone = clickedZone.GetUnitsInZone();
-                                float xOffset = 0;
-                                float yOffset = 0;
-                                // moves unit on x and y axis depending on number of units inside the zone
-                                foreach (Unit unitinzone in UnitsInZone)
-                                {
-                                    xOffset -= 0.4f;
-                                    if (xOffset < -0.8f)
-                                    {
-                                        yOffset += -0.8f;
-                                        xOffset = 0;
-                                    }
-                                }
-                                if (clickedZone.GetZoneSizeModifier().x == 1) yOffset += 0.4f;
+                                destination = clickedZone.GetAllyMoveLocations()[i];
+                                clickedZone.SetAllyPositionStatus(i, true);
+                                break;
+                            }
+                           
+                        }
 
-                                // gets center position of the clicked zone
-                                centerPosition = clickedZone.transform.position;
-                                centerPosition.x += xOffset;
-                                centerPosition.y += yOffset;
-                                if (selectedUnit != null)
-                                {
-                                    // moves to to position
-                                    IsMoving = true;
-                                    selectedUnit.GetMoveAction().Move(centerPosition);
-                                    selectedUnit.DoAction(clickedZone);
-                                    if (clickedZone.ReturnEnemyUnitsInZone().Count > 0)
-                                    {
-                                        clickedZone.ChangeControlToNeutral();
+                        if (selectedUnit != null)
+                        {
+                            // moves to to position
+                            IsMoving = true;
+                            selectedUnit.GetMoveAction().Move(destination);
+                            selectedUnit.DoAction(clickedZone);
+                            if (clickedZone.ReturnEnemyUnitsInZone().Count > 0)
+                            {
+                                clickedZone.ChangeControlToNeutral();
 
-                                    }
-                                    else
-                                    {
-                                        clickedZone.ChangeControlToAlly();
-                                    }
-                                }
+                            }
+                            else
+                            {
+                                clickedZone.ChangeControlToAlly();
                             }
                         }
                     }
+                }
+            }
             }
         }
 

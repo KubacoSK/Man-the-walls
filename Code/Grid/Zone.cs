@@ -42,30 +42,68 @@ public class Zone : MonoBehaviour
     {
         populationCount = Mathf.Round(UnityEngine.Random.Range(populationCount * 0.5f, populationCount * 1.5f) * 100f) / 100f;
         xsize = GetZoneSizeModifier().x / 2;
-        ysize = GetZoneSizeModifier().y - 0.2f;
+        ysize = (GetZoneSizeModifier().y / 2);
         
         for (float x = xsize; x >= 0.5; x -= 0.5f)
         {
             xpos++;
         }
-        for (float y = ysize; y >= 0.8; y -= 0.8f)
+        for (float y = ysize; y >= 0.5; y -= 0.5f)
         {
             ypos++;
         }
+
     }
 
     private void Start()
     {
-
+        
         highlighter = GetComponent<GridSystemVisual>();
         unitsInZone = new List<Unit>();
         IsUnderAllyControl = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         CurrentColor = AllyColor;
         
-        
+        alliedMoveLocations = new Vector2[xpos * ypos];
+        enemyMoveLocations = new Vector2[xpos * ypos];
+        alliedMoveLocationsStatus = new bool[xpos * ypos];                          
+        enemyMoveLocationsStatus = new bool[xpos * ypos];
+
+        float startX = transform.position.x - 0.25f; // Start X position
+        float startY = transform.position.y + ysize - 0.5f; // Start Y position
+
+        // Populate allied move locations
+        for (int i = 0; i < alliedMoveLocations.Length; i++)
+        {
+            float x = startX - (i % xpos) * 0.5f; // Calculate X position based on grid index
+            float y = startY - (i / xpos) * 0.8f; // Calculate Y position based on grid index
+
+            alliedMoveLocations[i] = new Vector2(x, y);
+            alliedMoveLocationsStatus[i] = false; // Set initial status to false
+        }
+        float enemyStartX = transform.position.x + 0.25f; 
+        for (int i = 0; i < enemyMoveLocations.Length; i++)
+        {
+            float x = enemyStartX + (i % xpos) * 0.5f; // Calculate X position based on grid index
+            float y = startY - (i / xpos) * 0.8f; // Calculate Y position based on grid index
+
+            enemyMoveLocations[i] = new Vector2(x, y);
+            enemyMoveLocationsStatus[i] = false; // Set initial status to false
+        }
+
+
+    }
+    public void SetAllyPositionStatus(int index,bool status)
+    {
+        alliedMoveLocationsStatus[index] = status;
     }
 
+    public void SetEnemyPositionStatus(int index, bool status)
+    {
+        enemyMoveLocationsStatus[index] = status;
+    }
+    public bool[] GetAllyMoveLocationStatuses() { return alliedMoveLocationsStatus; }
+    public Vector2[] GetAllyMoveLocations() { return alliedMoveLocations; }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

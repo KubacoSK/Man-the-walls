@@ -251,7 +251,6 @@ GameObject:
   - component: {fileID: 8147437145817615476}
   - component: {fileID: 5648501562640117107}
   - component: {fileID: 5946034530734127069}
-  - component: {fileID: 7768374210349756794}
   m_Layer: 7
   m_Name: GridPoint
   m_TagString: GridObject
@@ -447,15 +446,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisZone: {fileID: 3852904757834810190}
   thisTilePopulationVisual: {fileID: 1132281213703947483}
---- !u!114 &7768374210349756794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9131284861761954934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aed95219719c9d4f8c5154c3e136d05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
