@@ -9,7 +9,7 @@ public class UnitActionsSystem : MonoBehaviour
     public static UnitActionsSystem Instance { get; private set; }
 
     public event EventHandler OnSelectedUnitChanged;
-
+    public event EventHandler ZonePositionChanged;
 
     private Unit selectedUnit;
     private bool IsMoving = false;
@@ -84,6 +84,8 @@ public class UnitActionsSystem : MonoBehaviour
                             IsMoving = true;
                             selectedUnit.GetMoveAction().Move(destination);
                             selectedUnit.DoAction(clickedZone);
+                            
+                            ZonePositionChanged.Invoke(this, EventArgs.Empty);
                             if (clickedZone.ReturnEnemyUnitsInZone().Count > 0)
                             {
                                 clickedZone.ChangeControlToNeutral();

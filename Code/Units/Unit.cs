@@ -22,6 +22,8 @@ public class Unit : MonoBehaviour
     protected int TurnsTillGetToMiddle = 2;      // how often enemy unit chooses to go to the center of the map
     [SerializeField] protected int strength = 3; // how likely unit is to win combat
     [SerializeField] protected bool isEnemy;
+    private Zone CurrentStandingZone;
+    private int CurrentStandingZoneIndex;
     private void Awake()
     {
         moveAction = GetComponent<MoveAction>();
@@ -44,11 +46,24 @@ public class Unit : MonoBehaviour
         // subscribes to the event
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
+        UnitActionsSystem.Instance.ZonePositionChanged += UnitActionsSystem_ZonePositionChanged;
 
         if (isEnemy)
         {
             GetCurrentZone().ChangeControlToEnemy();
         }
+    }
+
+    public void SetStandingZone(Zone standingZone, int index)
+    {
+        CurrentStandingZone = standingZone;
+        CurrentStandingZoneIndex = index;
+    }
+     
+    private void UnitActionsSystem_ZonePositionChanged(object sender, EventArgs e)
+    {
+        if (CurrentStandingZone != null)
+        CurrentStandingZone.SetAllyPositionStatus(CurrentStandingZoneIndex, false);
     }
     public int GetStrength()
     {
