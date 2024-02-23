@@ -46,7 +46,6 @@ public class Unit : MonoBehaviour
         // subscribes to the event
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
-        UnitActionsSystem.Instance.ZonePositionChanged += UnitActionsSystem_ZonePositionChanged;
 
         if (isEnemy)
         {
@@ -59,11 +58,11 @@ public class Unit : MonoBehaviour
         CurrentStandingZone = standingZone;
         CurrentStandingZoneIndex = index;
     }
-     
-    private void UnitActionsSystem_ZonePositionChanged(object sender, EventArgs e)
+        
+    public void SetPastZoneBack()
     {
         if (CurrentStandingZone != null)
-        CurrentStandingZone.SetAllyPositionStatus(CurrentStandingZoneIndex, false);
+            CurrentStandingZone.SetAllyPositionStatus(CurrentStandingZoneIndex, false);
     }
     public int GetStrength()
     {

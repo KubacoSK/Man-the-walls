@@ -9,8 +9,6 @@ public class UnitActionsSystem : MonoBehaviour
     public static UnitActionsSystem Instance { get; private set; }
 
     public event EventHandler OnSelectedUnitChanged;
-    public event EventHandler ZonePositionChanged;
-
     private Unit selectedUnit;
     private bool IsMoving = false;
     Vector2 destination;
@@ -63,17 +61,21 @@ public class UnitActionsSystem : MonoBehaviour
                 // checks if we clicked on zone and not on some empty space
                 if (clickedZone != null)
                 {
+                    selectedUnit.SetPastZoneBack();
                     destination = new Vector2();
                     // gets list of close zones from MoveAction class
                     if (IsValidClickedZone(clickedZone, selectedUnit.GetMoveAction().GetValidZonesList()))
                     {
+                        int index = 0;
                         for (int i = 0; i < clickedZone.GetAllyMoveLocationStatuses().Length; i++)
                         {
                             if (clickedZone.GetAllyMoveLocationStatuses()[i] == false)
                             {
                                 destination = clickedZone.GetAllyMoveLocations()[i];
                                 clickedZone.SetAllyPositionStatus(i, true);
+                                index = i;
                                 break;
+                                
                             }
                            
                         }
@@ -84,8 +86,8 @@ public class UnitActionsSystem : MonoBehaviour
                             IsMoving = true;
                             selectedUnit.GetMoveAction().Move(destination);
                             selectedUnit.DoAction(clickedZone);
-                            
-                            ZonePositionChanged.Invoke(this, EventArgs.Empty);
+                            selectedUnit.SetStandingZone(clickedZone, index);
+
                             if (clickedZone.ReturnEnemyUnitsInZone().Count > 0)
                             {
                                 clickedZone.ChangeControlToNeutral();
