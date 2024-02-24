@@ -6749,63 +6749,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220852282}
   m_CullTransparentMesh: 1
---- !u!1001 &223734683
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.947967
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 16.127094
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4286376311966728887, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
-      propertyPath: m_Name
-      value: UnitSteamInfantry
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
 --- !u!1001 &226689801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59619,4 +59562,3 @@ SceneRoots:
   - {fileID: 1140361592}
   - {fileID: 399132316}
   - {fileID: 123781770}
-  - {fileID: 223734683}

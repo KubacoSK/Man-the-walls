@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Reflection;
+using Unity.VisualScripting;
 
 public class EnemyAiMove : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class EnemyAiMove : MonoBehaviour
     private Zone previousTargetZone = null;
 
     [SerializeField] private Zone CenterZone;
+    Vector2 destination;
 
     private void Awake()
     {
@@ -45,7 +48,6 @@ public class EnemyAiMove : MonoBehaviour
                     {
                         // if we detect zone with allied unit inside it we will get its name
                         TargetZone = zone;
-
                     }
                 }
             }
@@ -104,24 +106,26 @@ public class EnemyAiMove : MonoBehaviour
                     // however if there is zone with allyunit nierby it instead moves there, so it moves there
                 }
             }
-            Vector2 destinationposition = destinationZone.transform.position;
-            List<Unit> UnitsInZone = destinationZone.GetUnitsInZone();
-            float x = 0;
-            float y = 0;
-            foreach (Unit unitinzone in UnitsInZone)
+            enemyUnit.SetPastZoneBack();
+            int index = 0;
+            for (int i = 0; i < destinationZone.GetEnemyMoveLocationStatuses().Length; i++)
             {
-                // standard so units dont overlap
-                x += 0.4f;
-            }
-            if (destinationZone.GetZoneSizeModifier().x == 1) y -= 0.4f;
+                if (destinationZone.GetEnemyMoveLocationStatuses()[i] == false)
+                {
+                    destination = destinationZone.GetAllyMoveLocations()[i];
+                    destinationZone.SetEnemyPositionStatus(i, true);
+                    index = i;
+                    break;
 
-            destinationposition.x += x;
-            destinationposition.y += y;
+                }
+
+            }
+            enemyUnit.SetStandingZone(destinationZone, index);
             // Move the unit towards the chosen zone
-            enemyUnit.GetMoveAction().Move(destinationposition);
+            enemyUnit.GetMoveAction().Move(destination);
             // moves to zone
             enemyUnit.DoAction(destinationZone);
-            previousZone = enemyUnit.GetCurrentZone();
+            previousZone = destinationZone;
             if (destinationZone.ReturnAllyUnitsInZone().Count > 0)
             {
                 destinationZone.ChangeControlToNeutral();

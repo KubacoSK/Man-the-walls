@@ -104,6 +104,8 @@ public class Zone : MonoBehaviour
     }
     public bool[] GetAllyMoveLocationStatuses() { return alliedMoveLocationsStatus; }
     public Vector2[] GetAllyMoveLocations() { return alliedMoveLocations; }
+    public bool[] GetEnemyMoveLocationStatuses() { return enemyMoveLocationsStatus; }
+    public Vector2[] GetEnemyMoveLocations() { return enemyMoveLocations; }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
