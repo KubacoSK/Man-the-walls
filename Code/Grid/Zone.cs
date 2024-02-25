@@ -84,7 +84,7 @@ public class Zone : MonoBehaviour
         float enemyStartX = transform.position.x + 0.25f; 
         for (int i = 0; i < enemyMoveLocations.Length; i++)
         {
-            float x = enemyStartX + (i % xpos) * 0.5f; // Calculate X position based on grid index
+            float x = enemyStartX + ((i % xpos) * 0.5f) ; // Calculate X position based on grid index
             float y = startY - (i / xpos) * 0.8f; // Calculate Y position based on grid index
 
             enemyMoveLocations[i] = new Vector2(x, y);

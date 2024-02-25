@@ -106,14 +106,14 @@ public class EnemyAiMove : MonoBehaviour
                     // however if there is zone with allyunit nierby it instead moves there, so it moves there
                 }
             }
-            enemyUnit.SetPastZoneBack();
+            enemyUnit.SetPastZoneBack();                                                                // sets past zone position to false
             int index = 0;
             for (int i = 0; i < destinationZone.GetEnemyMoveLocationStatuses().Length; i++)
             {
                 if (destinationZone.GetEnemyMoveLocationStatuses()[i] == false)
                 {
-                    destination = destinationZone.GetAllyMoveLocations()[i];
-                    destinationZone.SetEnemyPositionStatus(i, true);
+                    destination = destinationZone.GetEnemyMoveLocations()[i];                             // gets Vector2 location of the zone
+                    destinationZone.SetEnemyPositionStatus(i, true);                                     // Sets that zone has unit on the index
                     index = i;
                     break;
 
@@ -195,16 +195,23 @@ public class EnemyAiMove : MonoBehaviour
                         seconddestinationZone = zone;
                     }
                 }
-                Vector2 destinationposition = seconddestinationZone.transform.position;
-                List<Unit> UnitsInZone2 = seconddestinationZone.GetUnitsInZone();
-                float sx = 0;
-                foreach (Unit unitinzone in UnitsInZone2)
+                enemyUnit.SetPastZoneBack();                                                                // sets past zone position to false
+                int index = 0;
+                for (int i = 0; i < seconddestinationZone.GetEnemyMoveLocationStatuses().Length; i++)
                 {
-                    sx += 0.4f;
+                    if (seconddestinationZone.GetEnemyMoveLocationStatuses()[i] == false)
+                    {
+                        destination = seconddestinationZone.GetEnemyMoveLocations()[i];                             // gets Vector2 location of the zone
+                        seconddestinationZone.SetEnemyPositionStatus(i, true);                                     // Sets that zone has unit on the index
+                        index = i;
+                        break;
+
+                    }
+
                 }
-                destinationposition.x += sx;
+                enemyUnit.SetStandingZone(seconddestinationZone, index);
                 // Move the unit towards the chosen zone
-                enemyUnit.GetMoveAction().Move(destinationposition);
+                enemyUnit.GetMoveAction().Move(destination);
                 if (seconddestinationZone.ReturnAllyUnitsInZone().Count > 0)
                 {
                     seconddestinationZone.ChangeControlToNeutral();
