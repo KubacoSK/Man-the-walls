@@ -20,12 +20,24 @@ public class EnemyUnitSpawner : MonoBehaviour
     }
     public void SpawnEnemyAtTurn()
     {
-        // spawn enemy units
-        Instantiate(SpawnUnitTemplateEnemy, EnemySpawnZones[UnityEngine.Random.Range(0, 4)].transform.position, Quaternion.identity);
-        Instantiate(SpawnUnitTemplateEnemy, EnemySpawnZones[UnityEngine.Random.Range(0, 4)].transform.position, Quaternion.identity);
-        if (DifficultySetter.GetDifficulty() == "Nightmare")
+        List<Zone> zones = new List<Zone>();
+        zones.Add(EnemySpawnZones[UnityEngine.Random.Range(0, 4)]);
+        zones.Add(EnemySpawnZones[UnityEngine.Random.Range(0, 4)]);
+        if (DifficultySetter.GetDifficulty() == "Hard" || DifficultySetter.GetDifficulty() == "Nightmare") zones.Add(EnemySpawnZones[UnityEngine.Random.Range(0, 4)]);
+        foreach (Zone zone in zones)
         {
-            Instantiate(SpawnUnitTemplateEnemy, EnemySpawnZones[UnityEngine.Random.Range(0, 4)].transform.position, Quaternion.identity);
+            for (int i = 0; i < zone.GetAllyMoveLocationStatuses().Length; i++)
+            {
+                if (!zone.GetAllyMoveLocationStatuses()[i])
+                {
+                    Vector3 spawnPosition = zone.GetAllyMoveLocations()[i];
+                    zone.SetAllyPositionStatus(i, true);
+                    Unit unit = Instantiate(SpawnUnitTemplateEnemy, spawnPosition, Quaternion.identity);
+                    unit.SetStandingZone(zone, i);
+                    break;
+
+                }
+            }
         }
     }
 }
