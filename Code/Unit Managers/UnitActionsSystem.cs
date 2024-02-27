@@ -10,8 +10,8 @@ public class UnitActionsSystem : MonoBehaviour
 
     public event EventHandler OnSelectedUnitChanged;
     private Unit selectedUnit;
-    private bool IsMoving = false;
-    Vector2 destination;
+    private bool IsMoving = false;                          // check if unit is currently moving 
+    Vector2 destination;                                    // vector of destination the unit is heading towards ( its a position for the positions array)
 
     private void Awake()
     {
@@ -61,13 +61,13 @@ public class UnitActionsSystem : MonoBehaviour
                 // checks if we clicked on zone and not on some empty space
                 if (clickedZone != null)
                 {
-                    selectedUnit.SetPastZoneBack();
+                    selectedUnit.SetPastZoneBack();                                      // we set the previous position to false
                     destination = new Vector2();
                     // gets list of close zones from MoveAction class
                     if (IsValidClickedZone(clickedZone, selectedUnit.GetMoveAction().GetValidZonesList()))
                     {
                         int index = 0;
-                        for (int i = 0; i < clickedZone.GetAllyMoveLocationStatuses().Length; i++)
+                        for (int i = 0; i < clickedZone.GetAllyMoveLocationStatuses().Length; i++) // we find the first available position in the list
                         {
                             if (clickedZone.GetAllyMoveLocationStatuses()[i] == false)
                             {
@@ -84,7 +84,7 @@ public class UnitActionsSystem : MonoBehaviour
                         {
                             // moves to to position
                             IsMoving = true;
-                            selectedUnit.GetMoveAction().Move(destination);
+                            selectedUnit.GetMoveAction().Move(destination);  // we move to the found position
                             selectedUnit.DoAction(clickedZone);
                             selectedUnit.SetStandingZone(clickedZone, index);
 
