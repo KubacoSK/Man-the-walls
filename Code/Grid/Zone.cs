@@ -13,10 +13,10 @@ public class Zone : MonoBehaviour
     private bool[] enemyMoveLocationsStatus;                            
     private Vector2[] alliedMoveLocations;                              // the positions allied units are able to occupy
     private Vector2[] enemyMoveLocations;                               // the positions enemy units are able to occupy
-    float xsize;
-    float ysize;
-    int xpos;
-    int ypos;
+    float xsize;                                                        // half of x size of a zone
+    float ysize;                                                        // half of y size of a zone
+    int xpos;                                                           // it is exactly middle position of x
+    int ypos;                                                           // it is a little lower from top so the units inside dont cover other zones
 
     [SerializeField] private Color neutralColor;
     [SerializeField] private Color enemyColor;
@@ -44,11 +44,11 @@ public class Zone : MonoBehaviour
         xsize = GetZoneSizeModifier().x / 2;
         ysize = (GetZoneSizeModifier().y / 2);
         
-        for (float x = xsize; x >= 0.5; x -= 0.5f)
-        {
-            xpos++;
+        for (float x = xsize; x >= 0.5; x -= 0.5f)                          // we calculate how many x positions are on a zone
+        { 
+            xpos++;            
         }
-        for (float y = ysize; y >= 0.5; y -= 0.5f)
+        for (float y = ysize; y >= 0.5; y -= 0.5f)                          // we calculate how many y positions are in a zone
         {
             ypos++;
         }
@@ -64,7 +64,7 @@ public class Zone : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         CurrentColor = AllyColor;
         
-        alliedMoveLocations = new Vector2[xpos * ypos];
+        alliedMoveLocations = new Vector2[xpos * ypos];                           // total number of allied and enemy move positons
         enemyMoveLocations = new Vector2[xpos * ypos];
         alliedMoveLocationsStatus = new bool[xpos * ypos];                          
         enemyMoveLocationsStatus = new bool[xpos * ypos];
