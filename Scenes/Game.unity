@@ -43298,9 +43298,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankUnitPrefab: {fileID: 6579320917981801210, guid: 8f4c40327484cc249b621d55edcf1e60, type: 3}
+  battleRobotPrefab: {fileID: 2423062980567016648, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
   horseUnitPrefab: {fileID: 5523802272884628901, guid: 669c4a3850f7bd04689620042bf940ec, type: 3}
   spawnUnitPrefab: {fileID: 2423062980567016648, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
   superPetrossPrefab: {fileID: 3094858414039541772, guid: c3a39d7c0e5344344bb1f93d8005323c, type: 3}
+  spawnCenterZone: {fileID: 763854380}
 --- !u!4 &1924468819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
