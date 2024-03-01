@@ -111,10 +111,10 @@ public class AllyUnitSpawner : MonoBehaviour
             {
                 if (spawnCenterZone.GetAllyMoveLocationStatuses()[k] == false)
                 {
-                    spawnPosition = spawnCenterZone.GetAllyMoveLocations()[k];
+                    spawnPosition = spawnCenterZone.GetAllyMoveLocations()[k];                  // we spawn unit on found position
                     spawnCenterZone.SetAllyPositionStatus(k, true);
-                    Unit unit = Instantiate(horseUnitPrefab, spawnPosition, Quaternion.identity);
-                    unit.SetStandingZone(spawnCenterZone, k);
+                    Unit unit = Instantiate(horseUnitPrefab, spawnPosition, Quaternion.identity);                    
+                    unit.SetStandingZone(spawnCenterZone, k);                        // we set the spawned units zone and position so when they move they return it to default position
                     index = k;
                     break;
 
@@ -132,7 +132,7 @@ public class AllyUnitSpawner : MonoBehaviour
     }
     private bool DoesItHaveEnoughResources(int Steel, int Bcrys, int Rcrys)
     {
-        if (ResourceManager.Instance.SteelCount >= Steel &&
+        if (ResourceManager.Instance.SteelCount >= Steel &&         // we check if we have higher or same amount of resources required
             ResourceManager.Instance.BlueCryCount >= Bcrys &&
             ResourceManager.Instance.RedCryCount >= Rcrys) 
         {
