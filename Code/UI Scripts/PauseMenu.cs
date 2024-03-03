@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField]public GameObject pauseMenu;
-
+    [SerializeField] private AudioSource SettingsMenuSound;
     private static bool isPaused;
 
     private void Start()
@@ -50,6 +50,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
         isPaused = false; 
+    }
+    public void PlaySettingsMenuSound()
+    {
+        SettingsMenuSound.Play();
     }
 
     public void QuitGame()
