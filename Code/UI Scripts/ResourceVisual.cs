@@ -16,6 +16,17 @@ public class ResourceVisual : MonoBehaviour
     [SerializeField] private TextMeshProUGUI BluCIncomeText;
     [SerializeField] private TextMeshProUGUI SteelIncomeText;
 
+    public static ResourceVisual Instance { get; private set; }
+    void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("There's more than one ResourceVisual! " + transform + " - " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     void Start()
     {
         Zone.ZoneControlChanged += Zone_ZoneControlChanged;
@@ -38,7 +49,7 @@ public class ResourceVisual : MonoBehaviour
         UpdateResourceCountVisual();
     }
 
-    private void UpdateResourceCountVisual()
+    public void UpdateResourceCountVisual()
     {
         // shows the current number of resources
         CoalCountText.text = "" + ResourceManager.Instance.CoalCount;
@@ -46,7 +57,7 @@ public class ResourceVisual : MonoBehaviour
         BlueCrysCountText.text = "" + ResourceManager.Instance.BlueCryCount;
         SteelCountText.text = "" + ResourceManager.Instance.SteelCount;
     }
-    private void UpdateResourceIncomeVisual()
+    public void UpdateResourceIncomeVisual()
     {
         // shows the income of the resource
         CoalIncomeText.text = "+" + ResourceManager.Instance.CoalIncome;

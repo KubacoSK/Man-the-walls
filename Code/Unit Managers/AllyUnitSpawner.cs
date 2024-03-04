@@ -73,6 +73,7 @@ public class AllyUnitSpawner : MonoBehaviour
             }
             SpawnedPaidUnitsThisTurn += 1;
             ResourceManager.Instance.SteelCount -= 4;
+            ResourceVisual.Instance.UpdateResourceCountVisual();
         }
     }
 
@@ -99,6 +100,7 @@ public class AllyUnitSpawner : MonoBehaviour
             ResourceManager.Instance.SteelCount -= 3;
             ResourceManager.Instance.BlueCryCount -= 1;
             ResourceManager.Instance.RedCryCount -= 1;
+            ResourceVisual.Instance.UpdateResourceCountVisual();
         }
     }
 
@@ -123,6 +125,7 @@ public class AllyUnitSpawner : MonoBehaviour
             }
             SpawnedPaidUnitsThisTurn += 1;
             ResourceManager.Instance.SteelCount -= 1;
+            ResourceVisual.Instance.UpdateResourceCountVisual();
             HorseSpawnsTillPetrossSpawn++;
             if (HorseSpawnsTillPetrossSpawn == 5)
             {

@@ -29,7 +29,7 @@ public class Unit : MonoBehaviour
         moveAction = GetComponent<MoveAction>();
     }
 
-    private void Start()
+    protected void Start()
     {
         if (isEnemy) strength -= 1;
         if (isEnemy)  // checks for difficulty settings and sets stats depending on them
@@ -63,6 +63,11 @@ public class Unit : MonoBehaviour
     {
         if (CurrentStandingZone != null)
             CurrentStandingZone.SetAllyPositionStatus(CurrentStandingZoneIndex, false);
+    }
+    public void SetEnemyPastZoneBack()
+    {
+        if (CurrentStandingZone != null)
+            CurrentStandingZone.SetEnemyPositionStatus(CurrentStandingZoneIndex, false);
     }
     public int GetStrength()
     {
@@ -101,14 +106,13 @@ public class Unit : MonoBehaviour
         OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
+    protected void TurnSystem_OnTurnChanged(object sender, EventArgs e)
     {
         // checks if turn has changed and if it has then it resets action points for all units
         if ((IsEnemy() && !TurnSystem.Instance.IsPlayerTurn()) ||
             (!IsEnemy() && TurnSystem.Instance.IsPlayerTurn()))
         {
             ActionPoints = maxActionPoints;
-
             OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
         }
     }

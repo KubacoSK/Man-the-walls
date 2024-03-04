@@ -52,6 +52,7 @@ public class UnitActionsSystem : MonoBehaviour
             if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() > 0 && selectedUnit != null && CanSteamMachineMove())
             {
                 ResourceManager.Instance.CoalCount -= selectedUnit.GetMovementCost();
+                ResourceVisual.Instance.UpdateResourceCountVisual();
                 // Right-click to move the selected unit
                 Vector3 mouseWorldPosition = MouseWorld.GetPosition();
                 Zone clickedZone = GetClickedZone(mouseWorldPosition);

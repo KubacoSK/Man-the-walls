@@ -32,6 +32,7 @@ public class EnemyAiMove : MonoBehaviour
         // Check if there are valid zones to move to
         if (validZones.Count > 0)
         {
+            enemyUnit.SetEnemyPastZoneBack();
             Zone TargetZone = null;
             Zone destinationZone = null;
             bool StayStill = false;
@@ -102,7 +103,7 @@ public class EnemyAiMove : MonoBehaviour
                     // however if there is zone with allyunit nierby it instead moves there, so it moves there
                 }
             }
-            enemyUnit.SetPastZoneBack();                                                                // sets past zone position to false
+                                                                         // sets past zone position to false
             int index = 0;
             for (int i = 0; i < destinationZone.GetEnemyMoveLocationStatuses().Length; i++)
             {
@@ -153,7 +154,7 @@ public class EnemyAiMove : MonoBehaviour
             {
                 validZones2.Remove(previousZone);
                 Zone seconddestinationZone = null;
-
+                enemyUnit.SetEnemyPastZoneBack();    
 
                 // Randomly choose a destination zone
                 seconddestinationZone = validZones2[UnityEngine.Random.Range(0, validZones2.Count)];
@@ -191,7 +192,7 @@ public class EnemyAiMove : MonoBehaviour
                         seconddestinationZone = zone;
                     }
                 }
-                enemyUnit.SetPastZoneBack();                                                                // sets past zone position to false
+                                                                            // sets past zone position to false
                 int index = 0;
                 for (int i = 0; i < seconddestinationZone.GetEnemyMoveLocationStatuses().Length; i++)
                 {
