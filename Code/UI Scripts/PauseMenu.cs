@@ -43,6 +43,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        MusicPlayer.Instance.ResumeBackgroundMusic();
     }
 
     public void GoToMainMenu()
@@ -53,6 +54,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void PlaySettingsMenuSound()
     {
+        MusicPlayer.Instance.PauseBackgroundMusic();
         SettingsMenuSound.Play();
     }
 
