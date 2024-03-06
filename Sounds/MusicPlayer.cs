@@ -8,6 +8,16 @@ public class MusicPlayer : MonoBehaviour
     private int currentTrackIndex;
     public static MusicPlayer Instance;
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("There's more than one MusicPlayer! " + transform + " - " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     private void Start()
     {
         // Start playing the first background music track
@@ -17,7 +27,7 @@ public class MusicPlayer : MonoBehaviour
 
     private void Update()
     {
-        if (!backgroundMusic[currentTrackIndex].isPlaying)
+        if (!backgroundMusic[currentTrackIndex].isPlaying && !PauseMenu.instance.IsSettingsMenuPlayingSound())
         {
             // Play the next track
             PlayNextTrack();
@@ -33,7 +43,7 @@ public class MusicPlayer : MonoBehaviour
 
         // Generate a random track index
         int randomTrackIndex;
-        do
+        do    // chooses random track that isnt last one
         {
             randomTrackIndex = UnityEngine.Random.Range(0, backgroundMusic.Length);
         } while (randomTrackIndex == currentTrackIndex);
@@ -48,10 +58,13 @@ public class MusicPlayer : MonoBehaviour
     // Call this method to stop the background music
     public void PauseBackgroundMusic()
     {
-        backgroundMusic[currentTrackIndex].Pause();
+        if (backgroundMusic[currentTrackIndex].isPlaying)
+            backgroundMusic[currentTrackIndex].Pause();
     }
+    // This one resumes it after it has been stopped
     public void ResumeBackgroundMusic()
     {
+        if (!backgroundMusic[currentTrackIndex].isPlaying)
         backgroundMusic[currentTrackIndex].UnPause();
     }
 }

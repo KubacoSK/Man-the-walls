@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,9 +9,17 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]public GameObject pauseMenu;
     [SerializeField] private AudioSource SettingsMenuSound;
     private static bool isPaused;
+    public static PauseMenu instance;
 
     private void Start()
     {
+        if (instance != null)
+        {
+            Debug.LogError("There's more than one PauseMenu! " + transform + " - " + instance);
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
         pauseMenu.SetActive(false);
     }
 
@@ -43,7 +52,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-        MusicPlayer.Instance.ResumeBackgroundMusic();
     }
 
     public void GoToMainMenu()
@@ -51,6 +59,15 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
         isPaused = false; 
+    }
+    public bool IsSettingsMenuPlayingSound()
+    {
+        return SettingsMenuSound.isPlaying;
+    }
+    public void ResumeGameMenuSound()
+    {
+        MusicPlayer.Instance.ResumeBackgroundMusic();
+        SettingsMenuSound.Stop();
     }
     public void PlaySettingsMenuSound()
     {
