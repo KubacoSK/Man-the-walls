@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,18 @@ public class TurnSystemUI : MonoBehaviour
     [SerializeField] private Button endTurnButton;                          // button for ending turn
     [SerializeField] private TextMeshProUGUI turnNumberText;                // displays the number of turns game has played
     [SerializeField] private GameObject EnemyTurnVisualObject;              // just text object informing that its enemy turn
+    [SerializeField] private TextMeshProUGUI numberOfEnemySoldierTurnsLeft; // shows how many enemy units havent done thier turn
 
+    public static TurnSystemUI instance;
     public void Start()
     {
+        if (instance != null)
+        {
+            Debug.LogError("There is more than one TurnSystemUi! " + transform + " - " + instance);
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
         // idk
         endTurnButton.onClick.AddListener(() =>
         {
@@ -24,6 +34,7 @@ public class TurnSystemUI : MonoBehaviour
         UpdateTurnText();
         UpdateEnemyTurnVisual();
         UpdateEndTurnButtonVisibility();
+        UpdateEnemyUnitsTurnsLeftNumber();
     }
     
 
@@ -32,6 +43,7 @@ public class TurnSystemUI : MonoBehaviour
         UpdateTurnText();
         UpdateEnemyTurnVisual();
         UpdateEndTurnButtonVisibility();
+        UpdateEnemyUnitsTurnsLeftNumber();
     }
     private void UpdateTurnText()
     {
@@ -46,9 +58,16 @@ public class TurnSystemUI : MonoBehaviour
     {
         EnemyTurnVisualObject.SetActive(!TurnSystem.Instance.IsPlayerTurn());
     }
-
+    private void UpdateEnemyUnitsTurnsLeftNumber()
+    {
+        numberOfEnemySoldierTurnsLeft.gameObject.SetActive(!TurnSystem.Instance.IsPlayerTurn());
+    }
     private void UpdateEndTurnButtonVisibility()
     {
         endTurnButton.gameObject.SetActive(TurnSystem.Instance.IsPlayerTurn());
+    }
+    public void UpdateEnemySoldiersTurnNumber(int numberOfEnemySoldiersUnifnished)
+    {
+        numberOfEnemySoldierTurnsLeft.text = "Enemy turns left: " + numberOfEnemySoldiersUnifnished;
     }
 }

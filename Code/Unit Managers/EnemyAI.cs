@@ -53,6 +53,7 @@ public class EnemyAI : MonoBehaviour
                 if (enemyUnit != null)
                 {
                     EnemyAiMove.Instance.MakeDecisionForUnit(enemyUnit);
+                    TurnSystemUI.instance.UpdateEnemySoldiersTurnNumber(enemyUnits.Count - currentEnemyIndex);
                     currentEnemyIndex++;
                 }
             }
