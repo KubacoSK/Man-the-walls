@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UnitCombat : MonoBehaviour
@@ -8,15 +9,13 @@ public class UnitCombat : MonoBehaviour
     public static UnitCombat Instance { get; private set; }
     public void Awake()
     {
-        if (Instance == null)
+        if (Instance != null)
         {
-            Instance = this;
-        }
-        else
-        {
-            Debug.LogError("There is more than one UnitCombat instance! Destroying the extra one.");
+            Debug.LogError("There's more than one PauseMenu! " + transform + " - " + Instance);
             Destroy(gameObject);
+            return;
         }
+        Instance = this;
 
     }
     public void TryEliminateUnits(List<Unit> unitsInZone, Zone thiszone)
@@ -75,6 +74,14 @@ public class UnitCombat : MonoBehaviour
                 EliminateUnit(enemyUnits[0]);
                 EnemyAI.Instance.HandleUnitDestroyed(enemyUnits[0]);
                 EnemyAI.Instance.HandleUnitDestroyed(allyUnits[0]);
+            }
+            if (allyUnits.Count == 0)
+            {
+                thiszone.ChangeControlToEnemy();
+            }
+            else if (enemyUnits.Count == 0)
+            {
+                thiszone.ChangeControlToAlly();
             }
         }
     }

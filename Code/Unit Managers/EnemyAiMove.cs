@@ -129,6 +129,7 @@ public class EnemyAiMove : MonoBehaviour
             }
             else
             {
+                
                 destinationZone.ChangeControlToEnemy();
             }
             if (!StayStill) StartCoroutine(DelayedSecondMove(enemyUnit));

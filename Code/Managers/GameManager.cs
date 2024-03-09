@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance;
     [SerializeField] private GameObject victorymenu;
     [SerializeField] private GameObject losemenu;
     [SerializeField] private Zone CenterZone;
@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
     }
     private void Update()

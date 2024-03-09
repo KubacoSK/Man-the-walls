@@ -243,13 +243,13 @@ public class Zone : MonoBehaviour
         IsUnderAllyControl = false;
         CurrentColor = enemyColor;
         spriteRenderer.color = CurrentColor;
-        populationCount = populationCount * 0.5f;
+        populationCount = populationCount * 0.6f;
         ZoneControlChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void ChangeControlToNeutral()
     {
-        // changes control of a zone if enemy attacks it and there is ally on it
+        // changes control of a zone if enemy attacks it and there is ally on it or reversed
         IsUnderAllyControl = false;
         CurrentColor = neutralColor;
         spriteRenderer.color = CurrentColor;

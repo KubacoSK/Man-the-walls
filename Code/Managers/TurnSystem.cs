@@ -34,7 +34,7 @@ public class TurnSystem : MonoBehaviour
             turnNumber++;
             if (turnNumber == 15)
             {
-                GameManager.instance.Win();
+                GameManager.Instance.Win();
             }
         }
         isPlayerTurn = !isPlayerTurn;

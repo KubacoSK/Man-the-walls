@@ -13,16 +13,16 @@ public class TurnSystemUI : MonoBehaviour
     [SerializeField] private GameObject EnemyTurnVisualObject;              // just text object informing that its enemy turn
     [SerializeField] private TextMeshProUGUI numberOfEnemySoldierTurnsLeft; // shows how many enemy units havent done thier turn
 
-    public static TurnSystemUI instance;
+    public static TurnSystemUI Instance;
     public void Start()
     {
-        if (instance != null)
+        if (Instance != null)
         {
-            Debug.LogError("There is more than one TurnSystemUi! " + transform + " - " + instance);
+            Debug.LogError("There is more than one TurnSystemUi! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
-        instance = this;
+        Instance = this;
         // idk
         endTurnButton.onClick.AddListener(() =>
         {
