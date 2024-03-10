@@ -44108,7 +44108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tankUnitPrefab: {fileID: 6579320917981801210, guid: 8f4c40327484cc249b621d55edcf1e60, type: 3}
-  battleRobotPrefab: {fileID: 2423062980567016648, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
+  battleRobotPrefab: {fileID: 4929539695249834325, guid: 9306efe996f4832499b79b50642ada31, type: 3}
   horseUnitPrefab: {fileID: 5523802272884628901, guid: 669c4a3850f7bd04689620042bf940ec, type: 3}
   spawnUnitPrefab: {fileID: 2423062980567016648, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
   superPetrossPrefab: {fileID: 3094858414039541772, guid: c3a39d7c0e5344344bb1f93d8005323c, type: 3}
