@@ -180,7 +180,7 @@ public class EnemyAiMove : MonoBehaviour
                             if (xdiff >= (Math.Abs(Mathf.Abs(zone.transform.position.x) - Mathf.Abs(previousTargetZone.transform.position.x))) &&
                                 ydiff >= (Math.Abs(Mathf.Abs(zone.transform.position.y) - Mathf.Abs(previousTargetZone.transform.position.y))))
                             {
-                                seconddestinationZone = zone;
+                                seconddestinationZone = zone; // we calculate the difference of position x+y and choose closest zone
                             }
                         }
                     }

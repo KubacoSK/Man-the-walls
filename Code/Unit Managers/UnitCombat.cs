@@ -58,18 +58,22 @@ public class UnitCombat : MonoBehaviour
             if (allyStrength > enemyStrength)
             {
                 // Ally wins, eliminate enemy unit
+                enemyUnits.RemoveAt(0);
                 EliminateUnit(enemyUnits[0]);
                 EnemyAI.Instance.HandleUnitDestroyed(enemyUnits[0]);
             }
             else if (enemyStrength > allyStrength)
             {
                 // Enemy wins, eliminate ally unit
+                allyUnits.RemoveAt(0);
                 EliminateUnit(allyUnits[0]);
                 EnemyAI.Instance.HandleUnitDestroyed(allyUnits[0]);
             }
             else
             {
                 // Strengths are equal, both units are eliminated
+                enemyUnits.RemoveAt(0);
+                allyUnits.RemoveAt(0);
                 EliminateUnit(allyUnits[0]);
                 EliminateUnit(enemyUnits[0]);
                 EnemyAI.Instance.HandleUnitDestroyed(enemyUnits[0]);
@@ -77,7 +81,7 @@ public class UnitCombat : MonoBehaviour
             }
             if (allyUnits.Count == 0)
             {
-                thiszone.ChangeControlToEnemy();
+                thiszone.ChangeControlToEnemy(); // we change control of the zone if all enemies are wiped out
             }
             else if (enemyUnits.Count == 0)
             {

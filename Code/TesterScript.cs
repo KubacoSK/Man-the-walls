@@ -15,8 +15,7 @@ public class TesterScript : MonoBehaviour
             ResourceManager.Instance.SteelCount += 3;
         }
         if (Input.GetKeyDown("h")) 
-        { 
-
+        {
             AllyUnitSpawner.Instance.SpawnHorse();
         }
     }
