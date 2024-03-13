@@ -23370,7 +23370,7 @@ GameObject:
   - component: {fileID: 955983595}
   - component: {fileID: 955983594}
   m_Layer: 5
-  m_Name: CloseButton
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23439,7 +23439,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 955983595}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1971472929}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1769622685}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &955983595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39837,7 +39861,6 @@ GameObject:
   - component: {fileID: 1769622686}
   - component: {fileID: 1769622689}
   - component: {fileID: 1769622688}
-  - component: {fileID: 1769622687}
   m_Layer: 5
   m_Name: TutorialMessage2
   m_TagString: Untagged
@@ -39866,19 +39889,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 30.988998}
   m_SizeDelta: {x: 1252.263, y: 859.068}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1769622687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1769622685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c1ef584f738ddb4ebb82468ee3038b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  closeButton: {fileID: 1901797199}
 --- !u!114 &1769622688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43966,7 +43976,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1901797200}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769622685}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1901797200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46606,7 +46628,6 @@ GameObject:
   - component: {fileID: 1971472930}
   - component: {fileID: 1971472933}
   - component: {fileID: 1971472932}
-  - component: {fileID: 1971472931}
   m_Layer: 5
   m_Name: TutorialMessage
   m_TagString: Untagged
@@ -46635,19 +46656,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 30.988998}
   m_SizeDelta: {x: 1252.263, y: 859.068}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1971472931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971472929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c1ef584f738ddb4ebb82468ee3038b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  closeButton: {fileID: 955983594}
 --- !u!114 &1971472932
 MonoBehaviour:
   m_ObjectHideFlags: 0
