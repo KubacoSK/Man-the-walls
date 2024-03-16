@@ -13,6 +13,7 @@ public class TesterScript : MonoBehaviour
         if(Input.GetKeyDown("r"))
         {
             ResourceManager.Instance.SteelCount += 3;
+            ResourceManager.Instance.CoalCount += 3;
         }
         if (Input.GetKeyDown("h")) 
         {
