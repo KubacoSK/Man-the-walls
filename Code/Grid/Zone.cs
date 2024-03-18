@@ -6,7 +6,8 @@ public class Zone : MonoBehaviour
 {
     private List<Unit> unitsInZone;
     private GridSystemVisual highlighter;
-    private bool IsUnderAllyControl;
+    public enum ControlType { allied, enemy, neutral}
+    public ControlType whoIsInControl;
     private SpriteRenderer spriteRenderer;
     private Color CurrentColor;
     private bool[] alliedMoveLocationsStatus;                           // we check if there is unit already occupying the zone
@@ -60,7 +61,7 @@ public class Zone : MonoBehaviour
         
         highlighter = GetComponent<GridSystemVisual>();
         unitsInZone = new List<Unit>();
-        IsUnderAllyControl = true;
+        whoIsInControl = ControlType.allied;
         spriteRenderer = GetComponent<SpriteRenderer>();
         CurrentColor = AllyColor;
         
@@ -219,9 +220,9 @@ public class Zone : MonoBehaviour
         return EnemyUnits;
     }
 
-    public bool IsUnderAllycont()
+    public ControlType WhoIsUnderControl()
     {
-        return IsUnderAllyControl;
+        return whoIsInControl;
     }
 
     public Color ReturnCurrentColor()
@@ -231,29 +232,38 @@ public class Zone : MonoBehaviour
 
     public void ChangeControlToAlly()
     {
-        IsUnderAllyControl = true;
-        CurrentColor = AllyColor;
-        spriteRenderer.color = CurrentColor;
-        ZoneControlChanged?.Invoke(this, EventArgs.Empty);
+        if (whoIsInControl != ControlType.allied) 
+        {
+            whoIsInControl = ControlType.allied;
+            CurrentColor = AllyColor;
+            spriteRenderer.color = CurrentColor;
+            ZoneControlChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public void ChangeControlToEnemy()
     {
         // changes control of a zone if enemy attacks it
-        IsUnderAllyControl = false;
-        CurrentColor = enemyColor;
-        spriteRenderer.color = CurrentColor;
-        populationCount = populationCount * 0.6f;
-        ZoneControlChanged?.Invoke(this, EventArgs.Empty);
+        if (whoIsInControl != ControlType.enemy)
+        {
+            whoIsInControl = ControlType.enemy;
+            CurrentColor = enemyColor;
+            spriteRenderer.color = CurrentColor;
+            populationCount = populationCount * 0.6f;
+            ZoneControlChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public void ChangeControlToNeutral()
     {
         // changes control of a zone if enemy attacks it and there is ally on it or reversed
-        IsUnderAllyControl = false;
-        CurrentColor = neutralColor;
-        spriteRenderer.color = CurrentColor;
-        ZoneControlChanged?.Invoke(this, EventArgs.Empty);
+        if (whoIsInControl != ControlType.neutral)
+        {
+            whoIsInControl =ControlType.neutral;
+            CurrentColor = neutralColor;
+            spriteRenderer.color = CurrentColor;
+            ZoneControlChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public float GetNumberOfCitizens()

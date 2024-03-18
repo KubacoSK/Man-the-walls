@@ -26,12 +26,12 @@ public class EnemyUnitSpawner : MonoBehaviour
         if (DifficultySetter.GetDifficulty() == "Hard" || DifficultySetter.GetDifficulty() == "Nightmare") zones.Add(EnemySpawnZones[UnityEngine.Random.Range(0, 4)]);
         foreach (Zone zone in zones)
         {
-            for (int i = 0; i < zone.GetAllyMoveLocationStatuses().Length; i++)
+            for (int i = 0; i < zone.GetEnemyMoveLocationStatuses().Length; i++)
             {
-                if (!zone.GetAllyMoveLocationStatuses()[i])
+                if (!zone.GetEnemyMoveLocationStatuses()[i])
                 {
-                    Vector3 spawnPosition = zone.GetAllyMoveLocations()[i];
-                    zone.SetAllyPositionStatus(i, true);
+                    Vector3 spawnPosition = zone.GetEnemyMoveLocations()[i];
+                    zone.SetEnemyPositionStatus(i, true);
                     Unit unit = Instantiate(SpawnUnitTemplateEnemy, spawnPosition, Quaternion.identity);
                     unit.SetStandingZone(zone, i);
                     break;

@@ -58,26 +58,30 @@ public class UnitCombat : MonoBehaviour
             if (allyStrength > enemyStrength)
             {
                 // Ally wins, eliminate enemy unit
-                enemyUnits.RemoveAt(0);
-                EliminateUnit(enemyUnits[0]);
-                EnemyAI.Instance.HandleUnitDestroyed(enemyUnits[0]);
+                Unit enemyUnit = enemyUnits[0];
+                enemyUnits.Remove(enemyUnit);
+                EliminateUnit(enemyUnit);
+                EnemyAI.Instance.HandleUnitDestroyed(enemyUnit);
             }
             else if (enemyStrength > allyStrength)
             {
                 // Enemy wins, eliminate ally unit
-                allyUnits.RemoveAt(0);
-                EliminateUnit(allyUnits[0]);
-                EnemyAI.Instance.HandleUnitDestroyed(allyUnits[0]);
+                Unit allyUnit = allyUnits[0];
+                allyUnits.Remove(allyUnit);
+                EliminateUnit(allyUnit);
+                EnemyAI.Instance.HandleUnitDestroyed(allyUnit);
             }
             else
             {
                 // Strengths are equal, both units are eliminated
-                enemyUnits.RemoveAt(0);
-                allyUnits.RemoveAt(0);
-                EliminateUnit(allyUnits[0]);
-                EliminateUnit(enemyUnits[0]);
-                EnemyAI.Instance.HandleUnitDestroyed(enemyUnits[0]);
-                EnemyAI.Instance.HandleUnitDestroyed(allyUnits[0]);
+                Unit allyUnit = allyUnits[0];
+                Unit enemyUnit = enemyUnits[0];
+                allyUnits.Remove(allyUnit);
+                enemyUnits.Remove(enemyUnit);
+                EliminateUnit(enemyUnit);
+                EliminateUnit(allyUnit);
+                EnemyAI.Instance.HandleUnitDestroyed(enemyUnit);
+                EnemyAI.Instance.HandleUnitDestroyed(allyUnit);
             }
             if (allyUnits.Count == 0)
             {

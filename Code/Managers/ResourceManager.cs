@@ -64,7 +64,7 @@ public class ResourceManager : MonoBehaviour
     private void UpdateResourceIncome(Zone zone)
     {
         // adjusts the income based on zone that was taken
-        if (zone.IsUnderAllycont())
+        if (zone.WhoIsUnderControl() == Zone.ControlType.allied)
         {
             coalIncome += zone.NumberOfCoal;
             redCIncome += zone.NumberOFRedCrystal;
@@ -92,8 +92,8 @@ public class ResourceManager : MonoBehaviour
     {
         // checks if zone is changed to allied or enemy and removes it from the list
         Zone zone = sender as Zone;
-        if (zone.IsUnderAllycont() && !AlliedControlledZones.Contains(zone)) AlliedControlledZones.Add(zone);
-        if (!zone.IsUnderAllycont() && AlliedControlledZones.Contains(zone)) AlliedControlledZones.Remove(zone);
+        AlliedControlledZones.Clear();
+        AlliedControlledZones = ZoneManager.ReturnAlliedZones();
         UpdateResourceIncome(zone);
     }
 

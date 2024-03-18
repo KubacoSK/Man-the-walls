@@ -49,11 +49,11 @@ public class ZoneManager : MonoBehaviour
     private void Zone_ZoneControlChanged(object sender, EventArgs e)
     {
         Zone zone = sender as Zone;
-        if (zone.IsUnderAllycont() && !AlliedZones.Contains(zone))
+        if (zone.WhoIsUnderControl() == Zone.ControlType.allied && !AlliedZones.Contains(zone))
         {
             AlliedZones.Add(zone);
         }
-        else if (!zone.IsUnderAllycont() && AlliedZones.Contains(zone))
+        else if ((zone.WhoIsUnderControl() == Zone.ControlType.enemy || zone.WhoIsUnderControl() == Zone.ControlType.neutral) && AlliedZones.Contains(zone))
         {
             AlliedZones.Remove(zone);
         }
