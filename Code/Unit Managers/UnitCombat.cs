@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class UnitCombat : MonoBehaviour
 {
@@ -20,9 +21,10 @@ public class UnitCombat : MonoBehaviour
     }
     public void TryEliminateUnits(List<Unit> unitsInZone, Zone thiszone)
     {
-
+       
+        if (thiszone.GetUnitsInZone().Count >= 2)
+        {
         // Check if there are at least two units in the zone
-
         // Filter units by type (e.g., ally and enemy)
         List<Unit> allyUnits = new List<Unit>();
         List<Unit> enemyUnits = new List<Unit>();
@@ -38,58 +40,66 @@ public class UnitCombat : MonoBehaviour
                 enemyUnits.Add(unit);
             }
         }
+        float totalunits = (allyUnits.Count + enemyUnits.Count) / 3;
+        bool? alliesWon = null;  // adds counter that if enemies won last fight allies get buff and reversed
+                                 // If there is at least one ally and one enemy, randomly eliminate one of them
+            for (int i = 1; i <= totalunits; i++)
+            {
+                if (allyUnits.Count > 0 && enemyUnits.Count > 0)
+                {
+                    int allyStrength = 0;
+                    int enemyStrength = 0;
+                    if (alliesWon == true) allyStrength -= 2;
+                    if (alliesWon == false) enemyStrength -= 2;
+                    foreach (Unit unit in allyUnits) allyStrength += unit.GetStrength(); // increases allied strength based number of allies in zone
+                    foreach (Unit unit in enemyUnits) enemyStrength += unit.GetStrength();
+                    if (thiszone.IsWallCheck() == true) allyStrength += 3; // if we are fighting on a wall we add more power
 
-        // If there is at least one ally and one enemy, randomly eliminate one of them
-        if (allyUnits.Count > 0 && enemyUnits.Count > 0)
-        {
-            int allyStrength = 0;
-            int enemyStrength = 0;
-            foreach (Unit unit in allyUnits) allyStrength += unit.GetStrength(); // increases allied strength based number of allies in zone
-            foreach (Unit unit in enemyUnits) enemyStrength += unit.GetStrength();
-            if (thiszone.IsWallCheck() == true) allyStrength += 3; // if we are fighting on a wall we add more power
+                    int randomElementally = Random.Range(0, 7);
+                    int randomElementenemy = Random.Range(0, 7);
 
-            int randomElementally = Random.Range(0, 7);
-            int randomElementenemy = Random.Range(0, 7);
-
-
-            allyStrength += randomElementally;
-            enemyStrength += randomElementenemy;
-            // Perform elimination logic (e.g., destroy the unit)
-            if (allyStrength > enemyStrength)
-            {
-                // Ally wins, eliminate enemy unit
-                Unit enemyUnit = enemyUnits[0];
-                enemyUnits.Remove(enemyUnit);
-                EliminateUnit(enemyUnit);
-                EnemyAI.Instance.HandleUnitDestroyed(enemyUnit);
-            }
-            else if (enemyStrength > allyStrength)
-            {
-                // Enemy wins, eliminate ally unit
-                Unit allyUnit = allyUnits[0];
-                allyUnits.Remove(allyUnit);
-                EliminateUnit(allyUnit);
-                EnemyAI.Instance.HandleUnitDestroyed(allyUnit);
-            }
-            else
-            {
-                // Strengths are equal, both units are eliminated
-                Unit allyUnit = allyUnits[0];
-                Unit enemyUnit = enemyUnits[0];
-                allyUnits.Remove(allyUnit);
-                enemyUnits.Remove(enemyUnit);
-                EliminateUnit(enemyUnit);
-                EliminateUnit(allyUnit);
-                EnemyAI.Instance.HandleUnitDestroyed(enemyUnit);
-                EnemyAI.Instance.HandleUnitDestroyed(allyUnit);
-            }
-            if (allyUnits.Count == 0)
-            {
-                thiszone.ChangeControlToEnemy(); // we change control of the zone if all enemies are wiped out
-            }
-            else if (enemyUnits.Count == 0)
-            {
-                thiszone.ChangeControlToAlly();
+                    allyStrength += randomElementally;
+                    enemyStrength += randomElementenemy;
+                    // Perform elimination logic (e.g., destroy the unit)
+                    if (allyStrength > enemyStrength)
+                    {
+                        // Ally wins, eliminate enemy unit
+                        Unit enemyUnit = enemyUnits[0];
+                        enemyUnits.Remove(enemyUnit);
+                        EliminateUnit(enemyUnit);
+                        EnemyAI.Instance.HandleUnitDestroyed(enemyUnit);
+                        alliesWon = true;
+                    }
+                    else if (enemyStrength > allyStrength)
+                    {
+                        // Enemy wins, eliminate ally unit
+                        Unit allyUnit = allyUnits[0];
+                        allyUnits.Remove(allyUnit);
+                        EliminateUnit(allyUnit);
+                        EnemyAI.Instance.HandleUnitDestroyed(allyUnit);
+                        alliesWon = false;
+                    }
+                    else
+                    {
+                        // Strengths are equal, both units are eliminated
+                        Unit allyUnit = allyUnits[0];
+                        Unit enemyUnit = enemyUnits[0];
+                        allyUnits.Remove(allyUnit);
+                        enemyUnits.Remove(enemyUnit);
+                        EliminateUnit(enemyUnit);
+                        EliminateUnit(allyUnit);
+                        EnemyAI.Instance.HandleUnitDestroyed(enemyUnit);
+                        alliesWon = null;
+                    }
+                    if (allyUnits.Count == 0)
+                    {
+                        thiszone.ChangeControlToEnemy(); // we change control of the zone if all enemies are wiped out
+                    }
+                    else if (enemyUnits.Count == 0)
+                    {
+                        thiszone.ChangeControlToAlly();
+                    }
+                }
             }
         }
     }

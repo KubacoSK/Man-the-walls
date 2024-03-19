@@ -9,7 +9,6 @@ public class TurnSystem : MonoBehaviour
     public static TurnSystem Instance { get; private set; }
 
     public event EventHandler OnTurnChanged;
-    Zone[] allZones;
     private int turnNumber = 1;
     private bool isPlayerTurn = true;
 
@@ -22,7 +21,6 @@ public class TurnSystem : MonoBehaviour
             return;
         }
         Instance = this;
-        allZones = FindObjectsOfType<Zone>();
     }
     public void NextTurn()
     {
@@ -41,13 +39,10 @@ public class TurnSystem : MonoBehaviour
         // invokes onTurnChanged event
         OnTurnChanged.Invoke(this, EventArgs.Empty);
         if (isPlayerTurn != false) EnemyUnitSpawner.Instance.SpawnEnemyAtTurn();
-        foreach (Zone zone in allZones)
+        foreach (Zone zone in ZoneManager.GetAllZones())
         {
             // if zone has more than 1 unit inside it it will do a combat method there
-            if (zone.GetUnitsInZone().Count >= 2)
-            {
                 zone.InitiateEliminationProcess(zone);
-            }
         }
         
     }    

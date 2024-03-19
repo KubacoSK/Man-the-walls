@@ -26,6 +26,7 @@ public class TurnSystemUI : MonoBehaviour
         // idk
         endTurnButton.onClick.AddListener(() =>
         {
+           
             TurnSystem.Instance.NextTurn();
         });
 

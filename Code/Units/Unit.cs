@@ -31,12 +31,11 @@ public class Unit : MonoBehaviour
 
     protected void Start()
     {
-        if (isEnemy) strength -= 1;
         if (isEnemy)  // checks for difficulty settings and sets stats depending on them
             switch (DifficultySetter.GetDifficulty())
             {
                 case "Easy":
-                    strength -= 1;
+                    strength--;
                     break;
                 case "Nightmare":
                     strength += 2;
