@@ -124,10 +124,13 @@ public class Zone : MonoBehaviour
         }
 
     }
-    public void InitiateEliminationProcess(Zone zone)
+    public void InitiateEliminationProcess()
     {
         // using this to get units in zone list
-        UnitCombat.Instance.TryEliminateUnits(unitsInZone, zone);
+        if (GetUnitsInZone().Count >= 2)
+        {
+            UnitCombat.Instance.TryEliminateUnits(unitsInZone, this);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

@@ -25,6 +25,7 @@ public class TurnSystem : MonoBehaviour
     public void NextTurn()
     {
         // moves between turns and increases number
+        
         if (isPlayerTurn)
         {
             AllyUnitSpawner.Instance.ResetPaidSpawnedUnits();
@@ -42,7 +43,7 @@ public class TurnSystem : MonoBehaviour
         foreach (Zone zone in ZoneManager.GetAllZones())
         {
             // if zone has more than 1 unit inside it it will do a combat method there
-                zone.InitiateEliminationProcess(zone);
+                zone.InitiateEliminationProcess();
         }
         
     }    

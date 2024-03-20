@@ -22,8 +22,8 @@ public class UnitCombat : MonoBehaviour
     public void TryEliminateUnits(List<Unit> unitsInZone, Zone thiszone)
     {
        
-        if (thiszone.GetUnitsInZone().Count >= 2)
-        {
+        
+            Debug.Log("executing");
         // Check if there are at least two units in the zone
         // Filter units by type (e.g., ally and enemy)
         List<Unit> allyUnits = new List<Unit>();
@@ -43,7 +43,7 @@ public class UnitCombat : MonoBehaviour
         float totalunits = (allyUnits.Count + enemyUnits.Count) / 3;
         bool? alliesWon = null;  // adds counter that if enemies won last fight allies get buff and reversed
                                  // If there is at least one ally and one enemy, randomly eliminate one of them
-            for (int i = 1; i <= totalunits; i++)
+            for (int i = 0; i <= totalunits; i++)
             {
                 if (allyUnits.Count > 0 && enemyUnits.Count > 0)
                 {
@@ -101,7 +101,7 @@ public class UnitCombat : MonoBehaviour
                     }
                 }
             }
-        }
+        
     }
 
     private void EliminateUnit(Unit unit)
