@@ -25,6 +25,7 @@ public class EnemyAiMove : MonoBehaviour
     }
     public void MakeDecisionForUnit(Unit enemyUnit)
     {
+        if (previousZone.ReturnAllyUnitsInZone().Count > 0) return;
         // Get valid zones for the current enemy unit
         List<Zone> validZones = enemyUnit.GetMoveAction().GetValidZonesListForEnemy();
         //we check if there are any further zones away with units in them
