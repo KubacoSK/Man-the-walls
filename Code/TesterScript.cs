@@ -19,5 +19,8 @@ public class TesterScript : MonoBehaviour
         {
             AllyUnitSpawner.Instance.SpawnHorse();
         }
+
+        if(Input.GetKeyDown("l")) GameManager.Instance.Lose();
+        if (Input.GetKeyDown("w")) GameManager.Instance.Win();
     }
 }
