@@ -7,7 +7,7 @@ public class EnemyAiMove : MonoBehaviour
 {
 
     public static EnemyAiMove Instance { get; private set; }
-    private Zone previousZone= null;
+    private Zone previousZone = null;
     private Zone previousTargetZone = null;
 
     [SerializeField] private Zone CenterZone;
@@ -24,8 +24,10 @@ public class EnemyAiMove : MonoBehaviour
         Instance = this;
     }
     public void MakeDecisionForUnit(Unit enemyUnit)
-    {
-        if (previousZone.ReturnAllyUnitsInZone().Count > 0) return;
+    { 
+        if(enemyUnit.ReturnCurrentStandingZone() != null){
+        if (enemyUnit.ReturnCurrentStandingZone().ReturnAllyUnitsInZone().Count > 0) return;
+        }
         // Get valid zones for the current enemy unit
         List<Zone> validZones = enemyUnit.GetMoveAction().GetValidZonesListForEnemy();
         //we check if there are any further zones away with units in them

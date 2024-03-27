@@ -21,6 +21,6 @@ public class TesterScript : MonoBehaviour
         }
 
         if(Input.GetKeyDown("l")) GameManager.Instance.Lose();
-        if (Input.GetKeyDown("w")) GameManager.Instance.Win();
+        if (Input.GetKeyDown("p")) GameManager.Instance.Win();
     }
 }

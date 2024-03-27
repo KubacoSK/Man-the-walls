@@ -68,6 +68,10 @@ public class Unit : MonoBehaviour
         if (CurrentStandingZone != null)
             CurrentStandingZone.SetEnemyPositionStatus(CurrentStandingZoneIndex, false);
     }
+    public Zone ReturnCurrentStandingZone()
+    {
+        return CurrentStandingZone;
+    }
     public int GetStrength()
     {
         return strength; 
