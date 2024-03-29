@@ -13,6 +13,7 @@ public class Unit_TankUnit : Unit
         maxActionPoints = 3;
         MovementCost = 1;
         canComeToWalls = false;
+        TypeOfUnit = UnitType.Tank;
     }
 }
 

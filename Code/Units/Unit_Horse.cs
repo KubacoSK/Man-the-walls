@@ -11,6 +11,7 @@ public class Unit_Horse : Unit
         ActionPoints = 4;
         maxActionPoints = 4;
         canComeToWalls = false;
+        TypeOfUnit = UnitType.Horseman;
     }
 
 }

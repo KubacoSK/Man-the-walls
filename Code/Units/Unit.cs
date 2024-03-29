@@ -9,7 +9,8 @@ public class Unit : MonoBehaviour
     // basic parent class for units, all other units are child of this one
     // also is basic infantry with ability to climb walls and automatic deployment
     protected MoveAction moveAction;
-
+    public enum UnitType { Infantry, Tank, Horseman, BattleRobot, }   // we make units into different classes
+    public UnitType TypeOfUnit = UnitType.Infantry;
     // events that handle unit creation and deletion 
     public static event EventHandler OnAnyActionPointsChanged;
     public static event EventHandler OnAnyUnitSpawned;
@@ -31,7 +32,8 @@ public class Unit : MonoBehaviour
 
     protected void Start()
     {
-        if (isEnemy)  // checks for difficulty settings and sets stats depending on them
+        if (isEnemy)
+        { // checks for difficulty settings and sets stats depending on them
             switch (DifficultySetter.GetDifficulty())
             {
                 case "Easy":
@@ -41,7 +43,7 @@ public class Unit : MonoBehaviour
                     strength += 2;
                     break;
             }
-            
+        }
         // subscribes to the event
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
