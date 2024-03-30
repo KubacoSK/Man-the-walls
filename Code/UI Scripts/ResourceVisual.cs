@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ResourceVisual : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI populationCountText;
+
     [SerializeField] private TextMeshProUGUI CoalCountText;
     [SerializeField] private TextMeshProUGUI RedCrysCountText;
     [SerializeField] private TextMeshProUGUI BlueCrysCountText;
@@ -31,7 +33,7 @@ public class ResourceVisual : MonoBehaviour
     {
         Zone.ZoneControlChanged += Zone_ZoneControlChanged;
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
-        
+        populationCountText.text = "Population: " + (ResourceManager.Instance.GetNumberOfTotalPopulation() * 1000);
     }
 
     void Update()
@@ -42,11 +44,13 @@ public class ResourceVisual : MonoBehaviour
     private void Zone_ZoneControlChanged(object sender, EventArgs e)
     {
         UpdateResourceIncomeVisual();
+        populationCountText.text = "Population: " + (ResourceManager.Instance.GetNumberOfTotalPopulation() * 1000);
     }
 
     private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
     {
         UpdateResourceCountVisual();
+        populationCountText.text = "Population: " + (ResourceManager.Instance.GetNumberOfTotalPopulation() * 1000);
     }
 
     public void UpdateResourceCountVisual()

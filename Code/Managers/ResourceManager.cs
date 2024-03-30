@@ -95,6 +95,7 @@ public class ResourceManager : MonoBehaviour
         AlliedControlledZones.Clear();
         AlliedControlledZones = ZoneManager.ReturnAlliedZones();
         UpdateResourceIncome(zone);
+
     }
 
     public void TurnSystem_OnTurnChanged(object sender, EventArgs e)
