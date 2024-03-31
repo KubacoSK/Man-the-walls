@@ -46,7 +46,6 @@ public class LossesManager : MonoBehaviour
     private void LossesManager_OnAnyUnitDeath(object sender, EventArgs e)
     {
         Unit unit = sender as Unit;
-        Debug.Log(unit.name);
         switch (unit.TypeOfUnit)
         {
             case Unit.UnitType.Infantry:
