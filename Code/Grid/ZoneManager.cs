@@ -59,7 +59,7 @@ public class ZoneManager : MonoBehaviour
         }
     }
 
-    public static List<Zone> ReturnAlliedZones()
+    public List<Zone> ReturnAlliedZones()
     {
         return AlliedZones;
     }

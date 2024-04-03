@@ -33,7 +33,6 @@ public class AllyUnitSpawner : MonoBehaviour
     {
         for (float i = ResourceManager.Instance.GetNumberOfTotalPopulation(); i >= 80; i -= 80) // spawn units with offset based of how many of them were spawned
         {
-            Debug.Log("Spawning unit based on population" + ResourceManager.Instance.GetNumberOfTotalPopulation() + "Unit number: " + i);
             int index = 0;
             for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
             {

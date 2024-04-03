@@ -8,7 +8,6 @@ using UnityEngine.XR;
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance;
-    private List<Zone> AlliedControlledZones;
 
     private float totalPopulation;
 
@@ -44,15 +43,14 @@ public class ResourceManager : MonoBehaviour
     }
     private void Start()
     {
-        AlliedControlledZones = ZoneManager.ReturnAlliedZones();
         Zone.ZoneControlChanged += Zone_ZoneControlChanged;
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         // sets up system so it shows even on first turn
-        foreach (Zone zone in AlliedControlledZones)
+        foreach (Zone zone in ZoneManager.Instance.ReturnAlliedZones())
         {
             totalPopulation += zone.GetNumberOfCitizens();
         }
-        foreach (Zone zone in ZoneManager.ReturnAlliedZones())
+        foreach (Zone zone in ZoneManager.Instance.ReturnAlliedZones())
         {
             coalIncome += zone.NumberOfCoal;
             redCIncome += zone.NumberOFRedCrystal;
@@ -92,8 +90,6 @@ public class ResourceManager : MonoBehaviour
     {
         // checks if zone is changed to allied or enemy and removes it from the list
         Zone zone = sender as Zone;
-        AlliedControlledZones.Clear();
-        AlliedControlledZones = ZoneManager.ReturnAlliedZones();
         UpdateResourceIncome(zone);
 
     }
@@ -104,7 +100,7 @@ public class ResourceManager : MonoBehaviour
         {
             // calcualtes total population based on controlled zones
             totalPopulation = 0;
-            foreach (Zone zone in AlliedControlledZones)
+            foreach (Zone zone in ZoneManager.Instance.ReturnAlliedZones())
             {
                 zone.PopulationGrowth();
                 totalPopulation += zone.GetNumberOfCitizens();  
