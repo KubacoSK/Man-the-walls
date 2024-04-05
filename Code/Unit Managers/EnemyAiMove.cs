@@ -46,7 +46,16 @@ public class EnemyAiMove : MonoBehaviour
                 {
                     if (zone.ReturnEnemyUnitsInZone().Count > 0)
                     {
+                        Vector2 VectorToMiddle1 = new Vector2(
+                        Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x - CenterZone.transform.position.x),
+                        Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y - CenterZone.transform.position.y));
+                        float totaldiff1 = VectorToMiddle1.x + VectorToMiddle1.y;
+                        Vector2 VectorToMiddle2 = new Vector2(
+                        Mathf.Abs(zone.transform.position.x - CenterZone.transform.position.x),
+                        Mathf.Abs(zone.transform.position.y - CenterZone.transform.position.y));
+                        float totaldiff2 = VectorToMiddle2.x + VectorToMiddle2.y;
                         // if we detect zone with allied unit inside it we will get its name
+                        if(totaldiff1 > totaldiff2)
                         TargetZone = zone;
                     }
                 }

@@ -25997,19 +25997,31 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\rWelcome to the steampunk realm of Arclight, where the grand city of
-    Ironhaven faces an unyielding siege from the formidable forces of Cyronia. As
-    the Commander entrusted with Ironhaven's defense, your mission is to hold the
-    city until General Griffin's return, leading the main army from deep within enemy
-    territory.\n\nThe ultimate goal: keep Ironhaven and its Aetherium mines intact
-    until General Griffin's return. Your strategic genius, ability to inspire loyalty,
-    and capacity to outwit the enemy will determine the fate of the city and its
-    people. Will you withstand the onslaught, make necessary sacrifices, and save
-    Ironhaven? The steampunk world of Arclight hangs in the balance as time runs
-    out.\n\nAs the siege drags on, Ironhaven's residents grow weary, their lives
-    disrupted by scarcity and constant threat. Skilled engineers, scientists, and
-    fighters form the backbone of Ironhaven's defenses, utilizing ingenious steam-powered
-    contraptions and weaponry to fend off waves of enemy assaults.\n"
+  m_text: 'Arclight, a world infused with steampunk allure, where the illustrious
+    city of Ironhaven stands firm against the relentless siege imposed by the formidable
+    forces of Cyronia. Entrusted with the crucial role of Commander in charge of
+    Ironhaven''s defense, your paramount objective is to safeguard the city''s integrity
+    until the anticipated return of General Griffin, who leads the main army from
+    the heart of enemy territory.
+
+    
+
+    Your mission is clear: preserve Ironhaven
+    and its invaluable Aetherium mines until General Griffin''s triumphant comeback.
+    The fate of the city and its populace rests squarely on your shoulders, dictated
+    by your strategic acumen, ability to foster loyalty, and adeptness in outmaneuvering
+    the adversary. Can you weather the storm, navigate the inevitable sacrifices,
+    and emerge victorious in saving Ironhaven? The steampunk tapestry of Arclight
+    teeters on the brink of oblivion as the sands of time slip away.
+
+    
+
+    Yet,
+    amidst the chaos, a resilient cadre of engineers, scientists, and warriors stands
+    as the bulwark of Ironhaven''s defenses, employing ingenious steam-driven contrivances
+    and armaments to repel the relentless onslaught of enemy forces.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -26036,8 +26048,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
