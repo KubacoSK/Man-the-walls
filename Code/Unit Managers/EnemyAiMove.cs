@@ -46,6 +46,7 @@ public class EnemyAiMove : MonoBehaviour
                 {
                     if (zone.ReturnEnemyUnitsInZone().Count > 0)
                     {
+                        // we check if the the unit we want to move towards is closer to middle than current
                         Vector2 VectorToMiddle1 = new Vector2(
                         Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x - CenterZone.transform.position.x),
                         Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y - CenterZone.transform.position.y));
