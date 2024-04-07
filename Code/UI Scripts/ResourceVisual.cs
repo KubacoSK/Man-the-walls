@@ -46,14 +46,12 @@ public class ResourceVisual : MonoBehaviour
     {
         UpdateResourceIncomeVisual();
         populationCountText.text = "Population: " + Math.Floor(ResourceManager.Instance.GetNumberOfTotalPopulation() * 1000);   // we make sure it shows correct population so 120 * 1000 = 120 000
-        Debug.Log(ResourceManager.Instance.GetNumberOfTotalPopulation());
     }
 
     private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
     {
         UpdateResourceCountVisual();
         populationCountText.text = "Population: " + Math.Floor(ResourceManager.Instance.GetNumberOfTotalPopulation() * 1000);
-        Debug.Log(ResourceManager.Instance.GetNumberOfTotalPopulation());
     }
 
     public void UpdateResourceCountVisual()

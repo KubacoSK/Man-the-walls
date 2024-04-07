@@ -40,34 +40,50 @@ public class EnemyAiMove : MonoBehaviour
             Zone destinationZone = null;
             bool StayStill = false;
             enemyUnit.SetTurnMiddlePoints(-1);
-            if (enemyUnit.GetTurnMiddlePoints() > 0)
+            destinationZone = validZones[UnityEngine.Random.Range(0, validZones.Count)];
+            switch (UnityEngine.Random.Range(0, 2))
             {
-                foreach (Zone zone in ZonesToCheck)
-                {
-                    if (zone.ReturnEnemyUnitsInZone().Count > 0)
+                case 0:
+                    foreach (Zone zone in ZonesToCheck)
                     {
-                        // we check if the the unit we want to move towards is closer to middle than current
-                        Vector2 VectorToMiddle1 = new Vector2(
-                        Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x - CenterZone.transform.position.x),
-                        Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y - CenterZone.transform.position.y));
-                        float totaldiff1 = VectorToMiddle1.x + VectorToMiddle1.y;
-                        Vector2 VectorToMiddle2 = new Vector2(
-                        Mathf.Abs(zone.transform.position.x - CenterZone.transform.position.x),
-                        Mathf.Abs(zone.transform.position.y - CenterZone.transform.position.y));
-                        float totaldiff2 = VectorToMiddle2.x + VectorToMiddle2.y;
-                        // if we detect zone with allied unit inside it we will get its name
-                        if(totaldiff1 > totaldiff2)
-                        TargetZone = zone;
+                        if (zone.ReturnEnemyUnitsInZone().Count > 0)
+                        {
+                            // we check if the the unit we want to move towards is closer to middle than current
+                            Vector2 VectorToMiddle1 = new Vector2(
+                            Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x - CenterZone.transform.position.x),
+                            Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y - CenterZone.transform.position.y));
+                            float totaldiff1 = VectorToMiddle1.x + VectorToMiddle1.y;
+                            Vector2 VectorToMiddle2 = new Vector2(
+                            Mathf.Abs(zone.transform.position.x - CenterZone.transform.position.x),
+                            Mathf.Abs(zone.transform.position.y - CenterZone.transform.position.y));
+                            float totaldiff2 = VectorToMiddle2.x + VectorToMiddle2.y;
+                            // if we detect zone with allied unit inside it we will get its name
+                            if (totaldiff1 > totaldiff2)
+                                TargetZone = zone;
+                            Debug.Log("going to the allied unit");
+                        }
                     }
-                }
+                    break;
+                case 1:
+                    foreach (Zone zone in validZones)
+                    {
+                        if (zone.WhoIsUnderControl() == Zone.ControlType.allied)
+                        {
+                            destinationZone = zone;
+                            Debug.Log("Going to conquer zone");
+                        }
+                    }
+                    break;
             }
-            else if (enemyUnit.GetTurnMiddlePoints() == 0)
+            if (enemyUnit.GetTurnMiddlePoints() <= 0)
             {
                 TargetZone = CenterZone;
                 enemyUnit.SetTurnMiddlePoints(3);
+                Debug.Log("Going to the middle");
             }
             // Randomly choose a destination zone if neither zone with enemy nor ally is within distance, if there is, this gets rewritten
-            destinationZone = validZones[UnityEngine.Random.Range(0, validZones.Count)];
+            
+            
             
             if(TargetZone != null) 
             {
@@ -172,6 +188,13 @@ public class EnemyAiMove : MonoBehaviour
 
                 // Randomly choose a destination zone
                 seconddestinationZone = validZones2[UnityEngine.Random.Range(0, validZones2.Count)];
+                foreach (Zone zone in validZones2)
+                {
+                    if (zone.WhoIsUnderControl() == Zone.ControlType.allied)
+                    {
+                        seconddestinationZone = zone;
+                    }
+                }
 
                 if (previousTargetZone != null)
                 {

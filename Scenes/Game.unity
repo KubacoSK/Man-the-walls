@@ -14594,7 +14594,7 @@ MonoBehaviour:
     If taken they will stop helping you and also lose some population
 
     - For
-    each 80 000 citizens you will get another soldier (on map 1 = 1000 citizens)
+    each 80 000 citizens you will get 1 soldier (1 population on map 1 = 1000 citizens)
 
     -
     You will always get atleast 1 soldier at the start of a turn'
@@ -21501,7 +21501,7 @@ MonoBehaviour:
     - Protect the mines to have steady flow of resources
 
     -
-    You need resouces for creating certain units
+    You need resources for creating certain units
 
     - Some units also need coal
     to move (tanks and robots)'
@@ -26004,7 +26004,7 @@ MonoBehaviour:
     until the anticipated return of General Griffin, who leads the main army from
     the heart of enemy territory.
 
-    
+
 
     Your mission is clear: preserve Ironhaven
     and its invaluable Aetherium mines until General Griffin''s triumphant comeback.
@@ -26014,7 +26014,7 @@ MonoBehaviour:
     and emerge victorious in saving Ironhaven? The steampunk tapestry of Arclight
     teeters on the brink of oblivion as the sands of time slip away.
 
-    
+
 
     Yet,
     amidst the chaos, a resilient cadre of engineers, scientists, and warriors stands

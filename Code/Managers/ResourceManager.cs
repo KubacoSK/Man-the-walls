@@ -91,6 +91,9 @@ public class ResourceManager : MonoBehaviour
         // checks if zone is changed to allied or enemy and removes it from the list
         Zone zone = sender as Zone;
         UpdateResourceIncome(zone);
+        if (zone.WhoIsUnderControl() == Zone.ControlType.allied)
+            totalPopulation += zone.GetNumberOfCitizens();
+        else totalPopulation -= zone.GetNumberOfCitizens();
 
     }
 
