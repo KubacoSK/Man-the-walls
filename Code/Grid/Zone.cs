@@ -276,7 +276,7 @@ public class Zone : MonoBehaviour
 
     public void PopulationGrowth()
     {
-        if (isPopulated)populationCount = populationCount * 1.05f + 0.1f;
+        if (isPopulated)populationCount = populationCount * 1.05f + 0.1f; // increases population at the start of every turn
         
     }
 

@@ -41,7 +41,7 @@ public class EnemyAiMove : MonoBehaviour
             bool StayStill = false;
             enemyUnit.SetTurnMiddlePoints(-1);
             destinationZone = validZones[UnityEngine.Random.Range(0, validZones.Count)];
-            switch (UnityEngine.Random.Range(0, 2))
+            switch (UnityEngine.Random.Range(0, 2)) // we getting 50/50 chance that unit tries to go to the nierby allied unit or it goes to conquer allied zones
             {
                 case 0:
                     foreach (Zone zone in ZonesToCheck)
