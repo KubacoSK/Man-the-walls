@@ -71,9 +71,4 @@ public class ResourceVisual : MonoBehaviour
         SteelIncomeText.text = "+" + ResourceManager.Instance.SteelIncome;
 
     }
-
-    private void AddResources()
-    {
-
-    }
 }

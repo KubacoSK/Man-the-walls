@@ -94,7 +94,7 @@ public class ResourceManager : MonoBehaviour
         if (zone.WhoIsUnderControl() == Zone.ControlType.allied)
             totalPopulation += zone.GetNumberOfCitizens();
         else totalPopulation -= zone.GetNumberOfCitizens();
-
+        // we update population each time the zone is changed
     }
 
     public void TurnSystem_OnTurnChanged(object sender, EventArgs e)
