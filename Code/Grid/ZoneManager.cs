@@ -48,7 +48,7 @@ public class ZoneManager : MonoBehaviour
 
     private void Zone_ZoneControlChanged(object sender, EventArgs e)
     {
-        Zone zone = sender as Zone;
+        Zone zone = sender as Zone; // this script updates zone list every time someone occupies a zone
         if (zone.WhoIsUnderControl() == Zone.ControlType.allied && !AlliedZones.Contains(zone))
         {
             AlliedZones.Add(zone);

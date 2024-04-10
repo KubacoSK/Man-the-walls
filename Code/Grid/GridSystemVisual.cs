@@ -17,7 +17,7 @@ public class GridSystemVisual : MonoBehaviour
 
     public void Highlight(Zone zone)
     {
-        highlightColor = zone.ReturnCurrentColor();
+        highlightColor = zone.ReturnCurrentColor();   // we highlight zone with bit of transparency
         highlightColor.a = 0.45f;
         spriteRenderer.color = highlightColor;
     }

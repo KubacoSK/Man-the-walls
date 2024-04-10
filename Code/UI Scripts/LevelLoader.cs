@@ -32,7 +32,7 @@ public class LevelLoader : MonoBehaviour
             yield return null;
         }
     }
-
+    // these are used for buttons in main menu screen
     public void SetDifficultyToEasy()
     {
         DifficultySetter.SetDifficulty("Easy");
