@@ -38,6 +38,7 @@ public class AllyUnitSpawner : MonoBehaviour
             {
                 if (spawnCenterZone.GetAllyMoveLocationStatuses()[k] == false)
                 {
+                    // we spawn units and set their standing position so it resets when unit starts
                     spawnPosition = spawnCenterZone.GetAllyMoveLocations()[k];
                     spawnCenterZone.SetAllyPositionStatus(k, true);
                     Unit unit = Instantiate(spawnUnitPrefab, spawnPosition, Quaternion.identity);
