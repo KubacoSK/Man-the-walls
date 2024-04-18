@@ -6,6 +6,8 @@ public class Zone : MonoBehaviour
 {
     private List<Unit> unitsInZone;
     private GridSystemVisual highlighter;
+    float percentagePopGrowth = 1.05f;
+    float numberPopGrowth = 0.1f;
     public enum ControlType { allied, enemy, neutral}
     public ControlType whoIsInControl;
     private SpriteRenderer spriteRenderer;
@@ -276,7 +278,7 @@ public class Zone : MonoBehaviour
 
     public void PopulationGrowth()
     {
-        if (isPopulated)populationCount = populationCount * 1.05f + 0.1f; // increases population at the start of every turn
+        if (isPopulated)populationCount = populationCount * percentagePopGrowth + numberPopGrowth; // increases population at the start of every turn
         
     }
 
