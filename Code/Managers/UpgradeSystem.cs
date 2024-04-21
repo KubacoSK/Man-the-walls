@@ -21,4 +21,12 @@ public class UpgradeSystem : MonoBehaviour
     {
 
     }
+    public void IncreaseInfantryStrength()
+    {
+        
+    }
+    public void IncreaseHorsemanStrength()
+    {
+
+    }
 }
