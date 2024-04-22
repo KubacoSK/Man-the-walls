@@ -29,4 +29,9 @@ public class UpgradeSystem : MonoBehaviour
     {
 
     }
+    public void UpgradeWalls()
+    {
+
+    }
+    
 }
