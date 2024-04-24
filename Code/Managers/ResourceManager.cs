@@ -117,4 +117,17 @@ public class ResourceManager : MonoBehaviour
     {
         return totalPopulation;
     }
+
+    public bool DoesItHaveEnoughResources(int Steel, int Bcrys, int Rcrys, int coal)
+    {
+        if (SteelCount >= Steel &&         // we check if we have higher or same amount of resources required
+            BlueCryCount >= Bcrys &&
+            RedCryCount >= Rcrys &&
+            CoalCount >= coal
+            )
+        {
+            return true;
+        }
+        return false;
+    }
 }

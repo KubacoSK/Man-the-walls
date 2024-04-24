@@ -6,7 +6,6 @@ using UnityEngine;
 public class UpgradeSystem : MonoBehaviour
 {
     public static UpgradeSystem Instance;
-    bool CitizensIncrease;
     private void Awake()
     {
         if (Instance != null)
@@ -19,7 +18,11 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void ActivateCitizensIncrease()
     {
-
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5))
+        {
+            Zone.numberPopGrowth = 0.2f;
+            Zone.percentagePopGrowth = 1.1f;
+        }
     }
     public void IncreaseInfantryStrength()
     {

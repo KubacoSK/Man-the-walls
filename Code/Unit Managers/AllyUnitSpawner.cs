@@ -54,7 +54,7 @@ public class AllyUnitSpawner : MonoBehaviour
 
     public void SpawnTank()
     {
-        if (DoesItHaveEnoughResources(4, 0 ,0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 0 ,0, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
         {
             int index = 0;
             for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
@@ -79,7 +79,7 @@ public class AllyUnitSpawner : MonoBehaviour
 
     public void SpawnBattleRobot()
     {
-        if (DoesItHaveEnoughResources(3, 1, 1) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(3, 1, 1, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
         {
             int index = 0;
             for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
@@ -106,7 +106,7 @@ public class AllyUnitSpawner : MonoBehaviour
 
     public void SpawnHorse()
     {
-        if (DoesItHaveEnoughResources(1, 0, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(1, 0, 0, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
         {
             int index = 0;
             for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
@@ -133,14 +133,5 @@ public class AllyUnitSpawner : MonoBehaviour
             }
         }
     }
-    private bool DoesItHaveEnoughResources(int Steel, int Bcrys, int Rcrys)
-    {
-        if (ResourceManager.Instance.SteelCount >= Steel &&         // we check if we have higher or same amount of resources required
-            ResourceManager.Instance.BlueCryCount >= Bcrys &&
-            ResourceManager.Instance.RedCryCount >= Rcrys) 
-        {
-            return true;
-        }
-        return false;
-    }
+    
 }

@@ -6,8 +6,8 @@ public class Zone : MonoBehaviour
 {
     private List<Unit> unitsInZone;
     private GridSystemVisual highlighter;
-    float percentagePopGrowth = 1.05f;
-    float numberPopGrowth = 0.1f;
+    public static float percentagePopGrowth = 1.05f;
+    public static float numberPopGrowth = 0.1f;
     public enum ControlType { allied, enemy, neutral}
     public ControlType whoIsInControl;
     private SpriteRenderer spriteRenderer;
