@@ -40,6 +40,10 @@ public class UpgradeSystem : MonoBehaviour
     {
 
     }
+    public void OnBecameInvisible()
+    {
+        
+    }
 
-    
+
 }
