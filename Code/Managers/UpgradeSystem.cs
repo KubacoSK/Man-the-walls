@@ -40,10 +40,13 @@ public class UpgradeSystem : MonoBehaviour
     {
 
     }
-    public void OnBecameInvisible()
+    public void BecameInvisible()
     {
         
     }
+    public void IncreaseNumberOfSoldiersSpawned()
+    {
 
+    }
 
 }
