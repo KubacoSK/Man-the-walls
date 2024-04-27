@@ -6,6 +6,15 @@ using UnityEngine;
 public class UpgradeSystem : MonoBehaviour
 {
     public static UpgradeSystem Instance;
+    private bool hasUpgradedCitizensIncrease;
+    private bool hasUpgradedInfantryStrength;
+    private bool hasUpgradedHorsemanStrength;
+    private bool hasUpgradedWalls;
+    private bool hasIncreasedCoalIncome;
+    private bool hasIncreasedIronIncome;
+    private bool hasIncreasedSoldierRecruitment;
+    private bool hasIncreasedSoldierTrainedLimit;
+
     private void Awake()
     {
         if (Instance != null)
@@ -18,35 +27,75 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void ActivateCitizensIncrease()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5))
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedCitizensIncrease)
         {
             Zone.numberPopGrowth = 0.2f;
             Zone.percentagePopGrowth = 1.1f;
+            hasUpgradedCitizensIncrease = true;
         }
     }
     public void IncreaseInfantryStrength()
     {
-        
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedCitizensIncrease)
+        {
+            Zone.numberPopGrowth = 0.2f;
+            Zone.percentagePopGrowth = 1.1f;
+            hasUpgradedInfantryStrength = true;
+        }
     }
     public void IncreaseHorsemanStrength()
     {
-
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 2, 0, 0) && !hasUpgradedCitizensIncrease)
+        {
+            Zone.numberPopGrowth = 0.2f;
+            Zone.percentagePopGrowth = 1.1f;
+            hasUpgradedHorsemanStrength = true;
+        }
     }
     public void UpgradeWalls()
     {
-
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedCitizensIncrease)
+        {
+            Zone.numberPopGrowth = 0.2f;
+            Zone.percentagePopGrowth = 1.1f;
+            hasUpgradedWalls = true;
+        }
     }
     public void increaseCoalIncome()
     {
-
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedCitizensIncrease)
+        {
+            Zone.numberPopGrowth = 0.2f;
+            Zone.percentagePopGrowth = 1.1f;
+            hasIncreasedCoalIncome = true;
+        }
     }
-    public void BecameInvisible()
+    public void IncreaseIronIncome()
     {
-        
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 5, 4) && !hasUpgradedCitizensIncrease)
+        {
+            Zone.numberPopGrowth = 0.2f;
+            Zone.percentagePopGrowth = 1.1f;
+            hasIncreasedIronIncome = true;
+        }
     }
     public void IncreaseNumberOfSoldiersSpawned()
     {
-
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 3, 3, 5) && !hasUpgradedCitizensIncrease)
+        {
+            Zone.numberPopGrowth = 0.2f;
+            Zone.percentagePopGrowth = 1.1f;
+            hasIncreasedSoldierRecruitment = true;
+        }
+    }
+    public void IncreaseSoldierTrainingLimit()
+    {
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(0, 4, 4, 0) && !hasUpgradedCitizensIncrease)
+        {
+            Zone.numberPopGrowth = 0.2f;
+            Zone.percentagePopGrowth = 1.1f;
+            hasIncreasedSoldierTrainedLimit = true;
+        }
     }
 
 }
