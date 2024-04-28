@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,6 +15,16 @@ public class UpgradeSystem : MonoBehaviour
     private bool hasIncreasedIronIncome;
     private bool hasIncreasedSoldierRecruitment;
     private bool hasIncreasedSoldierTrainedLimit;
+
+    [SerializeField] private TextMeshProUGUI CitizensIncreaseText;
+    [SerializeField] private TextMeshProUGUI InfantryStrengthText;
+    [SerializeField] private TextMeshProUGUI HorsemanStrengthText;
+    [SerializeField] private TextMeshProUGUI UpgradedWallsText;
+    [SerializeField] private TextMeshProUGUI CoalIncomeText;
+    [SerializeField] private TextMeshProUGUI IronIncomeText;
+    [SerializeField] private TextMeshProUGUI SoldierRecruitmentText;
+    [SerializeField] private TextMeshProUGUI SoldierMaxTrainingText;
+
 
     private void Awake()
     {
@@ -36,7 +47,7 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void IncreaseInfantryStrength()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedCitizensIncrease)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedInfantryStrength)
         {
             Zone.numberPopGrowth = 0.2f;
             Zone.percentagePopGrowth = 1.1f;
@@ -45,7 +56,7 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void IncreaseHorsemanStrength()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 2, 0, 0) && !hasUpgradedCitizensIncrease)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 2, 0, 0) && !hasUpgradedHorsemanStrength)
         {
             Zone.numberPopGrowth = 0.2f;
             Zone.percentagePopGrowth = 1.1f;
@@ -54,7 +65,7 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void UpgradeWalls()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedCitizensIncrease)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedWalls)
         {
             Zone.numberPopGrowth = 0.2f;
             Zone.percentagePopGrowth = 1.1f;
@@ -63,7 +74,7 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void increaseCoalIncome()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedCitizensIncrease)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasIncreasedCoalIncome)
         {
             Zone.numberPopGrowth = 0.2f;
             Zone.percentagePopGrowth = 1.1f;
@@ -72,7 +83,7 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void IncreaseIronIncome()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 5, 4) && !hasUpgradedCitizensIncrease)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 5, 4) && !hasIncreasedIronIncome)
         {
             Zone.numberPopGrowth = 0.2f;
             Zone.percentagePopGrowth = 1.1f;
@@ -81,7 +92,7 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void IncreaseNumberOfSoldiersSpawned()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 3, 3, 5) && !hasUpgradedCitizensIncrease)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 3, 3, 5) && !hasIncreasedSoldierRecruitment)
         {
             Zone.numberPopGrowth = 0.2f;
             Zone.percentagePopGrowth = 1.1f;
@@ -90,7 +101,7 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void IncreaseSoldierTrainingLimit()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(0, 4, 4, 0) && !hasUpgradedCitizensIncrease)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(0, 4, 4, 0) && !hasIncreasedSoldierTrainedLimit)
         {
             Zone.numberPopGrowth = 0.2f;
             Zone.percentagePopGrowth = 1.1f;
