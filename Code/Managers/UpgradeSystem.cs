@@ -85,9 +85,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 5, 4) && !hasIncreasedIronIncome)
         {
-            Zone.numberPopGrowth = 0.2f;
-            Zone.percentagePopGrowth = 1.1f;
-            hasIncreasedIronIncome = true;
+            
         }
     }
     public void IncreaseNumberOfSoldiersSpawned()
