@@ -58,8 +58,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 2, 0, 0) && !hasUpgradedHorsemanStrength)
         {
-            Zone.numberPopGrowth = 0.2f;
-            Zone.percentagePopGrowth = 1.1f;
+            
             hasUpgradedHorsemanStrength = true;
         }
     }
@@ -67,8 +66,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedWalls)
         {
-            Zone.numberPopGrowth = 0.2f;
-            Zone.percentagePopGrowth = 1.1f;
+            
             hasUpgradedWalls = true;
         }
     }
@@ -76,8 +74,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasIncreasedCoalIncome)
         {
-            Zone.numberPopGrowth = 0.2f;
-            Zone.percentagePopGrowth = 1.1f;
+            
             hasIncreasedCoalIncome = true;
         }
     }
@@ -92,8 +89,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 3, 3, 5) && !hasIncreasedSoldierRecruitment)
         {
-            Zone.numberPopGrowth = 0.2f;
-            Zone.percentagePopGrowth = 1.1f;
+            
             hasIncreasedSoldierRecruitment = true;
         }
     }
@@ -101,8 +97,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(0, 4, 4, 0) && !hasIncreasedSoldierTrainedLimit)
         {
-            Zone.numberPopGrowth = 0.2f;
-            Zone.percentagePopGrowth = 1.1f;
+            
             hasIncreasedSoldierTrainedLimit = true;
         }
     }
