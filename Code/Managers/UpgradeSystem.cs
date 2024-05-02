@@ -12,7 +12,7 @@ public class UpgradeSystem : MonoBehaviour
     private bool hasUpgradedHorsemanStrength;
     private bool hasUpgradedWalls;
     private bool hasIncreasedCoalIncome;
-    private bool hasIncreasedIronIncome;
+    private bool hasIncreasedSteelIncome;
     private bool hasIncreasedSoldierRecruitment;
     private bool hasIncreasedSoldierTrainedLimit;
 
@@ -74,15 +74,17 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasIncreasedCoalIncome)
         {
-            
+            ResourceManager.Instance.CoalIncome += 4;
+            ResourceVisual.Instance.UpdateResourceIncomeVisual();
             hasIncreasedCoalIncome = true;
         }
     }
-    public void IncreaseIronIncome()
+    public void IncreaseSteelIncome()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 5, 4) && !hasIncreasedIronIncome)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 5, 4) && !hasIncreasedSteelIncome)
         {
-            
+            ResourceManager.Instance.SteelIncome += 2;
+            ResourceVisual.Instance.UpdateResourceIncomeVisual();
         }
     }
     public void IncreaseNumberOfSoldiersSpawned()
