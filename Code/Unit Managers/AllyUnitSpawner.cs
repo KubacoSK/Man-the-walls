@@ -14,7 +14,7 @@ public class AllyUnitSpawner : MonoBehaviour
     private int SpawnedPaidUnitsThisTurn = 0;
     private int PaidUnitsSpawnLimit = 1;
     private int HorseSpawnsTillPetrossSpawn = 0;
-
+    public bool anotherUnitSpawned = false;
     private void Awake()
     {
         if (Instance != null)
@@ -31,6 +31,7 @@ public class AllyUnitSpawner : MonoBehaviour
     }
     public void SpawnAllyAtTurn()
     {
+        if (anotherUnitSpawned) 
         for (float i = ResourceManager.Instance.GetNumberOfTotalPopulation(); i >= 80; i -= 80) // spawn units with offset based of how many of them were spawned
         {
             int index = 0;
@@ -132,6 +133,10 @@ public class AllyUnitSpawner : MonoBehaviour
                 Instantiate(superPetrossPrefab, new Vector2(12.5f, 19.5f), Quaternion.identity);
             }
         }
+    }
+    public void IncreaseMaxUnitSpawnLimit()
+    {
+        PaidUnitsSpawnLimit++;
     }
     
 }

@@ -99,7 +99,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(0, 4, 4, 0) && !hasIncreasedSoldierTrainedLimit)
         {
-            
+            AllyUnitSpawner.Instance.IncreaseMaxUnitSpawnLimit();
             hasIncreasedSoldierTrainedLimit = true;
         }
     }
