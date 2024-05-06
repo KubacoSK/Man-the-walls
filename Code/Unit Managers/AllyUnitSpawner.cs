@@ -51,13 +51,28 @@ public class AllyUnitSpawner : MonoBehaviour
 
             }
         }
+        if (anotherUnitSpawned)
+        {
+            for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
+            {
+                if (spawnCenterZone.GetAllyMoveLocationStatuses()[k] == false)
+                {
+                    // we spawn units and set their standing position so it resets when unit starts
+                    spawnPosition = spawnCenterZone.GetAllyMoveLocations()[k];
+                    spawnCenterZone.SetAllyPositionStatus(k, true);
+                    Unit unit = Instantiate(spawnUnitPrefab, spawnPosition, Quaternion.identity);
+                    unit.SetStandingZone(spawnCenterZone, k);
+                    break;
+
+                }
+            }
+        }
     }
 
     public void SpawnTank()
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 0 ,0, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
         {
-            int index = 0;
             for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
             {
                 if (spawnCenterZone.GetAllyMoveLocationStatuses()[k] == false)
@@ -66,7 +81,6 @@ public class AllyUnitSpawner : MonoBehaviour
                     spawnCenterZone.SetAllyPositionStatus(k, true);
                     Unit unit = Instantiate(tankUnitPrefab, spawnPosition, Quaternion.identity);
                     unit.SetStandingZone(spawnCenterZone, k);
-                    index = k;
                     break;
 
                 }
@@ -82,7 +96,6 @@ public class AllyUnitSpawner : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(3, 1, 1, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
         {
-            int index = 0;
             for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
             {
                 if (spawnCenterZone.GetAllyMoveLocationStatuses()[k] == false)
@@ -91,7 +104,6 @@ public class AllyUnitSpawner : MonoBehaviour
                     spawnCenterZone.SetAllyPositionStatus(k, true);
                     Unit unit = Instantiate(battleRobotPrefab, spawnPosition, Quaternion.identity);
                     unit.SetStandingZone(spawnCenterZone, k);
-                    index = k;
                     break;
 
                 }
@@ -109,7 +121,6 @@ public class AllyUnitSpawner : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(1, 0, 0, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
         {
-            int index = 0;
             for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
             {
                 if (spawnCenterZone.GetAllyMoveLocationStatuses()[k] == false)
@@ -118,7 +129,6 @@ public class AllyUnitSpawner : MonoBehaviour
                     spawnCenterZone.SetAllyPositionStatus(k, true);
                     Unit unit = Instantiate(horseUnitPrefab, spawnPosition, Quaternion.identity);                    
                     unit.SetStandingZone(spawnCenterZone, k);                        // we set the spawned units zone and position so when they move they return it to default position
-                    index = k;
                     break;
 
                 }

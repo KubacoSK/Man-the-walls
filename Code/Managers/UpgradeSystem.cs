@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Unit;
 
 public class UpgradeSystem : MonoBehaviour
 {
@@ -38,8 +39,13 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void ActivateCitizensIncrease()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedCitizensIncrease)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(3, 2, 2, 6) && !hasUpgradedCitizensIncrease)
         {
+            ResourceManager.Instance.SteelCount -= 3;
+            ResourceManager.Instance.BlueCryCount -= 2;
+            ResourceManager.Instance.RedCryCount -= 2;
+            ResourceManager.Instance.CoalCount -= 6;
+            ResourceVisual.Instance.UpdateResourceCountVisual();
             Zone.numberPopGrowth = 0.2f;
             Zone.percentagePopGrowth = 1.1f;
             hasUpgradedCitizensIncrease = true;
@@ -47,26 +53,43 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void IncreaseInfantryStrength()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedInfantryStrength)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(10, 15, 15, 0) && !hasUpgradedInfantryStrength)
         {
-            Zone.numberPopGrowth = 0.2f;
-            Zone.percentagePopGrowth = 1.1f;
+            ResourceManager.Instance.SteelCount -= 10;
+            ResourceManager.Instance.BlueCryCount -= 15;
+            ResourceManager.Instance.RedCryCount -= 15;
+            ResourceVisual.Instance.UpdateResourceCountVisual();
+            foreach (Unit unit in UnitManager.Instance.GetFriendlyUnitList()) 
+                if (hasIncreasedStrength && unit.TypeOfUnit == UnitType.Infantry) 
+                    unit.IncreaseStrength();
+            Unit.hasIncreasedStrength = true;
             hasUpgradedInfantryStrength = true;
         }
     }
     public void IncreaseHorsemanStrength()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 2, 0, 0) && !hasUpgradedHorsemanStrength)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(6, 3, 0, 0) && !hasUpgradedHorsemanStrength)
         {
-            
+
+            ResourceManager.Instance.SteelCount -= 6;
+            ResourceManager.Instance.BlueCryCount -= 3;
+            ResourceVisual.Instance.UpdateResourceCountVisual();
+            Unit_Horse.hasIncreasedHorseStrength = true;
             hasUpgradedHorsemanStrength = true;
+            foreach (Unit unit in UnitManager.Instance.GetFriendlyUnitList())
+            {
+                if (unit.TypeOfUnit == Unit.UnitType.Horseman)  unit.IncreaseStrength();
+            }
         }
     }
     public void UpgradeWalls()
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedWalls)
         {
-            
+            ResourceManager.Instance.CoalIncome += 4;
+            ResourceManager.Instance.SteelCount -= 4;
+            ResourceManager.Instance.BlueCryCount -= 1;
+            ResourceManager.Instance.RedCryCount -= 5;
             hasUpgradedWalls = true;
         }
     }
@@ -75,6 +98,11 @@ public class UpgradeSystem : MonoBehaviour
         if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasIncreasedCoalIncome)
         {
             ResourceManager.Instance.CoalIncome += 4;
+            ResourceManager.Instance.SteelCount -= 4;
+            ResourceManager.Instance.BlueCryCount -= 1;
+            ResourceManager.Instance.RedCryCount -= 5;
+            ResourceManager.Instance.CoalCount -= 4;
+            ResourceVisual.Instance.UpdateResourceCountVisual();
             ResourceVisual.Instance.UpdateResourceIncomeVisual();
             hasIncreasedCoalIncome = true;
         }
@@ -84,14 +112,25 @@ public class UpgradeSystem : MonoBehaviour
         if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 5, 4) && !hasIncreasedSteelIncome)
         {
             ResourceManager.Instance.SteelIncome += 2;
+            ResourceManager.Instance.SteelCount -= 4;
+            ResourceManager.Instance.BlueCryCount -= 1;
+            ResourceManager.Instance.RedCryCount -= 5;
+            ResourceManager.Instance.CoalCount -= 4;
             ResourceVisual.Instance.UpdateResourceIncomeVisual();
+            ResourceVisual.Instance.UpdateResourceCountVisual();
+            hasIncreasedSteelIncome = true;
         }
     }
     public void IncreaseNumberOfSoldiersSpawned()
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 3, 3, 5) && !hasIncreasedSoldierRecruitment)
         {
-            
+            AllyUnitSpawner.Instance.anotherUnitSpawned = true;
+            ResourceManager.Instance.SteelCount -= 8;
+            ResourceManager.Instance.BlueCryCount -= 3;
+            ResourceManager.Instance.RedCryCount -= 3;
+            ResourceManager.Instance.CoalCount -= 5;
+            ResourceVisual.Instance.UpdateResourceCountVisual(); 
             hasIncreasedSoldierRecruitment = true;
         }
     }
@@ -101,6 +140,8 @@ public class UpgradeSystem : MonoBehaviour
         {
             AllyUnitSpawner.Instance.IncreaseMaxUnitSpawnLimit();
             hasIncreasedSoldierTrainedLimit = true;
+            ResourceManager.Instance.BlueCryCount -= 4;
+            ResourceManager.Instance.RedCryCount -= 4;
         }
     }
 

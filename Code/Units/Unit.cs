@@ -25,6 +25,7 @@ public class Unit : MonoBehaviour
     [SerializeField] protected bool isEnemy;
     private Zone CurrentStandingZone;
     private int CurrentStandingZoneIndex;
+    public static bool hasIncreasedStrength;           // if we applied infantry upgrade
     private void Awake()
     {
         moveAction = GetComponent<MoveAction>();
@@ -47,7 +48,7 @@ public class Unit : MonoBehaviour
         // subscribes to the event
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
-
+        if (hasIncreasedStrength && TypeOfUnit == UnitType.Infantry && !isEnemy) strength++;
         if (isEnemy)
         {
             GetCurrentZone().ChangeControlToEnemy();
@@ -153,5 +154,8 @@ public class Unit : MonoBehaviour
     {
         TurnsTillGetToMiddle += increaseNumber;  
     }
-
+    public void IncreaseStrength()
+    {
+         strength++;
+    }
 }
