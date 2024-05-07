@@ -84,24 +84,24 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void UpgradeWalls()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasUpgradedWalls)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 2, 2, 0) && !hasUpgradedWalls)
         {
-            ResourceManager.Instance.CoalIncome += 4;
-            ResourceManager.Instance.SteelCount -= 4;
-            ResourceManager.Instance.BlueCryCount -= 1;
-            ResourceManager.Instance.RedCryCount -= 5;
+            ResourceManager.Instance.SteelCount -= 8;
+            ResourceManager.Instance.BlueCryCount -= 2;
+            ResourceManager.Instance.RedCryCount -= 2;
+            ResourceVisual.Instance.UpdateResourceCountVisual();
             hasUpgradedWalls = true;
         }
     }
     public void increaseCoalIncome()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(5, 5, 5, 5) && !hasIncreasedCoalIncome)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 5, 2, 3) && !hasIncreasedCoalIncome)
         {
             ResourceManager.Instance.CoalIncome += 4;
-            ResourceManager.Instance.SteelCount -= 4;
-            ResourceManager.Instance.BlueCryCount -= 1;
-            ResourceManager.Instance.RedCryCount -= 5;
-            ResourceManager.Instance.CoalCount -= 4;
+            ResourceManager.Instance.SteelCount -= 8;
+            ResourceManager.Instance.BlueCryCount -= 5;
+            ResourceManager.Instance.RedCryCount -= 2;
+            ResourceManager.Instance.CoalCount -= 3;
             ResourceVisual.Instance.UpdateResourceCountVisual();
             ResourceVisual.Instance.UpdateResourceIncomeVisual();
             hasIncreasedCoalIncome = true;
@@ -142,6 +142,7 @@ public class UpgradeSystem : MonoBehaviour
             hasIncreasedSoldierTrainedLimit = true;
             ResourceManager.Instance.BlueCryCount -= 4;
             ResourceManager.Instance.RedCryCount -= 4;
+            ResourceVisual.Instance.UpdateResourceCountVisual();
         }
     }
 
