@@ -31,7 +31,6 @@ public class AllyUnitSpawner : MonoBehaviour
     }
     public void SpawnAllyAtTurn()
     {
-        if (anotherUnitSpawned) 
         for (float i = ResourceManager.Instance.GetNumberOfTotalPopulation(); i >= 80; i -= 80) // spawn units with offset based of how many of them were spawned
         {
             int index = 0;

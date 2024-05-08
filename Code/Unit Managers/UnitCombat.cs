@@ -54,6 +54,7 @@ public class UnitCombat : MonoBehaviour
                     foreach (Unit unit in allyUnits) allyStrength += unit.GetStrength(); // increases allied strength based number of allies in zone
                     foreach (Unit unit in enemyUnits) enemyStrength += unit.GetStrength();
                     if (thiszone.IsWallCheck() == true) allyStrength += 3; // if we are fighting on a wall we add more power
+                    if (thiszone.IsWallCheck() && Zone.isWallUpgraded) allyStrength++;  // adds more combat power if zone is upgraded with better walls
 
                     int randomElementally = Random.Range(0, 7);
                     int randomElementenemy = Random.Range(0, 7);

@@ -41,6 +41,7 @@ public class Zone : MonoBehaviour
 
 
     public static event EventHandler ZoneControlChanged;
+    public static bool isWallUpgraded;
     private void Awake()
     {
         populationCount = Mathf.Round(UnityEngine.Random.Range(populationCount * 0.5f, populationCount * 1.5f) * 100f) / 100f;

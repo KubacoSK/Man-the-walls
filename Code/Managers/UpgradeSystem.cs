@@ -41,6 +41,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(3, 2, 2, 6) && !hasUpgradedCitizensIncrease)
         {
+            // increases citizens increases each turn
             ResourceManager.Instance.SteelCount -= 3;
             ResourceManager.Instance.BlueCryCount -= 2;
             ResourceManager.Instance.RedCryCount -= 2;
@@ -55,6 +56,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(10, 15, 15, 0) && !hasUpgradedInfantryStrength)
         {
+            // adds one strength to infantry units
             ResourceManager.Instance.SteelCount -= 10;
             ResourceManager.Instance.BlueCryCount -= 15;
             ResourceManager.Instance.RedCryCount -= 15;
@@ -70,7 +72,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(6, 3, 0, 0) && !hasUpgradedHorsemanStrength)
         {
-
+            // adds one strength to horse units
             ResourceManager.Instance.SteelCount -= 6;
             ResourceManager.Instance.BlueCryCount -= 3;
             ResourceVisual.Instance.UpdateResourceCountVisual();
@@ -86,6 +88,8 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 2, 2, 0) && !hasUpgradedWalls)
         {
+            // makes walls stronger
+            Zone.isWallUpgraded = true;
             ResourceManager.Instance.SteelCount -= 8;
             ResourceManager.Instance.BlueCryCount -= 2;
             ResourceManager.Instance.RedCryCount -= 2;
@@ -97,6 +101,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 5, 2, 3) && !hasIncreasedCoalIncome)
         {
+            // increases coal income each round
             ResourceManager.Instance.CoalIncome += 4;
             ResourceManager.Instance.SteelCount -= 8;
             ResourceManager.Instance.BlueCryCount -= 5;
@@ -111,6 +116,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 5, 4) && !hasIncreasedSteelIncome)
         {
+            // increases steel income each round
             ResourceManager.Instance.SteelIncome += 2;
             ResourceManager.Instance.SteelCount -= 4;
             ResourceManager.Instance.BlueCryCount -= 1;
@@ -123,7 +129,8 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void IncreaseNumberOfSoldiersSpawned()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 3, 3, 5) && !hasIncreasedSoldierRecruitment)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 3, 3, 5) && !hasIncreasedSoldierRecruitment) 
+            
         {
             AllyUnitSpawner.Instance.anotherUnitSpawned = true;
             ResourceManager.Instance.SteelCount -= 8;
@@ -132,6 +139,7 @@ public class UpgradeSystem : MonoBehaviour
             ResourceManager.Instance.CoalCount -= 5;
             ResourceVisual.Instance.UpdateResourceCountVisual(); 
             hasIncreasedSoldierRecruitment = true;
+            // adds one soldier to spawn at start of a turn
         }
     }
     public void IncreaseSoldierTrainingLimit()
@@ -143,6 +151,7 @@ public class UpgradeSystem : MonoBehaviour
             ResourceManager.Instance.BlueCryCount -= 4;
             ResourceManager.Instance.RedCryCount -= 4;
             ResourceVisual.Instance.UpdateResourceCountVisual();
+            // unlocks creating one more paid soldier at every turn 
         }
     }
 
