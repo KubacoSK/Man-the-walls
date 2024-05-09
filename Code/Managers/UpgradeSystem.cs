@@ -22,7 +22,7 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI HorsemanStrengthText;
     [SerializeField] private TextMeshProUGUI UpgradedWallsText;
     [SerializeField] private TextMeshProUGUI CoalIncomeText;
-    [SerializeField] private TextMeshProUGUI IronIncomeText;
+    [SerializeField] private TextMeshProUGUI SteelIncomeText;
     [SerializeField] private TextMeshProUGUI SoldierRecruitmentText;
     [SerializeField] private TextMeshProUGUI SoldierMaxTrainingText;
 
@@ -50,6 +50,8 @@ public class UpgradeSystem : MonoBehaviour
             Zone.numberPopGrowth = 0.2f;
             Zone.percentagePopGrowth = 1.1f;
             hasUpgradedCitizensIncrease = true;
+            CitizensIncreaseText.fontStyle = FontStyles.Bold;
+            CitizensIncreaseText.text = "UPGRADED";
         }
     }
     public void IncreaseInfantryStrength()
@@ -66,6 +68,8 @@ public class UpgradeSystem : MonoBehaviour
                     unit.IncreaseStrength();
             Unit.hasIncreasedStrength = true;
             hasUpgradedInfantryStrength = true;
+            InfantryStrengthText.fontStyle = FontStyles.Bold;
+            InfantryStrengthText.text = "UPGRADED";
         }
     }
     public void IncreaseHorsemanStrength()
@@ -82,6 +86,8 @@ public class UpgradeSystem : MonoBehaviour
             {
                 if (unit.TypeOfUnit == Unit.UnitType.Horseman)  unit.IncreaseStrength();
             }
+            HorsemanStrengthText.fontStyle = FontStyles.Bold;
+            HorsemanStrengthText.text = "UPGRADED";
         }
     }
     public void UpgradeWalls()
@@ -95,6 +101,8 @@ public class UpgradeSystem : MonoBehaviour
             ResourceManager.Instance.RedCryCount -= 2;
             ResourceVisual.Instance.UpdateResourceCountVisual();
             hasUpgradedWalls = true;
+            UpgradedWallsText.fontStyle = FontStyles.Bold;
+            UpgradedWallsText.text = "UPGRADED";
         }
     }
     public void increaseCoalIncome()
@@ -110,6 +118,8 @@ public class UpgradeSystem : MonoBehaviour
             ResourceVisual.Instance.UpdateResourceCountVisual();
             ResourceVisual.Instance.UpdateResourceIncomeVisual();
             hasIncreasedCoalIncome = true;
+            CoalIncomeText.fontStyle = FontStyles.Bold;
+            CoalIncomeText.text = "UPGRADED";
         }
     }
     public void IncreaseSteelIncome()
@@ -125,33 +135,39 @@ public class UpgradeSystem : MonoBehaviour
             ResourceVisual.Instance.UpdateResourceIncomeVisual();
             ResourceVisual.Instance.UpdateResourceCountVisual();
             hasIncreasedSteelIncome = true;
+            SteelIncomeText.fontStyle = FontStyles.Bold;
+            SteelIncomeText.text = "UPGRADED";
         }
     }
     public void IncreaseNumberOfSoldiersSpawned()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 3, 3, 5) && !hasIncreasedSoldierRecruitment) 
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(9, 4, 4, 6) && !hasIncreasedSoldierRecruitment) 
             
         {
+            // adds one soldier to spawn at start of a turn
             AllyUnitSpawner.Instance.anotherUnitSpawned = true;
-            ResourceManager.Instance.SteelCount -= 8;
-            ResourceManager.Instance.BlueCryCount -= 3;
-            ResourceManager.Instance.RedCryCount -= 3;
-            ResourceManager.Instance.CoalCount -= 5;
+            ResourceManager.Instance.SteelCount -= 9;
+            ResourceManager.Instance.BlueCryCount -= 4;
+            ResourceManager.Instance.RedCryCount -= 4;
+            ResourceManager.Instance.CoalCount -= 6;
             ResourceVisual.Instance.UpdateResourceCountVisual(); 
             hasIncreasedSoldierRecruitment = true;
-            // adds one soldier to spawn at start of a turn
+            SoldierRecruitmentText.fontStyle = FontStyles.Bold;
+            SoldierRecruitmentText.text = "UPGRADED";
         }
     }
     public void IncreaseSoldierTrainingLimit()
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(0, 4, 4, 0) && !hasIncreasedSoldierTrainedLimit)
         {
+            // unlocks creating one more paid soldier at every turn 
             AllyUnitSpawner.Instance.IncreaseMaxUnitSpawnLimit();
             hasIncreasedSoldierTrainedLimit = true;
             ResourceManager.Instance.BlueCryCount -= 4;
             ResourceManager.Instance.RedCryCount -= 4;
             ResourceVisual.Instance.UpdateResourceCountVisual();
-            // unlocks creating one more paid soldier at every turn 
+            SoldierMaxTrainingText.fontStyle = FontStyles.Bold;
+            SoldierMaxTrainingText.text = "UPGRADED";
         }
     }
 

@@ -14,6 +14,9 @@ public class TesterScript : MonoBehaviour
         {
             ResourceManager.Instance.SteelCount += 3;
             ResourceManager.Instance.CoalCount += 3;
+            ResourceManager.Instance.BlueCryCount += 3;
+            ResourceManager.Instance.RedCryCount += 3;
+            ResourceVisual.Instance.UpdateResourceCountVisual();
         }
         if (Input.GetKeyDown("h")) 
         {
