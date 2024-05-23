@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ef62ed195b0896146accfabfddd25e87
+guid: 201b23d329e14414b9acc291a180d2f2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,49 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Polia_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4da5aa953a178ca45bfda084e46d933a
-      internalID: -301292296
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Polia_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d3ac6cb8bd7d2f45a0675f77af1d959
-      internalID: 883315954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Polia_2
+      name: road3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -179,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3df6623d4c9c10489f3134c96304eac
-      internalID: 1643603983
+      spriteID: 7be4abda426e7c84687f14b68f808330
+      internalID: -28036199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Polia_3
+      name: road3_1
       rect:
         serializedVersion: 2
         x: 64
@@ -200,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4614934562e301e4095d8f2426b6ce19
-      internalID: -1022696144
+      spriteID: da3c2a0c9b5bd5d45869e81ba8192cc7
+      internalID: -994276037
       vertices: []
       indices: 
       edges: []
@@ -217,10 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Polia_0: -301292296
-      Polia_1: 883315954
-      Polia_2: 1643603983
-      Polia_3: -1022696144
+      road3_0: -28036199
+      road3_1: -994276037
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
