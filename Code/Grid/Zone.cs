@@ -44,6 +44,7 @@ public class Zone : MonoBehaviour
     public static bool isWallUpgraded;
     private void Awake()
     {
+        
         populationCount = Mathf.Round(UnityEngine.Random.Range(populationCount * 0.5f, populationCount * 1.5f) * 100f) / 100f;
         xsize = GetZoneSizeModifier().x / 2;
         ysize = (GetZoneSizeModifier().y / 2);
@@ -61,7 +62,7 @@ public class Zone : MonoBehaviour
 
     private void Start()
     {
-        
+        CameraController.CameraSizeChanged += Zone_CameraSizeChanged;
         highlighter = GetComponent<GridSystemVisual>();
         unitsInZone = new List<Unit>();
         whoIsInControl = ControlType.allied;
@@ -281,6 +282,11 @@ public class Zone : MonoBehaviour
     {
         if (isPopulated)populationCount = populationCount * percentagePopGrowth + numberPopGrowth; // increases population at the start of every turn
         
+    }
+
+    public void Zone_CameraSizeChanged(object sender, EventArgs e)
+    {
+        CurrentColor.a = Mathf.Lerp(0.2f, 0.7f, (Camera.main.orthographicSize - 2f) / 8f);
     }
 
 

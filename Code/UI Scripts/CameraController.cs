@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class CameraController : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class CameraController : MonoBehaviour
     public float zoomSmoothness = 5f;
     private float targetOrthographicSize;
     public float scrollSpeed = 5;
-
+    public float CameraSize;
+    public static event EventHandler CameraSizeChanged;
 
     private void Update()
     {
@@ -52,5 +54,8 @@ public class CameraController : MonoBehaviour
         targetOrthographicSize = Mathf.Clamp(Camera.main.orthographicSize - scroll * scrollSpeed * 100f * Time.deltaTime, minOrthographicSize, maxOrthographicSize);
 
         Camera.main.orthographicSize = targetOrthographicSize;
+        CameraSize = Camera.main.orthographicSize;
+        CameraSizeChanged?.Invoke(this, EventArgs.Empty);
     }
+
 }
