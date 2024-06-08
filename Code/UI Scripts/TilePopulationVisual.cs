@@ -16,7 +16,7 @@ public class TilePopulationVisual : MonoBehaviour
     }
     void Start()
     {
-        
+        Zone.ZoneControlChanged += TilePop_ZoneControlChanged;
         TurnSystem.Instance.OnTurnChanged += TilePopulationVisual_OnTurnChanged;     // subscribes the event that changes turns so it dynamically increases pop
         thisTilePopulationVisual.text = thisZone.GetNumberOfCitizens().ToString();
         thisTilePopulationVisual.fontSize = 0.8f + (thisZone.GetNumberOfCitizens() / 50);
@@ -35,6 +35,10 @@ public class TilePopulationVisual : MonoBehaviour
     }
 
     private void TilePopulationVisual_OnTurnChanged(object sender, EventArgs e)
+    {
+        UpdateTilePopText();
+    }
+    public void TilePop_ZoneControlChanged(object sender, EventArgs e)
     {
         UpdateTilePopText();
     }

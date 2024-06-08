@@ -39,16 +39,16 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void ActivateCitizensIncrease()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(3, 2, 2, 6) && !hasUpgradedCitizensIncrease)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(6, 2, 2, 10) && !hasUpgradedCitizensIncrease)
         {
             // increases citizens increases each turn
-            ResourceManager.Instance.SteelCount -= 3;
+            ResourceManager.Instance.SteelCount -= 6;
             ResourceManager.Instance.BlueCryCount -= 2;
             ResourceManager.Instance.RedCryCount -= 2;
-            ResourceManager.Instance.CoalCount -= 6;
+            ResourceManager.Instance.CoalCount -= 10;
             ResourceVisual.Instance.UpdateResourceCountVisual();
-            Zone.numberPopGrowth = 0.2f;
-            Zone.percentagePopGrowth = 1.1f;
+            Zone.numberPopGrowth = 0.1f;
+            Zone.percentagePopGrowth = 1.08f;
             hasUpgradedCitizensIncrease = true;
             CitizensIncreaseText.fontStyle = FontStyles.Bold;
             CitizensIncreaseText.text = "UPGRADED";

@@ -22,7 +22,7 @@ public class ResourceManager : MonoBehaviour
     public int SteelCount { get { return steelCount; } set { steelCount = value; } }
 
     private int coalIncome;
-    public int CoalIncome {  get { return coalIncome; } set { CoalIncome = value; } }
+    public int CoalIncome {  get { return coalIncome; } set {coalIncome = value; } }
     private int redCIncome;
     public int RedCIncome {  get { return redCIncome; } set { redCIncome = value; } }
     private int bluCIncome;
@@ -69,7 +69,7 @@ public class ResourceManager : MonoBehaviour
             bluCIncome += zone.NumberOfBlueCrystal;
             steelIncome += zone.NumberOfSteel;
         }
-        else
+        else if (zone.WhoIsUnderControl() == Zone.ControlType.enemy)
         {
             coalIncome -= zone.NumberOfCoal;
             redCIncome -= zone.NumberOFRedCrystal;

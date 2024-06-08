@@ -130,6 +130,7 @@ public class Unit : MonoBehaviour
     public void IsDead()
     {
         // triggers an event that removes units and kills it
+
         Destroy(gameObject);
         OnAnyUnitDead?.Invoke(this, EventArgs.Empty);
     }

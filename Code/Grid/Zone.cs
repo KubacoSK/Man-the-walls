@@ -7,7 +7,7 @@ public class Zone : MonoBehaviour
     private List<Unit> unitsInZone;
     private GridSystemVisual highlighter;
     public static float percentagePopGrowth = 1.05f;
-    public static float numberPopGrowth = 0.1f;
+    public static float numberPopGrowth = 0.05f;
     public enum ControlType { allied, enemy, neutral}
     public ControlType whoIsInControl;
     private SpriteRenderer spriteRenderer;
@@ -42,6 +42,7 @@ public class Zone : MonoBehaviour
 
     public static event EventHandler ZoneControlChanged;
     public static bool isWallUpgraded;
+
     private void Awake()
     {
         
@@ -286,7 +287,7 @@ public class Zone : MonoBehaviour
 
     public void Zone_CameraSizeChanged(object sender, EventArgs e)
     {
-        CurrentColor.a = Mathf.Lerp(0.2f, 0.7f, (Camera.main.orthographicSize - 2f) / 8f);
+        CurrentColor.a = Mathf.Lerp(0.2f, 0.7f, (Camera.main.orthographicSize - 2f) / 8f); // changes the transparency based on camera zoom
     }
 
 

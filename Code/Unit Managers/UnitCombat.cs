@@ -77,7 +77,6 @@ public class UnitCombat : MonoBehaviour
                         Unit allyUnit = allyUnits[0];
                         allyUnits.Remove(allyUnit);
                         EliminateUnit(allyUnit);
-                        EnemyAI.Instance.HandleUnitDestroyed(allyUnit);
                         alliesWon = false;
                     }
                     else
