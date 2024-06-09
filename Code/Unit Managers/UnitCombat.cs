@@ -108,6 +108,7 @@ public class UnitCombat : MonoBehaviour
     {
         // Additional logic for eliminating the unit
         if (unit != null) unit.IsDead();
-      
+        if (unit.IsEnemy()) unit.SetEnemyPastZoneBack();
+        if (!unit.IsEnemy()) unit.SetPastZoneBack();
     }
 }

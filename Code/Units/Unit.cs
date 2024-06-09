@@ -23,8 +23,8 @@ public class Unit : MonoBehaviour
     protected int TurnsTillGetToMiddle = 2;      // how often enemy unit chooses to go to the center of the map
     [SerializeField] protected int strength = 3; // how likely unit is to win combat
     [SerializeField] protected bool isEnemy;
-    private Zone CurrentStandingZone;
-    private int CurrentStandingZoneIndex;
+    public Zone CurrentStandingZone;
+    public int CurrentStandingZoneIndex;
     public static bool hasIncreasedStrength;           // if we applied infantry upgrade
     private void Awake()
     {
@@ -126,11 +126,11 @@ public class Unit : MonoBehaviour
     public bool IsEnemy()
     {
         return isEnemy;
+
     }
     public void IsDead()
     {
         // triggers an event that removes units and kills it
-
         Destroy(gameObject);
         OnAnyUnitDead?.Invoke(this, EventArgs.Empty);
     }
