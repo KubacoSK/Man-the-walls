@@ -10,6 +10,9 @@ public class UnitActionsSystem : MonoBehaviour
     private Unit selectedUnit;
     private bool IsMoving = false;                          // check if unit is currently moving 
     Vector2 destination;                                    // vector of destination the unit is heading towards ( its a position for the positions array)
+    private float lastTapTime = 0f;
+    private const float doubleTapThreshold = 0.3f;
+
 
     private void Awake()
     {
@@ -37,11 +40,13 @@ public class UnitActionsSystem : MonoBehaviour
             }
             //checks for clicking on unit
             if (Input.GetMouseButtonDown(0) && IsMoving == false)
-            {
-                if (TryHandleUnitSelection()) return;
+            {   
+                float timeSinceLastTap = Time.time - lastTapTime;
+                if (TryHandleUnitSelection()) return;   
+                else if (timeSinceLastTap <= doubleTapThreshold )Movement();
+                else lastTapTime = Time.time;
             }
 
-            Movement();
         }
     }
 
@@ -49,7 +54,8 @@ public class UnitActionsSystem : MonoBehaviour
     {
         if (selectedUnit != null)
         {
-            if (Input.GetMouseButtonDown(1) && IsMoving == false && selectedUnit.GetActionPoints() > 0 && selectedUnit != null && CanSteamMachineMove())
+            float timeSinceLastTap = Time.time - lastTapTime;
+            if (Input.GetMouseButtonDown(0) && IsMoving == false && selectedUnit.GetActionPoints() > 0 && selectedUnit != null && CanSteamMachineMove())
             {
                 
                 // Right-click to move the selected unit
