@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
+    [SerializeField] Animator animator;
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void Play()
+    {
+        animator.SetTrigger("Play");
     }
 }
