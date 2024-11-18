@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9e7c5f52eb72f0247ba686caa187a95a
+guid: 0501e02033c9b92469bfede66db556ff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1214138085878969742
-    second: upgrade menu mozno_0
+      213: 489641774210626648
+    second: battlereport_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: upgrade menu mozno_0
+      name: battlereport_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1069
-        height: 1091
+        width: 831
+        height: 844
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e85b615082c79d010800000000000000
-      internalID: 1214138085878969742
+      spriteID: 8543403799e8bc600800000000000000
+      internalID: 489641774210626648
       vertices: []
       indices: 
       edges: []
