@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Zone : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class Zone : MonoBehaviour
     [SerializeField] private bool IsWall = false;                  // restriction to movement and buff to defending units
     [SerializeField] private float populationCount = 0.4f;         // Current number of citizens 
     [SerializeField] private bool isPopulated = true;              // if there are any people living inside the zone and population can increase
+
+    [SerializeField] private Slider BattleSlider;
 
     [SerializeField] private int numberOfBlueCrystal = 0;
     public int NumberOfBlueCrystal { get { return numberOfBlueCrystal; } private set { numberOfBlueCrystal = value; } }
@@ -136,6 +139,10 @@ public class Zone : MonoBehaviour
         {
             UnitCombat.Instance.TryEliminateUnits(unitsInZone, this);
         }
+    }
+    public void ShowBattleProgressBar()
+    {
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -290,5 +297,5 @@ public class Zone : MonoBehaviour
         CurrentColor.a = Mathf.Lerp(0.2f, 0.7f, (Camera.main.orthographicSize - 2f) / 8f); // changes the transparency based on camera zoom
     }
 
-
+    
 }
