@@ -30,7 +30,7 @@ public class Zone : MonoBehaviour
     [SerializeField] private float populationCount = 0.4f;         // Current number of citizens 
     [SerializeField] private bool isPopulated = true;              // if there are any people living inside the zone and population can increase
 
-    [SerializeField] private Slider BattleSlider;
+    [SerializeField] private Slider battleSlider;
 
     [SerializeField] private int numberOfBlueCrystal = 0;
     public int NumberOfBlueCrystal { get { return numberOfBlueCrystal; } private set { numberOfBlueCrystal = value; } }
@@ -66,6 +66,16 @@ public class Zone : MonoBehaviour
 
     private void Start()
     {
+        if (battleSlider != null)
+        {
+            RectTransform sliderRect = battleSlider.GetComponent<RectTransform>();
+            battleSlider.transform.position = (Vector3)transform.position - new Vector3(0, (GetZoneSizeModifier().y / 2) - 0.3f, 0);
+
+            // Adjust scale (only X-axis since this is a 2D game)
+            battleSlider.transform.localScale = new Vector3(GetZoneSizeModifier().x / 70, battleSlider.transform.localScale.y, 1);
+            battleSlider.gameObject.SetActive(false);
+        }
+
         CameraController.CameraSizeChanged += Zone_CameraSizeChanged;
         highlighter = GetComponent<GridSystemVisual>();
         unitsInZone = new List<Unit>();
@@ -129,6 +139,11 @@ public class Zone : MonoBehaviour
                 ZoneManager.Instance.AddUnitToZone(unit, this);
 
             }
+
+            if (ReturnEnemyUnitsInZone().Count > 0 && ReturnAllyUnitsInZone().Count > 0 && battleSlider != null)
+            {
+                ShowBattleProgressBar();
+            }
         }
 
     }
@@ -143,6 +158,16 @@ public class Zone : MonoBehaviour
     public void ShowBattleProgressBar()
     {
         
+        Debug.Log("showing battle bar");
+        int allyStrength = 0;
+        int enemyStrength = 0;
+        foreach (Unit unit in ReturnAllyUnitsInZone()) allyStrength += unit.GetStrength(); // increases allied strength based number of allies in zone
+        foreach (Unit unit in ReturnEnemyUnitsInZone()) enemyStrength += unit.GetStrength();
+        if (IsWall == true) allyStrength += 3; // if we are fighting on a wall we add more power
+        if (IsWall && Zone.isWallUpgraded) allyStrength++;
+        battleSlider.gameObject.SetActive(true);
+        int totalStrength = allyStrength + enemyStrength;
+        battleSlider.value = (float)allyStrength / totalStrength;
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -152,7 +177,8 @@ public class Zone : MonoBehaviour
         {
             Unit unit = other.GetComponent<Unit>();
             ZoneManager.Instance.RemoveUnitFromZone(unit, this);
-
+            // we deactivate the slider if there are no enemy or ally units present
+            if (ReturnEnemyUnitsInZone() == null || ReturnAllyUnitsInZone() == null && battleSlider != null) battleSlider.gameObject.SetActive(false);  
         }
     }
 
