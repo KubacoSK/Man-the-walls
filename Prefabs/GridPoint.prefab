@@ -340,8 +340,8 @@ RectTransform:
   m_GameObject: {fileID: 4475796019556415275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.049999997, y: 0.049999997, z: 0.049999997}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5477541346938386661}
   - {fileID: 6303488980873252958}
@@ -349,8 +349,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000000037253, y: -2.64}
-  m_SizeDelta: {x: 5.0422, y: 3.8392}
+  m_AnchoredPosition: {x: 0, y: -2.64}
+  m_SizeDelta: {x: 146.3, y: 41.2054}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2522721040397027087
 MonoBehaviour:
@@ -672,6 +672,7 @@ MonoBehaviour:
   IsWall: 0
   populationCount: 0.4
   isPopulated: 1
+  BattleSlider: {fileID: 2522721040397027087}
   numberOfBlueCrystal: 0
   numberOfRedCrystal: 0
   numberOfCoal: 0
