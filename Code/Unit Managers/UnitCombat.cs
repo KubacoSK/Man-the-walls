@@ -91,13 +91,16 @@ public class UnitCombat : MonoBehaviour
                         EnemyAI.Instance.HandleUnitDestroyed(enemyUnit);
                         alliesWon = null;
                     }
+                    thiszone.ShowBattleProgressBar();
                     if (allyUnits.Count == 0)
                     {
                         thiszone.ChangeControlToEnemy(); // we change control of the zone if all enemies are wiped out
+                        thiszone.HideBattleProgressBar();
                     }
                     else if (enemyUnits.Count == 0)
                     {
                         thiszone.ChangeControlToAlly();
+                        thiszone.HideBattleProgressBar();
                     }
                 }
             }

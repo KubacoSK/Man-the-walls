@@ -1119,6 +1119,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -4169,6 +4173,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -4820,6 +4828,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -6246,6 +6258,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -7758,6 +7774,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -8386,6 +8406,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -12692,6 +12716,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -13046,6 +13074,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -17473,6 +17505,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -19165,6 +19201,7 @@ MonoBehaviour:
   IsWall: 0
   populationCount: 1
   isPopulated: 1
+  battleSlider: {fileID: 0}
   numberOfBlueCrystal: 0
   numberOfRedCrystal: 0
   numberOfCoal: 0
@@ -24523,6 +24560,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -26798,6 +26839,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -27566,6 +27611,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -28725,6 +28774,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -31061,6 +31114,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -32617,6 +32674,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -33151,6 +33212,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -33989,6 +34054,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -37221,6 +37290,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -39363,6 +39436,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -41030,6 +41107,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -42373,6 +42454,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -43589,6 +43674,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -43919,6 +44008,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -45349,6 +45442,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -47269,6 +47366,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -48532,6 +48633,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -48730,6 +48835,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -49341,6 +49450,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -49940,6 +50053,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -54793,6 +54910,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
@@ -80372,6 +80493,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
       objectReference: {fileID: 0}
@@ -81163,6 +81288,10 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: isPopulated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: battleSlider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a

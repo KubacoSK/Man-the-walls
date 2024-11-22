@@ -169,6 +169,10 @@ public class Zone : MonoBehaviour
         int totalStrength = allyStrength + enemyStrength;
         battleSlider.value = (float)allyStrength / totalStrength;
     }
+    public void HideBattleProgressBar()
+    {
+        battleSlider.gameObject.SetActive(false);
+    }
 
     private void OnTriggerExit2D(Collider2D other)
     {
