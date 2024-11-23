@@ -157,8 +157,6 @@ public class Zone : MonoBehaviour
     }
     public void ShowBattleProgressBar()
     {
-        
-        Debug.Log("showing battle bar");
         int allyStrength = 0;
         int enemyStrength = 0;
         foreach (Unit unit in ReturnAllyUnitsInZone()) allyStrength += unit.GetStrength(); // increases allied strength based number of allies in zone
@@ -167,7 +165,7 @@ public class Zone : MonoBehaviour
         if (IsWall && Zone.isWallUpgraded) allyStrength++;
         battleSlider.gameObject.SetActive(true);
         int totalStrength = allyStrength + enemyStrength;
-        battleSlider.value = (float)allyStrength / totalStrength;
+        battleSlider.value = (float)allyStrength / totalStrength; // we change the value so its correctly showed
     }
     public void HideBattleProgressBar()
     {
