@@ -666,9 +666,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whoIsInControl: 0
-  neutralColor: {r: 0, g: 0, b: 0, a: 0}
-  enemyColor: {r: 0, g: 0, b: 0, a: 0}
-  AllyColor: {r: 0, g: 0, b: 0, a: 0}
+  neutralColor: {r: 0.7366652, g: 0, b: 0.9685534, a: 0}
+  enemyColor: {r: 0.03773582, g: 0, b: 0, a: 0}
+  AllyColor: {r: 1, g: 0.4277138, b: 0, a: 0}
   IsWall: 0
   populationCount: 0.4
   isPopulated: 1

@@ -36,8 +36,10 @@ public class CameraController : MonoBehaviour
         }
 
         // Clamp the camera position to the defined limits
-        Pos.x = Mathf.Clamp(Pos.x, panMinimum.x, panLimit.x);
-        Pos.y = Mathf.Clamp(Pos.y, panMinimum.y, panLimit.y);
+        Pos.x = Mathf.Clamp(Pos.x, panMinimum.x + Camera.main.orthographicSize, panLimit.x - Camera.main.orthographicSize);
+        // we change pos y a little less because we use landscape mode
+        Pos.y = Mathf.Clamp(Pos.y, panMinimum.y + Camera.main.orthographicSize / 2, panLimit.y - Camera.main.orthographicSize / 2);
+
         transform.position = Pos;
     }
 

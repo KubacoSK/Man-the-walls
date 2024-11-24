@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridSystemVisual : MonoBehaviour
 {
-    private Color highlightColor = Color.blue;
+    private Color highlightColor = Color.magenta;
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
