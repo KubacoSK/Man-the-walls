@@ -45,6 +45,7 @@ public class Zone : MonoBehaviour
 
     public static event EventHandler ZoneControlChanged;
     public static bool isWallUpgraded;
+    public static bool WallLevel2;
 
     private void Awake()
     {
@@ -161,8 +162,9 @@ public class Zone : MonoBehaviour
         int enemyStrength = 0;
         foreach (Unit unit in ReturnAllyUnitsInZone()) allyStrength += unit.GetStrength(); // increases allied strength based number of allies in zone
         foreach (Unit unit in ReturnEnemyUnitsInZone()) enemyStrength += unit.GetStrength();
-        if (IsWall == true) allyStrength += 3; // if we are fighting on a wall we add more power
+        if (IsWall == true) allyStrength += 2; // if we are fighting on a wall we add more power
         if (IsWall && Zone.isWallUpgraded) allyStrength++;
+        if (IsWall && Zone.WallLevel2) allyStrength++;
         battleSlider.gameObject.SetActive(true);
         int totalStrength = allyStrength + enemyStrength;
         battleSlider.value = (float)allyStrength / totalStrength; // we change the value so its correctly showed

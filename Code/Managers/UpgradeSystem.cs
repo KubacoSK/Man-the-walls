@@ -12,15 +12,19 @@ public class UpgradeSystem : MonoBehaviour
     private bool hasUpgradedInfantryStrength;
     private bool hasUpgradedHorsemanStrength;
     private bool hasUpgradedWalls;
+    private bool hasUpgradedWallsLevel2;
     private bool hasIncreasedCoalIncome;
     private bool hasIncreasedSteelIncome;
     private bool hasIncreasedSoldierRecruitment;
     private bool hasIncreasedSoldierTrainedLimit;
 
+    [SerializeField] private GameObject WallLevel1Button;
+    [SerializeField] private GameObject WallLevel2Button;
     [SerializeField] private TextMeshProUGUI CitizensIncreaseText;
     [SerializeField] private TextMeshProUGUI InfantryStrengthText;
     [SerializeField] private TextMeshProUGUI HorsemanStrengthText;
     [SerializeField] private TextMeshProUGUI UpgradedWallsText;
+    [SerializeField] private TextMeshProUGUI UpgradedWallsLevel2Text;
     [SerializeField] private TextMeshProUGUI CoalIncomeText;
     [SerializeField] private TextMeshProUGUI SteelIncomeText;
     [SerializeField] private TextMeshProUGUI SoldierRecruitmentText;
@@ -101,8 +105,25 @@ public class UpgradeSystem : MonoBehaviour
             ResourceManager.Instance.RedCryCount -= 2;
             ResourceVisual.Instance.UpdateResourceCountVisual();
             hasUpgradedWalls = true;
-            UpgradedWallsText.fontStyle = FontStyles.Bold;
-            UpgradedWallsText.text = "UPGRADED";
+            WallLevel1Button.SetActive(false);
+            WallLevel2Button.SetActive(true);
+        }
+    }
+
+    public void UpgradeWallsToLvl2()
+    {
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 3, 3) && !hasUpgradedWallsLevel2)
+        {
+            // makes walls stronger
+            Zone.WallLevel2 = true;
+            ResourceManager.Instance.SteelCount -= 4;
+            ResourceManager.Instance.BlueCryCount -= 1;
+            ResourceManager.Instance.RedCryCount -= 3;
+            ResourceManager.Instance.CoalCount -= 3;
+            ResourceVisual.Instance.UpdateResourceCountVisual();
+            hasUpgradedWallsLevel2 = true;
+            UpgradedWallsLevel2Text.fontStyle = FontStyles.Bold;
+            UpgradedWallsLevel2Text.text = "UPGRADED";
         }
     }
     public void increaseCoalIncome()
