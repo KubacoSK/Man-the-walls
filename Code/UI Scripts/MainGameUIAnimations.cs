@@ -24,7 +24,7 @@ public class MainGameUIAnimations : MonoBehaviour
     }
     public void ShowSpawnMenu()
     {
-        upgradeSpawnMenuAnimator.SetBool("UpgradeMenuTurnedOn", false);
+        upgradeSpawnMenuAnimator.SetBool("UpgradeMenuTurnedOn", false); // turns one menu off so the other can slide in
         upgradeSpawnMenuAnimator.SetBool("SpawnMenuTurnedOn", true);
     }
 }
