@@ -158,6 +158,7 @@ public class Zone : MonoBehaviour
     }
     public void ShowBattleProgressBar()
     {
+        // calculates strength of forces on the zone(happens if there are enemy and allied units present)
         int allyStrength = 0;
         int enemyStrength = 0;
         foreach (Unit unit in ReturnAllyUnitsInZone()) allyStrength += unit.GetStrength(); // increases allied strength based number of allies in zone

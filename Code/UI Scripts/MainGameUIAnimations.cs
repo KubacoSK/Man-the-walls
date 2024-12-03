@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MainGameUIAnimations : MonoBehaviour
 {
-    [SerializeField] Animator battleReportAnimator;
-    [SerializeField] Animator upgradeSpawnMenuAnimator;
+    [SerializeField] Animator battleReportAnimator;   // animation for battle menu rollout and reverse
+    [SerializeField] Animator upgradeSpawnMenuAnimator;  // animation for two menus to work together
     public void ShowBattleReport()
     {
         battleReportAnimator.SetBool("ShowBattleReport",true);

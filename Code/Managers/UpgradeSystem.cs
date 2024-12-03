@@ -114,7 +114,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 3, 3) && !hasUpgradedWallsLevel2)
         {
-            // makes walls stronger
+            // makes walls stronger to another level
             Zone.WallLevel2 = true;
             ResourceManager.Instance.SteelCount -= 4;
             ResourceManager.Instance.BlueCryCount -= 1;
