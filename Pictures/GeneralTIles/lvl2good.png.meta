@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 34c85aaa715a7ce4b86140320d254f05
+guid: d7f58526b6ff7f643a0b41e41f5dce3c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3778235204528972687
-    second: WallLevel1 v2_0
+      213: -9163543079388270265
+    second: WallLevel2final_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WallLevel1 v2_0
+      name: lvl2good_0
       rect:
         serializedVersion: 2
         x: 0
@@ -126,16 +126,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f8323db86ecfe6430800000000000000
-      internalID: 3778235204528972687
+      spriteID: a4be47daed74473428ff50eb8fb3b8aa
+      internalID: 1285858542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallLevel1 v2_1
+      name: lvl2good_1
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9477a5c1c54b08d468d0dde830c03c4f
-      internalID: 877828020
+      spriteID: 11613df5aa0b1a548a6422d7fb5bbd43
+      internalID: 988912760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallLevel1 v2_2
+      name: lvl2good_2
       rect:
         serializedVersion: 2
         x: 0
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6a17cbc076488b4db6c9f00290f7957
-      internalID: -1612707644
+      spriteID: 283d465622c26294a8fda20a1d9850d6
+      internalID: 1930402427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallLevel1 v2_3
+      name: lvl2good_3
       rect:
         serializedVersion: 2
         x: 0
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df32d592a72b81942a2409d44e1f1add
-      internalID: 2079014341
+      spriteID: 6bbb9d1ccbba9b44e8c382ba0ce16b22
+      internalID: 2076302532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallLevel1 v2_4
+      name: lvl2good_4
       rect:
         serializedVersion: 2
         x: 0
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1072aa8ee07e051489d78669c309b932
-      internalID: -1617919217
+      spriteID: 1437f3cd3deab5d4390435c59579415b
+      internalID: 872940744
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallLevel1 v2_5
+      name: lvl2good_5
       rect:
         serializedVersion: 2
         x: 0
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d08d6e29c773da40b195c5613958b1d
-      internalID: 539619541
+      spriteID: 15f71cd29f9a3474b8816552a95325a8
+      internalID: -318899447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WallLevel1 v2_6
+      name: lvl2good_6
       rect:
         serializedVersion: 2
         x: 0
@@ -260,8 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 466162461e16c7a4a9ca9b2d0bc2baaa
-      internalID: 526406751
+      spriteID: 53386006bdb5bda41a1ca5fcadf313fb
+      internalID: -1324042435
       vertices: []
       indices: 
       edges: []
@@ -270,7 +270,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a1341c654f5cd9849be91cbefb7cc159
+    spriteID: 0790d031638eefc49bf89029108fadc7
     internalID: 0
     vertices: []
     indices: 
@@ -280,13 +280,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WallLevel1 v2_0: 3778235204528972687
-      WallLevel1 v2_1: 877828020
-      WallLevel1 v2_2: -1612707644
-      WallLevel1 v2_3: 2079014341
-      WallLevel1 v2_4: -1617919217
-      WallLevel1 v2_5: 539619541
-      WallLevel1 v2_6: 526406751
+      lvl2good_0: 1285858542
+      lvl2good_1: 988912760
+      lvl2good_2: 1930402427
+      lvl2good_3: 2076302532
+      lvl2good_4: 872940744
+      lvl2good_5: -318899447
+      lvl2good_6: -1324042435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
