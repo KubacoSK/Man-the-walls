@@ -20,6 +20,8 @@ public class UpgradeSystem : MonoBehaviour
 
     [SerializeField] private GameObject WallLevel1Button;
     [SerializeField] private GameObject WallLevel2Button;
+    [SerializeField] private GameObject WallsLvl2Visual;
+    [SerializeField] private GameObject WallsLvl3Visual;
     [SerializeField] private TextMeshProUGUI CitizensIncreaseText;
     [SerializeField] private TextMeshProUGUI InfantryStrengthText;
     [SerializeField] private TextMeshProUGUI HorsemanStrengthText;
@@ -29,7 +31,7 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI SteelIncomeText;
     [SerializeField] private TextMeshProUGUI SoldierRecruitmentText;
     [SerializeField] private TextMeshProUGUI SoldierMaxTrainingText;
-
+    
 
     private void Awake()
     {
@@ -105,6 +107,7 @@ public class UpgradeSystem : MonoBehaviour
             ResourceManager.Instance.RedCryCount -= 2;
             ResourceVisual.Instance.UpdateResourceCountVisual();
             hasUpgradedWalls = true;
+            WallsLvl2Visual.SetActive(true);
             WallLevel1Button.SetActive(false);
             WallLevel2Button.SetActive(true);
         }
@@ -124,6 +127,8 @@ public class UpgradeSystem : MonoBehaviour
             hasUpgradedWallsLevel2 = true;
             UpgradedWallsLevel2Text.fontStyle = FontStyles.Bold;
             UpgradedWallsLevel2Text.text = "UPGRADED";
+            WallsLvl2Visual.SetActive(false);
+            WallsLvl3Visual.SetActive(true);
         }
     }
     public void increaseCoalIncome()
