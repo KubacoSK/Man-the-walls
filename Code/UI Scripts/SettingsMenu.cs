@@ -13,31 +13,10 @@ public class SettingsMenu : MonoBehaviour
     public Slider effectsSlider;
     public Slider musicSlider;
 
-    public TMPro.TMP_Dropdown resolutionDropdown;
-
-    Resolution[] resolutions;
 
     void Start()
     {
         LoadSettings();
-        // Initialize resolution dropdown
-        resolutions = Screen.resolutions;
-        resolutionDropdown.ClearOptions();
-        List<string> options = new List<string>();
-        int currentResolutionsIndex = 0;
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResolutionsIndex = i;   // sets resolution based on what was selected before
-            }
-        }
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionIndex", currentResolutionsIndex);
-        resolutionDropdown.RefreshShownValue();
 
         // Set initial values for volume sliders
         if (PlayerPrefs.HasKey("Volume"))
@@ -64,15 +43,8 @@ public class SettingsMenu : MonoBehaviour
 
         // Set initial quality level and fullscreen mode
         SetQuality(PlayerPrefs.GetInt("QualityLevel", QualitySettings.GetQualityLevel()));
-        SetFullscreen(PlayerPrefs.GetInt("IsFullscreen", Screen.fullScreen ? 1 : 0) == 1);
     }
 
-    public void SetResolution(int resolutionIndex)
-    {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        PlayerPrefs.SetInt("ResolutionIndex", resolutionIndex);
-    }
 
     public void SetVolume(float volume)
     {
@@ -98,11 +70,6 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetInt("QualityLevel", qualityIndex);
     }
 
-    public void SetFullscreen(bool isFullscreen)
-    {
-        Screen.fullScreen = isFullscreen;
-        PlayerPrefs.SetInt("IsFullscreen", isFullscreen ? 1 : 0);
-    }
 
     public void LoadSettings()
     {
@@ -125,11 +92,6 @@ public class SettingsMenu : MonoBehaviour
         {
             int qualityLevel = PlayerPrefs.GetInt("QualityLevel");
             QualitySettings.SetQualityLevel(qualityLevel);
-        }
-        if (PlayerPrefs.HasKey("IsFullscreen"))
-        {
-            bool isFullscreen = PlayerPrefs.GetInt("IsFullscreen") == 1;
-            Screen.fullScreen = isFullscreen;
         }
     }
 
