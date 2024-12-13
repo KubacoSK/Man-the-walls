@@ -10,6 +10,7 @@ public class TesterScript : MonoBehaviour
     }
     void Update()
     {
+        // just a script for simple testing
         if(Input.GetKeyDown("r"))
         {
             ResourceManager.Instance.SteelCount += 3;
