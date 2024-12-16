@@ -166,7 +166,7 @@ public class Zone : MonoBehaviour
         if (IsWall == true) allyStrength += 2; // if we are fighting on a wall we add more power
         if (IsWall && Zone.isWallUpgraded) allyStrength++;
         if (IsWall && Zone.WallLevel2) allyStrength++;
-        battleSlider.gameObject.SetActive(true);
+        battleSlider.gameObject.SetActive(true);  // activates battle slider
         int totalStrength = allyStrength + enemyStrength;
         battleSlider.value = (float)allyStrength / totalStrength; // we change the value so its correctly showed
     }
