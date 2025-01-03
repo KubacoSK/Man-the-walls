@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 371062cce40e7d14a82bb4cbc021ca1b
+guid: 82f92447b6e023d45aed4282de5bd7ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -995841427607502018
-    second: soldier runnin1_0
+      213: 1921418717214301170
+    second: soldierrun1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: soldier runnin1_0
+      name: soldierrun1_0
       rect:
         serializedVersion: 2
         x: 4
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e3346de6f7f0e22f0800000000000000
-      internalID: -995841427607502018
+      spriteID: 2fb5858a4204aaa10800000000000000
+      internalID: 1921418717214301170
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      soldier runnin1_0: -995841427607502018
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
