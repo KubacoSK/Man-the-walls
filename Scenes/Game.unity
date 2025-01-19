@@ -28097,6 +28097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TypeOfUnit: 0
+  animator: {fileID: 0}
   strength: 3
   isEnemy: 0
   CurrentStandingZone: {fileID: 0}
@@ -56157,6 +56158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TypeOfUnit: 0
+  animator: {fileID: 0}
   strength: 3
   isEnemy: 0
   CurrentStandingZone: {fileID: 0}

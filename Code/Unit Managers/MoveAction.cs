@@ -9,7 +9,7 @@ public class MoveAction : MonoBehaviour
     private Vector2 targetPosition;
     private Unit selectedUnit;
     private List<Zone> validMoveZones;
-    private float moveSpeed = 5f;
+    private float moveSpeed = 3f;
     private float highlightInterval = 0.1f; // Highlight every 0.5 second
     private float highlightTimer = 0.0f;
 

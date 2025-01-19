@@ -15,6 +15,8 @@ public class Unit : MonoBehaviour
     public static event EventHandler OnAnyActionPointsChanged;
     public static event EventHandler OnAnyUnitSpawned;
     public static event EventHandler OnAnyUnitDead;
+    [SerializeField] private Animator animator;
+
 
     protected int MovementCost = 0;
     protected bool canComeToWalls = true;        // if unit is able to climb and defend walls
@@ -122,7 +124,13 @@ public class Unit : MonoBehaviour
             OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
         }
     }
-
+    public void SetRunningAnimation(bool isRunning)
+    {
+        if (animator != null)
+        {
+            animator.SetBool("Running", isRunning);
+        }
+    }
     public bool IsEnemy()
     {
         return isEnemy;

@@ -31,22 +31,28 @@ public class UnitActionsSystem : MonoBehaviour
         {
             if (selectedUnit != null)
             {
-
-                // checks if unit based on distance to target zone
+                // Check if the unit reached its destination
                 if (Vector2.Distance(selectedUnit.transform.position, destination) < 0.01f)
                 {
-                    IsMoving = false;
+                    if (IsMoving) // Only update if the state actually changed
+                    {
+                        IsMoving = false;
+                        selectedUnit.SetRunningAnimation(false);
+                    }
                 }
             }
-            //checks for clicking on unit
+
+            // Check for clicking on unit or movement
             if (Input.GetMouseButtonDown(0) && IsMoving == false)
-            {   
+            {
                 float timeSinceLastTap = Time.time - lastTapTime;
-                if (TryHandleUnitSelection()) return;   
-                else if (timeSinceLastTap <= doubleTapThreshold )Movement();
+                if (TryHandleUnitSelection()) return;
+                else if (timeSinceLastTap <= doubleTapThreshold)
+                {
+                    Movement();
+                }
                 else lastTapTime = Time.time;
             }
-
         }
     }
 
@@ -57,21 +63,18 @@ public class UnitActionsSystem : MonoBehaviour
             float timeSinceLastTap = Time.time - lastTapTime;
             if (Input.GetMouseButtonDown(0) && IsMoving == false && selectedUnit.GetActionPoints() > 0 && selectedUnit != null && CanSteamMachineMove())
             {
-                
-                // Right-click to move the selected unit
                 Vector3 mouseWorldPosition = MouseWorld.GetPosition();
                 Zone clickedZone = GetClickedZone(mouseWorldPosition);
 
-                // checks if we clicked on zone and not on some empty space
                 if (clickedZone != null)
                 {
-                    selectedUnit.SetPastZoneBack();                                      // we set the previous position to false
+                    selectedUnit.SetPastZoneBack();
                     destination = new Vector2();
-                    // gets list of close zones from MoveAction class
+
                     if (IsValidClickedZone(clickedZone, selectedUnit.GetMoveAction().GetValidZonesList()))
                     {
                         int index = 0;
-                        for (int i = 0; i < clickedZone.GetAllyMoveLocationStatuses().Length; i++) // we find the first available position in the list
+                        for (int i = 0; i < clickedZone.GetAllyMoveLocationStatuses().Length; i++)
                         {
                             if (clickedZone.GetAllyMoveLocationStatuses()[i] == false)
                             {
@@ -79,17 +82,14 @@ public class UnitActionsSystem : MonoBehaviour
                                 clickedZone.SetAllyPositionStatus(i, true);
                                 index = i;
                                 break;
-                                
                             }
-                           
                         }
 
                         if (selectedUnit != null)
                         {
-                            // moves to to position
                             IsMoving = true;
-                            selectedUnit.GetMoveAction().Move(destination);  // we move to the found position
-                            Debug.Log(destination);
+                            selectedUnit.SetRunningAnimation(true); // Start running animation
+                            selectedUnit.GetMoveAction().Move(destination);
                             selectedUnit.DoAction(clickedZone);
                             selectedUnit.SetStandingZone(clickedZone, index);
                             ResourceManager.Instance.CoalCount -= selectedUnit.GetMovementCost();
@@ -98,7 +98,6 @@ public class UnitActionsSystem : MonoBehaviour
                             if (clickedZone.ReturnEnemyUnitsInZone().Count > 0)
                             {
                                 clickedZone.ChangeControlToNeutral();
-
                             }
                             else
                             {
@@ -108,8 +107,8 @@ public class UnitActionsSystem : MonoBehaviour
                     }
                 }
             }
-            }
         }
+    }
 
     private bool IsValidClickedZone(Zone clickedZone, List<Zone> validZones)
     {
