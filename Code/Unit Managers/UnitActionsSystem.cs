@@ -12,7 +12,7 @@ public class UnitActionsSystem : MonoBehaviour
     Vector2 destination;                                    // vector of destination the unit is heading towards ( its a position for the positions array)
     private float lastTapTime = 0f;
     private const float doubleTapThreshold = 0.3f;
-
+    [SerializeField] private AudioSource selectSound;
 
     private void Awake()
     {
@@ -129,6 +129,7 @@ public class UnitActionsSystem : MonoBehaviour
         {
             if (hit.transform.TryGetComponent<Unit>(out Unit unit) && !unit.IsEnemy())
             {
+                selectSound.Play();
                 SetSelectedUnit(unit);
                 return true;
             }
