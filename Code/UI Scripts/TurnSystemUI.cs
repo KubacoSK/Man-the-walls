@@ -12,6 +12,8 @@ public class TurnSystemUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI turnNumberText;                // displays the number of turns game has played
     [SerializeField] private GameObject EnemyTurnVisualObject;              // just text object informing that its enemy turn
     [SerializeField] private TextMeshProUGUI numberOfEnemySoldierTurnsLeft; // shows how many enemy units havent done thier turn
+    [SerializeField] private AudioSource menuRetractSound;
+    [SerializeField] private AudioSource menuOpenSound;
 
     public static TurnSystemUI Instance;
     public void Start()
@@ -54,7 +56,14 @@ public class TurnSystemUI : MonoBehaviour
             turnNumberText.text = "0" + TurnSystem.Instance.GetTurnNumber();
         else turnNumberText.text = "" + TurnSystem.Instance.GetTurnNumber();
     }
-
+    public void PlayRetractSound()
+    {
+        menuRetractSound.Play();
+    }
+    public void PlayOpenSound()
+    {
+        menuOpenSound.Play();
+    }
     private void UpdateEnemyTurnVisual()
     {
         EnemyTurnVisualObject.SetActive(!TurnSystem.Instance.IsPlayerTurn());
