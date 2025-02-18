@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TypeOfUnit: 0
+  animator: {fileID: 0}
+  unitSpriteRenderer: {fileID: 556174240442718617}
   strength: 9
   isEnemy: 0
   CurrentStandingZone: {fileID: 0}

@@ -143,6 +143,10 @@ public class Zone : MonoBehaviour
 
             if (ReturnEnemyUnitsInZone().Count > 0 && ReturnAllyUnitsInZone().Count > 0 && battleSlider != null)
             {
+                foreach (Unit sigma in ReturnAllyUnitsInZone())
+                {
+                    sigma.SetShootingAnimation(true);
+                }
                 ShowBattleProgressBar();
             }
         }

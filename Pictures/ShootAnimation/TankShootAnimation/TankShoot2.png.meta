@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 916b1519388dcb0408206ec65422fee1
+guid: e83f0f726d02b4a4bb64e2b63c043907
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 258334824208118189
-    second: soldierstanding 1_0
+      213: 9038753300709479820
+    second: TankShoot2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: soldierstanding 1_0
+      name: TankShoot2_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 60
-        height: 91
+        width: 158
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da1b906672ac59300800000000000000
-      internalID: 258334824208118189
+      spriteID: c859d25dc3a107d70800000000000000
+      internalID: 9038753300709479820
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      soldierstanding 1_0: 258334824208118189
+      TankShoot2_0: 9038753300709479820
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

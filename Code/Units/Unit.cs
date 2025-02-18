@@ -16,6 +16,7 @@ public class Unit : MonoBehaviour
     public static event EventHandler OnAnyUnitSpawned;
     public static event EventHandler OnAnyUnitDead;
     [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer unitSpriteRenderer;
 
 
     protected int MovementCost = 0;
@@ -131,6 +132,13 @@ public class Unit : MonoBehaviour
             animator.SetBool("Running", isRunning);
         }
     }
+    public void SetShootingAnimation(bool isShooting)
+    {
+        if (animator != null)
+        {
+            animator.SetBool("Shooting", isShooting);
+        }
+    }
     public bool IsEnemy()
     {
         return isEnemy;
@@ -139,7 +147,10 @@ public class Unit : MonoBehaviour
     public void IsDead()
     {
         // triggers an event that removes units and kills it
-        Destroy(gameObject);
+
+        animator.SetTrigger("Die"); // Start the death animation
+
+        Destroy(gameObject, 1.4f); // Destroy after animation finishes
         OnAnyUnitDead?.Invoke(this, EventArgs.Empty);
     }
     public Zone GetCurrentZone()
@@ -166,5 +177,13 @@ public class Unit : MonoBehaviour
     public void IncreaseStrength()
     {
          strength++;
+    }
+    public void FlipUnit()
+    {
+        unitSpriteRenderer.flipX = true;
+    }
+    public void FlipUnitBack()
+    {
+        unitSpriteRenderer.flipX = false;
     }
 }

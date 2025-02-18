@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 385bf607cb1af3e469b5b57bbdcca4b0
+guid: a0a7a1cfe157b9f46afa8dd6ee473850
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8183314782856825885
-    second: soldierrun5_0
+      213: 4262459334393567228
+    second: soldierrun8_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,8 +46,8 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
-  spriteExtrude: 1
+  spriteMode: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: soldierrun5_0
+      name: soldierrun8_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 2
         y: 0
-        width: 55
-        height: 88
+        width: 57
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1c426d1079f09170800000000000000
-      internalID: 8183314782856825885
+      spriteID: cf793106e2c472b30800000000000000
+      internalID: 4262459334393567228
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      soldierrun8_0: 4262459334393567228
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

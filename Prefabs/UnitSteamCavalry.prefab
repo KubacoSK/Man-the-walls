@@ -323,6 +323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TypeOfUnit: 0
+  animator: {fileID: 0}
+  unitSpriteRenderer: {fileID: 7850149885930475729}
   strength: 3
   isEnemy: 0
   CurrentStandingZone: {fileID: 0}

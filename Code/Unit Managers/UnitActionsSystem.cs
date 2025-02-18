@@ -38,6 +38,7 @@ public class UnitActionsSystem : MonoBehaviour
                     {
                         IsMoving = false;
                         selectedUnit.SetRunningAnimation(false);
+                        selectedUnit.FlipUnitBack();
                     }
                 }
             }
@@ -87,6 +88,7 @@ public class UnitActionsSystem : MonoBehaviour
 
                         if (selectedUnit != null)
                         {
+                            if (destination.x < selectedUnit.transform.position.x) selectedUnit.FlipUnit();
                             IsMoving = true;
                             selectedUnit.SetRunningAnimation(true); // Start running animation
                             selectedUnit.GetMoveAction().Move(destination);

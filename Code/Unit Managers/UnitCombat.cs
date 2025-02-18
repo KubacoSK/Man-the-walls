@@ -97,12 +97,20 @@ public class UnitCombat : MonoBehaviour
                     {
                         thiszone.ChangeControlToEnemy(); // we change control of the zone if all enemies are wiped out
                         thiszone.HideBattleProgressBar(); // if one side wins battle the battlebar is no longer needed
+                        foreach (Unit unit in enemyUnits)
+                        {
+                        unit.SetShootingAnimation(false);
+                        }
                     }
                     else if (enemyUnits.Count == 0)
                     {
                         thiszone.ChangeControlToAlly();
                         thiszone.HideBattleProgressBar();
-                    }
+                        foreach(Unit unit in allyUnits)
+                        {
+                        unit.SetShootingAnimation(false);
+                        }
+                }
                 }
             }
         
