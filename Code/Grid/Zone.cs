@@ -25,6 +25,7 @@ public class Zone : MonoBehaviour
     [SerializeField] private Color neutralColor;
     [SerializeField] private Color enemyColor;
     [SerializeField] private Color AllyColor;
+
     
     [SerializeField] private bool IsWall = false;                  // restriction to movement and buff to defending units
     [SerializeField] private float populationCount = 0.4f;         // Current number of citizens 
@@ -46,6 +47,7 @@ public class Zone : MonoBehaviour
     public static event EventHandler ZoneControlChanged;
     public static bool isWallUpgraded;
     public static bool WallLevel2;
+    private bool isCombatActive;
 
     private void Awake()
     {
@@ -64,7 +66,7 @@ public class Zone : MonoBehaviour
         }
 
     }
-
+    
     private void Start()
     {
         if (battleSlider != null)
@@ -113,6 +115,19 @@ public class Zone : MonoBehaviour
 
 
     }
+    void Update()
+    {
+        if (isCombatActive)
+        {
+            Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
+            bool isVisible = screenPoint.x >= 0 && screenPoint.x <= 1 && screenPoint.y >= 0 && screenPoint.y <= 1;
+
+            if (isVisible)
+                CombatSound.Instance.PlayCombatSounds();
+            else
+                CombatSound.Instance.StopCombatSounds();
+        }
+    }
     public void SetAllyPositionStatus(int index,bool status)
     {
         alliedMoveLocationsStatus[index] = status;
@@ -143,14 +158,20 @@ public class Zone : MonoBehaviour
 
             if (ReturnEnemyUnitsInZone().Count > 0 && ReturnAllyUnitsInZone().Count > 0 && battleSlider != null)
             {
+
                 foreach (Unit sigma in ReturnAllyUnitsInZone())
                 {
                     sigma.SetShootingAnimation(true);
+                    isCombatActive = true;
                 }
                 ShowBattleProgressBar();
             }
         }
 
+    }
+    public void ChangeCombatStatus(bool active)
+    {
+        isCombatActive = active;
     }
     public void InitiateEliminationProcess()
     {

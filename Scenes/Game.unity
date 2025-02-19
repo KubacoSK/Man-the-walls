@@ -755,6 +755,18 @@ PrefabInstance:
       propertyPath: m_DrawMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 416671113508802160, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 416671113508802160, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416671113508802160, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1691764131
+      objectReference: {fileID: 0}
     - target: {fileID: 493668341850006535, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4009,7 +4021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3204151871471879552, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: AllyColor.a
@@ -10528,6 +10540,14 @@ PrefabInstance:
     - target: {fileID: 416671113508802160, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_DrawMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 416671113508802160, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 416671113508802160, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1043173761
       objectReference: {fileID: 0}
     - target: {fileID: 493668341850006535, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_AnchorMax.y
@@ -17097,7 +17117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3204151871471879552, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: AllyColor.a
@@ -33656,7 +33676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3204151871471879552, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: AllyColor.a
@@ -35663,6 +35683,8 @@ GameObject:
   - component: {fileID: 1030018992}
   - component: {fileID: 1030018991}
   - component: {fileID: 1030018994}
+  - component: {fileID: 1030018996}
+  - component: {fileID: 1030018995}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -35763,6 +35785,116 @@ MonoBehaviour:
   zoomSmoothness: 5
   scrollSpeed: 4
   CameraSize: 0
+--- !u!82 &1030018995
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030018990}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6157648293299061104, guid: d4c3fb3d4fbb0ea40ae83a170e7af859, type: 2}
+  m_audioClip: {fileID: 8300000, guid: b761e58687afafd4c885fb3bfcc3840f, type: 3}
+  m_Resource: {fileID: 8300000, guid: b761e58687afafd4c885fb3bfcc3840f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.307
+  m_Pitch: 1.41
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1030018996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030018990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9efbeadb3beefe345b1ec15371cfc77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatSound: {fileID: 1030018995}
 --- !u!1 &1043075595
 GameObject:
   m_ObjectHideFlags: 0
@@ -53161,6 +53293,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1140361592}
     m_Modifications:
+    - target: {fileID: 499817421547039866, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 499817421547039866, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1043173761
+      objectReference: {fileID: 0}
     - target: {fileID: 1648566251969043068, guid: 7365017f14cb72a49a3ff8a81811683c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5
@@ -53235,7 +53375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1686024245}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82420,7 +82560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3204151871471879552, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: AllyColor.a
