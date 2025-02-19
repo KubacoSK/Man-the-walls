@@ -5,9 +5,6 @@ TextureImporter:
   - first:
       213: -2785605185101755691
     second: RobotWalk2_0
-  - first:
-      213: -8552024431137727435
-    second: RobotWalk2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -120,9 +117,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
-        width: 91
-        height: 90
+        y: 2
+        width: 100
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,28 +130,6 @@ TextureImporter:
       bones: []
       spriteID: 5da0689c7da8759d0800000000000000
       internalID: -2785605185101755691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotWalk2_1
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 2
-        width: 7
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 53cd297271b115980800000000000000
-      internalID: -8552024431137727435
       vertices: []
       indices: 
       edges: []
@@ -174,7 +149,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       RobotWalk2_0: -2785605185101755691
-      RobotWalk2_1: -8552024431137727435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
