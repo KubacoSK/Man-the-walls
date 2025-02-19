@@ -9,6 +9,7 @@ public class EnemyAiMove : MonoBehaviour
     public static EnemyAiMove Instance { get; private set; }
     private Zone previousZone = null;
     private Zone previousTargetZone = null;
+    private Unit unitToWatch;
 
     [SerializeField] private Zone CenterZone;
     Vector2 destination;
@@ -22,9 +23,19 @@ public class EnemyAiMove : MonoBehaviour
             return;
         }
         Instance = this;
+        unitToWatch = null;
+    }
+    private void Update()
+    {
+        if (!TurnSystem.Instance.IsPlayerTurn() && unitToWatch != null)
+        {
+            Vector3 targetPosition = unitToWatch.transform.position + new Vector3(0, 0, -10);
+            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, targetPosition, Time.deltaTime * 10f);
+        }
     }
     public void MakeDecisionForUnit(Unit enemyUnit)
     { 
+        unitToWatch = enemyUnit;
         if(enemyUnit.ReturnCurrentStandingZone() != null){
         if (enemyUnit.ReturnCurrentStandingZone().ReturnAllyUnitsInZone().Count > 0) return;
         }
@@ -145,13 +156,15 @@ public class EnemyAiMove : MonoBehaviour
 
                 }
 
-            }
+            } 
+            previousZone = destinationZone;
+            Debug.Log(previousZone + "this is prevoius zone");
             enemyUnit.SetStandingZone(destinationZone, index);
             // Move the unit towards the chosen zone
             enemyUnit.GetMoveAction().Move(destination);
             // moves to zone
             enemyUnit.DoAction(destinationZone);
-            previousZone = destinationZone;
+           
             if (destinationZone.ReturnAllyUnitsInZone().Count > 0)
             {
                 destinationZone.ChangeControlToNeutral();
@@ -166,9 +179,8 @@ public class EnemyAiMove : MonoBehaviour
 
 
         }
-        Camera.main.transform.position = enemyUnit.transform.position + new Vector3(0, 0, -10);
+        
     }
-
     private IEnumerator DelayedSecondMove(Unit enemyUnit)
     {
         // Wait for 2 seconds before the second move
@@ -182,6 +194,10 @@ public class EnemyAiMove : MonoBehaviour
             validZones2.RemoveAll(zone => zone.IsWallCheck());
             if (validZones2.Count > 0)
             {
+                foreach (Zone zone in validZones2)
+                {
+                    Debug.Log(zone);
+                }
                 validZones2.Remove(previousZone);
                 Zone seconddestinationZone = null;
                 enemyUnit.SetEnemyPastZoneBack();    
@@ -198,6 +214,7 @@ public class EnemyAiMove : MonoBehaviour
 
                 if (previousTargetZone != null)
                 {
+                    Debug.Log("Moving to target zone" + previousTargetZone.name);
                     // everything is explained before
                     Vector2 VectorToDestination = new Vector2(
                     Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x) - Mathf.Abs(previousTargetZone.transform.position.x),
