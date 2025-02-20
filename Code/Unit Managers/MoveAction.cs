@@ -12,6 +12,7 @@ public class MoveAction : MonoBehaviour
     private float moveSpeed = 3f;
     private float highlightInterval = 0.1f; // Highlight every 0.5 second
     private float highlightTimer = 0.0f;
+    private Unit thisUnit;
 
     private void Awake()
     {
@@ -22,13 +23,14 @@ public class MoveAction : MonoBehaviour
             Debug.LogError("ZoneManager is not initialized!");
             return;
         }
-
+       
         // Initialize the static list in MoveAction
         UnitActionsSystem.Instance.OnSelectedUnitChanged += OnSelectedUnitChanged;
     }
 
     private void Start()
     {
+        thisUnit = GetComponent<Unit>();
         validMoveZones = new List<Zone>();
     }
     private void Update()
@@ -37,6 +39,11 @@ public class MoveAction : MonoBehaviour
 
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
+        if(transform.position.x == targetPosition.x && transform.position.y == targetPosition.y)
+        {
+            thisUnit.FlipUnitBack();
+            thisUnit.SetRunningAnimation(false);
+        }
         highlightTimer += Time.deltaTime;
 
         if (highlightTimer >= highlightInterval)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 public class EnemyAiMove : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class EnemyAiMove : MonoBehaviour
         if (!TurnSystem.Instance.IsPlayerTurn() && unitToWatch != null)
         {
             Vector3 targetPosition = unitToWatch.transform.position + new Vector3(0, 0, -10);
-            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, targetPosition, Time.deltaTime * 10f);
+            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, targetPosition, Time.deltaTime * 100f);
         }
     }
     public void MakeDecisionForUnit(Unit enemyUnit)
@@ -161,7 +162,9 @@ public class EnemyAiMove : MonoBehaviour
             Debug.Log(previousZone + "this is prevoius zone");
             enemyUnit.SetStandingZone(destinationZone, index);
             // Move the unit towards the chosen zone
+            enemyUnit.SetRunningAnimation(true);
             enemyUnit.GetMoveAction().Move(destination);
+            if (destination.x > enemyUnit.transform.position.x) enemyUnit.FlipUnit();
             // moves to zone
             enemyUnit.DoAction(destinationZone);
            
@@ -175,7 +178,7 @@ public class EnemyAiMove : MonoBehaviour
                 destinationZone.ChangeControlToEnemy();
             }
             if (!StayStill) StartCoroutine(DelayedSecondMove(enemyUnit));
-            else { enemyUnit.DoAction(destinationZone); }
+            else { enemyUnit.DoAction(destinationZone);  }
 
 
         }
@@ -262,7 +265,11 @@ public class EnemyAiMove : MonoBehaviour
                 }
                 enemyUnit.SetStandingZone(seconddestinationZone, index);
                 // Move the unit towards the chosen zone
+                enemyUnit.SetRunningAnimation(true);
                 enemyUnit.GetMoveAction().Move(destination);
+                if (destination.x > enemyUnit.transform.position.x) enemyUnit.FlipUnit();
+
+
                 if (seconddestinationZone.ReturnAllyUnitsInZone().Count > 0)
                 {
                     seconddestinationZone.ChangeControlToNeutral();
@@ -272,6 +279,7 @@ public class EnemyAiMove : MonoBehaviour
                     seconddestinationZone.ChangeControlToEnemy();
                 }
                 enemyUnit.DoAction(seconddestinationZone);
+                
             }
         }
     }

@@ -164,6 +164,11 @@ public class Zone : MonoBehaviour
                     sigma.SetShootingAnimation(true);
                     isCombatActive = true;
                 }
+                foreach (Unit sigma in ReturnEnemyUnitsInZone())
+                {
+                    sigma.SetShootingAnimation(true);
+                    isCombatActive = true;
+                }
                 ShowBattleProgressBar();
             }
         }

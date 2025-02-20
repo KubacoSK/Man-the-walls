@@ -11,7 +11,15 @@ PrefabInstance:
     - target: {fileID: 107224502834958180, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f311232e7e9e06443b76ce6fcd9d5927, type: 3}
+      objectReference: {fileID: 21300000, guid: bb95f943f935e0a41bb4658d453ced51, type: 3}
+    - target: {fileID: 852468271645930794, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.042
+      objectReference: {fileID: 0}
+    - target: {fileID: 852468271645930794, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.046
+      objectReference: {fileID: 0}
     - target: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -68,6 +76,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: EnemyUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 4986789810419669751, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
+      propertyPath: m_Name
+      value: SoldierEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052894728701790641, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3f6258799a96820408783740e103044c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7033972262451382912, guid: 579389722e1794042b2fbd710e0507fb, type: 3}

@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 107224502834958180}
   - component: {fileID: 7052894728701790641}
   m_Layer: 9
-  m_Name: SoldierV1
+  m_Name: SoldierAllied
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,7 +239,7 @@ Animator:
   m_GameObject: {fileID: 4986789810419669751}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3f6258799a96820408783740e103044c, type: 2}
+  m_Controller: {fileID: 9100000, guid: f93c7dd24f78f42488f72ab01d9129cc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
