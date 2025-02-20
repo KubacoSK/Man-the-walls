@@ -31,7 +31,13 @@ public class EnemyAiMove : MonoBehaviour
         if (!TurnSystem.Instance.IsPlayerTurn() && unitToWatch != null)
         {
             Vector3 targetPosition = unitToWatch.transform.position + new Vector3(0, 0, -10);
-            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position, targetPosition, Time.deltaTime * 100f);
+
+            // Clamp the target position within the camera limits
+            targetPosition.x = Mathf.Clamp(targetPosition.x, CameraController.Instance.panMinimum.x + Camera.main.orthographicSize, CameraController.Instance.panLimit.x - Camera.main.orthographicSize);
+            targetPosition.y = Mathf.Clamp(targetPosition.y, CameraController.Instance.panMinimum.y + Camera.main.orthographicSize / 2, CameraController.Instance.panLimit.y - Camera.main.orthographicSize / 2);
+
+            // Move the camera smoothly toward the clamped target position
+            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPosition, Time.deltaTime * 5f);
         }
     }
     public void MakeDecisionForUnit(Unit enemyUnit)

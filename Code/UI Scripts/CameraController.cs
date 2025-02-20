@@ -3,6 +3,7 @@ using System;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController Instance { get; private set; }
     private float panSpeed = 0.6f;
     public Vector2 panLimit;
     public Vector2 panMinimum;
@@ -14,6 +15,16 @@ public class CameraController : MonoBehaviour
     public float CameraSize;
     public static event EventHandler CameraSizeChanged;
 
+    private void Start()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("There is more than one CameraController! " + transform + " - " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     private void Update()
     {
         CameraMovement();

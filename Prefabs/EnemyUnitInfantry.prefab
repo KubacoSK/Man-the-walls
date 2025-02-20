@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 107224502834958180, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107224502834958180, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: bb95f943f935e0a41bb4658d453ced51, type: 3}
