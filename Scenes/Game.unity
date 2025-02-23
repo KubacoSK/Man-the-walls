@@ -18836,7 +18836,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -23675,7 +23675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: c7f53752cc5754d4183c837a45cf5235, type: 3}
+  m_Texture: {fileID: 2800000, guid: 3702a80cc130fba488095aded4c6e06b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -41926,7 +41926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -204, y: 78}
+  m_AnchoredPosition: {x: -200, y: 78}
   m_SizeDelta: {x: 63.9795, y: 106.6427}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1229923323
@@ -41949,7 +41949,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 74d1bd05abfcf114ab99d3bd115a9294, type: 3}
+  m_Texture: {fileID: 2800000, guid: 916b1519388dcb0408206ec65422fee1, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -43429,7 +43429,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -45855,7 +45855,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -53299,8 +53299,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57, y: 78}
-  m_SizeDelta: {x: 156.1061, y: 90.344}
+  m_AnchoredPosition: {x: 45.66241, y: 72.00001}
+  m_SizeDelta: {x: 133.4307, y: 77.221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1660479164
 MonoBehaviour:
@@ -53322,7 +53322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 08f5267e6c889fc499f284ebe50c16e3, type: 3}
+  m_Texture: {fileID: 2800000, guid: e25f26d4d4e78e644a479f9c236a2b08, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -59871,19 +59871,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-
-    2. Defend your walls
-
-
-    - Walls give a defensive bonus to your
-    units
-
-    - Enemies have hard time scaling walls
-
-    - Only infantry and battle
-    robots can come to walls'
+  m_text: "\n\n2. Defend your walls\n\n- YOU SELECT UNITS WITH A CLICK\n- YOU MOVE
+    THEM BY DOUBLE TAPPING \nNIERBY ZONE \n- Walls give a defensive bonus to your
+    units\n- Enemies have hard time scaling walls\n- Only infantry and battle robots
+    can come to walls"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -59932,7 +59923,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -60877,7 +60868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 00df43c6988b91645878d7a26e4fd804, type: 3}
+  m_Texture: {fileID: 2800000, guid: f28520c0ed9c6ee4d88831bd09d0cda0, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -66979,7 +66970,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: f311232e7e9e06443b76ce6fcd9d5927, type: 3}
+  m_Texture: {fileID: 2800000, guid: bb95f943f935e0a41bb4658d453ced51, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
