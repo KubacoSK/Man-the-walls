@@ -44,7 +44,7 @@ public class Unit : MonoBehaviour
                     strength--;
                     break;
                 case "Nightmare":
-                    strength += 2;
+                    strength += 1;
                     break;
             }
         }

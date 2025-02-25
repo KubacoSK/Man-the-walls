@@ -137,7 +137,7 @@ public class AllyUnitSpawner : MonoBehaviour
             ResourceManager.Instance.SteelCount -= 1;
             ResourceVisual.Instance.UpdateResourceCountVisual();
             HorseSpawnsTillPetrossSpawn++;
-            if (HorseSpawnsTillPetrossSpawn == 5)
+            if (HorseSpawnsTillPetrossSpawn == 8)
             {
                 Instantiate(superPetrossPrefab, new Vector2(12.5f, 19.5f), Quaternion.identity);
             }
