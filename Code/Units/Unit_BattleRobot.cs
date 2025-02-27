@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class Unit_BattleRobot : Unit
 {
-    // Battle robot is hybrid between tank and soldier
+    // robot s upravenymi statmi
     new void Start()
     {
         base.Start();

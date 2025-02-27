@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Security;
 using Unity.VisualScripting;
@@ -12,23 +12,22 @@ public class UnitCombat : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError("There's more than one PauseMenu! " + transform + " - " + Instance);
+            Debug.LogError("Existuje viac ako jedno PauseMenu! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
         Instance = this;
-
     }
     public void TryEliminateUnits(List<Unit> unitsInZone, Zone thiszone)
     {
-       
-        
-            Debug.Log("executing");
-        // Check if there are at least two units in the zone
-        // Filter units by type (e.g., ally and enemy)
+        Debug.Log("Vykonávam");
+
+        // Skontroluj, či sú v zóne aspoň dve jednotky
+        // Filtrovanie jednotiek podľa typu (napr. spojenci a nepriatelia)
         List<Unit> allyUnits = new List<Unit>();
         List<Unit> enemyUnits = new List<Unit>();
-        // fills the lists with numbers of units inside the zone
+
+        // Naplnenie zoznamov počtom jednotiek v zóne
         foreach (Unit unit in unitsInZone)
         {
             if (unit.tag == "Unit")
@@ -41,86 +40,86 @@ public class UnitCombat : MonoBehaviour
             }
         }
         float totalunits = (allyUnits.Count + enemyUnits.Count) / 3;
-        bool? alliesWon = null;  // adds counter that if enemies won last fight allies get buff and reversed
-                                 // If there is at least one ally and one enemy, randomly eliminate one of them
-            for (int i = 0; i <= totalunits; i++)
+        bool? alliesWon = null;  // pridáva čítač, ktorý, ak nepriatelia vyhrali posledný boj, dá spojencom buff a naopak
+                                 // Ak je v zóne aspoň jedna jednotka spojenca a jedna nepriateľa, náhodne eliminuj jednu z nich
+        for (int i = 0; i <= totalunits; i++)
+        {
+            if (allyUnits.Count > 0 && enemyUnits.Count > 0)
             {
-                if (allyUnits.Count > 0 && enemyUnits.Count > 0)
+                int allyStrength = 0;
+                int enemyStrength = 0;
+                if (alliesWon == true) allyStrength -= 2;
+                if (alliesWon == false) enemyStrength -= 2;
+                foreach (Unit unit in allyUnits) allyStrength += unit.GetStrength(); // zvyšuje silu spojencov na základe počtu spojencov v zóne
+                foreach (Unit unit in enemyUnits) enemyStrength += unit.GetStrength();
+                if (thiszone.IsWallCheck() == true) allyStrength += 3; // ak bojujeme na múre, pridáme viac sily
+                if (thiszone.IsWallCheck() && Zone.isWallUpgraded) allyStrength++;  // pridáva viac bojovej sily, ak bola zóna vylepšená lepšími múrmi
+                if (thiszone.IsWallCheck() && Zone.WallLevel2) allyStrength++;
+
+                int randomElementally = Random.Range(1, 7);
+                int randomElementenemy = Random.Range(1, 7);
+
+                allyStrength += randomElementally;
+                enemyStrength += randomElementenemy;
+
+                // Vykonaj logiku eliminácie (napr. zničenie jednotky)
+                if (allyStrength > enemyStrength)
                 {
-                    int allyStrength = 0;
-                    int enemyStrength = 0;
-                    if (alliesWon == true) allyStrength -= 2;
-                    if (alliesWon == false) enemyStrength -= 2;
-                    foreach (Unit unit in allyUnits) allyStrength += unit.GetStrength(); // increases allied strength based number of allies in zone
-                    foreach (Unit unit in enemyUnits) enemyStrength += unit.GetStrength();
-                    if (thiszone.IsWallCheck() == true) allyStrength += 3; // if we are fighting on a wall we add more power
-                    if (thiszone.IsWallCheck() && Zone.isWallUpgraded) allyStrength++;  // adds more combat power if zone is upgraded with better walls
-                    if (thiszone.IsWallCheck() && Zone.WallLevel2) allyStrength++;
-
-                    int randomElementally = Random.Range(1, 7);
-                    int randomElementenemy = Random.Range(1, 7);
-
-                    allyStrength += randomElementally;
-                    enemyStrength += randomElementenemy;
-                    // Perform elimination logic (e.g., destroy the unit)
-                    if (allyStrength > enemyStrength)
-                    {
-                        // Ally wins, eliminate enemy unit
-                        Unit enemyUnit = enemyUnits[0];
-                        enemyUnits.Remove(enemyUnit);
-                        EliminateUnit(enemyUnit);
-                        EnemyAI.Instance.HandleUnitDestroyed(enemyUnit);
-                        alliesWon = true;
-                    }
-                    else if (enemyStrength > allyStrength)
-                    {
-                        // Enemy wins, eliminate ally unit
-                        Unit allyUnit = allyUnits[0];
-                        allyUnits.Remove(allyUnit);
-                        EliminateUnit(allyUnit);
-                        alliesWon = false;
-                    }
-                    else
-                    {
-                        // Strengths are equal, both units are eliminated
-                        Unit allyUnit = allyUnits[0];
-                        Unit enemyUnit = enemyUnits[0];
-                        allyUnits.Remove(allyUnit);
-                        enemyUnits.Remove(enemyUnit);
-                        EliminateUnit(enemyUnit);
-                        EliminateUnit(allyUnit);
-                        EnemyAI.Instance.HandleUnitDestroyed(enemyUnit);
-                        alliesWon = null;
-                    }
-                    thiszone.ShowBattleProgressBar();
-                    if (allyUnits.Count == 0)
-                    {
-                        thiszone.ChangeControlToEnemy(); // we change control of the zone if all enemies are wiped out
-                        thiszone.HideBattleProgressBar(); // if one side wins battle the battlebar is no longer needed
-                        thiszone.ChangeCombatStatus(false);
-                    foreach (Unit unit in enemyUnits)
-                        {
-                        unit.SetShootingAnimation(false);
-                        }
-                    }
-                    else if (enemyUnits.Count == 0)
-                    {
-                        thiszone.ChangeControlToAlly();
-                        thiszone.HideBattleProgressBar();
-                    thiszone.ChangeCombatStatus(false);
-                        foreach(Unit unit in allyUnits)
-                        {
-                        unit.SetShootingAnimation(false);
-                        }
+                    // Spojenec vyhráva, eliminuj nepriateľskú jednotku
+                    Unit enemyUnit = enemyUnits[0];
+                    enemyUnits.Remove(enemyUnit);
+                    EliminateUnit(enemyUnit);
+                    EnemyAI.Instance.HandleUnitDestroyed(enemyUnit);
+                    alliesWon = true;
                 }
+                else if (enemyStrength > allyStrength)
+                {
+                    // Nepriateľ vyhráva, eliminuj spojeneckú jednotku
+                    Unit allyUnit = allyUnits[0];
+                    allyUnits.Remove(allyUnit);
+                    EliminateUnit(allyUnit);
+                    alliesWon = false;
+                }
+                else
+                {
+                    // Sily sú rovnaké, obe jednotky sú eliminované
+                    Unit allyUnit = allyUnits[0];
+                    Unit enemyUnit = enemyUnits[0];
+                    allyUnits.Remove(allyUnit);
+                    enemyUnits.Remove(enemyUnit);
+                    EliminateUnit(enemyUnit);
+                    EliminateUnit(allyUnit);
+                    EnemyAI.Instance.HandleUnitDestroyed(enemyUnit);
+                    alliesWon = null;
+                }
+                thiszone.ShowBattleProgressBar();
+                if (allyUnits.Count == 0)
+                {
+                    thiszone.ChangeControlToEnemy(); // zmena kontroly zóny, ak všetci nepriatelia sú vymazaní
+                    thiszone.HideBattleProgressBar(); // ak jedna strana vyhrá, bojová lišta už nie je potrebná
+                    thiszone.ChangeCombatStatus(false);
+                    foreach (Unit unit in enemyUnits)
+                    {
+                        unit.SetShootingAnimation(false);
+                    }
+                }
+                else if (enemyUnits.Count == 0)
+                {
+                    thiszone.ChangeControlToAlly();
+                    thiszone.HideBattleProgressBar();
+                    thiszone.ChangeCombatStatus(false);
+                    foreach (Unit unit in allyUnits)
+                    {
+                        unit.SetShootingAnimation(false);
+                    }
                 }
             }
-        
+        }
     }
 
     private void EliminateUnit(Unit unit)
     {
-        // Additional logic for eliminating the unit
+        // Ďalšia logika na elimináciu jednotky
         if (unit != null) unit.IsDead();
         if (unit.IsEnemy()) unit.SetEnemyPastZoneBack();
         if (!unit.IsEnemy()) unit.SetPastZoneBack();

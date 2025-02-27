@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -6,29 +6,32 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    // basic parent class for units, all other units are child of this one
-    // also is basic infantry with ability to climb walls and automatic deployment
+    // základná rodičovská trieda pre jednotky, všetky ostatné jednotky sú jej potomkami
+    // zároveň predstavuje základnú pechotu s možnosťou liezť na múry a automatickým nasadením
     protected MoveAction moveAction;
-    public enum UnitType { Infantry, Tank, Horseman, BattleRobot, }   // we make units into different classes
+
+    public enum UnitType { Infantry, Tank, Horseman, BattleRobot, }   // rozdelenie jednotiek do rôznych tried
     public UnitType TypeOfUnit = UnitType.Infantry;
-    // events that handle unit creation and deletion 
+
+    // udalosti, ktoré spracovávajú vytvorenie a zničenie jednotky
     public static event EventHandler OnAnyActionPointsChanged;
     public static event EventHandler OnAnyUnitSpawned;
     public static event EventHandler OnAnyUnitDead;
+
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer unitSpriteRenderer;
 
-
     protected int MovementCost = 0;
-    protected bool canComeToWalls = true;        // if unit is able to climb and defend walls
-    protected int ActionPoints = 2;              // movement range of unit
-    protected int maxActionPoints = 2;           // how much action points are resetted each turn
-    protected int TurnsTillGetToMiddle = 2;      // how often enemy unit chooses to go to the center of the map
-    [SerializeField] protected int strength = 3; // how likely unit is to win combat
-    [SerializeField] protected bool isEnemy;
+    protected bool canComeToWalls = true;        // či jednotka môže liezť na múry a brániť ich
+    protected int ActionPoints = 2;              // rozsah pohybu jednotky
+    protected int maxActionPoints = 2;           // počet akčných bodov, ktoré sa obnovujú každý ťah
+    protected int TurnsTillGetToMiddle = 2;      // ako často sa nepriateľská jednotka rozhodne ísť do stredu mapy
+    [SerializeField] protected int strength = 3; // pravdepodobnosť, že jednotka vyhrá boj
+    [SerializeField] protected bool isEnemy;     // označenie, či ide o nepriateľskú jednotku
+
     public Zone CurrentStandingZone;
     public int CurrentStandingZoneIndex;
-    public static bool hasIncreasedStrength;           // if we applied infantry upgrade
+    public static bool hasIncreasedStrength;           // ci sme jednotku vylepsili
     private void Awake()
     {
         moveAction = GetComponent<MoveAction>();
@@ -37,7 +40,7 @@ public class Unit : MonoBehaviour
     protected void Start()
     {
         if (isEnemy)
-        { // checks for difficulty settings and sets stats depending on them
+        { // zisti obriaznost a podla toho nastavi silu nepriatelskym jednotkam
             switch (DifficultySetter.GetDifficulty())
             {
                 case "Easy":
@@ -48,7 +51,6 @@ public class Unit : MonoBehaviour
                     break;
             }
         }
-        // subscribes to the event
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
         if (hasIncreasedStrength && TypeOfUnit == UnitType.Infantry && !isEnemy) strength++;
@@ -109,7 +111,7 @@ public class Unit : MonoBehaviour
     }
     public void DoAction(Zone IsWalledZone)
     {
-        // checks if zone in which units arrives is wall and if it is it increases points twice
+        // skontroluje, ci ideme na stenu, ak ano tak nam to zobere movement pointy
         ActionPoints--;
         if (IsWalledZone.IsWallCheck() && isEnemy) ActionPoints -= 3;
 
@@ -118,7 +120,7 @@ public class Unit : MonoBehaviour
 
     protected void TurnSystem_OnTurnChanged(object sender, EventArgs e)
     {
-        // checks if turn has changed and if it has then it resets action points for all units
+        // zistime ze ci sa kolo zmenilo, ak ano tak priradime jenotkam plny pocet pohybovych bodov
         if ((IsEnemy() && !TurnSystem.Instance.IsPlayerTurn()) ||
             (!IsEnemy() && TurnSystem.Instance.IsPlayerTurn()))
         {
@@ -147,11 +149,11 @@ public class Unit : MonoBehaviour
     }
     public void IsDead()
     {
-        // triggers an event that removes units and kills it
+        // event ktory zabije jednotku a odstrani ju
 
-        animator.SetTrigger("Die"); // Start the death animation
+        animator.SetTrigger("Die"); // zaciatok animacie umierania
 
-        Destroy(gameObject, 1.4f); // Destroy after animation finishes
+        Destroy(gameObject, 1.4f);
         OnAnyUnitDead?.Invoke(this, EventArgs.Empty);
     }
     public Zone GetCurrentZone()

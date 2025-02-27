@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class UnitActionsSystem : MonoBehaviour
@@ -10,12 +9,12 @@ public class UnitActionsSystem : MonoBehaviour
 
     public event EventHandler OnSelectedUnitChanged;
     private Unit selectedUnit;
-    private bool IsMoving = false;                          // kontrola, ci sa jednotka momentalne pohybuje
-    Vector2 destination;                                    // vektor cielovej pozicie, kam jednotka smeruje (pozicia v poli pozicii)
+    private bool IsMoving = false;                          // kontrola, či sa jednotka momentálne pohybuje
+    Vector2 destination;                                    // vektor cieľovej pozície, kam jednotka smeruje (pozícia v poli pozícií)
     private float lastTapTime = 0f;
     private const float doubleTapThreshold = 0.3f;
     [SerializeField] private AudioSource selectSound;
-    [SerializeField] private TextMeshProUGUI numberOfActionPoints;  // premenná na zobrazenie poctu akčných bodov vybratej jednotky
+    [SerializeField] private TextMeshProUGUI numberOfActionPoints;  // premenná na zobrazenie počtu akčných bodov vybratej jednotky
 
     private void Awake()
     {
@@ -35,10 +34,10 @@ public class UnitActionsSystem : MonoBehaviour
         {
             if (selectedUnit != null)
             {
-                // Kontrola, ci jednotka dosiahla cielovu poziciu
+                // Kontrola, či jednotka dosiahla cieľovú pozíciu
                 if (Vector2.Distance(selectedUnit.transform.position, destination) < 0.01f)
                 {
-                    if (IsMoving) // Aktualizacia iba ak sa stav zmenil
+                    if (IsMoving) // Aktualizácia iba ak sa stav zmenil
                     {
                         IsMoving = false;
                         selectedUnit.SetRunningAnimation(false);
@@ -47,7 +46,7 @@ public class UnitActionsSystem : MonoBehaviour
                 }
             }
 
-            // Kontrola kliknutia na jednotku alebo pohybu
+            // Kontrola kliknutia na jednotku alebo pohyb
             if (Input.GetMouseButtonDown(0) && IsMoving == false)
             {
                 float timeSinceLastTap = Time.time - lastTapTime;
@@ -119,13 +118,13 @@ public class UnitActionsSystem : MonoBehaviour
 
     private bool IsValidClickedZone(Zone clickedZone, List<Zone> validZones)
     {
-        // kontrola, ci je kliknuta zona medzi platnymi zonami
+        // kontrola, či je kliknutá zóna medzi platnými zónami
         return validZones.Contains(clickedZone);
     }
 
     private bool TryHandleUnitSelection()
     {
-        // Vystrelenie lúča z kamery na zistenie, ci sme klikli na jednotku
+        // Vystrelenie lúča z kamery na zistenie, či sme klikli na jednotku
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         int layerMask = LayerMask.GetMask("Units");
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, layerMask);
@@ -144,7 +143,7 @@ public class UnitActionsSystem : MonoBehaviour
 
     private void SetSelectedUnit(Unit unit)
     {
-        // vyvola udalost ak vyberieme inu jednotku a nastavi ju ako vybranu
+        // vyvola udalosť ak vyberieme inú jednotku a nastaví ju ako vybranú
         selectedUnit = unit;
         if (selectedUnit.IsEnemy())
         {
@@ -156,13 +155,13 @@ public class UnitActionsSystem : MonoBehaviour
 
     private bool CanSteamMachineMove()
     {
-        // kontrola, ci mame dostatok uhlia na pohyb jednotky
+        // kontrola, či máme dostatok uhlia na pohyb jednotky
         if (ResourceManager.Instance.CoalCount >= selectedUnit.GetMovementCost()) return true;
         else return false;
     }
     private Zone GetClickedZone(Vector3 mouseWorldPosition)
     {
-        // zistenie, na ktoru zonu bolo kliknute
+        // zistenie, na ktorú zónu bolo kliknuté
         Collider2D collider = Physics2D.OverlapPoint(mouseWorldPosition, LayerMask.GetMask("GridPoints"));
 
         if (collider != null)

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
 
 public class Unit_TankUnit : Unit
 {
-    // Tank unit that moves further requires fuel and cannot climb walls and also is stronger
+    // zmeny pre tank jednotku
     new private void Start()
     {
         base.Start();

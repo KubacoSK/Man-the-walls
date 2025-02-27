@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class UnitManager : MonoBehaviour
@@ -9,23 +7,22 @@ public class UnitManager : MonoBehaviour
 
     public static UnitManager Instance { get; private set; }
 
-    // creates 3 lists of units
+    // vytvára 3 zoznamy jednotiek
     private List<Unit> unitList;
     private List<Unit> friendlyUnitList;
     private List<Unit> enemyUnitList;
-
 
     private void Awake()
     {
         if (Instance != null)
         {
-            Debug.LogError("There's more than one UnitManager! " + transform + " - " + Instance);
+            Debug.LogError("Existuje viac ako jeden UnitManager! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
         Instance = this;
 
-        // initiates the lists
+        // iniciuje zoznamy
         unitList = new List<Unit>();
         friendlyUnitList = new List<Unit>();
         enemyUnitList = new List<Unit>();
@@ -33,18 +30,18 @@ public class UnitManager : MonoBehaviour
 
     private void Start()
     {
-        // subscribes to the events
+        // prihlásenie na odber udalostí
         Unit.OnAnyUnitSpawned += Unit_OnAnyUnitSpawned;
         Unit.OnAnyUnitDead += Unit_OnAnyUnitDead;
     }
 
-    // event that checks if any unit has spawned by getting object from sender(unit script attached to unit)
+    // udalosť, ktorá kontroluje, či bola jednotka spawnená získaním objektu od odosielateľa (skript pripojený k jednotke)
     private void Unit_OnAnyUnitSpawned(object sender, EventArgs e)
     {
         Unit unit = sender as Unit;
 
         unitList.Add(unit);
-        //adds units to the lists
+        // pridáva jednotky do zoznamov
         if (unit.IsEnemy())
         {
             enemyUnitList.Add(unit);
@@ -54,7 +51,7 @@ public class UnitManager : MonoBehaviour
             friendlyUnitList.Add(unit);
         }
     }
-    // event that checks if any unit died deletes it from the lists
+    // udalosť, ktorá kontroluje, či jednotka zomrela, a vymaže ju zo zoznamov
     private void Unit_OnAnyUnitDead(object sender, EventArgs e)
     {
         Unit unit = sender as Unit;
@@ -69,7 +66,7 @@ public class UnitManager : MonoBehaviour
         {
             friendlyUnitList.Remove(unit);
         }
-        Debug.Log("Deleting unit " + unit);
+        Debug.Log("Mažem jednotku " + unit);
     }
 
     public List<Unit> GetUnitList()

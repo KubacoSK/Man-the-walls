@@ -1132,7 +1132,7 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: battleSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1466818800}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
@@ -7693,7 +7693,7 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: battleSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 686693264}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
@@ -8340,7 +8340,7 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: battleSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1282364859}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
@@ -24326,6 +24326,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+--- !u!114 &620949951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8572196812559931398, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+  m_PrefabInstance: {fileID: 1521114542}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &623478228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26545,6 +26556,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681781717}
   m_CullTransparentMesh: 1
+--- !u!114 &686693264 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8572196812559931398, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+  m_PrefabInstance: {fileID: 193773733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &690491186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28864,7 +28886,7 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: battleSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 952898020}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
@@ -30186,6 +30208,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+--- !u!114 &832853264 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8572196812559931398, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+  m_PrefabInstance: {fileID: 1545123123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &833236503
 GameObject:
   m_ObjectHideFlags: 0
@@ -32914,7 +32947,7 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: battleSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1303130577}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
@@ -33467,7 +33500,7 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: battleSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1603324312}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
@@ -33869,6 +33902,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952426810}
   m_CullTransparentMesh: 1
+--- !u!114 &952898020 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8572196812559931398, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+  m_PrefabInstance: {fileID: 786873681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &955012607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1257532410143258978, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
@@ -42602,7 +42646,7 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: battleSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1676735958}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
@@ -43575,6 +43619,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+--- !u!114 &1282364859 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8572196812559931398, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+  m_PrefabInstance: {fileID: 199269750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1287935789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8572196812559931398, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+  m_PrefabInstance: {fileID: 1698241462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1288805290
 GameObject:
   m_ObjectHideFlags: 0
@@ -44287,6 +44353,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 579389722e1794042b2fbd710e0507fb, type: 3}
+--- !u!114 &1303130577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8572196812559931398, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+  m_PrefabInstance: {fileID: 917628219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1304497625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -47965,6 +48042,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460945266}
   m_CullTransparentMesh: 1
+--- !u!114 &1466818800 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8572196812559931398, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+  m_PrefabInstance: {fileID: 53471120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1472815343
 GameObject:
   m_ObjectHideFlags: 0
@@ -49333,7 +49421,7 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: battleSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 620949951}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
@@ -49947,7 +50035,7 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: battleSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 832853264}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843
@@ -51612,6 +51700,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+--- !u!114 &1603324312 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8572196812559931398, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+  m_PrefabInstance: {fileID: 936257462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1608272788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6462441651266722297, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
@@ -54396,6 +54495,17 @@ RectTransform:
   m_AnchoredPosition: {x: 2.5, y: -0.0000038146973}
   m_SizeDelta: {x: -5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1676735958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8572196812559931398, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
+  m_PrefabInstance: {fileID: 1247723081}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1676827156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55418,7 +55528,7 @@ PrefabInstance:
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: battleSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1287935789}
     - target: {fileID: 3852904757834810190, guid: 5a2d5f0d9958f7448bc54fb1536c8259, type: 3}
       propertyPath: enemyColor.a
       value: 0.19607843

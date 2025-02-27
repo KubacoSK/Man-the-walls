@@ -89,7 +89,6 @@ public class EnemyAI : MonoBehaviour
     }
     public void HandleUnitDestroyed(Unit destroyedUnit)
     {
-        // Remove the destroyed unit from the enemyUnits list
         enemyUnits.Remove(destroyedUnit);
     }
 

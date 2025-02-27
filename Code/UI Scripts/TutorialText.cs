@@ -7,13 +7,11 @@ public class IntroductionPopup : MonoBehaviour
 
     void Start()
     {
-        // Attach a function to the close button
         closeButton.onClick.AddListener(ClosePopup);
     }
 
     void ClosePopup()
     {
-        // Close or disable the pop-up window
         gameObject.SetActive(false);
     }
 }

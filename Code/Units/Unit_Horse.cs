@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class Unit_Horse : Unit
 {
-    // Horse unit that moves further at the cost of ability to climb walls 
+    // upraveny kon
     public static bool hasIncreasedHorseStrength;
     new void Start()
     {

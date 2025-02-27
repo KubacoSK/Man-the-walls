@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +23,7 @@ public class EnemyUnitSpawner : MonoBehaviour
     public void SpawnEnemyAtTurn()
     {
         List<Zone> zones = new List<Zone>();
-        zones.Add(EnemySpawnZones[UnityEngine.Random.Range(0, 4)]);
+        zones.Add(EnemySpawnZones[UnityEngine.Random.Range(0, 4)]);  // vyberieme nahodnu zonu a tam urcime ze sa zrodi nepriatel
         zones.Add(EnemySpawnZones[UnityEngine.Random.Range(0, 4)]);
         if (strongEnemySpawnerCount <= 0) zones.Add(EnemySpawnZones[UnityEngine.Random.Range(0, 4)]);
         if (DifficultySetter.GetDifficulty() == "Hard" || DifficultySetter.GetDifficulty() == "Nightmare") zones.Add(EnemySpawnZones[UnityEngine.Random.Range(0, 4)]);
@@ -32,7 +31,7 @@ public class EnemyUnitSpawner : MonoBehaviour
         {
             for (int i = 0; i < zone.GetEnemyMoveLocationStatuses().Length; i++)
             {
-                if (!zone.GetEnemyMoveLocationStatuses()[i])
+                if (!zone.GetEnemyMoveLocationStatuses()[i])  // skontrolujeme ze ci je na nej miesto pre jednotku
                 {
                     if (strongEnemySpawnerCount <= 0)
                     {

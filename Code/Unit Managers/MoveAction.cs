@@ -10,7 +10,7 @@ public class MoveAction : MonoBehaviour
     private Unit selectedUnit;
     private List<Zone> validMoveZones;
     private float moveSpeed = 3f;
-    private float highlightInterval = 0.1f; // Highlight every 0.5 second
+    private float highlightInterval = 0.1f; // zvyraznenie kazde 0.1s
     private float highlightTimer = 0.0f;
     private Unit thisUnit;
 
@@ -23,8 +23,7 @@ public class MoveAction : MonoBehaviour
             Debug.LogError("ZoneManager is not initialized!");
             return;
         }
-       
-        // Initialize the static list in MoveAction
+      
         UnitActionsSystem.Instance.OnSelectedUnitChanged += OnSelectedUnitChanged;
     }
 
@@ -74,31 +73,31 @@ public class MoveAction : MonoBehaviour
     {
 
         List<Zone> validZoneList = new List<Zone>();
-        // makes new list of validzones
+        // spravi novy list pre vhodne zony
         Collider2D[] StandingZoneCollider = Physics2D.OverlapBoxAll(transform.position, new Vector2(0.1f, 0.1f), 0);
-        // creates a square based on size of a zone + 0.1xy
+        // zisti ze na akej zone sa jednota nachadza 
 
         foreach (var collider in StandingZoneCollider)
         {
-            // checks if the square overlaps any type of zone
+           
             Zone zone = collider.GetComponent<Zone>();
             if (zone != null && !validZoneList.Contains(zone))
             {
 
-                // Get the position and size of the zone
+                // zisti poziciu a velkost zony
                 Vector2 zonePosition = zone.transform.position;
                 Vector2 zoneSize = zone.GetZoneSizeModifier();
 
-                // Calculate the enlarged box based on the zone's position and size
+                // zvecsi rozsah tak aby sme vedeli zistit najblizsie zony
                 float enlargedWidth = zoneSize.x;
                 float enlargedHeight = zoneSize.y;
 
-                // Perform overlap check with the enlarged box
+
                 Collider2D[] adjustedColliders = Physics2D.OverlapBoxAll(zonePosition, new Vector2(enlargedWidth, enlargedHeight), 0);
 
                 foreach (var adjustedCollider in adjustedColliders)
                 {
-                    // makes zone variable from collider and then puts the zone into list
+                    // pridame najdene zony do listu
                     Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
                     if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone && Array.Exists(adjustedZone.GetEnemyMoveLocationStatuses(), value => value == false))
                     {
@@ -117,31 +116,25 @@ public class MoveAction : MonoBehaviour
     {
 
         List<Zone> validZoneList = new List<Zone>();
-        // makes new list of validzones
         Collider2D[] StandingZoneCollider = Physics2D.OverlapBoxAll(transform.position, new Vector2(0.1f, 0.1f), 0);
-        // creates a square based on size of a zone + 0.9xy
+        // skoro to iste len pre spojenecke jednotky
 
         foreach (var collider in StandingZoneCollider)
         {
-            // checks if the square overlaps any type of zone
             Zone zone = collider.GetComponent<Zone>();
             if (zone != null && !validZoneList.Contains(zone))
             {
 
-                // Get the position and size of the zone
                 Vector2 zonePosition = zone.transform.position;
                 Vector2 zoneSize = zone.GetZoneSizeModifier();
-
-                // Calculate the enlarged box based on the zone's position and size
                 float enlargedWidth = zoneSize.x;
                 float enlargedHeight = zoneSize.y;
 
-                // Perform overlap check with the enlarged box
                 Collider2D[] adjustedColliders = Physics2D.OverlapBoxAll(zonePosition, new Vector2(enlargedWidth, enlargedHeight), 0);
 
                 foreach (var adjustedCollider in adjustedColliders)
                 {
-                    // makes zone variable from collider and then puts the zone into list
+
                     Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
                     if (adjustedZone != null && !validZoneList.Contains(adjustedZone) && adjustedZone != zone && Array.Exists(adjustedZone.GetAllyMoveLocationStatuses(), value => value == false)
                         && ((selectedUnit.CanComeToWalls() && adjustedZone.IsWallCheck()) || (selectedUnit.CanComeToWalls() && !adjustedZone.IsWallCheck()) || (!selectedUnit.CanComeToWalls() && !adjustedZone.IsWallCheck())) && !(zone.ReturnEnemyUnitsInZone().Count > 0))
@@ -160,31 +153,25 @@ public class MoveAction : MonoBehaviour
     {
 
         List<Zone> Enlargedzones = new List<Zone>();
-        // makes new list of validzones
+        // toto rovnakym sposobom zisti ci su nejaky spojenci v urcitej vzdialenosti na zautocenie
         Collider2D[] StandingZoneCollider = Physics2D.OverlapBoxAll(transform.position, new Vector2(0.1f, 0.1f), 0);
-        // creates a square based on size of a zone + 0.9xy
 
         foreach (var collider in StandingZoneCollider)
         {
-            // checks if the square overlaps any type of zone
             Zone zone = collider.GetComponent<Zone>();
             if (zone != null && !Enlargedzones.Contains(zone))
             {
 
-                // Get the position and size of the zone
                 Vector2 zonePosition = zone.transform.position;
                 Vector2 zoneSize = zone.GetZoneSizeModifier();
 
-                // Calculate the enlarged box based on the zone's position and size
                 float enlargedWidth = (zoneSize.x / 2) + 10;
                 float enlargedHeight = (zoneSize.y / 2) + 10;
 
-                // Perform overlap check with the enlarged box
                 Collider2D[] adjustedColliders = Physics2D.OverlapBoxAll(zonePosition, new Vector2(enlargedWidth, enlargedHeight), 0);
 
                 foreach (var adjustedCollider in adjustedColliders)
                 {
-                    // makes zone variable from collider and then puts the zone into list
                     Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
                     if (adjustedZone != null && !Enlargedzones.Contains(adjustedZone) && adjustedZone != zone)
                     {
@@ -200,33 +187,32 @@ public class MoveAction : MonoBehaviour
 
     private List<Zone> CheckForResetZones()
     {
-
+        // toto sluzi na nastavenie vidietlnosti naspet
         List<Zone> Enlargedzones = new List<Zone>();
-        // makes new list of validzones
+
         Collider2D[] StandingZoneCollider = Physics2D.OverlapBoxAll(transform.position, new Vector2(0.1f, 0.1f), 0);
-        // creates a square based on size of a zone + 0.9xy
+
 
         foreach (var collider in StandingZoneCollider)
         {
-            // checks if the square overlaps any type of zone
+
             Zone zone = collider.GetComponent<Zone>();
             if (zone != null && !Enlargedzones.Contains(zone))
             {
 
-                // Get the position and size of the zone
                 Vector2 zonePosition = zone.transform.position;
                 Vector2 zoneSize = zone.GetZoneSizeModifier();
 
-                // Calculate the enlarged box based on the zone's position and size
+
                 float enlargedWidth = (zoneSize.x / 2) + 10;
                 float enlargedHeight = (zoneSize.y / 2) + 10;
 
-                // Perform overlap check with the enlarged box
+
                 Collider2D[] adjustedColliders = Physics2D.OverlapBoxAll(zonePosition, new Vector2(enlargedWidth, enlargedHeight), 0);
 
                 foreach (var adjustedCollider in adjustedColliders)
                 {
-                    // makes zone variable from collider and then puts the zone into list
+
                     Zone adjustedZone = adjustedCollider.GetComponent<Zone>();
                     if (adjustedZone != null && !Enlargedzones.Contains(adjustedZone))
                     {
@@ -248,13 +234,12 @@ public class MoveAction : MonoBehaviour
 
     private void HighlightValidMoveZones()
     {
-        // Remove highlight from all zones
+
         foreach (var zone in CheckForResetZones())
         {
             zone.ResetHighlight();
         }
 
-        // Highlight the valid move zones
         foreach (var zone in validMoveZones)
         {
             zone.Highlight();
@@ -262,7 +247,6 @@ public class MoveAction : MonoBehaviour
     }
     private void OnSelectedUnitChanged(object sender, EventArgs e)
     {
-        // Update the selected unit when the event is triggered
         selectedUnit = UnitActionsSystem.Instance.GetSelectedUnit();
     }
 }
