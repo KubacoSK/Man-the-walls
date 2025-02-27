@@ -1,5 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using TMPro;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class UnitActionsSystem : MonoBehaviour
@@ -8,17 +10,18 @@ public class UnitActionsSystem : MonoBehaviour
 
     public event EventHandler OnSelectedUnitChanged;
     private Unit selectedUnit;
-    private bool IsMoving = false;                          // check if unit is currently moving 
-    Vector2 destination;                                    // vector of destination the unit is heading towards ( its a position for the positions array)
+    private bool IsMoving = false;                          // kontrola, ci sa jednotka momentalne pohybuje
+    Vector2 destination;                                    // vektor cielovej pozicie, kam jednotka smeruje (pozicia v poli pozicii)
     private float lastTapTime = 0f;
     private const float doubleTapThreshold = 0.3f;
     [SerializeField] private AudioSource selectSound;
+    [SerializeField] private TextMeshProUGUI numberOfActionPoints;  // premenná na zobrazenie poctu akčných bodov vybratej jednotky
 
     private void Awake()
     {
         if (Instance != null)
         {
-            Debug.LogError("There is more than one UnitActionSystem! " + transform + " - " + Instance);
+            Debug.LogError("Existuje viac ako jeden UnitActionSystem! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
@@ -27,14 +30,15 @@ public class UnitActionsSystem : MonoBehaviour
 
     private void Update()
     {
+        if (!TurnSystem.Instance.IsPlayerTurn()) numberOfActionPoints.text = "";  // skrytie akčných bodov, ak nie je ťah hráča
         if (TurnSystem.Instance.IsPlayerTurn() && !PauseMenu.IsGamePaused())
         {
             if (selectedUnit != null)
             {
-                // Check if the unit reached its destination
+                // Kontrola, ci jednotka dosiahla cielovu poziciu
                 if (Vector2.Distance(selectedUnit.transform.position, destination) < 0.01f)
                 {
-                    if (IsMoving) // Only update if the state actually changed
+                    if (IsMoving) // Aktualizacia iba ak sa stav zmenil
                     {
                         IsMoving = false;
                         selectedUnit.SetRunningAnimation(false);
@@ -43,7 +47,7 @@ public class UnitActionsSystem : MonoBehaviour
                 }
             }
 
-            // Check for clicking on unit or movement
+            // Kontrola kliknutia na jednotku alebo pohybu
             if (Input.GetMouseButtonDown(0) && IsMoving == false)
             {
                 float timeSinceLastTap = Time.time - lastTapTime;
@@ -90,12 +94,13 @@ public class UnitActionsSystem : MonoBehaviour
                         {
                             if (destination.x < selectedUnit.transform.position.x) selectedUnit.FlipUnit();
                             IsMoving = true;
-                            selectedUnit.SetRunningAnimation(true); // Start running animation
+                            selectedUnit.SetRunningAnimation(true); // Spustenie animácie behu
                             selectedUnit.GetMoveAction().Move(destination);
                             selectedUnit.DoAction(clickedZone);
                             selectedUnit.SetStandingZone(clickedZone, index);
                             ResourceManager.Instance.CoalCount -= selectedUnit.GetMovementCost();
                             ResourceVisual.Instance.UpdateResourceCountVisual();
+                            numberOfActionPoints.text = "Action points: " + selectedUnit.GetActionPoints();
 
                             if (clickedZone.ReturnEnemyUnitsInZone().Count > 0)
                             {
@@ -114,14 +119,13 @@ public class UnitActionsSystem : MonoBehaviour
 
     private bool IsValidClickedZone(Zone clickedZone, List<Zone> validZones)
     {
-        // chcecks if zone is among valid zones list
+        // kontrola, ci je kliknuta zona medzi platnymi zonami
         return validZones.Contains(clickedZone);
     }
 
     private bool TryHandleUnitSelection()
     {
-
-        // fires ray from the camera to see if we clicked on the unit
+        // Vystrelenie lúča z kamery na zistenie, ci sme klikli na jednotku
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         int layerMask = LayerMask.GetMask("Units");
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, layerMask);
@@ -140,19 +144,25 @@ public class UnitActionsSystem : MonoBehaviour
 
     private void SetSelectedUnit(Unit unit)
     {
-        // invokes event if we selected other unit and selects it
+        // vyvola udalost ak vyberieme inu jednotku a nastavi ju ako vybranu
         selectedUnit = unit;
+        if (selectedUnit.IsEnemy())
+        {
+
+        }
+        numberOfActionPoints.text = "Action points: " + selectedUnit.GetActionPoints();
         OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
     }
 
     private bool CanSteamMachineMove()
     {
+        // kontrola, ci mame dostatok uhlia na pohyb jednotky
         if (ResourceManager.Instance.CoalCount >= selectedUnit.GetMovementCost()) return true;
         else return false;
     }
     private Zone GetClickedZone(Vector3 mouseWorldPosition)
     {
-        // gets clicked zone
+        // zistenie, na ktoru zonu bolo kliknute
         Collider2D collider = Physics2D.OverlapPoint(mouseWorldPosition, LayerMask.GetMask("GridPoints"));
 
         if (collider != null)

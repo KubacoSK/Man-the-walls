@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
+
 
 public static class DifficultySetter
 {
     private static string Difficulty = "Medium";
-    // class that remembers settings of difficulty throught scenes
+    // táto trieda zodpovedá za nastavovanie obtiažnosti aj medzi scénami
     public static string GetDifficulty()
     {
         return Difficulty;

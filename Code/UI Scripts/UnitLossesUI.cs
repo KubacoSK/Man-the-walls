@@ -37,7 +37,7 @@ public class UnitLossesUI : MonoBehaviour
 
     private void UnitLossesUI_OnTurnChanged(object sender, EventArgs e)
     {
-        // updates number of losses that occured when turn changes
+        // aktualizuje pocet strat ked sa kolo zmeni
         textTotalAlliedInfantryLosses.text = LossesManager.Instance.totalAlliedInfantryLosses.ToString();
         textTotalAlliedTankLosses.text = LossesManager.Instance.totalAlliedTankLosses.ToString();
         textTotalAlliedHorsemanLosses.text = LossesManager.Instance.totalAlliedHorsemanLosses.ToString();
@@ -53,7 +53,7 @@ public class UnitLossesUI : MonoBehaviour
 
     private void UnitLossesUI_OnAnyUnitDead(object sender, EventArgs e)
     {
-        // updates number of losses that occured when turn changes
+        // aktulaizuje pocet strat ak nejaka jednotka umrie
         textTotalAlliedInfantryLosses.text = LossesManager.Instance.totalAlliedInfantryLosses.ToString();
         textTotalAlliedTankLosses.text = LossesManager.Instance.totalAlliedTankLosses.ToString();
         textTotalAlliedHorsemanLosses.text = LossesManager.Instance.totalAlliedHorsemanLosses.ToString();

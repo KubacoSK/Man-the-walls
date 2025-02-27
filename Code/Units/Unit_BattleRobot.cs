@@ -7,7 +7,6 @@ public class Unit_BattleRobot : Unit
     // Battle robot is hybrid between tank and soldier
     new void Start()
     {
-        
         base.Start();
         strength = 8;
         ActionPoints = 3;

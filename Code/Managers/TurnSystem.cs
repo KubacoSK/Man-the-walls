@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class TurnSystem : MonoBehaviour
@@ -16,7 +14,7 @@ public class TurnSystem : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError("There is more than one UnitActionSystem! " + transform + " - " + Instance);
+            Debug.LogError("Existuje viac ako jeden UnitActionSystem! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
@@ -24,8 +22,8 @@ public class TurnSystem : MonoBehaviour
     }
     public void NextTurn()
     {
-        // moves between turns and increases number
-        
+        // Prepína medzi ťahmi a zvyšuje číslo ťahu
+
         if (isPlayerTurn)
         {
             AllyUnitSpawner.Instance.ResetPaidSpawnedUnits();
@@ -37,16 +35,16 @@ public class TurnSystem : MonoBehaviour
             }
         }
         isPlayerTurn = !isPlayerTurn;
-        // invokes onTurnChanged event
-        OnTurnChanged.Invoke(this, EventArgs.Empty);
-        if (isPlayerTurn != false) EnemyUnitSpawner.Instance.SpawnEnemyAtTurn();
+        // Vyvolá udalosť OnTurnChanged
+        OnTurnChanged?.Invoke(this, EventArgs.Empty);
+        if (!isPlayerTurn) EnemyUnitSpawner.Instance.SpawnEnemyAtTurn();
         foreach (Zone zone in ZoneManager.GetAllZones())
         {
-            // if zone has more than 1 unit inside it it will do a combat method there
-                zone.InitiateEliminationProcess();
+            // Ak má zóna viac ako jednu jednotku, spustí bojový proces
+            zone.InitiateEliminationProcess();
         }
-        
-    }    
+
+    }
     public int GetTurnNumber()
     {
         return turnNumber;

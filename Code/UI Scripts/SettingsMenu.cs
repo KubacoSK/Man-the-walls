@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
@@ -18,30 +16,26 @@ public class SettingsMenu : MonoBehaviour
     {
         LoadSettings();
 
-        // Set initial values for volume sliders
+        // nastaví počiatočné hodnoty podľa toho čo sme tam mali predtým
         if (PlayerPrefs.HasKey("Volume"))
         {
-            // sets that the sliders are set and not full everytime we open settings
             float volume = PlayerPrefs.GetFloat("Volume");
             audioMixer.SetFloat("Volume", volume);
             volumeSlider.value = volume;
         }
         if (PlayerPrefs.HasKey("EffectsVolume"))
         {  
-            // sets that the sliders are set and not full everytime we open settings
             float effectsVolume = PlayerPrefs.GetFloat("EffectsVolume");   
             audioMixer.SetFloat("Effects", effectsVolume);
             effectsSlider.value = effectsVolume;  
         }
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
-            // sets that the sliders are set and not full everytime we open settings
             float musicVolume = PlayerPrefs.GetFloat("MusicVolume");
             audioMixer.SetFloat("Music", musicVolume);
             musicSlider.value = musicVolume;
         }
 
-        // Set initial quality level and fullscreen mode
         SetQuality(PlayerPrefs.GetInt("QualityLevel", QualitySettings.GetQualityLevel()));
     }
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class AllyUnitSpawner : MonoBehaviour
-{ 
+{
     public static AllyUnitSpawner Instance;
     [SerializeField] private Unit tankUnitPrefab;
     [SerializeField] private Unit battleRobotPrefab;
@@ -11,58 +11,58 @@ public class AllyUnitSpawner : MonoBehaviour
     [SerializeField] private Zone spawnCenterZone;
     private Vector2 spawnPosition;
 
-    private int SpawnedPaidUnitsThisTurn = 0;
-    private int PaidUnitsSpawnLimit = 1;
-    private int HorseSpawnsTillPetrossSpawn = 0;
-    public bool anotherUnitSpawned = false;
+    private int SpawnedPaidUnitsThisTurn = 0; // pocet jednotiek, ktore boli tento tah zaplatene a vytvorene
+    private int PaidUnitsSpawnLimit = 1; // maximalny pocet platenych jednotiek, ktore mozno vytvorit za tah
+    private int HorseSpawnsTillPetrossSpawn = 0; // pocet vytvorenych koni do vytvorenia specialnej jednotky Petross
+    public bool anotherUnitSpawned = false; // ci bola vytvorena dalsia jednotka
+
     private void Awake()
     {
         if (Instance != null)
         {
-            Debug.LogError("There is more than one AllyUnitSpawner! " + transform + " - " + Instance);
+            Debug.LogError("Existuje viac ako jedna instancia AllyUnitSpawner! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
         Instance = this;
     }
+
     public void ResetPaidSpawnedUnits()
     {
-        SpawnedPaidUnitsThisTurn = 0;
+        SpawnedPaidUnitsThisTurn = 0; // resetuje pocet platenych jednotiek na zaciatku tahu
     }
+
     public void SpawnAllyAtTurn()
     {
-        for (float i = ResourceManager.Instance.GetNumberOfTotalPopulation(); i >= 80; i -= 80) // spawn units with offset based of how many of them were spawned
+        for (float i = ResourceManager.Instance.GetNumberOfTotalPopulation(); i >= 80; i -= 80)
         {
             int index = 0;
-            for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
+            for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // najdeme prvu volnu poziciu v zozname
             {
                 if (spawnCenterZone.GetAllyMoveLocationStatuses()[k] == false)
                 {
-                    // we spawn units and set their standing position so it resets when unit starts
+                    // spawn jednotky a nastavenie jej pozicie tak, aby sa po starte resetovala
                     spawnPosition = spawnCenterZone.GetAllyMoveLocations()[k];
                     spawnCenterZone.SetAllyPositionStatus(k, true);
                     Unit unit = Instantiate(spawnUnitPrefab, spawnPosition, Quaternion.identity);
                     unit.SetStandingZone(spawnCenterZone, k);
                     index = k;
                     break;
-                    
                 }
-
             }
         }
         if (anotherUnitSpawned)
         {
-            for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
+            for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // najdeme prvu volnu poziciu v zozname
             {
                 if (spawnCenterZone.GetAllyMoveLocationStatuses()[k] == false)
                 {
-                    // we spawn units and set their standing position so it resets when unit starts
+                    // spawn jednotky a nastavenie jej pozicie
                     spawnPosition = spawnCenterZone.GetAllyMoveLocations()[k];
                     spawnCenterZone.SetAllyPositionStatus(k, true);
                     Unit unit = Instantiate(spawnUnitPrefab, spawnPosition, Quaternion.identity);
                     unit.SetStandingZone(spawnCenterZone, k);
                     break;
-
                 }
             }
         }
@@ -70,9 +70,9 @@ public class AllyUnitSpawner : MonoBehaviour
 
     public void SpawnTank()
     {
-        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 0 ,0, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
+        if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 0, 0, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
         {
-            for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
+            for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // najdeme prvu volnu poziciu v zozname
             {
                 if (spawnCenterZone.GetAllyMoveLocationStatuses()[k] == false)
                 {
@@ -81,13 +81,11 @@ public class AllyUnitSpawner : MonoBehaviour
                     Unit unit = Instantiate(tankUnitPrefab, spawnPosition, Quaternion.identity);
                     unit.SetStandingZone(spawnCenterZone, k);
                     break;
-
                 }
-
             }
             SpawnedPaidUnitsThisTurn += 1;
-            ResourceManager.Instance.SteelCount -= 4;
-            ResourceVisual.Instance.UpdateResourceCountVisual();
+            ResourceManager.Instance.SteelCount -= 4; // odpocitanie zdrojov
+            ResourceVisual.Instance.UpdateResourceCountVisual(); // aktualizacia vizualu zdrojov
         }
     }
 
@@ -95,7 +93,7 @@ public class AllyUnitSpawner : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(3, 1, 1, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
         {
-            for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
+            for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // najdeme prvu volnu poziciu v zozname
             {
                 if (spawnCenterZone.GetAllyMoveLocationStatuses()[k] == false)
                 {
@@ -104,15 +102,13 @@ public class AllyUnitSpawner : MonoBehaviour
                     Unit unit = Instantiate(battleRobotPrefab, spawnPosition, Quaternion.identity);
                     unit.SetStandingZone(spawnCenterZone, k);
                     break;
-
                 }
-
             }
             SpawnedPaidUnitsThisTurn += 1;
             ResourceManager.Instance.SteelCount -= 3;
             ResourceManager.Instance.BlueCryCount -= 1;
             ResourceManager.Instance.RedCryCount -= 1;
-            ResourceVisual.Instance.UpdateResourceCountVisual();
+            ResourceVisual.Instance.UpdateResourceCountVisual(); // aktualizacia vizualu zdrojov
         }
     }
 
@@ -120,32 +116,30 @@ public class AllyUnitSpawner : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(1, 0, 0, 0) && SpawnedPaidUnitsThisTurn < PaidUnitsSpawnLimit)
         {
-            for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // we find the first available position in the list
+            for (int k = 0; k < spawnCenterZone.GetAllyMoveLocationStatuses().Length; k++) // najdeme prvu volnu poziciu v zozname
             {
                 if (spawnCenterZone.GetAllyMoveLocationStatuses()[k] == false)
                 {
-                    spawnPosition = spawnCenterZone.GetAllyMoveLocations()[k];                  // we spawn unit on found position
+                    spawnPosition = spawnCenterZone.GetAllyMoveLocations()[k]; // spawn jednotky na najdenej pozicii
                     spawnCenterZone.SetAllyPositionStatus(k, true);
-                    Unit unit = Instantiate(horseUnitPrefab, spawnPosition, Quaternion.identity);                    
-                    unit.SetStandingZone(spawnCenterZone, k);                        // we set the spawned units zone and position so when they move they return it to default position
+                    Unit unit = Instantiate(horseUnitPrefab, spawnPosition, Quaternion.identity);
+                    unit.SetStandingZone(spawnCenterZone, k); // nastavenie zony a pozicie jednotky, aby sa po pohybe vratila na defaultnu poziciu
                     break;
-
                 }
-
             }
             SpawnedPaidUnitsThisTurn += 1;
             ResourceManager.Instance.SteelCount -= 1;
-            ResourceVisual.Instance.UpdateResourceCountVisual();
+            ResourceVisual.Instance.UpdateResourceCountVisual(); // aktualizacia vizualu zdrojov
             HorseSpawnsTillPetrossSpawn++;
             if (HorseSpawnsTillPetrossSpawn == 8)
             {
-                Instantiate(superPetrossPrefab, new Vector2(12.5f, 19.5f), Quaternion.identity);
+                Instantiate(superPetrossPrefab, new Vector2(12.5f, 19.5f), Quaternion.identity); // spawn specialnej jednotky Petross po 8 konoch
             }
         }
     }
+
     public void IncreaseMaxUnitSpawnLimit()
     {
-        PaidUnitsSpawnLimit++;
+        PaidUnitsSpawnLimit++; // zvysenie limitu platenych jednotiek na tah
     }
-    
 }

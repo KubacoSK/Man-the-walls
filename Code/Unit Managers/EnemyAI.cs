@@ -9,10 +9,10 @@ public class EnemyAI : MonoBehaviour
 {
    
     private List<Unit> enemyUnits; 
-    private bool MadeEnemyTurn = false;                 // sets to true if enemy unit does 2 movement actions or defends
-    private float EndTurnTimer = 0f;                    // ends turn after 2 seconds of comliting all moves
-    private float BetweenMovesTimer = 1f;               // time to wait between move actions
-    private int currentEnemyIndex = 0;                  // which enemy unit does its turn
+    private bool MadeEnemyTurn = false;                 // zmeni sa ak jednotka spravi svoje kolo
+    private float EndTurnTimer = 0f;                    // po tom co sa vsetky jednotky pohnu konci kolo o 2 sekundy
+    private float BetweenMovesTimer = 1f;               // cas medzi nepriatelskymi pohybmi
+    private int currentEnemyIndex = 0;                  // ktora nepriatelska jednotka robi svoje kolo
     public static EnemyAI Instance { get; private set; }
 
     private void Awake()
@@ -66,7 +66,7 @@ public class EnemyAI : MonoBehaviour
             {
                 TurnSystem.Instance.NextTurn();
                 EndTurnTimer = 0f;
-                currentEnemyIndex = 0; // Reset index for the next turn
+                currentEnemyIndex = 0; // resetuje index pre dalsie kolo
 
             }
         }
@@ -75,7 +75,7 @@ public class EnemyAI : MonoBehaviour
 
     private bool AllEnemyUnitsHaveCompletedMoves()
     {
-        // checks if enemy units have any movement points left and if not, it ends turn
+        // kontroluje ci jednotky vsetky spravili svoj tah
         foreach (Unit enemyUnit in enemyUnits)
         {
             if (enemyUnit != null && enemyUnit.GetActionPoints() > 0)

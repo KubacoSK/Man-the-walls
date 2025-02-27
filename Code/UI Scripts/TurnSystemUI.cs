@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,10 +8,10 @@ using UnityEngine.UI;
 
 public class TurnSystemUI : MonoBehaviour
 {
-    [SerializeField] private Button endTurnButton;                          // button for ending turn
-    [SerializeField] private TextMeshProUGUI turnNumberText;                // displays the number of turns game has played
-    [SerializeField] private GameObject EnemyTurnVisualObject;              // just text object informing that its enemy turn
-    [SerializeField] private TextMeshProUGUI numberOfEnemySoldierTurnsLeft; // shows how many enemy units havent done thier turn
+    [SerializeField] private Button endTurnButton;                         
+    [SerializeField] private TextMeshProUGUI turnNumberText;                // ukazuje počet kol ktory sa hra hrala
+    [SerializeField] private GameObject EnemyTurnVisualObject;              // informuje ze je nepriatelske kolo
+    [SerializeField] private TextMeshProUGUI numberOfEnemySoldierMovesLeft; // ukaze kolko nepriatelov spravilo svoje pohyby
     [SerializeField] private AudioSource menuRetractSound;
     [SerializeField] private AudioSource menuOpenSound;
 
@@ -37,7 +37,7 @@ public class TurnSystemUI : MonoBehaviour
         UpdateTurnText();
         UpdateEnemyTurnVisual();
         UpdateEndTurnButtonVisibility();
-        UpdateEnemyUnitsTurnsLeftNumber();
+        UpdateEnemyUnitsMovesLeftNumber();
     }
     
 
@@ -46,11 +46,11 @@ public class TurnSystemUI : MonoBehaviour
         UpdateTurnText();
         UpdateEnemyTurnVisual();
         UpdateEndTurnButtonVisibility();
-        UpdateEnemyUnitsTurnsLeftNumber();
+        UpdateEnemyUnitsMovesLeftNumber();
     }
     private void UpdateTurnText()
     {
-        if(TurnSystem.Instance.GetTurnNumber() < 10)                          // its for better visual look by showing zeros before actual number
+        if(TurnSystem.Instance.GetTurnNumber() < 10)                          // ukazuje pocet kôl s 0 na zaciatku pre lepší výzor
             turnNumberText.text = "00" + TurnSystem.Instance.GetTurnNumber();
         else if (TurnSystem.Instance.GetTurnNumber() < 100)
             turnNumberText.text = "0" + TurnSystem.Instance.GetTurnNumber();
@@ -68,16 +68,16 @@ public class TurnSystemUI : MonoBehaviour
     {
         EnemyTurnVisualObject.SetActive(!TurnSystem.Instance.IsPlayerTurn());
     }
-    private void UpdateEnemyUnitsTurnsLeftNumber()
+    private void UpdateEnemyUnitsMovesLeftNumber()
     {
-        numberOfEnemySoldierTurnsLeft.gameObject.SetActive(!TurnSystem.Instance.IsPlayerTurn());
+        numberOfEnemySoldierMovesLeft.gameObject.SetActive(!TurnSystem.Instance.IsPlayerTurn());
     }
     private void UpdateEndTurnButtonVisibility()
     {
         endTurnButton.gameObject.SetActive(TurnSystem.Instance.IsPlayerTurn());
     }
-    public void UpdateEnemySoldiersTurnNumber(int numberOfEnemySoldiersUnifnished)
+    public void UpdateEnemySoldiersTurnNumber(int numberOfEnemySoldiersUnfinished)
     {
-        numberOfEnemySoldierTurnsLeft.text = "Enemy turns left: " + numberOfEnemySoldiersUnifnished;
+        numberOfEnemySoldierMovesLeft.text = "Enemy moves left: " + numberOfEnemySoldiersUnfinished;
     }
 }

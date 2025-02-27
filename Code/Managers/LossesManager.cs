@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+﻿using System;
 using UnityEngine;
 
 public class LossesManager : MonoBehaviour
@@ -29,13 +26,14 @@ public class LossesManager : MonoBehaviour
         }
         Instance = this;
         TurnSystem.Instance.OnTurnChanged += LossesManager_OnTurnChanged;
-        Unit.OnAnyUnitDead += LossesManager_OnAnyUnitDeath;
+        Unit.OnAnyUnitDead += LossesManager_OnAnyUnitDeath;    // odober eventov
     }
 
     private void LossesManager_OnTurnChanged(object sender, EventArgs e)
     {
         if(!TurnSystem.Instance.IsPlayerTurn())
         {
+            // vynuluje nedávne stráty vždy keď pustíme ďaľšie kolo
             recentAlliedInfantryLosses = 0;
             recentAlliedTankLosses = 0;
             recentAlliedHorsemanLosses = 0;
@@ -46,7 +44,7 @@ public class LossesManager : MonoBehaviour
     private void LossesManager_OnAnyUnitDeath(object sender, EventArgs e)
     {
         Unit unit = sender as Unit;
-        switch (unit.TypeOfUnit)
+        switch (unit.TypeOfUnit)   // zistíme aký typ jednotky umrel, podľa toho ho priradíme do listu strát
         {
             case Unit.UnitType.Infantry:
                 if (!unit.IsEnemy())

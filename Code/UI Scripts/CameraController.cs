@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
 public class CameraController : MonoBehaviour
@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError("There is more than one CameraController! " + transform + " - " + Instance);
+            Debug.LogError("Existuje viac ako jeden CameraController! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour
     {
         Vector3 Pos = transform.position;
 
-        // Touch input for camera movement
+        // Dotykové ovládanie pre pohyb kamery
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -46,9 +46,9 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        // Clamp the camera position to the defined limits
+        // Obmedzenie pozície kamery na definované limity
         Pos.x = Mathf.Clamp(Pos.x, panMinimum.x + Camera.main.orthographicSize, panLimit.x - Camera.main.orthographicSize);
-        // we change pos y a little less because we use landscape mode
+        // Pos y meníme trochu menej, pretože používame režim na šírku
         Pos.y = Mathf.Clamp(Pos.y, panMinimum.y + Camera.main.orthographicSize / 2, panLimit.y - Camera.main.orthographicSize / 2);
 
         transform.position = Pos;
@@ -58,7 +58,7 @@ public class CameraController : MonoBehaviour
     {
         float scroll = 0;
 
-        // Touch input for camera zoom (pinch gesture)
+        // Dotykové ovládanie pre priblíženie kamery (gesto zvierania prstov)
         if (Input.touchCount == 2)
         {
             Touch touch0 = Input.GetTouch(0);
@@ -70,11 +70,11 @@ public class CameraController : MonoBehaviour
             float prevMagnitude = (touch0PrevPos - touch1PrevPos).magnitude;
             float currentMagnitude = (touch0.position - touch1.position).magnitude;
 
-            scroll = prevMagnitude - currentMagnitude; // Calculate the zoom amount
-            scroll *= 0.1f;  // Adjust this value to control zoom speed
+            scroll = prevMagnitude - currentMagnitude; // Vypočíta množstvo priblíženia
+            scroll *= 0.1f;  // rýchlosť zoomu
         }
 
-        // Update the orthographic size of the camera
+        // Aktualizácia ortografickej veľkosti kamery
         targetOrthographicSize = Mathf.Clamp(Camera.main.orthographicSize + scroll * scrollSpeed * Time.deltaTime, minOrthographicSize, maxOrthographicSize);
         Camera.main.orthographicSize = targetOrthographicSize;
 

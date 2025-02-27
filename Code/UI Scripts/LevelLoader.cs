@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,7 +18,7 @@ public class LevelLoader : MonoBehaviour
     IEnumerator LoadAsynchronously(int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
-        operation.allowSceneActivation = false;  // Prevents the scene from loading immediately
+        operation.allowSceneActivation = false;  // Zabraňuje okamžitému načítaniu scény
 
         loadingScreen.SetActive(true);
 
@@ -26,15 +26,15 @@ public class LevelLoader : MonoBehaviour
 
         while (!operation.isDone)
         {
-            // Calculate the loading progress
+            // Vypočítanie priebehu načítania
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
             slider.value = progress;
             progressText.text = Mathf.RoundToInt(progress * 100f) + "%";
 
-            // Track the elapsed time
+            // Sledovanie uplynutého času
             elapsedTime += Time.deltaTime;
 
-            // Allow scene activation only after 2 seconds and when loading is complete
+            // Povolenie aktivácie scény až po 2,5 sekundách a pri dokončení načítania
             if (elapsedTime >= 2.5f && operation.progress >= 0.9f)
             {
                 operation.allowSceneActivation = true;
@@ -43,7 +43,8 @@ public class LevelLoader : MonoBehaviour
             yield return null;
         }
     }
-    // these are used for buttons in main menu screen
+
+    // Tieto metódy sa používajú pre tlačidlá v hlavnom menu
     public void SetDifficultyToEasy()
     {
         DifficultySetter.SetDifficulty("Easy");
@@ -58,10 +59,4 @@ public class LevelLoader : MonoBehaviour
     {
         DifficultySetter.SetDifficulty("Hard");
     }
-
-    public void SetDifficultyToNightmare()
-    {
-        DifficultySetter.SetDifficulty("Nightmare");
-    }
-    
 }

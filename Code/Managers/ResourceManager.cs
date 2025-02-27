@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+﻿using System;
 using UnityEngine;
-using UnityEngine.XR;
 
 public class ResourceManager : MonoBehaviour
 {
@@ -11,20 +7,20 @@ public class ResourceManager : MonoBehaviour
 
     private float totalPopulation;
 
-    // getters and setters to resources and their incomes
+    // gettery a settery pre suroviny a ich príjmy
     private int coalCount;
     public int CoalCount { get { return coalCount; } set { coalCount = value; } }
     private int redCryCount;
-    public int RedCryCount {  get { return redCryCount; } set { redCryCount = value; } }
+    public int RedCryCount { get { return redCryCount; } set { redCryCount = value; } }
     private int blueCryCount;
     public int BlueCryCount { get { return blueCryCount; } set { blueCryCount = value; } }
     private int steelCount;
     public int SteelCount { get { return steelCount; } set { steelCount = value; } }
 
     private int coalIncome;
-    public int CoalIncome {  get { return coalIncome; } set {coalIncome = value; } }
+    public int CoalIncome { get { return coalIncome; } set { coalIncome = value; } }
     private int redCIncome;
-    public int RedCIncome {  get { return redCIncome; } set { redCIncome = value; } }
+    public int RedCIncome { get { return redCIncome; } set { redCIncome = value; } }
     private int bluCIncome;
     public int BluCIncome { get { return bluCIncome; } set { bluCIncome = value; } }
     private int steelIncome;
@@ -32,20 +28,20 @@ public class ResourceManager : MonoBehaviour
 
     private void Awake()
     {
-
         if (Instance != null)
         {
-            Debug.LogError("There's more than one ResourceManager! " + transform + " - " + Instance);
+            Debug.LogError("Existuje viac ako jeden ResourceManager! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
         Instance = this;
     }
+
     private void Start()
     {
         Zone.ZoneControlChanged += Zone_ZoneControlChanged;
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
-        // sets up system so it shows even on first turn
+        // nastaví systém tak, aby sa zobrazoval už v prvom kole
         foreach (Zone zone in ZoneManager.Instance.ReturnAlliedZones())
         {
             totalPopulation += zone.GetNumberOfCitizens();
@@ -61,7 +57,7 @@ public class ResourceManager : MonoBehaviour
 
     private void UpdateResourceIncome(Zone zone)
     {
-        // adjusts the income based on zone that was taken
+        // upraví príjem na základe toho, ktorá zóna bola obsadená
         if (zone.WhoIsUnderControl() == Zone.ControlType.allied)
         {
             coalIncome += zone.NumberOfCoal;
@@ -77,9 +73,10 @@ public class ResourceManager : MonoBehaviour
             steelIncome -= zone.NumberOfSteel;
         }
     }
+
     private void UpdateResources()
     {
-        // Increases number of resources based of income
+        // zvýši množstvo surovín na základe príjmu
         coalCount += coalIncome;
         redCryCount += redCIncome;
         blueCryCount += bluCIncome;
@@ -88,28 +85,27 @@ public class ResourceManager : MonoBehaviour
 
     public void Zone_ZoneControlChanged(object sender, EventArgs e)
     {
-        // checks if zone is changed to allied or enemy and removes it from the list
+        // kontroluje, či sa zóna zmenila na spojeneckú alebo nepriateľskú, a upraví zoznam
         Zone zone = sender as Zone;
         UpdateResourceIncome(zone);
         if (zone.WhoIsUnderControl() == Zone.ControlType.allied)
             totalPopulation += zone.GetNumberOfCitizens();
         else totalPopulation -= zone.GetNumberOfCitizens();
-        // we update population each time the zone is changed
+        // aktualizujeme populáciu pri každej zmene zóny
     }
 
     public void TurnSystem_OnTurnChanged(object sender, EventArgs e)
     {
         if (TurnSystem.Instance.IsPlayerTurn())
         {
-            // calcualtes total population based on controlled zones
+            // vypočíta celkovú populáciu na základe ovládaných zón
             totalPopulation = 0;
             foreach (Zone zone in ZoneManager.Instance.ReturnAlliedZones())
             {
                 zone.PopulationGrowth();
-                totalPopulation += zone.GetNumberOfCitizens();  
+                totalPopulation += zone.GetNumberOfCitizens();
             }
             UpdateResources();
-
         }
     }
 
@@ -120,7 +116,7 @@ public class ResourceManager : MonoBehaviour
 
     public bool DoesItHaveEnoughResources(int Steel, int Bcrys, int Rcrys, int coal)
     {
-        if (SteelCount >= Steel &&         // we check if we have higher or same amount of resources required
+        if (SteelCount >= Steel &&         // kontrolujeme, či máme rovnaké alebo vyššie množstvo požadovaných surovín
             BlueCryCount >= Bcrys &&
             RedCryCount >= Rcrys &&
             CoalCount >= coal

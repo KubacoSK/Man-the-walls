@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,27 +7,26 @@ public class ZoneManager : MonoBehaviour
     public static ZoneManager Instance { get; private set; }
 
     [SerializeField] private List<Zone> zones;
-    private static List<Zone> AlliedZones;  // Removed the assignment here
+    private static List<Zone> AlliedZones;  // Odstránená inicializácia tu
 
-    // has list of all zones and manages if units enter and exit them
+    // obsahuje zoznam všetkých zón a spravuje vstup a výstup jednotiek
 
     private void Awake()
     {
         if (Instance != null)
         {
-            Debug.LogError("There's more than one ZoneManager! " + transform + " - " + Instance);
+            Debug.LogError("Existuje viac ako jeden ZoneManager! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
         Instance = this;
 
-        AlliedZones = new List<Zone>(zones);  // Initialize the list here
+        AlliedZones = new List<Zone>(zones);  // Inicializácia zoznamu tu
     }
 
     private void Start()
     {
         Zone.ZoneControlChanged += Zone_ZoneControlChanged;
-        // Remove the line that assigns AlliedZones here
     }
 
     public void AddUnitToZone(Unit unit, Zone zone)
@@ -48,7 +46,7 @@ public class ZoneManager : MonoBehaviour
 
     private void Zone_ZoneControlChanged(object sender, EventArgs e)
     {
-        Zone zone = sender as Zone; // this script updates zone list every time someone occupies a zone
+        Zone zone = sender as Zone; // tento skript aktualizuje zoznam zón vždy, keď niekto obsadí zónu
         if (zone.WhoIsUnderControl() == Zone.ControlType.allied && !AlliedZones.Contains(zone))
         {
             AlliedZones.Add(zone);

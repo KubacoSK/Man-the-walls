@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using static Unit;
 
@@ -47,7 +45,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(6, 2, 2, 10) && !hasUpgradedCitizensIncrease)
         {
-            // increases citizens increases each turn
+            // zvýši rast populácie
             ResourceManager.Instance.SteelCount -= 6;
             ResourceManager.Instance.BlueCryCount -= 2;
             ResourceManager.Instance.RedCryCount -= 2;
@@ -64,7 +62,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(10, 15, 15, 0) && !hasUpgradedInfantryStrength)
         {
-            // adds one strength to infantry units
+            // pridá jednu silu pechote
             ResourceManager.Instance.SteelCount -= 10;
             ResourceManager.Instance.BlueCryCount -= 15;
             ResourceManager.Instance.RedCryCount -= 15;
@@ -82,7 +80,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(6, 3, 0, 0) && !hasUpgradedHorsemanStrength)
         {
-            // adds one strength to horse units
+            // pridá jednu silu jazdcom
             ResourceManager.Instance.SteelCount -= 6;
             ResourceManager.Instance.BlueCryCount -= 3;
             ResourceVisual.Instance.UpdateResourceCountVisual();
@@ -100,7 +98,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 2, 2, 0) && !hasUpgradedWalls)
         {
-            // makes walls stronger
+            // pridá silu hradbám
             Zone.isWallUpgraded = true;
             ResourceManager.Instance.SteelCount -= 8;
             ResourceManager.Instance.BlueCryCount -= 2;
@@ -117,7 +115,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 3, 3) && !hasUpgradedWallsLevel2)
         {
-            // makes walls stronger to another level
+            // pridá ešte viac sily hradbám
             Zone.WallLevel2 = true;
             ResourceManager.Instance.SteelCount -= 4;
             ResourceManager.Instance.BlueCryCount -= 1;
@@ -135,7 +133,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(8, 5, 2, 3) && !hasIncreasedCoalIncome)
         {
-            // increases coal income each round
+            // zvýši príjem uhlia za kolo
             ResourceManager.Instance.CoalIncome += 4;
             ResourceManager.Instance.SteelCount -= 8;
             ResourceManager.Instance.BlueCryCount -= 5;
@@ -152,7 +150,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(4, 1, 5, 4) && !hasIncreasedSteelIncome)
         {
-            // increases steel income each round
+            // zvýši príjem železa za kolo
             ResourceManager.Instance.SteelIncome += 2;
             ResourceManager.Instance.SteelCount -= 4;
             ResourceManager.Instance.BlueCryCount -= 1;
@@ -170,7 +168,7 @@ public class UpgradeSystem : MonoBehaviour
         if (ResourceManager.Instance.DoesItHaveEnoughResources(9, 4, 4, 6) && !hasIncreasedSoldierRecruitment) 
             
         {
-            // adds one soldier to spawn at start of a turn
+            // pridá jednu pechotu za kolo
             AllyUnitSpawner.Instance.anotherUnitSpawned = true;
             ResourceManager.Instance.SteelCount -= 9;
             ResourceManager.Instance.BlueCryCount -= 4;
@@ -186,7 +184,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         if (ResourceManager.Instance.DoesItHaveEnoughResources(0, 4, 4, 0) && !hasIncreasedSoldierTrainedLimit)
         {
-            // unlocks creating one more paid soldier at every turn 
+            // zvýši limit na trénovanie jednotiek
             AllyUnitSpawner.Instance.IncreaseMaxUnitSpawnLimit();
             hasIncreasedSoldierTrainedLimit = true;
             ResourceManager.Instance.BlueCryCount -= 4;

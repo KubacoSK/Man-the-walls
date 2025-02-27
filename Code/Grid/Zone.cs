@@ -1,26 +1,26 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Zone : MonoBehaviour
 {
-    private List<Unit> unitsInZone;
+    private List<Unit> unitsInZone;                                     // list jednotiek v zóne
     private GridSystemVisual highlighter;
-    public static float percentagePopGrowth = 1.05f;
-    public static float numberPopGrowth = 0.05f;
-    public enum ControlType { allied, enemy, neutral}
+    public static float percentagePopGrowth = 1.05f;                    // percentuálne kolko jednotiek pribúda za kolo
+    public static float numberPopGrowth = 0.05f;                        // staticky kolko ludí pribúda v zóne za kolo
+    public enum ControlType { allied, enemy, neutral}                  
     public ControlType whoIsInControl;
     private SpriteRenderer spriteRenderer;
     private Color CurrentColor;
-    private bool[] alliedMoveLocationsStatus;                           // we check if there is unit already occupying the zone
+    private bool[] alliedMoveLocationsStatus;                           // stavy miest na pohyb
     private bool[] enemyMoveLocationsStatus;                            
-    private Vector2[] alliedMoveLocations;                              // the positions allied units are able to occupy
-    private Vector2[] enemyMoveLocations;                               // the positions enemy units are able to occupy
-    float xsize;                                                        // half of x size of a zone
-    float ysize;                                                        // half of y size of a zone
-    int xpos;                                                           // it is exactly middle position of x
-    int ypos;                                                           // it is a little lower from top so the units inside dont cover other zones
+    private Vector2[] alliedMoveLocations;                              // miesta kam sa naše jednotky vedia pohnúť
+    private Vector2[] enemyMoveLocations;                               // miesta kam sa nepriateľské jednotky vedia pohnúť
+    float xsize;                                                        // polovica x veľkosti zóny
+    float ysize;                                                        // polovica y veľkosti zóny
+    int xpos;                                                           // x stred zóny
+    int ypos;                                                           // od kade vedia zóny sa pohnúť v osi y
 
     [SerializeField] private Color neutralColor;
     [SerializeField] private Color enemyColor;
@@ -33,6 +33,8 @@ public class Zone : MonoBehaviour
 
     [SerializeField] private Slider battleSlider;
 
+
+    // kolko zóna zarába kryštáľov
     [SerializeField] private int numberOfBlueCrystal = 0;
     public int NumberOfBlueCrystal { get { return numberOfBlueCrystal; } private set { numberOfBlueCrystal = value; } }
     [SerializeField] private int numberOfRedCrystal = 0;
@@ -47,7 +49,7 @@ public class Zone : MonoBehaviour
     public static event EventHandler ZoneControlChanged;
     public static bool isWallUpgraded;
     public static bool WallLevel2;
-    private bool isCombatActive;
+    private bool isCombatActive;                            // či boj práve prebieha v zóne
 
     private void Awake()
     {
@@ -56,11 +58,11 @@ public class Zone : MonoBehaviour
         xsize = GetZoneSizeModifier().x / 2;
         ysize = (GetZoneSizeModifier().y / 2);
         
-        for (float x = xsize; x >= 0.5; x -= 0.5f)                          // we calculate how many x positions are on a zone
+        for (float x = xsize; x >= 0.5; x -= 0.5f)                          // vypočítame koľko x pozícií je v zóne
         { 
             xpos++;            
         }
-        for (float y = ysize; y >= 0.5; y -= 0.5f)                          // we calculate how many y positions are in a zone
+        for (float y = ysize; y >= 0.5; y -= 0.5f)                          // vypočítame koľko y pozícií je v zóne
         {
             ypos++;
         }
@@ -74,11 +76,12 @@ public class Zone : MonoBehaviour
             RectTransform sliderRect = battleSlider.GetComponent<RectTransform>();
             battleSlider.transform.position = (Vector3)transform.position - new Vector3(0, (GetZoneSizeModifier().y / 2) - 0.3f, 0);
 
-            // Adjust scale (only X-axis since this is a 2D game)
+            // prisposobime veľkosť slajdera podľa veľkosti zóny
             battleSlider.transform.localScale = new Vector3(GetZoneSizeModifier().x / 70, battleSlider.transform.localScale.y, 1);
             battleSlider.gameObject.SetActive(false);
         }
 
+        // nastavíme hodnoty v prvom frame
         CameraController.CameraSizeChanged += Zone_CameraSizeChanged;
         highlighter = GetComponent<GridSystemVisual>();
         unitsInZone = new List<Unit>();
@@ -86,31 +89,31 @@ public class Zone : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         CurrentColor = AllyColor;
         
-        alliedMoveLocations = new Vector2[xpos * ypos];                           // total number of allied and enemy move positons
+        alliedMoveLocations = new Vector2[xpos * ypos];                           // celkový počet spojeneckých a nepriateľských lokácií na pohyb
         enemyMoveLocations = new Vector2[xpos * ypos];
         alliedMoveLocationsStatus = new bool[xpos * ypos];                          
         enemyMoveLocationsStatus = new bool[xpos * ypos];
 
-        float startX = transform.position.x - 0.25f; // Start X position
-        float startY = transform.position.y + ysize - 0.5f; // Start Y position
+        float startX = transform.position.x - 0.25f; // štartovná X position
+        float startY = transform.position.y + ysize - 0.5f; // Štartovná Y position
 
         // Populate allied move locations
         for (int i = 0; i < alliedMoveLocations.Length; i++)
         {
-            float x = startX - (i % xpos) * 0.5f; // Calculate X position based on grid index
-            float y = startY - (i / xpos) * 0.8f; // Calculate Y position based on grid index
+            float x = startX - (i % xpos) * 0.5f; // Spočítame x pozíciu podla indexu
+            float y = startY - (i / xpos) * 0.8f; // Spočítame y pozíciu podla indexu
 
             alliedMoveLocations[i] = new Vector2(x, y);
-            alliedMoveLocationsStatus[i] = false; // Set initial status to false
+            alliedMoveLocationsStatus[i] = false; // nastavíme všetky obsadenia na neobsadené
         }
         float enemyStartX = transform.position.x + 0.25f; 
         for (int i = 0; i < enemyMoveLocations.Length; i++)
         {
-            float x = enemyStartX + ((i % xpos) * 0.5f) ; // Calculate X position based on grid index
-            float y = startY - (i / xpos) * 0.8f; // Calculate Y position based on grid index
+            float x = enemyStartX + ((i % xpos) * 0.5f) ;
+            float y = startY - (i / xpos) * 0.8f; // to isté len pre nepriateľov
 
             enemyMoveLocations[i] = new Vector2(x, y);
-            enemyMoveLocationsStatus[i] = false; // Set initial status to false
+            enemyMoveLocationsStatus[i] = false; 
         }
 
 
@@ -130,7 +133,7 @@ public class Zone : MonoBehaviour
     }
     public void SetAllyPositionStatus(int index,bool status)
     {
-        alliedMoveLocationsStatus[index] = status;
+        alliedMoveLocationsStatus[index] = status;  // nastavíme že jedno z volných miest je zabrané
     }
 
     public void SetEnemyPositionStatus(int index, bool status)
@@ -144,10 +147,10 @@ public class Zone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the entering collider is a unit
+        // zistíme či vstupujúci objekt je jednotka
         if (other.CompareTag("Unit") || other.CompareTag("EnemyUnit"))
         {
-            // If there is any unit with collider inside the object, add it to the list
+            // Ak je, pridáme ju do listu
             Unit unit = other.GetComponent<Unit>();
 
             if (unit != null && !unitsInZone.Contains(unit))
@@ -155,8 +158,8 @@ public class Zone : MonoBehaviour
                 ZoneManager.Instance.AddUnitToZone(unit, this);
 
             }
-
-            if (ReturnEnemyUnitsInZone().Count > 0 && ReturnAllyUnitsInZone().Count > 0 && battleSlider != null)
+            // zistíme že či sa v zóne nachádzajú aj nepriateľské jednotky a začneme boj
+            if (ReturnEnemyUnitsInZone().Count > 0 && ReturnAllyUnitsInZone().Count > 0 && battleSlider != null)  
             {
 
                 foreach (Unit sigma in ReturnAllyUnitsInZone())
@@ -180,7 +183,7 @@ public class Zone : MonoBehaviour
     }
     public void InitiateEliminationProcess()
     {
-        // using this to get units in zone list
+        // toto if zavolá metódu na vymazanie jednotiek ktoré padli v boji
         if (GetUnitsInZone().Count >= 2)
         {
             UnitCombat.Instance.TryEliminateUnits(unitsInZone, this);
@@ -188,17 +191,17 @@ public class Zone : MonoBehaviour
     }
     public void ShowBattleProgressBar()
     {
-        // calculates strength of forces on the zone(happens if there are enemy and allied units present)
+        // vypočíta sily vojsk prítomných na zóne
         int allyStrength = 0;
         int enemyStrength = 0;
-        foreach (Unit unit in ReturnAllyUnitsInZone()) allyStrength += unit.GetStrength(); // increases allied strength based number of allies in zone
+        foreach (Unit unit in ReturnAllyUnitsInZone()) allyStrength += unit.GetStrength(); // podľa počtu a typu jednotiek pridá silu
         foreach (Unit unit in ReturnEnemyUnitsInZone()) enemyStrength += unit.GetStrength();
-        if (IsWall == true) allyStrength += 2; // if we are fighting on a wall we add more power
+        if (IsWall == true) allyStrength += 2; // na hradbách sa pridá ešte viac sily nepriateľom
         if (IsWall && Zone.isWallUpgraded) allyStrength++;
         if (IsWall && Zone.WallLevel2) allyStrength++;
-        battleSlider.gameObject.SetActive(true);  // activates battle slider
+        battleSlider.gameObject.SetActive(true);  // aktivuje battle slider
         int totalStrength = allyStrength + enemyStrength;
-        battleSlider.value = (float)allyStrength / totalStrength; // we change the value so its correctly showed
+        battleSlider.value = (float)allyStrength / totalStrength; // upravíme slajder tak aby ukazoval proporcionálnu silu vojsk
     }
     public void HideBattleProgressBar()
     {
@@ -207,12 +210,11 @@ public class Zone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // Check if the exiting collider is a unit
         if (other.CompareTag("Unit") || other.CompareTag("EnemyUnit"))
         {
             Unit unit = other.GetComponent<Unit>();
             ZoneManager.Instance.RemoveUnitFromZone(unit, this);
-            // we deactivate the slider if there are no enemy or ally units present
+            // zistíme že či stále sú v zóne nažive nejaké jednotky, ak nie, tak sa slajder vypne
             if (ReturnEnemyUnitsInZone() == null || ReturnAllyUnitsInZone() == null && battleSlider != null) battleSlider.gameObject.SetActive(false);  
         }
     }
@@ -221,7 +223,7 @@ public class Zone : MonoBehaviour
     {
         Collider2D collider = GetComponent<Collider2D>();
 
-        // Getting the size from the collider's bounds
+        // zistíme veľkost zóny
         Vector2 size = collider.bounds.size;
         return size;
 
@@ -229,18 +231,17 @@ public class Zone : MonoBehaviour
 
     public void AddUnit(Unit unit)
     {
-        unitsInZone.Add(unit);
-        // Additional actions you want to perform when a unit enters the zone
+        unitsInZone.Add(unit);  // pridá jednotku do listu prítomných jednotiek
+
     }
 
     public void RemoveUnit(Unit unit)
     {
         unitsInZone.Remove(unit);
-        // Additional actions you want to perform when a unit exits the zone
     }
     public Zone GetClickedZone(Vector3 mouseWorldPosition)
     {
-        // checks if you click on an object with collider and if it has zone component
+        // Zistíme či klikáme na zónu s colliderom a že či to je vlastne zóna
         Collider2D collider = Physics2D.OverlapPoint(mouseWorldPosition, LayerMask.GetMask("GridPoints"));
 
         if (collider != null)
@@ -263,7 +264,7 @@ public class Zone : MonoBehaviour
     {
         if (highlighter != null)
         {
-            // no idea why this is like it
+            // toto je zahada
             highlighter.ResetHighlight(this);
         }
     }
@@ -277,7 +278,6 @@ public class Zone : MonoBehaviour
     }
     public List<Unit> ReturnAllyUnitsInZone()
     {
-        // returns a list of all allied units
         List<Unit> AllyUnits = new List<Unit>();
         foreach (Unit unit in unitsInZone)
         {
@@ -287,7 +287,6 @@ public class Zone : MonoBehaviour
     }
     public List<Unit> ReturnEnemyUnitsInZone()
     {
-        // returns a list of all allied units
         List<Unit> EnemyUnits = new List<Unit>();
         foreach (Unit unit in unitsInZone)
         {
@@ -308,7 +307,7 @@ public class Zone : MonoBehaviour
 
     public void ChangeControlToAlly()
     {
-        if (whoIsInControl != ControlType.allied) 
+        if (whoIsInControl != ControlType.allied)   // zmení kontrolu nad zónou na spojeneckú, popri tom aj uprví farbu
         {
             whoIsInControl = ControlType.allied;
             CurrentColor = AllyColor;
@@ -319,7 +318,6 @@ public class Zone : MonoBehaviour
 
     public void ChangeControlToEnemy()
     {
-        // changes control of a zone if enemy attacks it
         if (whoIsInControl != ControlType.enemy)
         {
             whoIsInControl = ControlType.enemy;
@@ -332,7 +330,7 @@ public class Zone : MonoBehaviour
 
     public void ChangeControlToNeutral()
     {
-        // changes control of a zone if enemy attacks it and there is ally on it or reversed
+        // ak sú v zóne jednotky oboch strán tak sa zmení na neutrálnu
         if (whoIsInControl != ControlType.neutral)
         {
             whoIsInControl =ControlType.neutral;
@@ -349,13 +347,13 @@ public class Zone : MonoBehaviour
 
     public void PopulationGrowth()
     {
-        if (isPopulated)populationCount = populationCount * percentagePopGrowth + numberPopGrowth; // increases population at the start of every turn
+        if (isPopulated)populationCount = populationCount * percentagePopGrowth + numberPopGrowth; // Zvýši populáciu na začiatku každého kola
         
     }
 
     public void Zone_CameraSizeChanged(object sender, EventArgs e)
     {
-        CurrentColor.a = Mathf.Lerp(0.2f, 0.7f, (Camera.main.orthographicSize - 2f) / 8f); // changes the transparency based on camera zoom
+        CurrentColor.a = Mathf.Lerp(0.2f, 0.7f, (Camera.main.orthographicSize - 2f) / 8f); // zmení priesvitnosť podľa toho, ako veľmi zoomnuté to máme
     }
 
     

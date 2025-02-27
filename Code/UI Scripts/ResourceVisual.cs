@@ -1,6 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+
 using TMPro;
 using UnityEngine;
 
@@ -45,7 +44,7 @@ public class ResourceVisual : MonoBehaviour
     private void Zone_ZoneControlChanged(object sender, EventArgs e)
     {
         UpdateResourceIncomeVisual();
-        populationCountText.text = "Population: " + Math.Floor(ResourceManager.Instance.GetNumberOfTotalPopulation() * 1000);   // we make sure it shows correct population so 120 * 1000 = 120 000
+        populationCountText.text = "Population: " + Math.Floor(ResourceManager.Instance.GetNumberOfTotalPopulation() * 1000);   // uistíme sa že nám zóna ukáže správny počet populácie
     }
 
     private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
@@ -56,7 +55,7 @@ public class ResourceVisual : MonoBehaviour
 
     public void UpdateResourceCountVisual()
     {
-        // shows the current number of resources
+        // ukazuje počet surovín
         CoalCountText.text = "" + ResourceManager.Instance.CoalCount;
         RedCrysCountText.text = "" + ResourceManager.Instance.RedCryCount;
         BlueCrysCountText.text = "" + ResourceManager.Instance.BlueCryCount;
@@ -64,7 +63,7 @@ public class ResourceVisual : MonoBehaviour
     }
     public void UpdateResourceIncomeVisual()
     {
-        // shows the income of the resource
+        // ukazuje príjem surovín
         CoalIncomeText.text = "+" + ResourceManager.Instance.CoalIncome;
         RedCIncomeText.text = "+" + ResourceManager.Instance.RedCIncome;
         BluCIncomeText.text = "+" + ResourceManager.Instance.BluCIncome;

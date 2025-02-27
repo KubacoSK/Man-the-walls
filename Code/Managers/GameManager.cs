@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -19,7 +17,8 @@ public class GameManager : MonoBehaviour
         }
     }
     private void Update()
-    {
+    {  
+        // základná kontrola či sme vyhrali alebo prehrali
         if (CenterZone.ReturnEnemyUnitsInZone().Count > 0) Lose();
         if (VictoryState == null) { return; }
         else if (VictoryState == true)

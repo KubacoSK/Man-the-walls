@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MainGameUIAnimations : MonoBehaviour
 {
-    [SerializeField] Animator battleReportAnimator;   // animation for battle menu rollout and reverse
-    [SerializeField] Animator upgradeSpawnMenuAnimator;  // animation for two menus to work together
+    [SerializeField] Animator battleReportAnimator;   // animácie pre menu vojakov a vylepšení
+    [SerializeField] Animator upgradeSpawnMenuAnimator;  
     public void ShowBattleReport()
     {
         battleReportAnimator.SetBool("ShowBattleReport",true);
@@ -24,7 +24,7 @@ public class MainGameUIAnimations : MonoBehaviour
     }
     public void ShowSpawnMenu()
     {
-        upgradeSpawnMenuAnimator.SetBool("UpgradeMenuTurnedOn", false); // turns one menu off so the other can slide in
+        upgradeSpawnMenuAnimator.SetBool("UpgradeMenuTurnedOn", false); // jedno vypne a jedno zapne tak aby to robili naraz
         upgradeSpawnMenuAnimator.SetBool("SpawnMenuTurnedOn", true);
     }
 }

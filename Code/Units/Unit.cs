@@ -54,7 +54,8 @@ public class Unit : MonoBehaviour
         if (hasIncreasedStrength && TypeOfUnit == UnitType.Infantry && !isEnemy) strength++;
         if (isEnemy)
         {
-            GetCurrentZone().ChangeControlToEnemy();
+            CurrentStandingZone = GetCurrentZone();
+            CurrentStandingZone.ChangeControlToEnemy();
         }
     }
 
@@ -110,7 +111,7 @@ public class Unit : MonoBehaviour
     {
         // checks if zone in which units arrives is wall and if it is it increases points twice
         ActionPoints--;
-        if (IsWalledZone.IsWallCheck()) ActionPoints -= 3;
+        if (IsWalledZone.IsWallCheck() && isEnemy) ActionPoints -= 3;
 
         OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
     }

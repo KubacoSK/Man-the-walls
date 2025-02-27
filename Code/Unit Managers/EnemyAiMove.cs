@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -6,7 +6,6 @@ using Unity.VisualScripting;
 
 public class EnemyAiMove : MonoBehaviour
 {
-
     public static EnemyAiMove Instance { get; private set; }
     private Zone previousZone = null;
     private Zone previousTargetZone = null;
@@ -19,7 +18,7 @@ public class EnemyAiMove : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError("There's more than one EnemyAi! " + transform + " - " + Instance);
+            Debug.LogError("Existuje viac než jeden EnemyAi! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
@@ -32,25 +31,27 @@ public class EnemyAiMove : MonoBehaviour
         {
             Vector3 targetPosition = unitToWatch.transform.position + new Vector3(0, 0, -10);
 
-            // Clamp the target position within the camera limits
+            // Orezanie cieľovej pozície v rámci limitov kamery
             targetPosition.x = Mathf.Clamp(targetPosition.x, CameraController.Instance.panMinimum.x + Camera.main.orthographicSize, CameraController.Instance.panLimit.x - Camera.main.orthographicSize);
             targetPosition.y = Mathf.Clamp(targetPosition.y, CameraController.Instance.panMinimum.y + Camera.main.orthographicSize / 2, CameraController.Instance.panLimit.y - Camera.main.orthographicSize / 2);
 
-            // Move the camera smoothly toward the clamped target position
+            // Plynulé pohybovanie kamery smerom k orezanej cieľovej pozícii
             Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, targetPosition, Time.deltaTime * 5f);
         }
     }
     public void MakeDecisionForUnit(Unit enemyUnit)
-    { 
+    {
         unitToWatch = enemyUnit;
-        if(enemyUnit.ReturnCurrentStandingZone() != null){
-        if (enemyUnit.ReturnCurrentStandingZone().ReturnAllyUnitsInZone().Count > 0) return;
+        if (enemyUnit.ReturnCurrentStandingZone() != null)
+        {
+            if (enemyUnit.ReturnCurrentStandingZone().ReturnAllyUnitsInZone().Count > 0) return;
         }
-        // Get valid zones for the current enemy unit
+        previousZone = enemyUnit.ReturnCurrentStandingZone();
+        // Získanie platných zón pre aktuálnu nepriateľskú jednotku
         List<Zone> validZones = enemyUnit.GetMoveAction().GetValidZonesListForEnemy();
-        //we check if there are any further zones away with units in them
+        // Kontrola, či existujú ďalšie zóny s jednotkami na útok
         List<Zone> ZonesToCheck = enemyUnit.GetMoveAction().CheckForAlliesToAttack();
-        // Check if there are valid zones to move to
+        // Kontrola, či existujú platné zóny na presun
         if (validZones.Count > 0)
         {
             enemyUnit.SetEnemyPastZoneBack();
@@ -59,26 +60,26 @@ public class EnemyAiMove : MonoBehaviour
             bool StayStill = false;
             enemyUnit.SetTurnMiddlePoints(-1);
             destinationZone = validZones[UnityEngine.Random.Range(0, validZones.Count)];
-            switch (UnityEngine.Random.Range(0, 2)) // we getting 50/50 chance that unit tries to go to the nierby allied unit or it goes to conquer allied zones
+            switch (UnityEngine.Random.Range(0, 2)) // Máme 50/50 šancu, že jednotka sa pokúsi ísť k blízkej spojeneckej jednotke alebo dobije spojeneckú zónu
             {
                 case 0:
                     foreach (Zone zone in ZonesToCheck)
                     {
                         if (zone.ReturnEnemyUnitsInZone().Count > 0)
                         {
-                            // we check if the the unit we want to move towards is closer to middle than current
+                            // Kontrola, či je zóna, ktorú chceme navštíviť, bližšie k stredu ako aktuálna
                             Vector2 VectorToMiddle1 = new Vector2(
-                            Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x - CenterZone.transform.position.x),
-                            Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y - CenterZone.transform.position.y));
+                            Mathf.Abs(enemyUnit.ReturnCurrentStandingZone().transform.position.x - CenterZone.transform.position.x),
+                            Mathf.Abs(enemyUnit.ReturnCurrentStandingZone().transform.position.y - CenterZone.transform.position.y));
                             float totaldiff1 = VectorToMiddle1.x + VectorToMiddle1.y;
                             Vector2 VectorToMiddle2 = new Vector2(
                             Mathf.Abs(zone.transform.position.x - CenterZone.transform.position.x),
                             Mathf.Abs(zone.transform.position.y - CenterZone.transform.position.y));
                             float totaldiff2 = VectorToMiddle2.x + VectorToMiddle2.y;
-                            // if we detect zone with allied unit inside it we will get its name
+                            // Ak detekujeme zónu so spojeneckou jednotkou, získame jej názov
                             if (totaldiff1 > totaldiff2)
                                 TargetZone = zone;
-                            Debug.Log("going to the allied unit");
+                            Debug.Log("Ideme k spojeneckej jednotke");
                         }
                     }
                     break;
@@ -88,7 +89,7 @@ public class EnemyAiMove : MonoBehaviour
                         if (zone.WhoIsUnderControl() == Zone.ControlType.allied)
                         {
                             destinationZone = zone;
-                            Debug.Log("Going to conquer zone");
+                            Debug.Log("Ideme dobiť zónu");
                         }
                     }
                     break;
@@ -97,37 +98,34 @@ public class EnemyAiMove : MonoBehaviour
             {
                 TargetZone = CenterZone;
                 enemyUnit.SetTurnMiddlePoints(3);
-                Debug.Log("Going to the middle");
+                Debug.Log("Ideme na stred");
             }
-            // Randomly choose a destination zone if neither zone with enemy nor ally is within distance, if there is, this gets rewritten
-            
-            
-            
-            if(TargetZone != null) 
+            // Náhodne vyberieme cieľovú zónu, ak ani zóna s nepriateľom, ani spojencami nie je v dosahu, ak je niečo, toto sa prepíše
+            if (TargetZone != null)
             {
-                // we get distance to our target position
+                // Získame vzdialenosť k našej cieľovej pozícii
                 Vector2 VectorToDestination = new Vector2(
-                    Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x - TargetZone.transform.position.x),
-                    Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y - TargetZone.transform.position.y));
-                //we get difference in x and y axis
+                    Mathf.Abs(enemyUnit.ReturnCurrentStandingZone().transform.position.x - TargetZone.transform.position.x),
+                    Mathf.Abs(enemyUnit.ReturnCurrentStandingZone().transform.position.y - TargetZone.transform.position.y));
+                // Získame rozdiel v osi x a y
                 float xdiff = VectorToDestination.x;
                 float ydiff = VectorToDestination.y;
                 float totaldiff = xdiff + ydiff;
-                
+
                 foreach (Zone zone in validZones)
                 {
                     if (zone == TargetZone)
                     {
-                        // if our target zone is right beside our current zone we move there and skip our loop
+                        // Ak je naša cieľová zóna hneď vedľa našej aktuálnej zóny, presunieme sa tam a preskočíme slučku
                         destinationZone = zone;
                         TargetZone = null;
                         StayStill = true;
                         break;
-                        
+
                     }
                     else
                     {
-                        // here it compares positions of zones and if zone is closer to the target than current zone is, it moves to it
+                        // Tu sa porovnávajú pozície zón, ak je zóna bližšie k cieľu než aktuálna, presunieme sa do nej
                         if (totaldiff >= ((Math.Abs(zone.transform.position.x - TargetZone.transform.position.x)) +
                                      (Math.Abs(zone.transform.position.y - TargetZone.transform.position.y))))
                         {
@@ -142,63 +140,57 @@ public class EnemyAiMove : MonoBehaviour
             }
             foreach (Zone zone in validZones)
             {
-                // if there is zone with enemy nierby it overrides destination zone to the one with enemy in it
+                // Ak existuje zóna s nepriateľom v okolí, prepisujeme cieľovú zónu na zónu s nepriateľom
                 if (zone.ReturnAllyUnitsInZone().Count > 0)
                 {
                     destinationZone = zone;
                     StayStill = true;
-                    // however if there is zone with allyunit nierby it instead moves there, so it moves there
+                    // Ak je v okolí zóna s jednotkou spojenca, presunieme sa tam
                 }
             }
-                                                                         // sets past zone position to false
+
+            // Nastavenie minulých pozícií zóny na neplatné
             int index = 0;
             for (int i = 0; i < destinationZone.GetEnemyMoveLocationStatuses().Length; i++)
             {
                 if (destinationZone.GetEnemyMoveLocationStatuses()[i] == false)
                 {
-                    destination = destinationZone.GetEnemyMoveLocations()[i];                             // gets Vector2 location of the zone
-                    destinationZone.SetEnemyPositionStatus(i, true);                                     // Sets that zone has unit on the index
+                    destination = destinationZone.GetEnemyMoveLocations()[i]; // Získame pozíciu Vector2 zóny
+                    destinationZone.SetEnemyPositionStatus(i, true); // Nastavíme, že zóna je obsadená
                     index = i;
                     break;
-
                 }
+            }
 
-            } 
-            previousZone = destinationZone;
-            Debug.Log(previousZone + "this is prevoius zone");
             enemyUnit.SetStandingZone(destinationZone, index);
-            // Move the unit towards the chosen zone
+            // Presun jednotky smerom k zvolenej zóne
             enemyUnit.SetRunningAnimation(true);
             enemyUnit.GetMoveAction().Move(destination);
             if (destination.x > enemyUnit.transform.position.x) enemyUnit.FlipUnit();
-            // moves to zone
+            // Presunutie do zóny
             enemyUnit.DoAction(destinationZone);
-           
+
             if (destinationZone.ReturnAllyUnitsInZone().Count > 0)
             {
                 destinationZone.ChangeControlToNeutral();
             }
             else
             {
-                
                 destinationZone.ChangeControlToEnemy();
             }
             if (!StayStill) StartCoroutine(DelayedSecondMove(enemyUnit));
-            else { enemyUnit.DoAction(destinationZone);  }
-
-
+            else { enemyUnit.DoAction(destinationZone); }
         }
-        
     }
     private IEnumerator DelayedSecondMove(Unit enemyUnit)
     {
-        // Wait for 2 seconds before the second move
+        // Počkajte 2 sekundy pred druhým presunom
         yield return new WaitForSeconds(1.5f);
 
-        // Check if the unit is still valid and has not already made two moves
+        // Skontrolujte, či je jednotka stále platná a nebola už presunutá dvakrát
         if (enemyUnit != null && enemyUnit.GetActionPoints() > 0)
         {
-            // Randomly choose another destination zone for the second move
+            // Náhodne vyberte ďalšiu cieľovú zónu pre druhý presun
             List<Zone> validZones2 = enemyUnit.GetMoveAction().GetValidZonesListForEnemy();
             validZones2.RemoveAll(zone => zone.IsWallCheck());
             if (validZones2.Count > 0)
@@ -209,9 +201,9 @@ public class EnemyAiMove : MonoBehaviour
                 }
                 validZones2.Remove(previousZone);
                 Zone seconddestinationZone = null;
-                enemyUnit.SetEnemyPastZoneBack();    
+                enemyUnit.SetEnemyPastZoneBack();
 
-                // Randomly choose a destination zone
+                // Náhodne vyberte cieľovú zónu
                 seconddestinationZone = validZones2[UnityEngine.Random.Range(0, validZones2.Count)];
                 foreach (Zone zone in validZones2)
                 {
@@ -223,11 +215,11 @@ public class EnemyAiMove : MonoBehaviour
 
                 if (previousTargetZone != null)
                 {
-                    Debug.Log("Moving to target zone" + previousTargetZone.name);
-                    // everything is explained before
+                    Debug.Log("Presúvame sa do cieľovej zóny" + previousTargetZone.name);
+                    // Všetko je vysvetlené predtým
                     Vector2 VectorToDestination = new Vector2(
-                    Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.x) - Mathf.Abs(previousTargetZone.transform.position.x),
-                    Mathf.Abs(enemyUnit.GetCurrentZone().transform.position.y) - Mathf.Abs(previousTargetZone.transform.position.y));
+                    Mathf.Abs(enemyUnit.ReturnCurrentStandingZone().transform.position.x) - Mathf.Abs(previousTargetZone.transform.position.x),
+                    Mathf.Abs(enemyUnit.ReturnCurrentStandingZone().transform.position.y) - Mathf.Abs(previousTargetZone.transform.position.y));
                     float xdiff = Math.Abs(VectorToDestination.x);
                     float ydiff = Math.Abs(VectorToDestination.y);
                     foreach (Zone zone in validZones2)
@@ -242,12 +234,12 @@ public class EnemyAiMove : MonoBehaviour
                             if (xdiff >= (Math.Abs(Mathf.Abs(zone.transform.position.x) - Mathf.Abs(previousTargetZone.transform.position.x))) &&
                                 ydiff >= (Math.Abs(Mathf.Abs(zone.transform.position.y) - Mathf.Abs(previousTargetZone.transform.position.y))))
                             {
-                                seconddestinationZone = zone; // we calculate the difference of position x+y and choose closest zone
+                                seconddestinationZone = zone; // Vypočítame rozdiel v pozícii x+y a vyberieme najbližšiu zónu
                             }
                         }
                     }
                 }
-                
+
                 foreach (Zone zone in validZones2)
                 {
                     if (zone.ReturnAllyUnitsInZone().Count > 0)
@@ -255,37 +247,22 @@ public class EnemyAiMove : MonoBehaviour
                         seconddestinationZone = zone;
                     }
                 }
-                                                                            // sets past zone position to false
+
+                // Nastavenie minulých pozícií zóny na neplatné
                 int index = 0;
                 for (int i = 0; i < seconddestinationZone.GetEnemyMoveLocationStatuses().Length; i++)
                 {
                     if (seconddestinationZone.GetEnemyMoveLocationStatuses()[i] == false)
                     {
-                        destination = seconddestinationZone.GetEnemyMoveLocations()[i];                             // gets Vector2 location of the zone
-                        seconddestinationZone.SetEnemyPositionStatus(i, true);                                     // Sets that zone has unit on the index
+                        destination = seconddestinationZone.GetEnemyMoveLocations()[i]; // Získame pozíciu Vector2 zóny
+                        seconddestinationZone.SetEnemyPositionStatus(i, true); // Nastavíme, že zóna je obsadená
                         index = i;
                         break;
-
                     }
-
                 }
+
                 enemyUnit.SetStandingZone(seconddestinationZone, index);
-                // Move the unit towards the chosen zone
-                enemyUnit.SetRunningAnimation(true);
                 enemyUnit.GetMoveAction().Move(destination);
-                if (destination.x > enemyUnit.transform.position.x) enemyUnit.FlipUnit();
-
-
-                if (seconddestinationZone.ReturnAllyUnitsInZone().Count > 0)
-                {
-                    seconddestinationZone.ChangeControlToNeutral();
-                }
-                else
-                {
-                    seconddestinationZone.ChangeControlToEnemy();
-                }
-                enemyUnit.DoAction(seconddestinationZone);
-                
             }
         }
     }
